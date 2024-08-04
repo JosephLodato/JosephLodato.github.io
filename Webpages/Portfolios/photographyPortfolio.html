@@ -10,6 +10,7 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            margin-bottom: 150px;
         }
         header {
             background-color: #333;
@@ -45,8 +46,8 @@
             margin: 5px;
         }
         .gallery img {
-            max-width: 30%;
-            border: 2px solid #333;
+            max-width: 100%;
+            border: 2px solid #ffffff;
         }
         .gallery img:hover {
             transform: scale(1.1);
@@ -60,9 +61,52 @@
             width: 100%;
             bottom: 0;
         }
-    </style>
-</head>
-<body>
+
+        .row {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 4px;
+
+        justify-content: center;
+        align-items: center;
+        }
+
+        /* Create four equal columns that sits next to each other */
+        .column {
+        flex: 25%;
+        max-width: 25%;
+        padding: 0 4px;
+        }
+
+        .column img {
+        margin-top: 8px;
+        vertical-align: middle;
+        width: 100%;
+        }
+
+        .column img:hover{
+            scale: 1.10;
+        }
+
+        /* Responsive layout - makes a two column-layout instead of four columns */
+        @media screen and (max-width: 800px) {
+        .column {
+            flex: 50%;
+            max-width: 50%;
+        }
+        }
+
+        /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+        .column {
+            flex: 100%;
+            max-width: 100%;
+            }
+        }
+</style>
+
+
+<body> 
     <header>
         <h1>Joseph Lodato Portfolio</h1>
         <nav>
@@ -74,16 +118,65 @@
         </nav>
     </header>
 
-    <div class="container">
-        <section class="gallery">
-            <a href="/media/Photography/test.jpg">
-                <img src="/media/Photography/test.jpg" alt="Test Image" style="width: 30%;">
-            </a>
-        </section>
-    </div>
 
-    <footer>
-        <p>Copyright &copy; 2024 Joseph Lodato. All rights reserved</p>
-    </footer>
+    <!-- THUNDERBIRDS SECTION  -->
+    <h2 style="text-align: center;">Thunderbirds at 2024 Maine State Airshow</h2>
+    <div class="row">
+        <div class="column">
+            
+            <a href="/media/Photography/Traditional/Thunderbirds/Solo Hard turn 2.jpg" target="_blank">
+                <img src="/media/Photography/Traditional/Thunderbirds/Solo Hard turn 2.jpg">
+            </a>
+            
+            <a href="/media/Photography/Traditional/Thunderbirds/Behind Boat 1.jpg" target="_blank">
+                <img src="/media/Photography/Traditional/Thunderbirds/Behind Boat 1.jpg">
+            </a>
+
+            <a href="/media/Photography/Traditional/Thunderbirds/Five Stack overhead.jpg" target="_blank">
+                <img src="/media/Photography/Traditional/Thunderbirds/Five Stack overhead.jpg">
+            </a>
+            
+        </div>
+        
+        
+        <div class="column">
+            <a href="/media/Photography/Traditional/Thunderbirds/Five together (THE SHOT).jpg" target="_blank">
+                <img src="/media/Photography/Traditional/Thunderbirds/Five together (THE SHOT).jpg">
+            </a>
+
+            <a href="/media/Photography/Traditional/Thunderbirds/Four Stacked.jpg" target="_blank">
+                <img src="/media/Photography/Traditional/Thunderbirds/Four Stacked.jpg">
+            </a>
+
+            <a href="/media/Photography/Traditional/Thunderbirds/FA18 Hard turn.jpg" target="_blank">
+                <img src="/media/Photography/Traditional/Thunderbirds/FA18 Hard turn.jpg">
+            </a>
+            
+            <a href="/media/Photography/Traditional/Thunderbirds/four together.jpg" target="_blank">
+                <img src="/media/Photography/Traditional/Thunderbirds/four together.jpg">
+            </a>
+        </div>
+        
+        
+        <div class="column">
+            <a href="/media/Photography/Traditional/Thunderbirds/Five together Portrat.jpg" target="_blank">
+                <img src="/media/Photography/Traditional/Thunderbirds/Five together Portrat.jpg" style="width: 80%">
+            </a>
+
+            <a href="/media/Photography/Traditional/Thunderbirds/Solo Hard turn.jpg" target="_blank">
+                <img src="/media/Photography/Traditional/Thunderbirds/Solo Hard turn.jpg">            
+            </a>
+        </div>
+
+        
+        <div class="column">
+            
+        </div>
+  </div>
+
+
+
+  <footer>
+    <p>Copyright &copy; 2024 Joseph Lodato. All rights reserved</p>
+</footer>
 </body>
-</html>
