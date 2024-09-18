@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Portfolio</title>
+
+    <link rel="stylesheet" href="/Webpages/Portfolios/portfolio.css">
+</head>
+
+<body>
+    <div class="navbar">
+
+        <a href="/Webpages/portfolioHome.html" style="float: left;">Joseph Lodato Photography</a>
+
+
+        <a href="#news" style="float: right;">Contact Me</a>
+        <a href="#news" style="float: right;">About</a>
+
+
+        <div class="dropdown" style="float: right;">
+            <button class="dropbtn">Portfolio
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="/Webpages/Portfolios/Astrophotography.html">Astrophotography</a>
+                <a href="/Webpages/Portfolios/Sports and Action.html">Sports and Action</a>
+                <a href="/Webpages/Portfolios/landscapes and Animals.html">Landscapes and Aminals</a>
+            </div>
+        </div>
+
+        <a href="/index.html" style="float: right;">Home</a>
+
+    </div>
+
+    
+    <div class="gallery">
+        <div class="grid-wrapper">
+
+            <div>
+                <img class="myImages"
+                    src="/media/Photography/Traditional/Landsacpes and Animals/Landscapes/IMG_3721.jpg"
+                    alt="Sunset clouds over Snow Island in southern Maine">
+            </div>
+            <div>
+
+                <img class="myImages"
+                    src="/media/Photography/Traditional/Landsacpes and Animals/Landscapes/Scooner Shadow.JPG"
+                    alt="A Scooner sitting in the shadows after sunset on the coast of maine">
+            </div>
+            <div>
+
+                <img class="myImages"
+                    src="/media/Photography/Traditional/Landsacpes and Animals/Seals/3 Seals looking at.jpg"
+                    alt="3 curious harbor seals sitting on their rocks">
+            </div>
+            <div>
+
+                <img class="myImages"
+                    src="/media//Photography/Traditional/Landsacpes and Animals/Seals/Seal cluster close up.jpg"
+                    alt="A cluster of seals resting on some rocks at low tide">
+            </div>
+            <div>
+
+                <img class="myImages"
+                    src="/media/Photography/Traditional/Landsacpes and Animals/Seals/Sleeping Seal.jpg"
+                    alt="Some sleepy seals waiting for the tide to come back in">
+            </div>
+        </div>
+    </div>
+
+
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+
+
+
+
+
+    <script>
+        // create references to the modal...
+        var modal = document.getElementById('myModal');
+        // to all images -- note I'm using a class!
+        var images = document.getElementsByClassName('myImages');
+        // the image in the modal
+        var modalImg = document.getElementById("img01");
+        // and the caption in the modal
+        var captionText = document.getElementById("caption");
+
+        // Go through all of the images with our custom class
+        for (var i = 0; i < images.length; i++) {
+            var img = images[i];
+            // and attach our click listener for this image.
+            img.onclick = function (evt) {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+            }
+        }
+
+        var span = document.getElementsByClassName("close")[0];
+
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+    </script>
+
+
+    <br><br><br><br>
+    <footer>
+        <p>Copyright &copy; 2024 Joseph Lodato. All rights reserved</p>
+    </footer>
+</body>
+
+</html>

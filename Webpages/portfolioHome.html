@@ -5,16 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photography Portfolios</title>
+
+    <link rel="stylesheet" href="/Webpages/Portfolios/portfolio.css">
+
     <style>
-        * {
-            box-sizing: border-box
-        }
-
-        body {
-            font-family: Verdana, sans-serif;
-            margin: 0
-        }
-
         .mySlides {
             display: none
         }
@@ -121,85 +115,65 @@
                 font-size: 11px
             }
         }
-
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1em 0;
-            text-align: center;
-            position: sticky;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 10px;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-
-        .footer,
-        .push {
-            height: 50px;
-        }
     </style>
 </head>
 
 <body>
-    <header>
-        <h1>Joseph Lodato Portfolio</h1>
-        <nav>
-            <ul>
-                <li><a href="/Webpages/portfolioHome.html">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+
+    <div class="navbar">
+        <a href="/Webpages/portfolioHome.html" style="float: left;">Joseph Lodato Photography</a>
+
+
+        <a href="#news" style="float: right;">Contact Me</a>
+        <a href="#news" style="float: right;">About</a>
+
+
+        <div class="dropdown" style="float: right;">
+            <button class="dropbtn">Portfolio
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="/Webpages/Portfolios/Astrophotography.html">Astrophotography</a>
+                <a href="/Webpages/Portfolios/Sports and Action.html">Sports and Action Photography</a>
+                <a href="/Webpages/Portfolios/landscapes and Animals.html">Landscapes and Aminal Photography</a>
+            </div>
+        </div>
+
+        <a href="/index.html" style="float: right;">Home</a>
+
+    </div>
+
+
 
     <br>
     <br>
     <div class="slideshow-container" style="width: 90%;">
 
-        <div class="mySlides fade">
-            <div class="numbertext">1 / 3</div>
-            <a href="/Webpages/Portfolios/landscapes.html">
-                <img src="/media/Photography/Traditional/Landscapes/Scooner Shadow.JPG" style="width:100%">
-            </a>
-            <div class="text">Landscapes</div>
-        </div>
 
         <div class="mySlides fade">
             <div class="numbertext">2 / 3</div>
-            <a href="/Webpages/Portfolios/astroPhotos.html">
+            <a href="/Webpages/Portfolios/Astrophotography.html">
                 <img src="/media/Photography/Astro/IMG_9141.JPG" style="width:100%">
             </a>
             <div class="text">Astrophotography</div>
         </div>
 
         <div class="mySlides fade">
-            <div class="numbertext">3 / 3</div>
-            <a href="/Webpages/Portfolios/wildlife.html">
-                <img src="/media/Photography/Traditional/Seals/Seal cluster close up.jpg" style="width:100%">
+            <div class="numbertext">1 / 3</div>
+            <a href="/Webpages/Portfolios/landscapes and Animals.html">
+                <img src="/media/Photography/Traditional/Landsacpes and Animals/Landscapes/Scooner Shadow.JPG"
+                    style="width:100%">
             </a>
-            <div class="text">Animals & Wildlife</div>
+            <div class="text">Traditional Photography- Landscapes & Amimals </div>
+        </div>
+
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <a href="/Webpages/Portfolios/Sports and Action.html">
+                <img src="/media/Photography/Traditional/Action/Thunderbirds/Solo Hard turn 2.jpg" style="width:100%">
+            </a>
+            <div class="text">Traditional Photography - Sports & Action</div>
         </div>
 
         <a class="prev" onclick="plusSlides(-1)">❮</a>
@@ -244,26 +218,42 @@
     </script>
 
 
+    <div style="margin: auto; width: 90%; text-align: center;">
+        <!-- <h3>Contact:</h3>
+        <p>I'd love to conenct with you!</p> -->
 
 
-    <!-- <div class="portfolio-container">
-        <div class="portfolio">
-            <a href="Portfolios/photographyPortfolio.html">
-                <img src="../media/Photography/test.jpg" alt="Normal Photography">
-                <div class="portfolio-title">Traditional Photography</div>
-            </a>
+        <div style="width: 33.3%; float: left; margin: auto;">
+            
+            <h2 class="fp-title">
+                Portfolio
+            </h2>
+            <p>TEMP</p>
         </div>
-        <div class="portfolio">
-            <a href="Portfolios/astrophotographyPortfolio.html">
-                <img src="../media/Photography/Andromida 135mm Edited.jpg" alt="Astrophotography">
-                <div class="portfolio-title">Astrophotography</div>
-            </a>
+
+        <div style="width: 33.3%; float: left; margin: auto;">
+            <h2 class="fp-title">
+                About 
+            </h2>
+            <p>TEMP</p>
+
         </div>
-    </div> -->
+
+        <div style="width: 33.3%; float: left; margin: auto;">
+            <h2 class="fp-title">
+                Contact Me
+            </h2>
+            <p>TEMP</p>
+
+        </div>
+    </div>
+
     <br>
     <br>
     <br>
 
+
+    <br><br><br><br><br>
     <footer>
         <p>Copyright &copy; 2024 Joseph Lodato. All rights reserved</p>
     </footer>
