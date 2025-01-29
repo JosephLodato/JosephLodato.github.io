@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        /* #Work\ Experence {
+    clear: both;
+} */
+
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font: 400 20px/1.8 "Lato", monospace;
+            color: #888888;
+            scroll-behavior: smooth;
+            background-color: #000000;
+        }
+
+        .bg {
+            /* The image used */
+            background-image: url("/media/Photography/Traditional/Landsacpes and Animals/Landscapes/IMG_3721.jpg");
+
+            /* Full height */
+            height: 100%;
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .caption {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            text-align: center;
+            color: #000;
+        }
+
+        .lowerCaption {
+            position: absolute;
+            left: 0;
+            top: 90%;
+            width: 100%;
+            text-align: center;
+            color: #000;
+
+            /* transition: 1s ease-in-out; */
+        }
+
+
+        .caption span.border {
+            background-color: #00000000;
+            color: #000000;
+            padding: 18px;
+            font: 40pt "Lato", monospace;
+            letter-spacing: 10px;
+        }
+
+        .about {
+            /* position: absolute; */
+            left: 0;
+            top: 50%;
+            width: 60%;
+            text-align: center;
+            color: #888888;
+
+            margin: auto;
+            white-space: normal;
+
+        }
+
+        .resume {
+            /* position: absolute; */
+            left: 0;
+            top: 50%;
+            width: 70%;
+            text-align: center;
+            color: #888888;
+
+            margin: auto;
+            white-space: normal;
+        }
+
+        .resumeBG {
+            background-color: #ffffff;
+        }
+
+        h4 {
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font: 25px "Lato", monospace;
+            color: #000000;
+        }
+
+        h3 {
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font: 25px "Lato", monospace;
+            color: #ffffff;
+        }
+
+        #parent_div_1 {
+            width: 35%;
+            height: 60%;
+            margin-left: 10%;
+            float: left;
+
+        }
+
+        #parent_div_2 {
+            width: 35%;
+            height: 60%;
+            margin-right: 10%;
+            float: right;
+
+        }
+
+        #child_div {
+            float: left;
+            margin-right: 5px;
+        }
+
+        #child_div img {
+            max-width: 90%;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            text-align: center;
+
+        }
+
+        #child_div img:hover {
+            scale: 1.05;
+            border: 1px solid seagreen;
+        }
+
+        .cards {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .card {
+            background-color: dodgerblue;
+            color: white;
+            padding: 1rem;
+            height: 4rem;
+        }
+
+        @media (min-width: 600px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 900px) {
+            .cards {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .collapsible {
+            background-color: #343434;
+            color: #ffffff;
+            cursor: pointer;
+            padding: 18px;
+            margin-bottom: 10px;
+            width: 100%;
+            border: none;
+            text-align: center;
+            outline: none;
+            font: 400 20px/1.8 "Lato", monospace;
+        }
+
+        .active,
+        .collapsible:hover {
+            background-color: #949494;
+            color: #454545;
+        }
+
+        .content {
+            padding: 0 18px;
+            background-color: white;
+            
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            
+            
+            margin: auto;
+
+
+
+            list-style-position: outside;
+        }
+
+
+        .collapsible:after {
+            content: '\02795';
+            /* Unicode character for "plus" sign (+) */
+            font-size: 13px;
+            color: white;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active:after {
+            content: "\2796";
+            /* Unicode character for "minus" sign (-) */
+        }
+
+
+        a:link {
+            color: orangered;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: orangered;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: orangered;
+            background-color: transparent;
+            text-decoration: underline;
+        }
+
+        a:active {
+            color: orangered;
+            background-color: transparent;
+            text-decoration: underline;
+        }
+
+        .button {
+            background-color: white;
+            color: black;
+            border: 2px solid white;
+            margin: 0 auto;
+            display: block;
+
+            width: 80%;
+            height: 20%;
+        }
+
+        .button:hover {
+            background-color: orangered;
+            color: white;
+        }
+
+
+
+        .content,
+        .sub-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }  
+
+        .active+.content,
+        .active+.sub-content {
+            max-height: 1000px;
+        }
+
+        .dropdown-container {
+            display: block;
+            width: 100%;
+        }
+
+        .content,
+        .sub-content {
+            position: relative;
+        }
+
+
+        .parent-container {
+            height: auto !important;
+            min-height: auto !important;
+            overflow: visible !important;
+        }
+
+        body,
+        .wrapper,
+        .container {
+            overflow: visible !important;
+        }
+    </style>
+
+</head>
+
+
+
+<body>
+
+    <!-- LANDING PAGE -->
+    <div class="bg">
+
+        <div class="caption">
+            <span class="border">Joseph Lodato</span>
+            <br>
+            <span class="border" style="font-size: 20px; "> <b>Computer Engineering Student </b></span>
+            <span class="border" style="font-size: 20px;"><br> <b>Photographer</b> </span>
+
+
+
+        </div>
+
+        <div class="lowerCaption">
+            <a href="#About">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 20 20">
+                    <path fill="#FFFF"
+                        d="M10,0 C15.5228475,0 20,4.4771525 20,10 C20,15.5228475 15.5228475,20 10,20 C4.4771525,20 0,15.5228475 0,10 C0,4.4771525 4.4771525,0 10,0 Z M6.58558122,7.63613812 C6.31846398,7.37072496 5.8867628,7.3721064 5.62134964,7.63922364 C5.35593648,7.90634088 5.35731792,8.33804207 5.62443516,8.60345522 L5.62443516,8.60345522 L9.51942697,12.4735988 C9.78350334,12.7359904 10.2092302,12.7380608 10.4758462,12.47825 L10.4758462,12.47825 L14.4473588,8.60810648 C14.7170449,8.3453039 14.7226251,7.91363658 14.4598225,7.64395051 C14.1970199,7.37426445 13.7653526,7.36868429 13.4956665,7.63148686 L13.4956665,7.63148686 L10.0046519,11.0333966 Z" />
+                </svg>
+
+            </a>
+        </div>
+
+    </div>
+
+
+    <!-- ABOUT PAGE -->
+    <section id="About">
+        <br>
+        <div class="about">
+            <h3>About Me</h3>
+            <p>
+
+            </p>
+
+
+
+        </div>
+        <br>
+    </section>
+
+
+
+    <br>
+    <br>
+
+    <!-- WHITE BACKGROUND -->
+    <!-- <section id="resume"> -->
+    <div class="resumeBG">
+        <div class="resume">
+
+            <!-- EDUCATION SECTION -->
+            <!-- Quick overview of my past and current education -->
+            <section id="education">
+                <br>
+                <hr>
+                <h4>Backgorund Education:</h4>
+
+                <br>
+                <br>
+                <br>
+
+            </section>
+
+            <!-- PERSONAL PROEJCTS SECTION -->
+            <!-- Works with a gorup of nesting collapsible tabs that highlight the projects I have completed -->
+            <section id="Personal Projects">
+                <br>
+                <hr>
+                <h4>Personal Projects: </h4>
+                <p>Click to see more info for each project:</p>
+
+                <button class="collapsible">Example Dropdown</button>
+                <div class="content">
+                    
+                    <p style="font-size: 17px;text-align:right;">[Ender Date Range]</p>
+                    <p style="font-size: 17px;text-align: left;">[Enter a general discription of the project in this section]</p>
+                    
+
+                    <a href="/media/placeholder.png">
+                        <img src="/media/placeholder.png" style="width: 20%;">
+                    </a>
+                    <a href="/media/placeholder.png">
+                        <img src="/media/placeholder.png" style="width: 20%;">
+                    </a>
+                    <!-- 45% typically -->
+
+
+                    <button class="collapsible">Subsection</button>
+                    <div class="content">
+                        <p style="font-size: 17px;text-align: right;">Skills: [Insert]</p>
+                        <li style="text-align: left;">Bulletpoint 1</li>
+                        <li style="text-align: left;">Bulletpoint 2</li>
+                        <li style="text-align: left;">Bulletpoint 3</li>
+
+                    </div>
+
+                    <button class="collapsible">Subsection 2 </button>
+                    <div class="content">
+                        <p style="font-size: 17px; text-align: right;">Skills: [Insert]</p>
+                        <li style="text-align: left;">Bulletpoint 1</li>
+                        <li style="text-align: left;">Bulletpoint 2</li>
+                        <li style="text-align: left;">Bulletpoint 3</li>
+                        <p style="font: 400 16px/1.8 Lato; font-style: italic; text-align: center;">Below is a test image </p>
+                        <a href="/media/placeholder.png">
+                            <img src="/media/placeholder.png" style="width: 15%;">
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- WORK EXPERENCE SECTION -->
+            <!-- States my past work experence as well as a summary of what I did -->
+            <section id="Work Experence">
+
+
+                <hr>
+                <h4>Work Experence</h4>
+                <br>
+                <br>
+                <br>
+            </section>
+
+        </div>
+
+
+        <!-- </section> -->
+
+        <!-- SCRIPT FOR EXPANDING TABS IN THE PERSONAL PROJECTS SECTION -->
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+
+            for (i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                });
+            }
+
+        </script>
+    </div>
+
+
+    <section id="Contact">
+        <div class="about">
+            <h3>Contact:</h3>
+            <p>I'd love to conenct with you!</p>
+
+            <div style="width: 33.3%; float: left;">
+                <a href="mailto:jalodato@syr.edu">
+                    <img src="/media/Email Logo.png" style="width: 20%;">
+                </a>
+
+                <p>Email Me At:</p>
+                <a href="mailto:jalodato@syr.edu">
+                    <p style="color: orangered;">jalodato@syr.edu</p>
+                </a>
+            </div>
+
+            <div style="width: 33.3%; float: left;">
+                <a href="https://github.com/JosephLodato">
+                    <img src="/media/GitHub Logo.png" style="width: 20%;">
+                </a>
+                <p>Find My Code At:</p>
+                <p> <a href="https://github.com/JosephLodato"> Github.com/JosephLodato</a> </p>
+
+            </div>
+
+            <div style="width: 33.3%; float: left;">
+                <a href="https://www.linkedin.com/in/joseph-lodato-d64/">
+                    <img src="/media/LinkedIn Logo.png" style="width: 20%;">
+                </a>
+                <p>Connect With Me At:</p>
+                <p> <a href="https://www.linkedin.com/in/joseph-lodato-d64/">LinkedIn Profile</a> </p>
+
+            </div>
+        </div>
+
+
+        <br>
+        <br>
+    </section>
+</body>
+
+
+
+
+</html>
