@@ -188,12 +188,12 @@
         .content {
             padding: 0 18px;
             background-color: white;
-            
+
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s ease-out;
-            
-            
+
+
             margin: auto;
 
 
@@ -264,7 +264,7 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s ease-out;
-        }  
+        }
 
         .active+.content,
         .active+.sub-content {
@@ -293,6 +293,37 @@
         .container {
             overflow: visible !important;
         }
+
+/*             background: rgba(0, 0, 0, 0.428);   */
+
+
+        /* Add a black background color to the top navigation */
+        .topnav {
+            background: rgba(0, 0, 0, 0.428);
+            overflow: hidden;
+        }
+
+        /* Style the links inside the navigation bar */
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        /* Change the color of links on hover */
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Add a color to the active/current link */
+        /* .topnav a.active {
+            background-color: #04AA6D;
+            color: white;
+        } */
     </style>
 
 </head>
@@ -302,8 +333,16 @@
 <body>
 
     <!-- LANDING PAGE -->
+
     <div class="bg">
 
+        <div class="topnav">
+            <a class="active" href="#home">Home</a>
+            <a href="#About">About</a>
+            <a href="#education">Education</a>
+            <a href="#Personal Projects">Projects</a>
+            <a href="#Contact">Contact</a>
+        </div>
         <div class="caption">
             <span class="border">Joseph Lodato</span>
             <br>
@@ -376,10 +415,11 @@
 
                 <button class="collapsible">Example Dropdown</button>
                 <div class="content">
-                    
+
                     <p style="font-size: 17px;text-align:right;">[Ender Date Range]</p>
-                    <p style="font-size: 17px;text-align: left;">[Enter a general discription of the project in this section]</p>
-                    
+                    <p style="font-size: 17px;text-align: left;">[Enter a general discription of the project in this
+                        section]</p>
+
 
                     <a href="/media/placeholder.png">
                         <img src="/media/placeholder.png" style="width: 20%;">
@@ -405,7 +445,8 @@
                         <li style="text-align: left;">Bulletpoint 1</li>
                         <li style="text-align: left;">Bulletpoint 2</li>
                         <li style="text-align: left;">Bulletpoint 3</li>
-                        <p style="font: 400 16px/1.8 Lato; font-style: italic; text-align: center;">Below is a test image </p>
+                        <p style="font: 400 16px/1.8 Lato; font-style: italic; text-align: center;">Below is a test
+                            image </p>
                         <a href="/media/placeholder.png">
                             <img src="/media/placeholder.png" style="width: 15%;">
                         </a>
@@ -430,6 +471,20 @@
 
 
         <!-- </section> -->
+        <!-- <script>
+            /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
+            var prevScrollpos = window.pageYOffset;
+            window.onscroll = function () {
+                var currentScrollPos = window.pageYOffset;
+                if (prevScrollpos > currentScrollPos) {
+                    document.getElementById("navbar").style.top = "0";
+                } else {
+                    document.getElementById("navbar").style.top = "-50px";
+                }
+                prevScrollpos = currentScrollPos;
+            }
+        </script> -->
+
 
         <!-- SCRIPT FOR EXPANDING TABS IN THE PERSONAL PROJECTS SECTION -->
         <script>
