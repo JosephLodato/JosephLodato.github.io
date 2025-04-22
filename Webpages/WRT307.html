@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>
-        /* #Work\ Experence {
-    clear: both;
-} */
-
         body,
         html {
             height: 100%;
@@ -188,15 +184,11 @@
         .content {
             padding: 0 18px;
             background-color: white;
-
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s ease-out;
-
-
+            transition: max-height 0.2s ease-out;
+            /* width: 65%; */
             margin: auto;
-
-
 
             list-style-position: outside;
         }
@@ -259,112 +251,68 @@
 
 
 
-        .content,
-        .sub-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
+
+
+        /* GRID CSS CODE */
+        .pdf-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 20px auto;
+            max-width: 1200px;
         }
 
-        .active+.content,
-        .active+.sub-content {
-            max-height: 1000px;
-        }
-
-        .dropdown-container {
-            display: block;
-            width: 100%;
-        }
-
-        .content,
-        .sub-content {
-            position: relative;
-        }
-
-
-        .parent-container {
-            height: auto !important;
-            min-height: auto !important;
-            overflow: visible !important;
-        }
-
-        body,
-        .wrapper,
-        .container {
-            overflow: visible !important;
-        }
-
-        /*             background: rgba(0, 0, 0, 0.428);   */
-
-
-        /* Add a black background color to the top navigation */
-        .topnav {
-            background: rgba(0, 0, 0, 0.428);
-            overflow: hidden;
-            margin: auto;
-            /* width: 50%; */
-        }
-
-        /* Style the links inside the navigation bar */
-        .topnav a {
-            float: left;
-            display: block;
-            color: #f2f2f2;
+        .pdf-item {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #f9f9f9;
             text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 17px;
+            transition: transform 0.2s ease-in-out;
         }
 
-        /* Change the color of links on hover */
-        .topnav a:hover {
-            background-color: #ddd;
-            color: black;
+        .pdf-item:hover {
+            transform: scale(1.05);
         }
 
-        /* Add an active class to highlight the current page */
-        .topnav a.active {
-            background-color: orangered;
-            color: white;
+        .pdf-item button {
+            background-color: #343434;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-bottom: 10px;
         }
 
-        /* Hide the link that should open and close the topnav on small screens */
-        .topnav .icon {
+        .pdf-item button:hover {
+            background-color: #555;
+        }
+
+        .pdf-content {
             display: none;
+            margin-top: 10px;
         }
 
-
-        @media screen and (max-width: 600px) {
-            .topnav a:not(:first-child) {
-                display: none;
-            }
-
-            .topnav a.icon {
-                float: right;
-                display: block;
-            }
+        .pdf-item.active .pdf-content {
+            display: block;
         }
 
-        /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
-        @media screen and (max-width: 600px) {
-            .topnav.responsive {
-                position: relative;
-            }
+        .pdf-content a {
+            color: orangered;
+            text-decoration: none;
+        }
 
-            .topnav.responsive a.icon {
-                position: absolute;
-                right: 0;
-                top: 0;
-            }
+        .pdf-content a:hover {
+            text-decoration: underline;
+        }
 
-            .topnav.responsive a {
-                float: none;
-                display: block;
-                text-align: left;
-            }
+        .pdf-item:last-child {
+            grid-column: span 3;
+            justify-self: center;
         }
     </style>
-
 </head>
 
 
@@ -372,30 +320,7 @@
 <body>
 
     <!-- LANDING PAGE -->
-
     <div class="bg">
-
-        <div class="topnav">
-
-        </div>
-
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-        <div class="topnav" id="myTopnav">
-            <a class="active" href="#home">Home</a>
-            <a href="#About">About</a>
-            <a href="#education">Education</a>
-            <a href="#Personal Projects">Projects</a>
-            <a href="#Contact">Contact</a>
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
-            </a>
-        </div>
-
-
-
-
 
         <div class="caption">
             <span class="border">Joseph Lodato</span>
@@ -427,7 +352,19 @@
         <div class="about">
             <h3>About Me</h3>
             <p>
-
+                Hello! I am Joseph Lodato, a full-time student at Syracuse University. During the 2024/2025 school year,
+                I will
+                be in my
+                Junior year pursuing a BS in Computer Engineering as well as a minor in Physics. I am involved in
+                multiple organizations on campus
+                with my primary one being Citrus Racing, SU's premier motorsports team, which I am president of (more
+                about my
+                activities below).
+                <br>
+                I fill my freetime with photography of all kinds, while I focus on photographing deep sky objects
+                (DSOs) like nebula, supernova, and other
+                galaxies through my Astrophotography, you will also find traditional photography in my gallery located
+                below.
             </p>
 
 
@@ -437,140 +374,455 @@
     </section>
 
 
+    <!-- LINK TO RESUME -->
+    <div id='parent_div_1'>
+        <h2 style="text-align: center;">You can find my acedemic portfolio by scrolling down:</h2>
+        <h2 style="text-align: center;">You can download my resume from here!</h2>
 
-    <br>
-    <br>
+        <!-- <div id="child_div" style="text-align: center;"> -->
 
-    <!-- WHITE BACKGROUND -->
-    <!-- <section id="resume"> -->
-    <div class="resumeBG">
-        <div class="resume">
+        <a href="/media/Joseph Lodato Resume.pdf" download>
+            <button class="button button" style="font-size: 20px ;">
+                Download Resume
+            </button>
+        </a>
 
-            <!-- EDUCATION SECTION -->
-            <!-- Quick overview of my past and current education -->
-            <section id="education">
-                <br>
-                <hr>
-                <h4>Background Education:</h4>
+        <!-- </div> -->
 
-                <br>
-                <br>
-                <br>
+    </div>
 
-            </section>
-
-            <!-- PERSONAL PROEJCTS SECTION -->
-            <!-- Works with a gorup of nesting collapsible tabs that highlight the projects I have completed -->
-            <section id="Personal Projects">
-                <br>
-                <hr>
-                <h4>Personal Projects: </h4>
-                <p>Click to see more info for each project:</p>
-
-                <button class="collapsible">Example Dropdown</button>
-                <div class="content">
-
-                    <p style="font-size: 17px;text-align:right;">[Ender Date Range]</p>
-                    <p style="font-size: 17px;text-align: left;">[Enter a general discription of the project in this
-                        section]</p>
-
-
-                    <a href="/media/placeholder.png">
-                        <img src="/media/placeholder.png" style="width: 20%;">
-                    </a>
-                    <a href="/media/placeholder.png">
-                        <img src="/media/placeholder.png" style="width: 20%;">
-                    </a>
-                    <!-- 45% typically -->
-
-
-                    <button class="collapsible">Subsection</button>
-                    <div class="content">
-                        <p style="font-size: 17px;text-align: right;">Skills: [Insert]</p>
-                        <li style="text-align: left;">Bulletpoint 1</li>
-                        <li style="text-align: left;">Bulletpoint 2</li>
-                        <li style="text-align: left;">Bulletpoint 3</li>
-
-                    </div>
-
-                    <button class="collapsible">Subsection 2 </button>
-                    <div class="content">
-                        <p style="font-size: 17px; text-align: right;">Skills: [Insert]</p>
-                        <li style="text-align: left;">Bulletpoint 1</li>
-                        <li style="text-align: left;">Bulletpoint 2</li>
-                        <li style="text-align: left;">Bulletpoint 3</li>
-                        <p style="font: 400 16px/1.8 Lato; font-style: italic; text-align: center;">Below is a test
-                            image </p>
-                        <a href="/media/placeholder.png">
-                            <img src="/media/placeholder.png" style="width: 15%;">
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-
-            <!-- WORK EXPERENCE SECTION -->
-            <!-- States my past work experence as well as a summary of what I did -->
-            <section id="Work Experence">
-
-
-                <hr>
-                <h4>Work Experence</h4>
-                <br>
-                <br>
-                <br>
-            </section>
-
+    <!-- LINK TO PORTFOLIO -->
+    <div id='parent_div_2'>
+        <h2 style="text-align: center;">Check out my photography gallery here:</h2>
+        <h3 style="text-align: center;"> (Work in progress)</h3>
+        <div id="child_div" style="text-align: center;">
+            <a href="/Webpages/portfolioHome.html"> Photography Portfolio <img
+                    src="/media/Photography/Astro/IMG_9141.JPG" style="text-align: center;">
+            </a>
         </div>
 
-
-        <!-- </section> -->
-        <!-- <script>
-            /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
-            var prevScrollpos = window.pageYOffset;
-            window.onscroll = function () {
-                var currentScrollPos = window.pageYOffset;
-                if (prevScrollpos > currentScrollPos) {
-                    document.getElementById("navbar").style.top = "0";
-                } else {
-                    document.getElementById("navbar").style.top = "-50px";
-                }
-                prevScrollpos = currentScrollPos;
-            }
-        </script> -->
-
-
-        <script>
-            function myFunction() {
-                var x = document.getElementById("myTopnav");
-                if (x.className === "topnav") {
-                    x.className += " responsive";
-                } else {
-                    x.className = "topnav";
-                }
-            }
-        </script>
-
-        <!-- SCRIPT FOR EXPANDING TABS IN THE PERSONAL PROJECTS SECTION -->
-        <script>
-            var coll = document.getElementsByClassName("collapsible");
-            var i;
-
-            for (i = 0; i < coll.length; i++) {
-                coll[i].addEventListener("click", function () {
-                    this.classList.toggle("active");
-                    var content = this.nextElementSibling;
-
-                    if (content.style.display === "block") {
-                        content.style.display = "none";
-                    } else {
-                        content.style.display = "block";
-                    }
-                });
-            }
-
-        </script>
     </div>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <!-- RESUME SECTION -->
+    <!-- WHITE BACKGROUND -->
+    <section id="resume">
+        <div class="resumeBG">
+
+            <div class="resume">
+
+                <!-- EDUCATION SECTION -->
+                <!-- Quick overview of my past and current education -->
+                <section id="education">
+                    <br>
+                    <h4>Backgorund Education:</h4>
+                    <hr>
+
+                    <h4 style="font: 400 20px/1.8 Lato, monospace; color: orangered;"> <b>Syracuse University - College
+                            of
+                            Engineering
+                            and Computer Science </b></h4>
+                    <p style="width: 80%; margin: auto;">
+
+                        Currently a junior for the 2024/2025 school year studying for a BS in Computer Engineering and a
+                        minor in
+                        Physics. With a Cumulative GPA of 3.620.
+                    </p>
+
+                    <h4 style="font: 400 20px/1.8 Lato, monospace; color: orangered;"> <b>Freeport High School </b></h4>
+
+                    <p style="width: 80%; margin: auto;">
+                        Graduated in the spring of 2022 with Honors. Created an automated saw dust collection system for
+                        the
+                        school's woodworking/STEM workshop as a senior capstone project. Co-founded the school
+                        programming club, an after-school club aimed at teaching
+                        people of all skill levels the basics of computer programming.
+                    </p>
+
+                </section>
+
+                <!-- PERSONAL PROEJCTS SECTION -->
+                <!-- Works with a gorup of nesting collapsible tabs that highlight the projects I have completed -->
+                <section id="Personal Projects">
+                    <br>
+                    <hr>
+                    <h4>Personal Projects</h4>
+                    <p>Click to see more info for each project:</p>
+
+
+                    <!-- CITRUS RACING INFORMATION -->
+                    <button class="collapsible">Citrus Racing (Formula SAE)</button>
+                    <div class="content">
+                        <p style="font-size: 17px;float: right;">Sept. 2022 - Present</p>
+                        <br>
+                        <br>
+                        <p>
+                            As a part of this team, I have assisted in the design, construction, and racing of fully
+                            custom
+                            open-wheeled
+                            single-seat race cars
+                            for the Formula SAE series representing Syracuse University in the ~120-team competition
+                            held at Michigan
+                            International Speedway each
+                            spring. I formerly held the titles of co-head of electronics and vice president. I have
+                            since progressed
+                            and
+                            currently, I am the
+                            president of the organization as well as the lead of our electronics team.
+                        </p>
+
+                        <a href="/media/Citrus Racing/IMG_0953.jpg">
+                            <img src="/media/Citrus Racing/IMG_0953.jpg" style="width: 45%;">
+                        </a>
+                        <a href="/media/Citrus Racing/IMG_0677.jpg">
+                            <img src="/media/Citrus Racing/IMG_0677.jpg" style="width: 45%;">
+                        </a>
+
+                        <button class="collapsible">President of Citrus Racing</button>
+                        <div class="content">
+                            <p style="font-size: 17px;float: left;">Skills: Sponsor Relations, Budget Management, Team
+                                Leadership/Team
+                                Management</p>
+                            <br>
+                            <br>
+
+                            <li style="text-align: left;">Worked with the University as a whole to manage the team
+                                budget including
+                                managing all parts and material
+                                orders needed for vehicle development.</li>
+                            <li style="text-align: left;">Worked with sponsors to secure funding and support, both
+                                monetary and
+                                technical</li>
+                            <li style="text-align: left;">Organized efforts across multiple subteams allowing efficient
+                                design and
+                                construction</li>
+
+                        </div>
+
+                        <button class="collapsible">Lead of Electronics </button>
+                        <div class="content">
+                            <p style="font-size: 17px;float: left;">Skills: Electrical Design/Wiring, Circuit Analysis,
+                                Data
+                                Analysis,
+                                Leadership</p>
+                            <br>
+                            <br>
+                            <li style="text-align: left;">Led a team to design, test, and implement all electrical
+                                components needed
+                                to
+                                run Citrus Racing's racecar including fully custom car wiring harnesses as well as
+                                engine control
+                                software.</li>
+                            <li style="text-align: left;">Collaborated closely with other sub-teams to ensure all
+                                systems would work
+                                well together.</li>
+                            <li style="text-align: left;">Used various software systems such as Motec M1 Tune and M1
+                                Build, as well
+                                as
+                                Rapid Harness to design and improve electrical control systems and overall performance
+                                of the car.
+                            </li>
+
+                            <li style="text-align: left;">Worked with other team leads to analyze recorded test data to
+                                suggest
+                                improvements for the car design.</li>
+                            <p style="font-size: 12; font-style: italic;">Below is an image of the custom wire harness
+                                that my team
+                                and
+                                I designed and built, this is before any
+                                heatshrink protection and connectors were added. It contained over 120 individual wires
+                                when completed!
+                            </p>
+
+                            <a href="/media/Citrus Racing/IMG_0287.jpg">
+                                <img src="/media/Citrus Racing/IMG_0287.jpg" style="width: 45%;">
+                            </a>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <!-- Celestial Veil Orbital/Atmosphere Programming  -->
+                    <button class="collapsible">Celestial Veil - An Explortation into Physically Accurate
+                        Programming</button>
+                    <div class="content">
+                        <p style="font-size: 17px;float: right;">May 2024 - Present</p>
+                        <br>
+                        <br>
+                        <p>
+                            Over the summer of 2024, I worked to refine my ability to tackle complex programming
+                            challenges. Taking
+                            inspiration from
+                            Sebastian Lague and his solar system project in particular, I set off to recreate a
+                            physically accurate
+                            solar
+                            system in the
+                            Unity Game Engine using C#. This is part of a larger plan I have of developing and
+                            publishing a video game
+                            named Celestial Veil
+                            with this solar
+                            system being the playable environment for it.
+                        </p>
+
+                        <button class="collapsible">Physically Accurate Orbital Mechanics</button>
+                        <div class="content">
+                            <p style="font-size: 17px;float: left;"> Skills: C#, Unity Game Engine, Object Oriented
+                                Programming </p>
+                            <br>
+                            <br>
+                            <p>
+                                By far the biggest challenge was programming physically accurate orbits. After some
+                                research I was
+                                able to implement
+                                a N-body Simulation in C#. This is done by applying forces to each orbital body based on
+                                Newton's law of
+                                universal gravitation.
+                                This project taught me a lot about the limits of accuracy with computers as well as how
+                                to deal with
+                                issues such as floating
+                                point precision errors.
+                            </p>
+                        </div>
+
+                        <button class="collapsible">Next up: Atmospheres</button>
+                        <div class="content">
+                            <p style="font-size: 17px;float: left;"> Skills: C#, Unity Game Engine, Object Oriented
+                                Programming </p>
+                            <br>
+                            <br>
+                            <p>
+                                With orbital mechanics added, I am now focusing on the simulation of atmospheric effects
+                                for all of the
+                                planets due to physically
+                                accurate atmospheric scattering. Updates will be posted here!
+                            </p>
+                        </div>
+
+
+                    </div>
+
+                    <hr>
+
+                    <!-- This website -->
+                    <button class="collapsible">Personal Website</button>
+                    <div class="content">
+                        <p style="font-size: 17px;float: right;">Aug. 2024 - Present</p>
+
+                        <p style="font-size: 17px;float: left;">Skills: Webdesign, HTML, CSS, Javascript</p>
+                        <br>
+                        <br>
+                        <p>
+                            This website is my first real attempt at making a website. Although for a class I took I
+                            learned how to
+                            write javascript code for the backend webserver to deal with connections through HTTPS, I
+                            had never
+                            learned
+                            or applied much HTML and CSS to make webpages themselves.
+
+                            This project taught me a ton about how to use HTML and CSS, along with a bit of javascript
+                            to create
+                            webpages.</p>
+                    </div>
+
+                    <hr>
+
+                    <!-- Tyler Tech. Maine App Challange -->
+                    <button class="collapsible"> Tyler Technoligies Maine State App Challenge </button>
+                    <div class="content">
+                        <p style="font-size: 17px;float: right;"> Nov. 2019 - May 2020 & Nov. 2020 - May 2021</p>
+
+                        <p style="font-size: 17px;float: left;"> Skills: Javascript, Project Planning </p>
+                        <br>
+                        <br>
+                        <p>
+                            Developed a prototype app for a Developed small prototype apps for a statewide high school
+                            competition
+                            (Tyler Technologies Maine App Challenge), resulting in a top 10 finish two years in a row;
+                            2021 and 2022
+                        </p>
+                    </div>
+                </section>
+
+                <!-- WORK EXPERENCE SECTION -->
+                <!-- States my past work experence as well as a summary of what I did -->
+                <section id="Work Experence">
+                    <br>
+                    <hr>
+                    <h4>Work Experence</h4>
+
+                    <h4 style="font: 400 20px/1.8 Lato, monospace; color: orangered;"><b> Syracuse University - College
+                            of Engineering </b></h4>
+                    <p style="font-size: 17px;float: right;"> November 2024 - Current</p>
+                    <p style="font-size: 17px;float: left;"><b>Title: Dockstaff </b></p>
+                    <br>
+                    <br>
+                    <li style="text-align: left;">Assistes studetns with building both their personal and acedemic
+                        projects with the use of machining tools such as mills, laythes, CNCs etc. </li>
+                    <li style="text-align: left;">Preforms maintenance on the fleet of 3D printers.</li>
+                    <li style="text-align: left;">Preforms general shopkeeping and basic maintenance of all machines.
+                    </li>
+
+
+
+                    <h4 style="font: 400 20px/1.8 Lato, monospace; color: orangered;"><b> Strouts Point Wharf Company
+                        </b></h4>
+                    <p style="font-size: 17px;float: right;"> June 2019 - Aug. 2023</p>
+                    <p style="font-size: 17px;float: left;"><b>Title: Dockstaff </b></p>
+                    <br>
+                    <br>
+                    <li style="text-align: left;">Oversaw and led a team of ~8 other dock staff while performing typical
+                        duties,
+                        such as assisting customers.</li>
+                    <li style="text-align: left;">Preformed preventative maintenance and inspections to docks to
+                        maintain safety
+                        for customers and boats.</li>
+                    <li style="text-align: left;">Communicated with mechanics and other staff to coordinate dock space
+                        availability including when boats would be moved for
+                        maintenance leading to a more efficient workplace.</li>
+
+                    <h4 style="font: 400 20px/1.8 Lato, monospace; color: orangered;"> <b>Regional School Unit 5 -
+                            Freeport High
+                            School</b></h4>
+                    <p style="font-size: 17px;float: right;"> Sept. 2020 - Jan. 2021</p>
+                    <p style="font-size: 17px;float: left;"><b>Title: IT Coordinator </b></p>
+                    <br>
+                    <br>
+
+                    <li style="text-align: left;"> Prepared and deployed over 250 devices (including iPads and
+                        Chromebooks) to 4
+                        different nearby schools with the IT department
+                        at Freeport High School to help ease the increased demand of technology during the Covid-19
+                        Pandemic.
+
+                </section>
+
+                <br>
+                <hr>
+                <section id="PDFGrid">
+                    <h4 style="text-align: center;">Professional Writing Examples</h4>
+                    <div class="pdf-grid">
+                        <div class="pdf-item">
+                            <button>Formal Report - PDF</button>
+                            <div class="pdf-content">
+                                <p>This project is my formal report to porpose a on campus electronics prototyping lab
+                                    for student use.</p>
+                                <a href="/media/WRT307/Formal Report.pdf" download>Download PDF</a>
+                            </div>
+                        </div>
+                        <div class="pdf-item">
+                            <button>Formal Report - MP4 Presentation</button>
+                            <div class="pdf-content">
+                                <p>This is a condensed 7 minute video presentation of my formal report.</p>
+                                <a href="/media/WRT307/Formal Report Presentation.mp4" download>Download MP4</a>
+                            </div>
+                        </div>
+                        <div class="pdf-item">
+                            <button>Project proposal - PDF</button>
+                            <div class="pdf-content">
+                                <p>This is my origional proposal for my idea and plan for the formal report</p>
+                                <a href="/media/WRT307/Proposal.pdf" download>Download PDF</a>
+                            </div>
+                        </div>
+                        <div class="pdf-item">
+                            <button>Instructions Porect Memo - PDF</button>
+                            <div class="pdf-content">
+                                <p>This is a group memo discussing our UX instructions project on assembling a Lego set.
+                                </p>
+                                <a href="/media/WRT307/UX+Memo.pdf" download>Download PDF</a>
+                            </div>
+                        </div>
+                        <div class="pdf-item">
+                            <button>Instructions Project - PDF</button>
+                            <div class="pdf-content">
+                                <p>This is the final instruction set I made with a group covering how to assemble a Lego
+                                    set we made.</p>
+                                <a href="/media/WRT307/Instructions Project.pdf" download>Download PDF</a>
+                            </div>
+                        </div>
+                        <div class="pdf-item">
+                            <button>Cover Letter Example - PDF</button>
+                            <div class="pdf-content">
+                                <p>This is a example cover letter I wrote and sent out as a part of an assignment.</p>
+                                <a href="/media/WRT307/Coverletter.pdf" download>Download PDF</a>
+                            </div>
+                        </div>
+
+                        <div class="pdf-item">
+                            <button>Example Memo - PDF</button>
+                            <div class="pdf-content">
+                                <p>This is an example memo I wrote for a class assignment.</p>
+                                <a href="/media/WRT307/Memo Example.pdf" download>Download PDF</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+            <hr>
+        </div>
+
+        <br>
+
+    </section>
+
+    <script>
+        const pdfItems = document.querySelectorAll(".pdf-item");
+
+        pdfItems.forEach(item => {
+            const button = item.querySelector("button");
+            button.addEventListener("click", () => {
+                item.classList.toggle("active");
+            });
+        });
+    </script>
+
+    <!-- SCRIPT FOR EXPANDING TABS IN THE PERSONAL PROJECTS SECTION -->
+    <script>
+        var allHeights = 0;
+        var contents = document.getElementsByClassName("content");
+        var j;
+
+        for (j = 0; j < contents.length; j++) {
+            var h = document.getElementsByClassName("content")[j].scrollHeight;
+            allHeights += h;
+        }
+
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight == allHeights + "px") {
+                    content.style.maxHeight = "0px";
+                } else {
+                    content.style.maxHeight = allHeights + "px";
+                }
+            });
+        }
+
+
+    </script>
+    </div>
+
 
 
     <section id="Contact">
@@ -612,6 +864,7 @@
         <br>
         <br>
     </section>
+
 </body>
 
 
