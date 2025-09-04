@@ -1,260 +1,14 @@
 ﻿<!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="index.css">
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <style>
-    body,
-    html {
-      height: 100%;
-      margin: 0;
-      font: 400 20px/1.8 "Lato", monospace;
-      color: #888888;
-      scroll-behavior: smooth;
-      background-color: #000000;
-    }
-
-    .bg {
-      /* The image used */
-      background-image: url("/media/Photography/Traditional/Landsacpes and Animals/Landscapes/IMG_3721.jpg");
-
-      /* Full height */
-      height: 100%;
-
-      /* Center and scale the image nicely */
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-
-    .caption {
-      position: absolute;
-      left: 0;
-      top: 50%;
-      width: 100%;
-      text-align: center;
-      color: #000;
-    }
-
-    .lowerCaption {
-      position: absolute;
-      left: 0;
-      top: 90%;
-      width: 100%;
-      text-align: center;
-      color: #000;
-
-      /* transition: 1s ease-in-out; */
-    }
-
-
-    .caption span.border {
-      background-color: #00000000;
-      color: #000000;
-      padding: 18px;
-      font: 40pt "Lato", monospace;
-      letter-spacing: 10px;
-    }
-
-    .about {
-      /* position: absolute; */
-      left: 0;
-      top: 50%;
-      width: 60%;
-      text-align: center;
-      color: #888888;
-
-      margin: auto;
-      white-space: normal;
-
-    }
-
-    .resume {
-      /* position: absolute; */
-      left: 0;
-      top: 50%;
-      width: 70%;
-      text-align: center;
-      color: #888888;
-
-      margin: auto;
-      white-space: normal;
-    }
-
-    .resumeBG {
-      background-color: #ffffff;
-    }
-
-    h4 {
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      font: 25px "Lato", monospace;
-      color: #000000;
-    }
-
-    h3 {
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      font: 25px "Lato", monospace;
-      color: #ffffff;
-    }
-
-    #parent_div_1 {
-      width: 35%;
-      height: 60%;
-      margin-left: 10%;
-      float: left;
-
-    }
-
-    #parent_div_2 {
-      width: 35%;
-      height: 60%;
-      margin-right: 10%;
-      float: right;
-
-    }
-
-    #child_div {
-      float: left;
-      margin-right: 5px;
-    }
-
-    #child_div img {
-      max-width: 90%;
-      height: auto;
-      margin-left: auto;
-      margin-right: auto;
-      display: block;
-      text-align: center;
-
-    }
-
-    #child_div img:hover {
-      scale: 1.05;
-      border: 1px solid seagreen;
-    }
-
-    .cards {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      gap: 1rem;
-    }
-
-    .card {
-      background-color: dodgerblue;
-      color: white;
-      padding: 1rem;
-      height: 4rem;
-    }
-
-    @media (min-width: 600px) {
-      .cards {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 900px) {
-      .cards {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    .collapsible {
-      background-color: #343434;
-      color: #ffffff;
-      cursor: pointer;
-      padding: 18px;
-      margin-bottom: 10px;
-      width: 100%;
-      border: none;
-      text-align: center;
-      outline: none;
-      font: 400 20px/1.8 "Lato", monospace;
-    }
-
-    .active,
-    .collapsible:hover {
-      background-color: #949494;
-      color: #454545;
-    }
-
-    .content {
-      padding: 0 18px;
-      background-color: white;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.2s ease-out;
-      /* width: 65%; */
-      margin: auto;
-
-      list-style-position: outside;
-    }
-
-
-    .collapsible:after {
-      content: '\02795';
-      /* Unicode character for "plus" sign (+) */
-      font-size: 13px;
-      color: white;
-      float: right;
-      margin-left: 5px;
-    }
-
-    .active:after {
-      content: "\2796";
-      /* Unicode character for "minus" sign (-) */
-    }
-
-
-    a:link {
-      color: orangered;
-      background-color: transparent;
-      text-decoration: none;
-    }
-
-    a:visited {
-      color: orangered;
-      background-color: transparent;
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: orangered;
-      background-color: transparent;
-      text-decoration: underline;
-    }
-
-    a:active {
-      color: orangered;
-      background-color: transparent;
-      text-decoration: underline;
-    }
-
-    .button {
-      background-color: white;
-      color: black;
-      border: 2px solid white;
-      margin: 0 auto;
-      display: block;
-
-      width: 80%;
-      height: 20%;
-    }
-
-    .button:hover {
-      background-color: orangered;
-      color: white;
-    }
-  </style>
 </head>
 
 
 
 <body>
-
   <!-- LANDING PAGE -->
   <div class="bg">
 
@@ -263,8 +17,6 @@
       <br>
       <span class="border" style="font-size: 20px; "> <b>Computer Engineering Student </b></span>
       <span class="border" style="font-size: 20px;"><br> <b>Photographer</b> </span>
-
-      
 
     </div>
 
@@ -288,12 +40,13 @@
     <div class="about">
       <h3>About Me</h3>
       <p>
-        Hello! I am Joseph Lodato, a full-time student at Syracuse University. During the 2024/2025 school year, I will
-        be in my
-        Junior year pursuing a BS in Computer Engineering as well as a minor in Physics. I am involved in
+        Hello! I am Joseph Lodato, a full-time student at Syracuse University. During the 2025/2026 school year, I will
+        be in my senior year pursuing a BS in Computer Engineering as well as a minor in Physics. I am involved in
         multiple organizations on campus
-        with my primary one being Citrus Racing, SU's premier motorsports team, which I am president of (more about my
-        activities below).
+        with my primary one being Citrus Racing, SU's premier motorsports design and build team, which I am the Chief
+        Engineer of (more
+        about my
+        activities and projects below).
         <br>
         I fill my freetime with photography of all kinds, while I focus on photographing deep sky objects
         (DSOs) like nebula, supernova, and other
@@ -314,7 +67,7 @@
 
     <!-- <div id="child_div" style="text-align: center;"> -->
 
-    <a href="/media/Joseph Lodato Resume.pdf" download>
+    <a href="/media/Joseph Lodato Resume 2025-26.pdf" download>
       <button class="button button" style="font-size: 20px ;">
         Download Resume
       </button>
@@ -329,30 +82,14 @@
     <h2 style="text-align: center;">Check out my photography gallery here:</h2>
     <h3 style="text-align: center;"> (Work in progress)</h3>
     <div id="child_div" style="text-align: center;">
-      <a href="/Webpages/portfolioHome.html"> Photography Portfolio <img
-          src="/media/Photography/Astro/IMG_9141.JPG" style="text-align: center;">
+      <a href="/Webpages/portfolioHome.html"> Photography Portfolio <img src="/media/Photography/Astro/IMG_9141.JPG"
+          style="text-align: center;">
       </a>
     </div>
 
   </div>
+  <div class="spacer"></div>
 
-
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
 
   <!-- RESUME SECTION -->
   <!-- WHITE BACKGROUND -->
@@ -374,15 +111,12 @@
               Engineering
               and Computer Science </b></h4>
           <p style="width: 80%; margin: auto;">
-
-            Currently a junior for the 2024/2025 school year studying for a BS in Computer Engineering and a minor in
-            Physics. Cumulative GPA of 3.620 and a GPA for the spring 2024 semester of 3.745
+            Currently a Senior for the 2025/2026 school year studying for a BS in Computer Engineering and a minor in
+            Physics. With a current cumulative GPA of 3.6 across all classes taken
           </p>
 
 
           <h4 style="font: 400 20px/1.8 Lato, monospace; color: orangered;"> <b>Freeport High School </b></h4>
-
-
           <p style="width: 80%; margin: auto;">
             Graduated in the spring of 2022 with Honors. Created an automated saw dust collection system for the
             school's woodworking/STEM
@@ -391,165 +125,11 @@
           </p>
 
         </section>
-
-        <!-- PERSONAL PROEJCTS SECTION -->
-        <!-- Works with a gorup of nesting collapsible tabs that highlight the projects I have completed -->
-        <section id="Personal Projects">
-          <br>
-          <hr>
-          <h4>Personal Projects</h4>
-          <p>Click to see more info for each project:</p>
-
-
-          <!-- CITRUS RACING INFORMATION -->
-          <button class="collapsible">Citrus Racing (Formula SAE)</button>
-          <div class="content">
-            <p style="font-size: 17px;float: right;">Sept. 2022 - Present</p>
-            <br>
-            <br>
-            <p>
-              As a part of this team, I have assisted in the design, construction, and racing of fully custom
-              open-wheeled
-              single-seat race cars
-              for the Formula SAE series representing Syracuse University in the ~120-team competition held at Michigan
-              International Speedway each
-              spring. I formerly held the titles of co-head of electronics and vice president. I have since progressed
-              and
-              currently, I am the
-              president of the organization as well as the lead of our electronics team.
-            </p>
-
-            <a href="/media/Citrus Racing/IMG_0953.jpg">
-              <img src="/media/Citrus Racing/IMG_0953.jpg" style="width: 45%;">
-            </a>
-            <a href="/media/Citrus Racing/IMG_0677.jpg">
-              <img src="/media/Citrus Racing/IMG_0677.jpg" style="width: 45%;">
-            </a>
-
-            <button class="collapsible">President of Citrus Racing</button>
-            <div class="content">
-              <p style="font-size: 17px;float: left;">Skills: Sponsor Relations, Budget Management, Team
-                Leadership/Team
-                Management</p>
-              <br>
-              <br>
-
-              <li style="text-align: left;">Worked with the University as a whole to manage the team budget including
-                managing all parts and material
-                orders needed for vehicle development.</li>
-              <li style="text-align: left;">Worked with sponsors to secure funding and support, both monetary and
-                technical</li>
-              <li style="text-align: left;">Organized efforts across multiple subteams allowing efficient design and
-                construction</li>
-
-            </div>
-
-            <button class="collapsible">Lead of Electronics </button>
-            <div class="content">
-              <p style="font-size: 17px;float: left;">Skills: Electrical Design/Wiring, Circuit Analysis, Data
-                Analysis,
-                Leadership</p>
-              <br>
-              <br>
-              <li style="text-align: left;">Led a team to design, test, and implement all electrical components needed
-                to
-                run Citrus Racing's racecar including fully custom car wiring harnesses as well as engine control
-                software.</li>
-              <li style="text-align: left;">Collaborated closely with other sub-teams to ensure all systems would work
-                well together.</li>
-              <li style="text-align: left;">Used various software systems such as Motec M1 Tune and M1 Build, as well
-                as
-                Rapid Harness to design and improve electrical control systems and overall performance of the car.
-              </li>
-
-              <li style="text-align: left;">Worked with other team leads to analyze recorded test data to suggest
-                improvements for the car design.</li>
-              <p style="font-size: 12; font-style: italic;">Below is an image of the custom wire harness that my team
-                and
-                I designed and built, this is before any
-                heatshrink protection and connectors were added. It contained over 120 individual wires when completed!
-              </p>
-
-              <a href="/media/Citrus Racing/IMG_0287.jpg">
-                <img src="/media/Citrus Racing/IMG_0287.jpg" style="width: 45%;">
-              </a>
-            </div>
-          </div>
+        <!-- 
 
           <hr>
 
-          <!-- Celestial Veil Orbital/Atmosphere Programming  -->
-          <button class="collapsible">Celestial Veil - An Explortation into Physically Accurate Programming</button>
-          <div class="content">
-            <p style="font-size: 17px;float: right;">May 2024 - Present</p>
-            <br>
-            <br>
-            <p>
-              Over the summer of 2024, I worked to refine my ability to tackle complex programming challenges. Taking
-              inspiration from
-              Sebastian Lague and his solar system project in particular, I set off to recreate a physically accurate
-              solar
-              system in the
-              Unity Game Engine using C#. This is part of a larger plan I have of developing and publishing a video game
-              named Celestial Veil
-              with this solar
-              system being the playable environment for it.
-            </p>
-
-            <button class="collapsible">Physically Accurate Orbital Mechanics</button>
-            <div class="content">
-              <p style="font-size: 17px;float: left;"> Skills: C#, Unity Game Engine, Object Oriented Programming </p>
-              <br>
-              <br>
-              <p>
-                By far the biggest challenge was programming physically accurate orbits. After some research I was
-                able to implement
-                a N-body Simulation in C#. This is done by applying forces to each orbital body based on Newton's law of
-                universal gravitation.
-                This project taught me a lot about the limits of accuracy with computers as well as how to deal with
-                issues such as floating
-                point precision errors.
-              </p>
-            </div>
-
-            <button class="collapsible">Next up: Atmospheres</button>
-            <div class="content">
-              <p style="font-size: 17px;float: left;"> Skills: C#, Unity Game Engine, Object Oriented Programming </p>
-              <br>
-              <br>
-              <p>
-                With orbital mechanics added, I am now focusing on the simulation of atmospheric effects for all of the
-                planets due to physically
-                accurate atmospheric scattering. Updates will be posted here!
-              </p>
-            </div>
-
-
-          </div>
-
-          <hr>
-
-          <!-- This website -->
-          <button class="collapsible">Personal Website</button>
-          <div class="content">
-            <p style="font-size: 17px;float: right;">Aug. 2024 - Present</p>
-
-            <p style="font-size: 17px;float: left;">Skills: Webdesign, HTML, CSS, Javascript</p>
-            <br>
-            <br>
-            <p>
-              This website is my first real attempt at making a website. Although for a class I took I learned how to
-              write javascript code for the backend webserver to deal with connections through HTTPS, I had never
-              learned
-              or applied much HTML and CSS to make webpages themselves.
-
-              This project taught me a ton about how to use HTML and CSS, along with a bit of javascript to create
-              webpages.</p>
-          </div>
-
-          <hr>
-
-          <!-- Tyler Tech. Maine App Challange -->
+          Tyler Tech. Maine App Challange
           <button class="collapsible"> Tyler Technoligies Maine State App Challenge </button>
           <div class="content">
             <p style="font-size: 17px;float: right;"> Nov. 2019 - May 2020 & Nov. 2020 - May 2021</p>
@@ -562,83 +142,470 @@
               (Tyler Technologies Maine App Challenge), resulting in a top 10 finish two years in a row; 2021 and 2022
 
             </p>
+          </div>
+        </section> -->
+
+        <section id="projects">
+          <h3>Projects</h3>
+          <div class="project-grid">
+
+            <div class="project-card" onclick="openModal('citrus')">
+              <img src="/media/Citrus Racing/IMG_0953.jpg" alt="Citrus Racing">
+              <h4>Citrus Racing (Formula SAE)</h4>
+              <p>Chief Engineer & EV Development</p>
+            </div>
+
+            <div class="project-card" onclick="openModal('juniorDesign')">
+              <img src="/media/Projects/JuniorDeisgnMachine.jpg" alt="juniorDesign">
+              <h4>Smart Copy Machine</h4>
+              <p>Junior design project</p>
+            </div>
+
+            <div class="project-card" onclick="openModal('alfred')">
+              <img src="/media/Projects/AlfredDesk.jpg" alt="Alfred">
+              <h4>Search and Rescue Robot</h4>
+              <p>"Alfred" the robot</p>
+            </div>
+
+            <div class="project-card" onclick="openModal('keyboard')">
+              <img src="/media/Projects/keyboardCAD.png" alt="keyboard">
+              <h4>Custom Keyboard PCB</h4>
+              <p>Personal Project</p>
+            </div>
+
+            <div class="project-card" onclick="openModal('phy490')">
+              <img src="/media/Projects/DiffractionSpikes.jpg" alt="Aperture Analysis">
+              <h4>"Aperture Analysis"</h4>
+              <p>Computational Physics Independent Study:</p>
+            </div>
+
+            <div class="project-card" onclick="openModal('celestial')">
+              <img src="/media/CelestialVeil.png" alt="Celestial Veil">
+              <h4>Celestial Veil</h4>
+              <p>Physically Accurate Orbital Simulation</p>
+            </div>
+
+            <div class="project-card" onclick="openModal('website')">
+              <img src="/media/Projects/WebsiteCover.png" alt="Website">
+              <h4>Personal Website</h4>
+              <p>HTML, CSS, and JavaScript</p>
+            </div>
+
+            <div class="project-card" onclick="openModal('tylerTech')">
+              <img src="/media/Projects/MaineAppChallenge.png" alt="App Challenge">
+              <h4>Tyler Technologies Maine App Challenge</h4>
+              <p>Top 10 Finishes in 2021 and 2022</p>
+            </div>
 
 
 
+
+            <!-- Add more cards here -->
 
           </div>
         </section>
 
-        <!-- WORK EXPERENCE SECTION -->
-        <!-- States my past work experence as well as a summary of what I did -->
-        <section id="Work Experence">
-          <br>
-          <hr>
-          <h4>Work Experence</h4>
+        <!-- Citrus Racing Modal -->
+        <div id="modal-citrus" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeModal('citrus')">&times;</span>
+            <h3>Citrus Racing (Formula SAE)</h3>
+            <p>
+              As a part of this team, I have assisted in the design, construction, and racing of fully custom
+              open-wheeled
+              single-seat race cars
+              for the Formula SAE series representing Syracuse University in the ~120-team competition held at Michigan
+              International Speedway each
+              spring. I formerly held the titles of Head of Electronics and President. I have since progressed
+              and
+              currently, I am the
+              Chief Engineer of the organization as well as the team's lead of EV Development.
 
-          <h4 style="font: 400 20px/1.8 Lato, monospace; color: orangered;"><b> Strouts Point Wharf Company </b></h4>
+            </p>
+            <img src="/media/Citrus Racing/IMG_0677.jpg" alt="Car">
 
-          <p style="font-size: 17px;float: right;"> June 2019 - Aug. 2023</p>
-          <p style="font-size: 17px;float: left;"><b>Title: Dockstaff </b></p>
-          <br>
-          <br>
-
-          <li style="text-align: left;">Oversaw and led a team of ~8 other dock staff while performing typical duties,
-            such as assisting customers.</li>
-          <li style="text-align: left;">Preformed preventative maintenance and inspections to docks to maintain safety
-            for customers and boats.</li>
-          <li style="text-align: left;">Communicated with mechanics and other staff to coordinate dock space
-            availability including when boats would be moved for
-            maintenance leading to a more efficient workplace.</li>
-
-          <h4 style="font: 400 20px/1.8 Lato, monospace; color: orangered;"> <b>Regional School Unit 5 - Freeport High
-              School</b></h4>
-          <p style="font-size: 17px;float: right;"> Sept. 2020 - Jan. 2021</p>
-          <p style="font-size: 17px;float: left;"><b>Title: IT Coordinator </b></p>
-          <br>
-          <br>
-
-          <li style="text-align: left;"> Prepared and deployed over 250 devices (including iPads and Chromebooks) to 4
-            different nearby schools with the IT department
-            at Freeport High School to help ease the increased demand of technology during the Covid-19 Pandemic.
-
-        </section>
+            <h4>Chief Engineer of Citrus Racing</h4>
+            <li style="text-align: left;"> Oversee all technical aspects of the team including the design, construction,
+              and
+              operation of the car.</li>
+            <li style="text-align: left;"> Provided top down technical leadership to the team, ensuring all
+              subteams develop components separately in a way that work effectively when implemented together on the
+              car.</li>
+            <li style="text-align: left;"> Ensured the entire vehicle and all components are designed and built to the
+              rules of the
+              Formula SAE series.</li>
 
 
-      </div>
+            <h4>Head of EV Development</h4>
+            <li style="text-align: left;">Lead a team to development the first fully electric racing vehicle for Citrus
+              Racing,
+              including the design and construction or selection and use of items such as the vehicle's battery pack,
+              motor/motor controller, and other
+              electrical systems.</li>
+            <li style="text-align: left;">Worked with the team to devlop fully custom software to read sensors and
+              control the
+              vehicle's motors for optimal performance.</li>
 
+            <h4>President of Citrus Racing</h4>
+
+            <li style="text-align: left;">Worked with the University as a whole to manage the team budget including
+              managing all parts and material
+              orders needed for vehicle development.</li>
+            <li style="text-align: left;">Worked with sponsors to secure funding and support, both monetary and
+              technical</li>
+            <li style="text-align: left;">Organized efforts across multiple subteams allowing efficient design and
+              construction</li>
+
+            <h4>Lead of Electronics </h4>
+            <li style="text-align: left;">Led a team to design, test, and implement all electrical components needed
+              to
+              run Citrus Racing's racecar including fully custom car wiring harnesses as well as engine control
+              software.</li>
+            <li style="text-align: left;">Collaborated closely with other sub-teams to ensure all systems would work
+              well together.</li>
+            <li style="text-align: left;">Used various software systems such as Motec M1 Tune and M1 Build, as well
+              as software such as KiCad to design and improve electrical control systems and overall performance of the
+              car.
+            </li>
+            <li style="text-align: left;">Worked with other team leads to analyze recorded test data to suggest
+              improvements for the car design.</li>
+            <p style="font-size: 12; font-style: italic;">Below is an image of the custom wire harness that my team
+              and
+              I designed and built, this is before any
+              heatshrink protection and connectors were added. It contained over 120 individual wires when completed!
+            </p>
+
+            <img src="/media/Citrus Racing/IMG_0287.jpg" alt="Wiring Harness">
+
+
+
+          </div>
+        </div>
+
+        <!-- Junior Design Modal -->
+        <div id="modal-juniorDesign" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeModal('juniorDesign')">&times;</span>
+            <h3>Smart Copy Machine</h3>
+            <p>
+              Designed & built a gantry-style pen plotter utilizing stepper motors, driver chips, cameras, and
+              computer vision all running or controled with a Raspberry Pi 4B+ to scan and replicate hand drawn images
+              by processing images into a series of
+              coordinate-based motor commands.
+            </p>
+
+            <img src="/media/Projects/JuniorDesignDemoTable.jpg" alt="juniorDesign">
+            <h4>Hardware Overview: </h4>
+            <p>
+              For the hardware side there are three axes to deal with X, Y is the motion of the pen. While the Z axis is
+              the up and down motion of the draw plate (whiteboard).
+              The X and Y axes have one stepper motor per axis that is connected via belt to a carriage allowing it to
+              move along linear rails.
+              The Z axis is controlled by 2 stepper motors that raise and lower via a screw mechanism.
+            </p>
+            <h4>Software Overview: </h4>
+            <p>
+              When the user is done drawing their image, the camera captures a frame that begins the image processing
+              script. In this script the image runs through some basic image processing and is skeletonized leaving
+              contours that gets converted into XY coordinates for the motors to follow. We used Bresenham's algorithm
+              for smoth diagonal movements.
+
+              Once the coordinates are found they are put into a list creating a path that the pen can follow and
+              includes 'breakpoints' allowing for the pen needs to get picked up from he whiteboard if drawing
+              disconnected lines. These coordinates are turned into motor movement by pulsing GPIO pins sending step
+              counts and direction data to the MP6500 Driver Chips.
+            </p>
+          </div>
+        </div>
+
+        <!-- Alfred Modal -->
+        <div id="modal-alfred" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeModal('alfred')">&times;</span>
+            <h3>Search and Rescue Robot</h3>
+            <p>
+              The end goal of a robotics programming lab I took in the spring of 2025 was to program a search and resuce
+              robot to autonomously navigate an unknown environment to find 'victims' (paper blocks), pick them up and
+              carry them back to the starting location. My team and I (myself and two others) lovingly named our robot
+              "Alfred". The core of Alfred is a Rock Pi running ROS 2 (Robot Operating System) Iron with additional
+              MCUs, Gyroscopes, a USB camera, two motors and wheels, an two joint arm, etc.
+            </p>
+
+            <img src="/media/Projects/AlfredFace (1).jpg" alt="Alfred">
+
+            <h4>Key Features:</h4>
+            <li style="text-align: left;"><strong>Autonomous Navigation:</strong> Alfred's main feature is his ability
+              to navigate
+              through rooms, around desks, and through doors. This was done by by creating and exporting a map of the
+              rooms he searched in blender then placing AprilTags around the room for localization. A fixed search path
+              was provided to alfred to follow but if something was in the way, or if alfred drifted off course onboard
+              pathfinding systems would calculate a path for him. </li>
+
+            <li style="text-align: left;"><strong>'Victim' (Box) Detection and Retrieval:</strong> The boxes alfred was
+              searching for
+              had AprilTags on them allowing Alfred to find them with his camera. Once the box position pose is found,
+              alfred postions himself in order to pick up the box with his arm.</li>
+
+            <li style="text-align: left;"><strong>Return to Home:</strong> After finding and picking up a box, alfred
+              would use his
+              localization and path finding systems to return to his starting position, then drop off the box before
+              starting his search for a box again.</li>
+
+          </div>
+        </div>
+
+        <!-- Keyboard Modal -->
+        <div id="modal-keyboard" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeModal('keyboard')">&times;</span>
+            <h3>Custom Keyboard PCB</h3>
+            <p>
+              As a personal project, I designed and built a fully custom mechanical keyboard PCB using KiCad. The
+              keyboard was inspired by the "Nullbits NIBBLE" keyboard which I loved. A 65% keyboard kit they send you to
+              solder and assemble yourself. After that keybord evenutally died due to a crack in the PCB that caused a
+              trace to disconnect, I decided to design my own PCB from scratch with exactly all the features I wanted.
+              <br>
+              Some of the main features of this keyboard include both USB-C and Bluetooth connectivity, three fully
+              programmable rotery encoders, four programmable macros, and some other features all on a custom '70ish%'
+              layout I made
+              myself.
+            </p>
+
+            <img src="/media/Projects/keyboardPCB.png" alt="keyboard">
+
+            <h4>Key Features:</h4>
+            <li style="text-align: left;">
+              <strong>USB-C and Bluetooth Connectivity:</strong> The keyboard can be used wired with a USB-C cable or
+              wirelessly via
+              Bluetooth at the flick of a switch. Having bluetooth connectivity means there is also a rechargeable
+              battery on the PCB which should provide upto 5 hours of battery life. Battery charging circuitry is from
+              the MCU I chose, the Nice!Nano V2
+            </li>
+
+            <li style="text-align: left;">
+              <strong>Rotary Encoders and Macros:</strong> There are three rotary encoders on the left side keyboard. I
+              plan on using one
+              for main volume control while the other two can be for volume control of specific apps. Four Macros are
+              found on the right side of the keyboard, and can be programmed to do anything via the keyboard firmware I
+              am using, ZMK
+            </li>
+
+            <li style="text-align: left;">
+              <strong>Other Features: </strong>The keyboard also has RGB underglow lighting, a small programmable i2c
+              OLED screen to
+              display useful info. It also includes a TRRS port I can use to connect expantion boards in the future if I
+              want to add more features (Like a dedicated numpad). The port has 4 conductors in it, two of which are for
+              i2c data, while the other two for 5V and GND lines.
+            </li>
+
+            <li style="text-align: left;">
+              <strong>MCU and Firmware: </strong>As mentioned the MCU I am using is the Nice!Nano V2, it allows for
+              seamless bluetooth
+              and wired connection. For firmware I am using, ZMK, allows for full programmability of all keys and
+              features of the keyboard.
+            </li>
+
+          </div>
+        </div>
+
+        <!-- PHY490 Modal -->
+        <div id="modal-phy490" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeModal('phy490')">&times;</span>
+            <h3>"Aperture Analysis"</h3>
+            <p>
+              This was the capstone for my Computational Physics Independent Study, I did at Syracuse University in the
+              fall of 2024. This project explored the relationship between diffraction spike patterns in stellar images
+              and the shape of a telescope's mirror or lens aperture. The goal was to reconstruct the aperture geometry
+              of an optical system by analyzing difraction spikes in images of stars taken with that system.
+
+              The project involved developing a C++ program that used a custom Fast Fourier Transform (FFT) and Inverse
+              FFT (IFFT) implmentatuion to analyze the frequency components of the stellar images. and issolating the
+              diffraction spike patterns. The program was then able to use to difraction spike angles to calculate and
+              reconstruct the aperture shape.
+            </p>
+
+            <img src="/media/indepententStudy.jpg" alt="Aperture Analysis">
+            <h4>Key Features:</h4>
+            <li style="text-align: left;"><strong>Custom FFT and IFFT Implementation:</strong> A custom Fast Fourier
+              Transform (FFT) and Inverse FFT (IFFT) algorithm was implemented in C++ to analyze the frequency
+              components of stellar images. This allowed for the isolation of diffraction spike patterns from the
+              images.
+
+            </li>
+            <li style="text-align: left;"><strong>Diffraction Spike Analysis:</strong> The program analyzed the angles
+              and intensities of the diffraction spikes in the stellar images. This data was used to infer the geometry
+              of the telescope's aperture.
+            </li>
+            <li style="text-align: left;"><strong>Aperture Reconstruction/Visualization:</strong> Once the Aperture was
+              reconstructed, the data was pipped into a python script where
+              it was visualized using Python's Matplotlib library to create a 2D representation of the aperture shape to
+              display to the user.
+          </div>
+        </div>
+
+        <!-- Celestial Veil Modal -->
+        <div id="modal-celestial" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeModal('celestial')">&times;</span>
+            <h3>Celestial Veil</h3>
+            <p>Over the summer of 2024, I worked to refine my ability to tackle complex programming challenges.
+              Taking
+              inspiration from
+              Sebastian Lague and his solar system project in particular, I set off to recreate a physically
+              accurate
+              solar
+              system in the
+              Unity Game Engine using C#. This is part of a larger plan I have of developing and publishing a
+              video
+              game
+              named Celestial Veil
+              with this solar
+              system being the playable environment for it.</p>
+
+            <img src="/media/CelestialVeil.png" alt="Celestial Veil">
+
+            <h4>Physically Accurate Orbital Mechanics</h4>
+            <li style="text-align: left;">By far the biggest challenge was programming physically accurate orbits.
+              After
+              some research I was able to implement
+              a N-body Simulation in C#. This is done by applying forces to each orbital body based on Newton's law
+              of
+              universal gravitation.
+              This project taught me a lot about the limits of accuracy with computers as well as how to deal with
+              issues such as floating
+              point precision errors.</li>
+
+            <h4>Next up: Atmospheres</h4>
+            <li style="text-align: left;">With orbital mechanics added, I am now focusing on the simulation of
+              atmospheric effects for all of the
+              planets due to physically accurate atmospheric scattering. Updates will be coming soon!</li>
+          </div>
+
+
+        </div>
+
+        <!-- Website Modal -->
+        <div id="modal-website" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeModal('website')">&times;</span>
+            <h3>Personal Website</h3>
+            <p>This website is my first real attempt at making a website. Although for a class I took I learned how
+              to
+              write javascript code for the backend webserver to deal with connections through HTTPS with
+              multithreading, I had never
+              learned or applied much HTML and CSS to make webpages themselves.</p>
+
+            <img src="/media/Projects/WebsitePhotography.png" alt="Website">
+
+            <h4>Skills Learned</h4>
+            <li style="text-align: left;">This project taught me a ton about how to use HTML and CSS, along brushing
+              off some
+              javascript skills to create webpages to display both my professional and photography portfolio.</li>
+            <!-- <li style="text-align: left;">I also learned how to use GitHub Pages to host this website, which is a great
+              way to host static websites for free!</li> -->
+          </div>
+
+
+
+
+
+
+
+
+          <!-- WORK EXPERENCE SECTION -->
+          <!-- States my past work experence as well as a summary of what I did -->
+          <section id="Work Experence">
+            <br>
+            <hr>
+            <h4>Work Experence</h4>
+
+            <h4 style="font: 400 20px/1.8 Lato, monospace; color: orangered;"><b> AEC Engineering </b></h4>
+
+            <p style="font-size: 17px;float: right;"> May 20205 - Current</p>
+            <p style="font-size: 17px;float: left;"><b>Title: Panel Technician </b></p>
+            <br>
+            <br>
+
+            <li style="text-align: left;">Worked closely with a team of technicians and engineers to design, create,
+              and
+              test fully custom control panels for both industrial and municipal use.</li>
+            <li style="text-align: left;">Ensured panel function by going through various verification steps.
+              Including
+              full methodical panel ringouts, functional testing, PLC logic testing, etc.</li>
+            <li style="text-align: left;">Fabriataed panels to UL508A standards, including component/enclosure
+              wiring
+              and
+              enclosure
+              fabrication. </li>
+            <li style="text-align: left;">Improved shop efficientcy by creating frameworks for weight based
+              inventory
+              systems, for components and wire spools. Allowing for streamlined inventory managemnt and efficient
+              ordering
+              strategies.</li>
+
+
+
+            <h4 style="font: 400 20px/1.8 Lato, monospace; color: orangered;"><b> Strouts Point Wharf Company </b>
+            </h4>
+
+            <p style="font-size: 17px;float: right;"> June 2019 - Aug. 2023</p>
+            <p style="font-size: 17px;float: left;"><b>Title: Dockstaff </b></p>
+            <br>
+            <br>
+
+            <li style="text-align: left;">Oversaw and led a team of ~8 other dock staff while performing typical
+              duties,
+              such as assisting customers.</li>
+            <li style="text-align: left;">Preformed preventative maintenance and inspections to docks to maintain
+              safety
+              for customers and boats.</li>
+            <li style="text-align: left;">Communicated with mechanics and other staff to coordinate dock space
+              availability including when boats would be moved for
+              maintenance leading to a more efficient workplace.</li>
+
+            <h4 style="font: 400 20px/1.8 Lato, monospace; color: orangered;"> <b>Regional School Unit 5 - Freeport
+                High
+                School</b></h4>
+            <p style="font-size: 17px;float: right;"> Sept. 2020 - Jan. 2021</p>
+            <p style="font-size: 17px;float: left;"><b>Title: IT Coordinator </b></p>
+            <br>
+            <br>
+
+            <li style="text-align: left;"> Prepared and deployed over 250 devices (including iPads and Chromebooks)
+              to
+              4
+              different nearby schools with the IT department
+              at Freeport High School to help ease the increased demand of technology during the Covid-19 Pandemic.
+
+          </section>
+
+
+        </div>
+
+        <!-- Maine App Challange Modal -->
+        <div id="modal-tylerTech" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeModal('tylerTech')">&times;</span>
+            <h3>Tyler Technologies Maine App Challenge</h3>
+            <p>
+              Developed small prototype apps for a statewide high school competition (Tyler Technologies Maine App
+              Challenge), resulting in a top 10 finish two years in a row; 2021 and 2022.
+            </p>
+
+            <!-- <img src="/media/Projects/AppChallenge.png" alt="App Challenge"> -->
+            <h4>Apps Developed:</h4>
+            <li style="text-align: left;"><strong>2021 - "Color Palette Generator:"</strong> An app that allows users to
+              generate color palettes based on a selected base color. The app generates different palettes and hues that
+              work together for many different use cases. Built using JavaScript with the code.com app lab.
+            </li>
+            <li style="text-align: left;"><strong>2022 - "Learn2Code"</strong> : An app that teaches users the basics
+              writting Python Code with the use of tutorials and interactive coding challenges/projects to provide a
+              hands-on learning experience. Built using JavaScript with the code.com app lab.
+            </li>
+          </div>
 
   </section>
-
-  <!-- SCRIPT FOR EXPANDING TABS IN THE PERSONAL PROJECTS SECTION -->
-  <script>
-    var allHeights = 0;
-    var contents = document.getElementsByClassName("content");
-    var j;
-
-    for (j = 0; j < contents.length; j++) {
-      var h = document.getElementsByClassName("content")[j].scrollHeight;
-      allHeights += h;
-    }
-
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-
-    for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function () {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.maxHeight == allHeights + "px") {
-          content.style.maxHeight = "0px";
-        } else {
-          content.style.maxHeight = allHeights + "px";
-        }
-      });
-    }
-
-
-  </script>
-  </div>
 
 
 
@@ -681,6 +648,47 @@
     <br>
     <br>
   </section>
+
+
+
+
+  <!-- JAVASCRIPT SCRIPTS FOR MODALS BELOW  -->
+
+  <script>
+    function openModal(id) {
+      document.getElementById('modal-' + id).style.display = 'block';
+      document.body.style.overflow = 'hidden'; // lock background scroll
+    }
+
+    function closeModal(id) {
+      document.getElementById('modal-' + id).style.display = 'none';
+      document.body.style.overflow = ''; // restore background scroll
+    }
+
+    // Close modal on background click
+    window.onclick = function (event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.style.display = "none";
+        document.body.style.overflow = '';
+      }
+    }
+  </script>
+
+  <script>
+    function openModal(id) {
+      document.getElementById('modal-' + id).style.display = 'block';
+    }
+    function closeModal(id) {
+      document.getElementById('modal-' + id).style.display = 'none';
+    }
+    // Close modal on background click
+    window.onclick = function (event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.style.display = "none";
+      }
+    }
+  </script>
+
 
 </body>
 

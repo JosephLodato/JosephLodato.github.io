@@ -1,0 +1,361 @@
+body,
+html {
+    height: 100%;
+    margin: 0;
+    font: 400 20px/1.8 "Lato", monospace;
+    color: #888888;
+    scroll-behavior: smooth;
+    background-color: #000000;
+}
+
+.bg {
+    /* The image used */
+    background-image: url("/media/Photography/Traditional/Landsacpes and Animals/Landscapes/IMG_3721.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+}
+
+.lowerCaption {
+    position: absolute;
+    left: 0;
+    top: 90%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+}
+
+
+.caption span.border {
+    background-color: #00000000;
+    color: #000000;
+    padding: 18px;
+    font: 40pt "Lato", monospace;
+    letter-spacing: 10px;
+}
+
+.about {
+    /* position: absolute; */
+    left: 0;
+    top: 50%;
+    width: 60%;
+    text-align: center;
+    color: #888888;
+
+    margin: auto;
+    white-space: normal;
+
+}
+
+.resume {
+    /* position: absolute; */
+    left: 0;
+    top: 50%;
+    width: 70%;
+    text-align: center;
+    color: #888888;
+
+    margin: auto;
+    white-space: normal;
+}
+
+.resumeBG {
+    background-color: #ffffff;
+}
+
+h4 {
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font: 25px "Lato", monospace;
+    color: #000000;
+}
+
+h3 {
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font: 25px "Lato", monospace;
+    color: #ffffff;
+}
+
+#parent_div_1 {
+    width: 35%;
+    height: 60%;
+    margin-left: 10%;
+    float: left;
+
+}
+
+#parent_div_2 {
+    width: 35%;
+    height: 60%;
+    margin-right: 10%;
+    float: right;
+
+}
+
+#child_div {
+    float: left;
+    margin-right: 5px;
+}
+
+#child_div img {
+    max-width: 90%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+
+}
+
+#child_div img:hover {
+    scale: 1.05;
+    border: 1px solid seagreen;
+}
+
+.cards {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+}
+
+.card {
+    background-color: dodgerblue;
+    color: white;
+    padding: 1rem;
+    height: 4rem;
+}
+
+@media (min-width: 600px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.collapsible {
+    background-color: #343434;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 18px;
+    margin-bottom: 10px;
+    width: 100%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font: 400 20px/1.8 "Lato", monospace;
+}
+
+.active,
+.collapsible:hover {
+    background-color: #949494;
+    color: #454545;
+}
+
+.content {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    /* width: 65%; */
+    margin: auto;
+
+    list-style-position: outside;
+}
+
+
+.collapsible:after {
+    content: '\02795';
+    /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: white;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2796";
+    /* Unicode character for "minus" sign (-) */
+}
+
+
+a:link {
+    color: orangered;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: orangered;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: orangered;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+a:active {
+    color: orangered;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+.button {
+    background-color: white;
+    color: black;
+    border: 2px solid white;
+    margin: 0 auto;
+    display: block;
+
+    width: 80%;
+    height: 20%;
+}
+
+.button:hover {
+    background-color: orangered;
+    color: white;
+}
+
+.section-padding {
+    padding: 4rem 0;
+    /* consistent vertical spacing */
+}
+
+.center-text {
+    text-align: center;
+}
+
+.subtitle {
+    display: block;
+    font-size: 20px;
+    margin-top: 0.5rem;
+}
+
+.contact-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.highlight {
+    color: orangered;
+}
+
+.spacer {
+    height: 28rem;
+    /* adjust this until it looks exactly the same as your old <br> stack */
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.project-card h4 {
+    margin: 1rem 0 0.5rem;
+    color: orangered;
+}
+
+/* Modal styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+
+    /* center content & allow vertical scrolling */
+    overflow-y: auto;
+}
+
+.modal-content {
+    background: white;
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 800px;
+    width: 90%;
+    /* responsive on phones */
+    max-height: none;
+    /* let it expand */
+    box-sizing: border-box;
+}
+
+.modal-content img {
+    max-width: 100%;
+    max-height: 70vh;
+    /* 70% of viewport height */
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+    /* centers it */
+    border-radius: 6px;
+}
+
+.modal-content h3 {
+  color: #000000; /* dark gray for readability */
+  margin-top: 0;
+}
+
+/* .modal-content p {
+  color: #555; 
+} */
+
+.close {
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
