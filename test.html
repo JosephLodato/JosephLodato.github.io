@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photography Portfolios</title>
+  <link rel="stylesheet" href="portfolio.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Lato", sans-serif;
+      background: #111;
+      color: #f5f5f5;
+      height: 100vh;
+      display: flex;
+      overflow: hidden; /* lock body scroll */
+    }
+
+    .split-layout {
+      display: flex;
+      flex: 1;
+      height: 100%;
+    }
+
+    /* Left profile panel (always fixed, no scroll) */
+    .profile {
+      flex: 0 0 35%;
+      background: linear-gradient(to bottom right, #0f172a, #1e293b);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 2rem;
+      box-sizing: border-box;
+      overflow: hidden; /* stays fixed */
+    }
+
+    .profile h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .profile h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 0.5rem 0 1.5rem;
+      color: #94a3b8;
+    }
+
+    .profile h3 {
+      text-align: left;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.5rem;
+      color: #94a3b8;
+    }
+
+    .profile p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #cbd5e1;
+      margin: 1rem 0;
+    }
+
+    .contact-btn {
+      margin-top: 1.5rem;
+      background: #38bdf8;
+      color: #0f172a;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 9999px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .contact-btn:hover {
+      background: #0ea5e9;
+      color: #fff;
+    }
+
+    /* Right panel (scrollable content) */
+    .portfolio-sections {
+      flex: 1;
+      height: 100vh;
+      overflow-y: auto;
+      scroll-snap-type: y mandatory;
+      scroll-behavior: smooth;
+      position: relative;
+    }
+
+    .portfolio-section {
+      position: relative;
+      height: 100vh;
+      scroll-snap-align: start;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.55);
+      padding: 2rem 3rem;
+      border-radius: 1rem;
+      text-align: center;
+    }
+
+    .overlay h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .overlay a {
+      display: inline-block;
+      padding: 0.5rem 1.2rem;
+      background: #38bdf8;
+      color: #0f172a;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .overlay a:hover {
+      background: #0ea5e9;
+      color: #fff;
+    }
+
+    /* Navigation dots on right side */
+    .nav-dots {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 20;
+    }
+
+    .nav-dots button {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: none;
+      background: #555;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .nav-dots button.active {
+      background: #38bdf8;
+      transform: scale(1.3);
+    }
+
+    /* Mobile view */
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+        overflow: auto; /* allow scrolling on mobile */
+      }
+
+      .profile {
+        flex: none;
+        height: auto;
+        position: relative;
+        padding: 2rem 1rem;
+      }
+
+      .portfolio-sections {
+        height: auto;
+        scroll-snap-type: none;
+      }
+
+      .portfolio-section {
+        height: 60vh;
+      }
+
+      .nav-dots {
+        display: none; /* hide dots on mobile */
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="split-layout">
+    <!-- Left profile panel -->
+    <div class="profile">
+      <h1>Joseph Lodato Photography</h1>
+      <p> I'm a US photographer based primarily in Maine. I specialize in Astrophotography,
+        but my portfolio also includes landscapes and action photography.
+      </p>
+
+      <h3>Portfolio</h3>
+      <p> Explore a few of my collections on the right. Scroll or let the slideshow guide you,
+        then click into a gallery for more.
+      </p>
+
+      <h3>Contact</h3>
+      <p> Want to get in contact with me about my photography? </p>
+      <button class="contact-btn" onclick="window.location='mailto:jalodato@syr.edu'">Get in Touch</button>
+    </div>
+
+    <!-- Right scrollable portfolio -->
+    <div class="portfolio-sections" id="portfolio-sections">
+      <section class="portfolio-section" style="background-image: url('/media/Photography/Astro/IMG_9141.JPG');">
+        <div class="overlay">
+          <h2>Astrophotography</h2>
+          <a href="/Webpages/Portfolios/Astrophotography.html">View Gallery</a>
+        </div>
+      </section>
+      <section class="portfolio-section"
+        style="background-image: url('/media/Photography/Traditional/Landsacpes and Animals/Landscapes/Scooner Shadow.JPG');">
+        <div class="overlay">
+          <h2>Landscapes & Wildlife</h2>
+          <a href="/Webpages/Portfolios/landscapes and Animals.html">View Gallery</a>
+        </div>
+      </section>
+      <section class="portfolio-section"
+        style="background-image: url('/media/Photography/Traditional/Action/Thunderbirds/Solo Hard turn 2.jpg');">
+        <div class="overlay">
+          <h2>Sports & Action</h2>
+          <a href="/Webpages/Portfolios/Sports and Action.html">View Gallery</a>
+        </div>
+      </section>
+    </div>
+
+    <!-- Navigation dots -->
+    <div class="nav-dots" id="nav-dots">
+      <!-- Filled dynamically with JS -->
+    </div>
+  </div>
+
+  <script>
+    const container = document.getElementById("portfolio-sections");
+    const sections = document.querySelectorAll(".portfolio-section");
+    const navDotsContainer = document.getElementById("nav-dots");
+    let currentIndex = 0;
+    let autoScrollInterval;
+
+    // Create nav dots dynamically
+    sections.forEach((_, i) => {
+      const dot = document.createElement("button");
+      dot.addEventListener("click", () => {
+        scrollToSection(i);
+        stopAutoScroll();
+        startAutoScroll();
+      });
+      navDotsContainer.appendChild(dot);
+    });
+    const dots = navDotsContainer.querySelectorAll("button");
+
+    function updateActiveDot(index) {
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === index);
+      });
+    }
+
+    function scrollToSection(index) {
+      if (index >= sections.length) index = 0;
+      if (index < 0) index = sections.length - 1;
+      currentIndex = index;
+      sections[index].scrollIntoView({ behavior: "smooth" });
+      updateActiveDot(currentIndex);
+    }
+
+    function startAutoScroll() {
+      stopAutoScroll();
+      autoScrollInterval = setInterval(() => {
+        scrollToSection(currentIndex + 1);
+      }, 5000); // 5s per section (adjust if you want faster/slower)
+    }
+
+    function stopAutoScroll() {
+      if (autoScrollInterval) clearInterval(autoScrollInterval);
+    }
+
+    // Start auto-scroll
+    startAutoScroll();
+    updateActiveDot(currentIndex);
+
+    // Pause auto-scroll when user manually scrolls
+    let scrollTimeout;
+    container.addEventListener("scroll", () => {
+      stopAutoScroll();
+      clearTimeout(scrollTimeout);
+
+      // Find the closest section to viewport
+      let closestIndex = 0;
+      let minDistance = Infinity;
+      sections.forEach((section, i) => {
+        const rect = section.getBoundingClientRect();
+        const distance = Math.abs(rect.top);
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestIndex = i;
+        }
+      });
+      currentIndex = closestIndex;
+      updateActiveDot(currentIndex);
+
+      // Restart auto-scroll after 4s
+      scrollTimeout = setTimeout(() => {
+        startAutoScroll();
+      }, 4000);
+    });
+  </script>
+</body>
+</html>
