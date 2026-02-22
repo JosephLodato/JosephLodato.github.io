@@ -1,0 +1,64 @@
+:root{
+  --bg: #27364d;
+  /* --bg: linear-gradient(to bottom right, #2f4580, #27364d); */
+  --text: #f5f5f5;
+  --accent: #38bdf8;
+  --accent-hover: #0ea5e9;
+  --profile-start: #0f172a;
+  --profile-end: #1e293b;
+  --muted: #94a3b8;
+  --panel: #070816;
+}
+
+/* Page background & text */
+body, html {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Navbar / left profile styling */
+.navbar, .profile {
+  /* background: #2f4580; */
+  /* background: radial-gradient(to bottom, #2f4580, #27364d); */
+  background: linear-gradient(to bottom, #2f4580, #27364d);
+  /* background: linear-gradient(to bottom right, var(--profile-start), var(--profile-end)); */
+  color: var(--text);
+  border: 1px solid #2f4580;
+}
+
+.navbar a, .dropdown .dropbtn, .profile a, .profile h1, .profile h2, .profile p {
+  color: var(--text);
+}
+
+.navbar a:hover,
+.dropdown:hover .dropbtn {
+  background: rgba(255,255,255,0.02);
+  color: var(--accent);
+}
+
+/* Dropdown adjustments (dark) */
+.dropdown-content {
+  background-color: var(--profile-start);
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+.dropdown-content a { color: var(--text); }
+.dropdown-content a:hover { background-color: rgba(255,255,255,0.02); }
+
+/* Links / buttons */
+a.view-link, .contact-btn, .overlay a {
+  background: var(--accent);
+  color: #0f172a;
+}
+a.view-link:hover, .contact-btn:hover, .overlay a:hover { background: var(--accent-hover); color: #fff; }
+
+/* Footer */
+footer { background: linear-gradient(to right, var(--profile-start), var(--profile-end)); color: var(--text); }
+
+/* Modal adjustments */
+.modal { background-color: rgba(0,0,0,0.9); }
+.modal .close { color: #fff; }
+#caption { color: #cbd5e1; }
+
+/* Small utility */
+.muted { color: var(--muted); }

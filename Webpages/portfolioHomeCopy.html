@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Photography Portfolios</title>
   <link rel="stylesheet" href="portfolio.css">
+  <link rel="stylesheet" href="Portfolios/theme.css">
+
+    
   <style>
     body {
       margin: 0;
@@ -26,7 +29,7 @@
     /* Left profile panel (always fixed, no scroll) */
     .profile {
       flex: 0 0 35%;
-      background: linear-gradient(to bottom right, #0f172a, #1e293b);
+      background: linear-gradient(to bottom right, #8a94ad, #5b6170);
       color: #fff;
       display: flex;
       flex-direction: column;
@@ -35,18 +38,20 @@
       padding: 2rem;
       box-sizing: border-box;
       overflow: hidden; /* stays fixed */
-    }
+    } 
 
     .profile h1 {
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
+      color: #ffffff;
+
     }
 
     .profile h2 {
       font-size: 1.5rem;
       font-weight: 600;
       margin: 0.5rem 0 1.5rem;
-      color: #94a3b8;
+      color: #ffffff;
     }
 
     .profile h3 {
@@ -54,13 +59,13 @@
       font-size: 1.5rem;
       font-weight: 600;
       margin: 1.5rem 0 0.5rem;
-      color: #94a3b8;
+      color: #ffffff;
     }
 
     .profile p {
       font-size: 1rem;
       line-height: 1.6;
-      color: #cbd5e1;
+      color: #ffffff;
       margin: 1rem 0;
     }
 
@@ -191,10 +196,13 @@
   <div class="split-layout">
     <!-- Left profile panel -->
     <div class="profile">
+      <b>
       <h1>Joseph Lodato Photography</h1>
+      
       <p> I'm a US photographer based primarily in Maine. I specialize in Astrophotography,
         but my portfolio also includes landscapes and action photography.
       </p>
+      
 
       <h3>Portfolio</h3>
       <p> Explore a few of my collections on the right. Scroll or let the slideshow guide you,
@@ -204,6 +212,7 @@
       <h3>Contact</h3>
       <p> Want to get in contact with me about my photography? </p>
       <button class="contact-btn" onclick="window.location='mailto:jalodato@syr.edu'">Get in Touch</button>
+      </b>
     </div>
 
     <!-- Right scrollable portfolio -->
@@ -273,7 +282,7 @@
       stopAutoScroll();
       autoScrollInterval = setInterval(() => {
         scrollToSection(currentIndex + 1);
-      }, 5000); // 5s per section (adjust if you want faster/slower)
+      }, 2000); // 2s per section (adjust if you want faster/slower)
     }
 
     function stopAutoScroll() {
@@ -304,10 +313,10 @@
       currentIndex = closestIndex;
       updateActiveDot(currentIndex);
 
-      // Restart auto-scroll after 4s
+      // Restart auto-scroll after 2s
       scrollTimeout = setTimeout(() => {
         startAutoScroll();
-      }, 4000);
+      }, 2000);
     });
   </script>
 </body>

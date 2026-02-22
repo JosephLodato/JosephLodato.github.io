@@ -1,707 +1,1510 @@
-﻿<!DOCTYPE html>
-<html>
-<link rel="stylesheet" href="index.css">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joseph Lodato</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #0d0d0f;
+            --bg-2: #131316;
+            --bg-3: #1a1a1f;
+            --border: rgba(255, 255, 255, 0.07);
+            --text: #c8c8d0;
+            --text-dim: #6b6b7a;
+            --white: #f0f0f4;
+            --accent: #e8572a;
+            --accent-2: #ff7a50;
+            --font-body: 'DM Sans', sans-serif;
+            --font-mono: 'DM Mono', monospace;
+            --font-display: 'Playfair Display', serif;
+            --nav-h: 64px;
+            --max-w: 1100px;
+            --radius: 10px;
+            --transition: 0.25s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text);
+            font-size: 16px;
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+
+        a:hover {
+            color: var(--accent-2);
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            height: var(--nav-h);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            background: rgba(13, 13, 15, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            transition: background 0.3s ease;
+        }
+
+        .nav-logo {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--white);
+            letter-spacing: 0.05em;
+        }
+
+        .nav-logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            transition: color var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        .nav-resume {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent) !important;
+            border: 1px solid var(--accent);
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            transition: background var(--transition), color var(--transition) !important;
+        }
+
+        .nav-resume:hover {
+            background: var(--accent) !important;
+            color: #fff !important;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: var(--nav-h);
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                background: var(--bg-2);
+                border-bottom: 1px solid var(--border);
+                padding: 1rem 0;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 0.75rem 2rem;
+                width: 100%;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url("/media/Photography/Traditional/Landsacpes and Animals/Landscapes/IMG_3721.jpg");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            filter: brightness(0.75);
+            transform: scale(1.03);
+            transition: transform 8s ease;
+        }
+
+        .hero:hover .hero-bg {
+            transform: scale(1.0);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, transparent 40%, rgba(13, 13, 15, 0.7) 100%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            padding: 0 1.5rem;
+            animation: fadeUp 1s ease both;
+            /* push content up slightly so scroll arrow sits near very bottom */
+            margin-bottom: 80px;
+        }
+
+        .hero-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.2rem;
+            opacity: 0.9;
+            font-weight: bold;
+        }
+
+        .hero-name {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 400;
+            color: var(--white);
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-titles {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-tag {
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            color: var(--text-dim);
+            border: 1px solid var(--border);
+            padding: 0.35rem 1rem;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        /* SCROLL BUTTON — larger, higher contrast, pinned to bottom of hero */
+        .hero-scroll-row {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 0;
+            right: 0;
+            z-index: 3;
+            display: flex;
+            justify-content: center;
+            animation: fadeUp 1s 0.4s ease both;
+        }
+
+        .hero-scroll {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--white);
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: color var(--transition), border-color var(--transition);
+            background: rgba(13, 13, 15, 0.55);
+            border: 1px solid rgba(232, 87, 42, 0.6);
+            padding: 0.7rem 1.5rem;
+            border-radius: 100px;
+            backdrop-filter: blur(6px);
+        }
+
+        .hero-scroll:hover {
+            color: var(--accent-2);
+            border-color: var(--accent-2);
+        }
+
+        .hero-scroll svg {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(6px);
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* SECTION LAYOUT */
+        section {
+            padding: 6rem 1.5rem;
+        }
+
+        .container {
+            max-width: var(--max-w);
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 400;
+            color: var(--white);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .divider {
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
+            margin-bottom: 2.5rem;
+            border-radius: 2px;
+        }
+
+        /* ABOUT */
+        #about {
+            background: var(--bg);
+        }
+
+        .about-text p {
+            color: var(--text);
+            font-size: 1.05rem;
+            line-height: 1.85;
+            margin-bottom: 1rem;
+        }
+
+        /* LINKS */
+        #links {
+            background: var(--bg-2);
+            padding: 5rem 1.5rem;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .link-card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            background: var(--bg-3);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: border-color var(--transition), transform var(--transition);
+        }
+
+        .link-card:hover {
+            border-color: rgba(232, 87, 42, 0.4);
+            transform: translateY(-3px);
+        }
+
+        /* Link card icons — SVG-based replacements for emoji */
+        .link-card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            background: rgba(232, 87, 42, 0.1);
+            border: 1px solid rgba(232, 87, 42, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+        }
+
+        .link-card-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--accent);
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .link-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--white);
+        }
+
+        .link-card p {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            flex: 1;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 0.65rem 1.4rem;
+            border-radius: 6px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            background: transparent;
+            cursor: pointer;
+            transition: background var(--transition), color var(--transition);
+            text-decoration: none;
+            align-self: flex-start;
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .btn-wip {
+            border-color: var(--border);
+            color: var(--text-dim);
+        }
+
+        .btn-wip:hover {
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        @media (max-width: 640px) {
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* EDUCATION & EXPERIENCE — tighter spacing between sections */
+        #education {
+            background: var(--bg);
+            padding: 6rem 1.5rem 2rem;
+        }
+
+        #experience {
+            background: var(--bg);
+            padding: 2rem 1.5rem 6rem;
+        }
+
+        .timeline {
+            margin-bottom: 3.5rem;
+        }
+
+        .timeline-section-title {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Education sub-section headers */
+        .edu-subsection {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin: 2rem 0 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .edu-subsection::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .timeline-meta {
+            padding-top: 0.15rem;
+        }
+
+        .timeline-date {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            letter-spacing: 0.05em;
+            margin-bottom: 0.4rem;
+        }
+
+        .timeline-org {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 0.85rem;
+        }
+
+        .timeline-body h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.4rem;
+            letter-spacing: 0;
+            text-transform: none;
+        }
+
+        .timeline-body p {
+            font-size: 0.92rem;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+        }
+
+        .bullet-list {
+            padding-left: 0;
+        }
+
+        .bullet-list li {
+            font-size: 0.88rem;
+            color: var(--text-dim);
+            padding: 0.25rem 0 0.25rem 1.2rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .bullet-list li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 0.7rem;
+            top: 0.38rem;
+        }
+
+        .timeline-placeholder {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            font-style: italic;
+            border: 1px dashed var(--border);
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            margin-top: 0.4rem;
+        }
+
+        @media (max-width: 640px) {
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+        }
+
+        /* PROJECTS */
+        #projects {
+            background: var(--bg-2);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            justify-items: center;
+        }
+
+        /* Center any orphaned cards in the last row */
+        .project-card:nth-last-child(1):nth-child(3n+1) {
+            grid-column: 2;
+        }
+
+        .project-card:nth-last-child(2):nth-child(3n+1) {
+            grid-column: 1;
+        }
+
+        .project-card:nth-last-child(1):nth-child(3n+2),
+        .project-card:nth-last-child(2):nth-child(3n+2) {
+            /* 2 left in last row */
+        }
+
+        /* For 2 cards in last row of 3-col grid: use subgrid trick via wrapping */
+        .project-grid-inner-last {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            gap: 1.25rem;
+        }
+
+        .project-grid-inner-last .project-card {
+            width: calc((100% - 1.25rem) / 3);
+            max-width: 380px;
+        }
+
+        .project-card {
+            width: 100%;
+            background: var(--bg-3);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            cursor: pointer;
+            transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+        }
+
+        .project-card:hover {
+            border-color: rgba(232, 87, 42, 0.35);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            filter: brightness(0.85) saturate(0.9);
+            transition: filter var(--transition);
+        }
+
+        .project-card:hover .project-card-img {
+            filter: brightness(0.95) saturate(1);
+        }
+
+        .project-card-body {
+            padding: 1.25rem 1.4rem 1.5rem;
+        }
+
+        .project-card-tag {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
+        }
+
+        .project-card-body h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.3rem;
+            letter-spacing: 0;
+            text-transform: none;
+        }
+
+        .project-card-body p {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        @media (max-width: 900px) {
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .project-card:nth-last-child(1):nth-child(3n+1) {
+                grid-column: auto;
+            }
+
+            .project-grid-inner-last .project-card {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-grid-inner-last {
+                flex-direction: column;
+            }
+
+            .project-grid-inner-last .project-card {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        /* MODALS */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background: rgba(0, 0, 0, 0.75);
+            overflow-y: auto;
+            backdrop-filter: blur(4px);
+            padding: 2rem 1rem;
+        }
+
+        .modal-content {
+            background: var(--bg-2);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            max-width: 780px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2.5rem;
+            position: relative;
+            animation: fadeUp 0.3s ease;
+        }
+
+        .modal-content h3 {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--white);
+            margin-bottom: 1rem;
+            letter-spacing: 0;
+            text-transform: none;
+        }
+
+        .modal-content h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin: 1.5rem 0 0.6rem;
+        }
+
+        .modal-content p {
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.8;
+            margin-bottom: 0.75rem;
+        }
+
+        .modal-content img {
+            width: 100%;
+            max-height: 65vh;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 1.25rem 0;
+        }
+
+        .modal-content li {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            padding: 0.3rem 0 0.3rem 1.2rem;
+            position: relative;
+            line-height: 1.65;
+        }
+
+        .modal-content li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 0.7rem;
+            top: 0.42rem;
+        }
+
+        .close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.5rem;
+            font-size: 1.4rem;
+            color: var(--text-dim);
+            cursor: pointer;
+            line-height: 1;
+            transition: color var(--transition);
+        }
+
+        .close:hover {
+            color: var(--white);
+        }
+
+        /* CONTACT */
+        #contact {
+            background: var(--bg);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-top: 2.5rem;
+        }
+
+        .contact-card {
+            background: var(--bg-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            text-align: center;
+            transition: border-color var(--transition), transform var(--transition);
+        }
+
+        .contact-card:hover {
+            border-color: rgba(232, 87, 42, 0.35);
+            transform: translateY(-3px);
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 1rem;
+            object-fit: contain;
+            filter: grayscale(1) brightness(1.4);
+            opacity: 0.7;
+        }
+
+        .contact-card h4 {
+            font-size: 0.75rem;
+            font-family: var(--font-mono);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        .contact-card a:hover {
+            color: var(--accent-2);
+        }
+
+        @media (max-width: 640px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 2rem 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            letter-spacing: 0.06em;
+        }
+
+        /* FADE IN */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 
-
-
 <body>
-  <!-- LANDING PAGE -->
-  <div class="bg">
 
-    <div class="caption">
-      <span class="border">Joseph Lodato</span>
-      <br>
-      <span class="border" style="font-size: 20px; "> <b>Computer Engineering Student </b></span>
-      <span class="border" style="font-size: 20px;"><br> <b>Photographer</b> </span>
+    <!-- NAV -->
+    <nav>
+        <div class="nav-logo"> <a href="#home">Home</a> </div>
+        <div class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="#about" onclick="closeNav()">About</a>
+            <a href="#education" onclick="closeNav()">Education</a>
+            <a href="#experience" onclick="closeNav()">Experience</a>
+            <a href="#projects" onclick="closeNav()">Projects</a>
+            <a href="#contact" onclick="closeNav()">Contact</a>
+            <a href="/media/Joseph Lodato Resume 2025-26.pdf" download class="nav-resume">Resume ↓</a>
+        </div>
+    </nav>
 
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-eyebrow">Computer Engineering · Syracuse University</div>
+            <h1 class="hero-name">Joseph Lodato</h1>
+            <div class="hero-titles"></div>
+        </div>
+        <!-- Scroll button pinned to bottom of hero, higher contrast -->
+        <div class="hero-scroll-row">
+
+            <a href="#about" class="hero-scroll">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <polyline points="19 12 12 19 5 12" />
+                </svg>
+                Scroll
+            </a>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="container">
+            <div class="fade-in">
+                <div class="section-label">Introduction</div>
+                <h2 class="section-title">About Me</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="about-text fade-in">
+                <p>Hello! I am Joseph Lodato, a full-time student at Syracuse University. During the 2025/2026
+                    school year I am in my senior year pursuing a BS in Computer Engineering with a minor in
+                    Physics, holding a cumulative GPA of 3.6.</p>
+                <p>I am involved in multiple organizations on campus, with my primary one being <strong
+                        style="color:var(--white)">Citrus Racing</strong> — SU's premier Formula SAE motorsports
+                    design and build team — where I serve as Chief Engineer and lead EV Development.</p>
+                <p>Outside of engineering I fill my free time with photography of all kinds. I focus particularly on
+                    <strong style="color:var(--white)">astrophotography</strong>, capturing deep sky objects like
+                    nebulae, supernovae, and distant galaxies — along with traditional landscape and wildlife
+                    photography.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUICK LINKS -->
+    <div id="links" style="background: var(--bg-2); padding: 5rem 1.5rem;">
+        <div class="container">
+            <div class="links-grid">
+                <div class="link-card fade-in">
+                    <!-- Resume icon: document with lines -->
+                    <div class="link-card-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                            <line x1="16" y1="13" x2="8" y2="13" />
+                            <line x1="16" y1="17" x2="8" y2="17" />
+                            <polyline points="10 9 9 9 8 9" />
+                        </svg>
+                    </div>
+                    <h3>Academic Resume</h3>
+                    <p>Download my current resume below.</p>
+                    <a href="/media/Joseph Lodato Resume 2025-26.pdf" download class="btn">Download Resume</a>
+                </div>
+                <div class="link-card fade-in">
+                    <!-- Camera icon -->
+                    <div class="link-card-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                            <circle cx="12" cy="13" r="4" />
+                        </svg>
+                    </div>
+                    <h3>Photography Gallery</h3>
+                    <p>Explore my astrophotography and traditional photography portfolio. <em
+                            style="color:var(--text-dim)">(Work in progress)</em></p>
+                    <!-- <a href="/media/Joseph Lodato Resume 2025-26.pdf" download class="btn">Download Resume</a> -->
+                    <a href="/Webpages/portfolioHome.html" class="btn">View Gallery →</a>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="lowerCaption">
-      <a href="#About">
+    <!-- EDUCATION -->
+    <section id="education">
+        <div class="container">
+            <div class="fade-in">
+                <div class="section-label">Background</div>
+                <h2 class="section-title">Education</h2>
+                <div class="divider"></div>
+            </div>
 
-        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 20 20">
-          <path fill="#FFFF"
-            d="M10,0 C15.5228475,0 20,4.4771525 20,10 C20,15.5228475 15.5228475,20 10,20 C4.4771525,20 0,15.5228475 0,10 C0,4.4771525 4.4771525,0 10,0 Z M6.58558122,7.63613812 C6.31846398,7.37072496 5.8867628,7.3721064 5.62134964,7.63922364 C5.35593648,7.90634088 5.35731792,8.33804207 5.62443516,8.60345522 L5.62443516,8.60345522 L9.51942697,12.4735988 C9.78350334,12.7359904 10.2092302,12.7380608 10.4758462,12.47825 L10.4758462,12.47825 L14.4473588,8.60810648 C14.7170449,8.3453039 14.7226251,7.91363658 14.4598225,7.64395051 C14.1970199,7.37426445 13.7653526,7.36868429 13.4956665,7.63148686 L13.4956665,7.63148686 L10.0046519,11.0333966 Z" />
-        </svg>
+            <div class="timeline fade-in">
 
-      </a>
+                <!-- Master's -->
+                <div class="edu-subsection">Master's</div>
+                <div class="timeline-item">
+                    <div class="timeline-meta">
+                        <div class="timeline-date">2026 – 2027</div>
+                        <div class="timeline-org">Syracuse University</div>
+                    </div>
+                    <div class="timeline-body">
+                        <h4>[Upcoming] MS Computer Engineering</h4>
+                        <p> Part of the BS/MS 4+1 program. A one-year accelerated master's program at Syracuse
+                            University College of Engineering and Computer Science.</p>
+                    </div>
+                </div>
+
+                <!-- Undergraduate -->
+                <div class="edu-subsection">Undergraduate</div>
+                <div class="timeline-item">
+                    <div class="timeline-meta">
+                        <div class="timeline-date">2022 – 2026</div>
+                        <div class="timeline-org">Syracuse University</div>
+                    </div>
+                    <div class="timeline-body">
+                        <h4>BS Computer Engineering · Minor in Physics</h4>
+                        <p>College of Engineering and Computer Science. Senior year 2025/2026. Cumulative GPA: 3.6.</p>
+                    </div>
+                </div>
+
+                <!-- High School -->
+                <div class="edu-subsection">High School</div>
+                <div class="timeline-item">
+                    <div class="timeline-meta">
+                        <div class="timeline-date">Graduated 2022</div>
+                        <div class="timeline-org">Freeport High School</div>
+                    </div>
+                    <div class="timeline-body">
+                        <h4>Graduated with Honors</h4>
+                        <ul class="bullet-list">
+                            <li>Built an automated sawdust collection system for the school's woodworking/STEM workshop
+                                as a senior project.</li>
+                            <li>Co-founded the school programming club, teaching students of all skill levels the
+                                fundamentals of computer programming.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+        <div class="container">
+            <div class="fade-in">
+                <div class="section-label">Background</div>
+                <h2 class="section-title">Experience</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="timeline fade-in">
+                <div class="timeline-section-title">Work Experience</div>
+
+
+
+                <div class="timeline-item">
+                    <div class="timeline-meta">
+                        <div class="timeline-date">May 2025 – Sep 2025</div>
+                        <div class="timeline-org">AEC Engineering</div>
+                    </div>
+                    <div class="timeline-body">
+                        <h4>Control Panel Technician</h4>
+                        <ul class="bullet-list">
+                            <li>Designed, built, and tested fully custom control panels for industrial and municipal use
+                                alongside a team of technicians and engineers.</li>
+                            <li>Performed full methodical panel ringouts, functional testing, and PLC logic testing.
+                            </li>
+                            <li>Fabricated panels to UL508A standards including component/enclosure wiring and enclosure
+                                fabrication.</li>
+                            <li>Improved shop efficiency by creating frameworks for weight-based inventory systems for
+                                components and wire spools.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Machine Shop — blank slate for Joseph to fill in -->
+                <div class="timeline-item">
+                    <div class="timeline-meta">
+                        <div class="timeline-date">Aug 2023 – Current</div>
+                        <div class="timeline-org">Syracuse University Machine Shop</div>
+                    </div>
+                    <div class="timeline-body">
+                        <h4>Student Machine Shop Employee</h4>
+                        <ul class="bullet-list">
+                            <li>Assist students in the machine shop with various tasks and projects for both classes and
+                                personal projects.</li>
+                            <li>Ensure the safety and proper functioning of the machine shop.</li>
+                            <li>Operate various machines ranging from lathes to mills to 3D printers.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-meta">
+                        <div class="timeline-date">Sep 2020 – Jan 2021</div>
+                        <div class="timeline-org">RSU 5 / Freeport HS</div>
+                    </div>
+                    <div class="timeline-body">
+                        <h4>IT Coordinator</h4>
+                        <ul class="bullet-list">
+                            <li>Prepared and deployed over 250 devices (iPads and Chromebooks) across 4 schools to meet
+                                increased technology demand during the COVID-19 pandemic.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-meta">
+                        <div class="timeline-date">Jun 2019 – Aug 2023</div>
+                        <div class="timeline-org">Strouts Point Wharf Co.</div>
+                    </div>
+                    <div class="timeline-body">
+                        <h4>Dockstaff</h4>
+                        <ul class="bullet-list">
+                            <li>Oversaw and led a team of ~8 dock staff while performing customer-facing duties.</li>
+                            <li>Performed preventive maintenance and safety inspections on docks.</li>
+                            <li>Coordinated dock space availability with mechanics, improving workplace efficiency.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <div class="container">
+            <div class="fade-in">
+                <div class="section-label">Portfolio</div>
+                <h2 class="section-title">Projects</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="project-grid">
+
+                <div class="project-card fade-in" onclick="openModal('citrus')">
+                    <img class="project-card-img" src="/media/Citrus Racing/IMG_0953.jpg" alt="Citrus Racing">
+                    <div class="project-card-body">
+                        <div class="project-card-tag">Formula SAE</div>
+                        <h4>Citrus Racing</h4>
+                        <p>Chief Engineer & EV Development lead for SU's motorsports team.</p>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" onclick="openModal('juniorDesign')">
+                    <img class="project-card-img" src="/media/Projects/JuniorDeisgnMachine.jpg"
+                        alt="Smart Copy Machine">
+                    <div class="project-card-body">
+                        <div class="project-card-tag">Robotics · Computer Vision</div>
+                        <h4>Smart Copy Machine</h4>
+                        <p>Gantry-style pen plotter that scans and replicates hand-drawn images using a Raspberry Pi and
+                            CV.</p>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" onclick="openModal('alfred')">
+                    <img class="project-card-img" src="/media/Projects/AlfredDesk.jpg" alt="Alfred Robot">
+                    <div class="project-card-body">
+                        <div class="project-card-tag">Robotics · ROS 2</div>
+                        <h4>Search & Rescue Robot — "Alfred"</h4>
+                        <p>Autonomous navigation and object retrieval using ROS 2 Iron and AprilTag localization.</p>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" onclick="openModal('keyboard')">
+                    <img class="project-card-img" src="/media/Projects/keyboardCAD.png" alt="Custom Keyboard">
+                    <div class="project-card-body">
+                        <div class="project-card-tag">PCB Design · KiCad</div>
+                        <h4>Custom Keyboard PCB</h4>
+                        <p>Fully custom 70% mechanical keyboard with USB-C, Bluetooth, rotary encoders, and OLED.</p>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" onclick="openModal('phy490')">
+                    <img class="project-card-img" src="/media/Projects/DiffractionSpikes.jpg" alt="Aperture Analysis">
+                    <div class="project-card-body">
+                        <div class="project-card-tag">C++ · FFT · Computational Physics</div>
+                        <h4>"Aperture Analysis"</h4>
+                        <p>Reconstructing telescope aperture geometry from stellar diffraction spikes using custom FFT.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" onclick="openModal('celestial')">
+                    <img class="project-card-img" src="/media/Projects/CelestialVeil.png" alt="Celestial Veil">
+                    <div class="project-card-body">
+                        <div class="project-card-tag">Unity · C# · N-Body Simulation</div>
+                        <h4>Celestial Veil</h4>
+                        <p>Physically accurate orbital simulation built in Unity using Newton's law of universal
+                            gravitation.</p>
+                    </div>
+                </div>
+
+                <!-- Last row: 2 cards centered using a flex wrapper spanning full grid width -->
+                <div class="project-grid-inner-last">
+                    <div class="project-card fade-in" onclick="openModal('website')">
+                        <img class="project-card-img" src="/media/Projects/WebsiteCover.png" alt="Personal Website">
+                        <div class="project-card-body">
+                            <div class="project-card-tag">HTML · CSS · JavaScript</div>
+                            <h4>Personal Website</h4>
+                            <p>This site — designed and built from scratch to showcase professional and photography
+                                work.</p>
+                        </div>
+                    </div>
+                    <div class="project-card fade-in" onclick="openModal('tylerTech')">
+                        <img class="project-card-img" src="/media/Projects/MaineAppChallenge.png" alt="App Challenge">
+                        <div class="project-card-body">
+                            <div class="project-card-tag">JavaScript · App Development</div>
+                            <h4>Maine App Challenge</h4>
+                            <p>Top 10 finishes in 2021 and 2022 in the Tyler Technologies statewide competition.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MODALS -->
+    <div id="modal-citrus" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('citrus')">&times;</span>
+            <h3>Citrus Racing (Formula SAE)</h3>
+            <p>As a part of this team I have assisted in the design, construction, and racing of fully custom
+                open-wheeled single-seat race cars for the Formula SAE series representing Syracuse University in the
+                ~120-team competition held at Michigan International Speedway each spring.</p>
+            <img src="/media/Citrus Racing/IMG_0677.jpg" alt="Car">
+            <h4>Chief Engineer</h4>
+            <ul>
+                <li>Oversee all technical aspects including design, construction, and operation of the car.</li>
+                <li>Provide top-down technical leadership ensuring all subteams develop components that work effectively
+                    together.</li>
+                <li>Ensure the entire vehicle is designed and built to the rules of the Formula SAE series.</li>
+            </ul>
+            <h4>Head of EV Development</h4>
+            <ul>
+                <li>Lead a team developing the first fully electric racing vehicle for Citrus Racing — including battery
+                    pack, motor/motor controller, and other electrical systems.</li>
+                <li>Developed fully custom software to read sensors and control the vehicle's motors for optimal
+                    performance.</li>
+            </ul>
+            <h4>President</h4>
+            <ul>
+                <li>Managed team budget including parts and material orders with the University.</li>
+                <li>Secured funding and technical support from sponsors.</li>
+                <li>Organized efforts across multiple subteams for efficient design and construction.</li>
+            </ul>
+            <h4>Lead of Electronics</h4>
+            <ul>
+                <li>Led design, testing, and implementation of all electrical components including fully custom car
+                    wiring harnesses and engine control software.</li>
+                <li>Used Motec M1 Tune/Build and KiCad to design and improve electrical control systems.</li>
+                <li>Analyzed recorded test data with team leads to suggest improvements for car design.</li>
+            </ul>
+            <img src="/media/Citrus Racing/IMG_0287.jpg" alt="Wiring Harness">
+            <p style="font-size:0.8rem;color:var(--text-dim);font-style:italic;">Custom wire harness before heatshrink
+                and connectors — over 120 individual wires when completed.</p>
+        </div>
     </div>
 
-  </div>
-
-
-  <!-- ABOUT PAGE -->
-  <section id="About">
-    <br>
-    <div class="about">
-      <h3>About Me</h3>
-      <p>
-        Hello! I am Joseph Lodato, a full-time student at Syracuse University. During the 2025/2026 school year, I will
-        be in my senior year pursuing a BS in Computer Engineering as well as a minor in Physics. I am involved in
-        multiple organizations on campus
-        with my primary one being Citrus Racing, SU's premier motorsports design and build team, which I am the Chief
-        Engineer of (more
-        about my
-        activities and projects below).
-        <br>
-        I fill my free time with photography of all kinds, while I focus on photographing deep sky objects
-        (DSOs) like nebulae, supernovae, and other
-        galaxies through my astrophotography; you will also find traditional photography in my gallery located below.
-      </p>
-
-
-
-    </div>
-    <br>
-  </section>
-
-
-  <!-- LINK TO RESUME -->
-  <div id='parent_div_1'>
-    <h2 style="text-align: center;">You can find my academic portfolio by scrolling down:</h2>
-    <h2 style="text-align: center;">You can download my resume from here!</h2>
-
-    <!-- <div id="child_div" style="text-align: center;"> -->
-
-    <a href="/media/Joseph Lodato Resume 2025-26.pdf" download>
-      <button class="button button" style="font-size: 20px ;">
-        Download Resume
-      </button>
-    </a>
-
-    <!-- </div> -->
-
-  </div>
-
-  <!-- LINK TO PORTFOLIO -->
-  <div id='parent_div_2'>
-    <h2 style="text-align: center;">Check out my photography gallery here:</h2>
-    <h3 style="text-align: center;"> (Work in progress)</h3>
-    <div id="child_div" style="text-align: center;">
-      <a href="/test.html"> Photography Portfolio <img src="/media/Photography/Astro/IMG_9141.JPG"
-          style="text-align: center;">
-      </a>
+    <div id="modal-juniorDesign" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('juniorDesign')">&times;</span>
+            <h3>Smart Copy Machine</h3>
+            <p>Designed and built a gantry-style pen plotter utilizing stepper motors, driver chips, cameras, and
+                computer vision running on a Raspberry Pi 4B+ to scan and replicate hand-drawn images by processing them
+                into coordinate-based motor commands.</p>
+            <img src="/media/Projects/JuniorDesignDemoTable.jpg" alt="Junior Design">
+            <h4>Hardware Overview</h4>
+            <p>Three axes: X and Y control pen motion via belt-driven stepper motors on linear rails; Z controls the
+                draw plate height via dual screw-driven stepper motors.</p>
+            <h4>Software Overview</h4>
+            <p>A camera captures the user's drawing, which is processed and skeletonized into contours, then converted
+                into XY motor coordinates. Bresenham's algorithm handles smooth diagonal movements, with breakpoints for
+                disconnected lines. Coordinates are translated to GPIO pulses driving MP6500 Driver Chips.</p>
+        </div>
     </div>
 
-  </div>
-  <div class="spacer"></div>
-
-
-  <!-- RESUME SECTION -->
-  <!-- WHITE BACKGROUND -->
-  <section id="resume">
-    <div class="resumeBG">
-
-      <div class="resume">
-
-        <!-- EDUCATION SECTION -->
-        <!-- Quick overview of my past and current education -->
-        <section id="education">
-          <br>
-          <h4>Background Education:</h4>
-          <hr>
-
-
-
-          <h4 style="font: 400 20px/1.8 Lato, monospace; color: orangered;"> <b>Syracuse University - College of
-              Engineering
-              and Computer Science </b></h4>
-          <p style="width: 80%; margin: auto;">
-            Currently a Senior for the 2025/2026 school year studying for a BS in Computer Engineering and a minor in
-            Physics. With a current cumulative GPA of 3.6 across all classes taken
-          </p>
-
-
-          <h4 style="font: 400 20px/1.8 Lato, monospace; color: orangered;"> <b>Freeport High School </b></h4>
-          <p style="width: 80%; margin: auto;">
-            Graduated in the spring of 2022 with Honors. Created an automated sawdust collection system for the
-            school's woodworking/STEM
-            workshop as a senior project. Co-founded the school programming club, an after-school club aimed at teaching
-            people of all skill levels the basics of computer programming.
-          </p>
-
-        </section>
-
-
-        <!-- WORK Experience SECTION -->
-        <!-- States my past work experence as well as a summary of what I did -->
-        <section id="Work Experence">
-          <br>
-          <hr>
-          <h4>Work Experience: </h4>
-
-          <h4 style="font: 400 20px/1.8 Lato, monospace; color: orangered;"><b> AEC Engineering </b></h4>
-
-          <p style="font-size: 17px;float: right;"> May 2025 - Current</p>
-          <p style="font-size: 17px;float: left;"><b>Title: Panel Technician </b></p>
-          <br>
-          <br>
-
-          <li style="text-align: left;">Worked closely with a team of technicians and engineers to design, create,
-            and
-            test fully custom control panels for both industrial and municipal use.</li>
-          <li style="text-align: left;">Ensured panel function by going through various verification steps.
-            Including
-            full methodical panel ringouts, functional testing, PLC logic testing, etc.</li>
-          <li style="text-align: left;">Fabricated panels to UL508A standards, including component/enclosure
-            wiring
-            and
-            enclosure
-            fabrication. </li>
-          <li style="text-align: left;">Improved shop efficiency by creating frameworks for weight-based
-            inventory
-            systems, for components and wire spools. Allowing for streamlined inventory management and efficient
-            ordering
-            strategies.</li>
-
-
-
-          <h4 style="font: 400 20px/1.8 Lato, monospace; color: orangered;"><b> Strouts Point Wharf Company </b>
-          </h4>
-
-          <p style="font-size: 17px;float: right;"> June 2019 - Aug. 2023</p>
-          <p style="font-size: 17px;float: left;"><b>Title: Dockstaff </b></p>
-          <br>
-          <br>
-
-          <li style="text-align: left;">Oversaw and led a team of ~8 other dock staff while performing typical
-            duties,
-            such as assisting customers.</li>
-          <li style="text-align: left;">Performed preventive maintenance and inspections to docks to maintain
-            safety
-            for customers and boats.</li>
-          <li style="text-align: left;">Communicated with mechanics and other staff to coordinate dock space
-            availability including when boats would be moved for
-            maintenance leading to a more efficient workplace.</li>
-
-          <h4 style="font: 400 20px/1.8 Lato, monospace; color: orangered;"> <b>Regional School Unit 5 - Freeport
-              High
-              School</b></h4>
-          <p style="font-size: 17px;float: right;"> Sept. 2020 - Jan. 2021</p>
-          <p style="font-size: 17px;float: left;"><b>Title: IT Coordinator </b></p>
-          <br>
-          <br>
-
-          <li style="text-align: left;"> Prepared and deployed over 250 devices (including iPads and Chromebooks)
-            to
-            4
-            different nearby schools with the IT department
-            at Freeport High School to help ease the increased demand of technology during the COVID-19 Pandemic.
-
-        </section>
-
-
-        <!-- PROJECT CARD SECTION -->
-        <h4>Projects: </h4>
-
-        <section id="projects">
-          <h3>Projects</h3>
-          <div class="project-grid">
-
-            <div class="project-card" onclick="openModal('citrus')">
-              <img src="/media/Citrus Racing/IMG_0953.jpg" alt="Citrus Racing">
-              <h4>Citrus Racing (Formula SAE)</h4>
-              <p>Chief Engineer & EV Development</p>
-            </div>
-
-            <div class="project-card" onclick="openModal('juniorDesign')">
-              <img src="/media/Projects/JuniorDeisgnMachine.jpg" alt="juniorDesign">
-              <h4>Smart Copy Machine</h4>
-              <p>Junior design project</p>
-            </div>
-
-            <div class="project-card" onclick="openModal('alfred')">
-              <img src="/media/Projects/AlfredDesk.jpg" alt="Alfred">
-              <h4>Search and Rescue Robot</h4>
-              <p>"Alfred" the robot</p>
-            </div>
-
-            <div class="project-card" onclick="openModal('keyboard')">
-              <img src="/media/Projects/keyboardCAD.png" alt="keyboard">
-              <h4>Custom Keyboard PCB</h4>
-              <p>Personal Project</p>
-            </div>
-
-            <div class="project-card" onclick="openModal('phy490')">
-              <img src="/media/Projects/DiffractionSpikes.jpg" alt="Aperture Analysis">
-              <h4>"Aperture Analysis"</h4>
-              <p>Computational Physics Independent Study:</p>
-            </div>
-
-            <div class="project-card" onclick="openModal('celestial')">
-              <img src="/media/CelestialVeil.png" alt="Celestial Veil">
-              <h4>Celestial Veil</h4>
-              <p>Physically Accurate Orbital Simulation</p>
-            </div>
-
-            <div class="project-card" onclick="openModal('website')">
-              <img src="/media/Projects/WebsiteCover.png" alt="Website">
-              <h4>Personal Website</h4>
-              <p>HTML, CSS, and JavaScript</p>
-            </div>
-
-            <div class="project-card" onclick="openModal('tylerTech')">
-              <img src="/media/Projects/MaineAppChallenge.png" alt="App Challenge">
-              <h4>Tyler Technologies Maine App Challenge</h4>
-              <p>Top 10 Finishes in 2021 and 2022</p>
-            </div>
-
-            <!-- Add more cards here -->
-
-          </div>
-        </section>
-
-
-        <!-- PROJECT MODAL INFO SECTION -->
-        <section id="projectModals">
-          <!-- Citrus Racing Modal -->
-          <div id="modal-citrus" class="modal">
-            <div class="modal-content">
-              <span class="close" onclick="closeModal('citrus')">&times;</span>
-              <h3>Citrus Racing (Formula SAE)</h3>
-              <p>
-                As a part of this team, I have assisted in the design, construction, and racing of fully custom
-                open-wheeled
-                single-seat race cars
-                for the Formula SAE series representing Syracuse University in the ~120-team competition held at
-                Michigan
-                International Speedway each
-                spring. I formerly held the titles of Head of Electronics and President. I have since progressed
-                and
-                currently, I am the
-                Chief Engineer of the organization as well as the team's lead of EV Development.
-
-              </p>
-              <img src="/media/Citrus Racing/IMG_0677.jpg" alt="Car">
-
-              <h4>Chief Engineer of Citrus Racing</h4>
-              <li style="text-align: left;"> Oversee all technical aspects of the team including the design,
-                construction,
-                and
-                operation of the car.</li>
-              <li style="text-align: left;"> Provided top-down technical leadership to the team, ensuring all
-                subteams develop components separately in a way that work effectively when implemented together on the
-                car.</li>
-              <li style="text-align: left;"> Ensured the entire vehicle and all components are designed and built to the
-                rules of the
-                Formula SAE series.</li>
-
-
-              <h4>Head of EV Development</h4>
-              <li style="text-align: left;">Lead a team to develop the first fully electric racing vehicle for Citrus
-                Racing,
-                including the design and construction or selection of items such as the vehicle's battery pack,
-                motor/motor controller, and other
-                electrical systems.</li>
-              <li style="text-align: left;">Worked with the team to develop fully custom software to read sensors and
-                control the
-                vehicle's motors for optimal performance.</li>
-
-              <h4>President of Citrus Racing</h4>
-
-              <li style="text-align: left;">Worked with the University as a whole to manage the team budget including
-                managing all parts and material
-                orders needed for vehicle development.</li>
-              <li style="text-align: left;">Worked with sponsors to secure funding and support, both monetary and
-                technical</li>
-              <li style="text-align: left;">Organized efforts across multiple subteams allowing efficient design and
-                construction</li>
-
-              <h4>Lead of Electronics </h4>
-              <li style="text-align: left;">Led a team to design, test, and implement all electrical components needed
-                to
-                run Citrus Racing's racecar including fully custom car wiring harnesses as well as engine control
-                software.</li>
-              <li style="text-align: left;">Collaborated closely with other sub-teams to ensure all systems would work
-                well together.</li>
-              <li style="text-align: left;">Used various software systems such as Motec M1 Tune and M1 Build, as well
-                as software such as KiCad to design and improve electrical control systems and overall performance of
-                the
-                car.
-              </li>
-              <li style="text-align: left;">Worked with other team leads to analyze recorded test data to suggest
-                improvements for the car design.</li>
-              <p style="font-size: 12; font-style: italic;">Below is an image of the custom wire harness that my team
-                and
-                I designed and built, this is before any
-                heatshrink protection and connectors were added. It contained over 120 individual wires when completed!
-              </p>
-
-              <img src="/media/Citrus Racing/IMG_0287.jpg" alt="Wiring Harness">
-
-
-
-            </div>
-          </div>
-
-          <!-- Junior Design Modal -->
-          <div id="modal-juniorDesign" class="modal">
-            <div class="modal-content">
-              <span class="close" onclick="closeModal('juniorDesign')">&times;</span>
-              <h3>Smart Copy Machine</h3>
-              <p>
-                Designed & built a gantry-style pen plotter utilizing stepper motors, driver chips, cameras, and
-                computer vision all running or controlled with a Raspberry Pi 4B+ to scan and replicate hand drawn
-                images
-                by processing images into a series of
-                coordinate-based motor commands.
-              </p>
-
-              <img src="/media/Projects/JuniorDesignDemoTable.jpg" alt="juniorDesign">
-              <h4>Hardware Overview: </h4>
-              <p>
-                For the hardware side there are three axes to deal with. X and Y are the motion of the pen. While the Z
-                axis
-                is
-                the up and down motion of the draw plate (whiteboard).
-                The X and Y axes have one stepper motor per axis that is connected via belt to a carriage allowing it to
-                move along linear rails.
-                The Z axis is controlled by two stepper motors that raise and lower via a screw mechanism.
-              </p>
-              <h4>Software Overview: </h4>
-              <p>
-                When the user is done drawing their image, the camera captures a frame that begins the image processing
-                script. In this script the image runs through some basic image processing and is skeletonized leaving
-                contours that get converted into XY coordinates for the motors to follow. We used Bresenham's algorithm
-                for smooth diagonal movements.
-
-                Once the coordinates are found they are put into a list creating a path that the pen can follow and
-                includes 'breakpoints' allowing for the pen needs to get picked up from the whiteboard if drawing
-                disconnected lines. These coordinates are turned into motor movement by pulsing GPIO pins sending step
-                counts and direction data to the MP6500 Driver Chips.
-              </p>
-            </div>
-          </div>
-
-          <!-- Alfred Modal -->
-          <div id="modal-alfred" class="modal">
-            <div class="modal-content">
-              <span class="close" onclick="closeModal('alfred')">&times;</span>
-              <h3>Search and Rescue Robot</h3>
-              <p>
-                The end goal of a robotics programming lab I took in the spring of 2025 was to program a search and
-                rescue
-                robot to autonomously navigate an unknown environment to find 'victims' (paper blocks), pick them up and
-                carry them back to the starting location. My team and I (myself and two others) lovingly named our robot
-                "Alfred". The core of Alfred is a Rock Pi running ROS 2 (Robot Operating System) Iron with additional
-                MCUs, Gyroscopes, a USB camera, two motors and wheels, a two-joint arm, etc.
-              </p>
-
-              <img src="/media/Projects/AlfredFace (1).jpg" alt="Alfred">
-
-              <h4>Key Features:</h4>
-              <li style="text-align: left;"><strong>Autonomous Navigation:</strong> Alfred's main feature is his ability
-                to navigate
-                through rooms, around desks, and through doors. This was done by creating and exporting a map of the
-                rooms he searched in Blender then placing AprilTags around the room for localization. A fixed search
-                path
-                was provided to Alfred to follow but if something was in the way, or if Alfred drifted off course
-                onboard
-                pathfinding systems would calculate a path for him. </li>
-
-              <li style="text-align: left;"><strong>'Victim' (Box) Detection and Retrieval:</strong> The boxes Alfred
-                was
-                searching for
-                had AprilTags on them allowing Alfred to find them with his camera. Once the box position pose is found,
-                Alfred postions himself in order to pick up the box with his arm.</li>
-
-              <li style="text-align: left;"><strong>Return to Home:</strong> After finding and picking up a box, Alfred
-                would use his
-                localization and path finding systems to return to his starting position, then drop off the box before
-                starting his search for a box again.</li>
-
-            </div>
-          </div>
-
-          <!-- Keyboard Modal -->
-          <div id="modal-keyboard" class="modal">
-            <div class="modal-content">
-              <span class="close" onclick="closeModal('keyboard')">&times;</span>
-              <h3>Custom Keyboard PCB</h3>
-              <p>
-                As a personal project, I designed and built a fully custom mechanical keyboard PCB using KiCad. The
-                keyboard was inspired by the "Nullbits NIBBLE" keyboard which I loved. A 65% keyboard kit they send you
-                to
-                solder and assemble yourself. After that keyboard eventually died due to a crack in the PCB that caused
-                a
-                trace to disconnect, I decided to design my own PCB from scratch with exactly all the features I wanted.
-                <br>
-                Some of the main features of this keyboard include both USB-C and Bluetooth connectivity, three fully
-                programmable rotary encoders, four programmable macros, and some other features all on a custom '70ish%'
-                layout I made
-                myself.
-              </p>
-
-              <img src="/media/Projects/keyboardPCB.png" alt="keyboard">
-
-              <h4>Key Features:</h4>
-              <li style="text-align: left;">
-                <strong>USB-C and Bluetooth Connectivity:</strong> The keyboard can be used wired with a USB-C cable or
-                wirelessly via
-                Bluetooth at the flick of a switch. Having Bluetooth connectivity means there is also a rechargeable
-                battery on the PCB which should provide up to 5 hours of battery life. Battery charging circuitry is
-                from
-                the MCU I chose, the Nice!Nano V2
-              </li>
-
-              <li style="text-align: left;">
-                <strong>Rotary Encoders and Macros:</strong> There are three rotary encoders on the left side keyboard.
-                I
-                plan on using one
-                for main volume control while the other two can be for volume control of specific apps. Four Macros are
-                found on the right side of the keyboard, and can be programmed to do anything via the keyboard firmware
-                I
-                am using, ZMK
-              </li>
-
-              <li style="text-align: left;">
-                <strong>Other Features: </strong>The keyboard also has RGB underglow lighting, a small programmable I2C
-                OLED screen to
-                display useful info. It also includes a TRRS port I can use to connect expansion boards in the future if
-                I
-                want to add more features (Like a dedicated numpad). The port has four conductors in it, two of which
-                are
-                for
-                i2c data, while the other two for 5V and GND lines.
-              </li>
-
-              <li style="text-align: left;">
-                <strong>MCU and Firmware: </strong>As mentioned the MCU I am using is the Nice!Nano V2, it allows for
-                seamless Bluetooth
-                and wired connection. For firmware I am using, ZMK, allows for full programmability of all keys and
-                features of the keyboard.
-              </li>
-
-            </div>
-          </div>
-
-          <!-- PHY490 Modal -->
-          <div id="modal-phy490" class="modal">
-            <div class="modal-content">
-              <span class="close" onclick="closeModal('phy490')">&times;</span>
-              <h3>"Aperture Analysis"</h3>
-              <p>
-                This was the capstone for my Computational Physics Independent Study, I did at Syracuse University in
-                the
-                fall of 2024. This project explored the relationship between diffraction spike patterns in stellar
-                images
-                and the shape of a telescope's mirror or lens aperture. The goal was to reconstruct the aperture
-                geometry
-                of an optical system by analyzing diffraction spikes in images of stars taken with that system.
-
-                The project involved developing a C++ program that used a custom Fast Fourier Transform (FFT) and
-                Inverse
-                FFT (IFFT) implementation to analyze the frequency components of the stellar images and to isolate the
-                diffraction spike patterns in the fequency domain. The program was then able to use the diffraction
-                spike angles to calculate and
-                reconstruct the aperture shape.
-              </p>
-
-              <img src="/media/indepententStudy.jpg" alt="Aperture Analysis">
-              <h4>Key Features:</h4>
-              <li style="text-align: left;"><strong>Custom FFT and IFFT Implementation:</strong> A custom Fast Fourier
-                Transform (FFT) and Inverse FFT (IFFT) algorithm was implemented in C++ to analyze the frequency
-                components of stellar images. This allowed for the isolation of diffraction spike patterns from the
-                images.
-
-              </li>
-              <li style="text-align: left;"><strong>Diffraction Spike Analysis:</strong> The program analyzed the angles
-                and intensities of the diffraction spikes in the stellar images. This data was used to infer the
-                geometry
-                of the telescope's aperture.
-              </li>
-              <li style="text-align: left;"><strong>Aperture Reconstruction/Visualization:</strong> Once the Aperture
-                was
-                reconstructed, the data was piped into a Python script where
-                it was visualized using Python's Matplotlib library to create a 2D representation of the aperture shape
-                to
-                display to the user.
-            </div>
-          </div>
-
-          <!-- Celestial Veil Modal -->
-          <div id="modal-celestial" class="modal">
-            <div class="modal-content">
-              <span class="close" onclick="closeModal('celestial')">&times;</span>
-              <h3>Celestial Veil</h3>
-              <p>Over the summer of 2024, I worked to refine my ability to tackle complex programming challenges.
-                Taking
-                inspiration from
-                Sebastian Lague and his solar system project in particular, I set off to recreate a physically
-                accurate
-                solar
-                system in the
-                Unity Game Engine using C#. This is part of a larger plan I have of developing and publishing a
-                video
-                game
-                named Celestial Veil
-                with this solar
-                system being the playable environment for it.</p>
-
-              <img src="/media/CelestialVeil.png" alt="Celestial Veil">
-
-              <h4>Physically Accurate Orbital Mechanics</h4>
-              <li style="text-align: left;">By far the biggest challenge was programming physically accurate orbits.
-                After
-                some research I was able to implement
-                a N-body Simulation in C#. This is done by applying forces to each orbital body based on Newton's law
-                of
-                universal gravitation.
-                This project taught me a lot about the limits of accuracy with computers as well as how to deal with
-                issues such as floating
-                point precision errors.</li>
-
-              <h4>Next up: Atmospheres</h4>
-              <li style="text-align: left;">With orbital mechanics added, I am now focusing on the simulation of
-                atmospheric effects for all of the
-                planets due to physically accurate atmospheric scattering. Updates will be coming soon!</li>
-            </div>
-
-
-          </div>
-
-          <!-- Website Modal -->
-          <div id="modal-website" class="modal">
-            <div class="modal-content">
-              <span class="close" onclick="closeModal('website')">&times;</span>
-              <h3>Personal Website</h3>
-              <p>This website is my first real attempt at making a website. Although for a class I took I learned how
-                to
-                write JavaScript code for the backend webserver to deal with connections through HTTPS with
-                multithreading, I had never
-                learned or applied much HTML and CSS to make webpages themselves.</p>
-
-              <img src="/media/Projects/WebsitePhotography.png" alt="Website">
-
-              <h4>Skills Learned</h4>
-              <li style="text-align: left;">This project taught me a lot about how to use HTML and CSS, along with
-                brushing off some JavaScript skills to create webpages to display both my professional and photography
-                portfolio.</li>
-              <!-- <li style="text-align: left;">I also learned how to use GitHub Pages to host this website, which is a great
-              way to host static websites for free!</li> -->
-            </div>
-          </div>
-
-          <!-- Maine App Challenge Modal -->
-          <div id="modal-tylerTech" class="modal">
-            <div class="modal-content">
-              <span class="close" onclick="closeModal('tylerTech')">&times;</span>
-              <h3>Tyler Technologies Maine App Challenge</h3>
-              <p>
-                Developed small prototype apps for a statewide high school competition (Tyler Technologies Maine App
-                Challenge), resulting in a top 10 finish two years in a row; 2021 and 2022.
-              </p>
-
-              <!-- <img src="/media/Projects/AppChallenge.png" alt="App Challenge"> -->
-              <h4>Apps Developed:</h4>
-              <li style="text-align: left;"><strong>2021 - "Color Palette Generator:"</strong> An app that allows users
-                to
-                generate color palettes based on a selected base color. The app generates different palettes and hues
-                that
-                work together for many different use cases. Built using JavaScript with the code.com App Lab.
-              </li>
-              <li style="text-align: left;"><strong>2022 - "Learn2Code"</strong> : An app that teaches users the basics
-                writing Python code with the use of tutorials and interactive coding challenges/projects to provide a
-                hands-on learning experience. Built using JavaScript with the code.com App Lab.
-              </li>
-            </div>
-          </div>
-
-        </section>
-
-      </div>
-  </section>
-
-  <!-- CONTACT SECTION -->
-  <section id="Contact">
-    <div class="about">
-      <h3>Contact:</h3>
-      <p>I'd love to connect with you!</p>
-
-      <div style="width: 33.3%; float: left;">
-        <a href="mailto:jalodato@syr.edu">
-          <img src="/media/Email Logo.png" style="width: 20%;">
-        </a>
-
-        <p>Email Me At:</p>
-        <a href="mailto:jalodato@syr.edu">
-          <p style="color: orangered;">jalodato@syr.edu</p>
-        </a>
-      </div>
-
-      <div style="width: 33.3%; float: left;">
-        <a href="https://github.com/JosephLodato">
-          <img src="/media/GitHub Logo.png" style="width: 20%;">
-        </a>
-        <p>Find My Code At:</p>
-        <p> <a href="https://github.com/JosephLodato"> GitHub.com/JosephLodato</a> </p>
-
-      </div>
-
-      <div style="width: 33.3%; float: left;">
-        <a href="https://www.linkedin.com/in/joseph-lodato-d64/">
-          <img src="/media/LinkedIn Logo.png" style="width: 20%;">
-        </a>
-        <p>Connect With Me At:</p>
-        <p> <a href="https://www.linkedin.com/in/joseph-lodato-d64/">LinkedIn Profile</a> </p>
-
-      </div>
+    <div id="modal-alfred" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('alfred')">&times;</span>
+            <h3>Search & Rescue Robot — "Alfred"</h3>
+            <p>The goal of a robotics programming lab I took in spring 2025: program a search and rescue robot to
+                autonomously navigate an unknown environment, find 'victims' (paper blocks), pick them up, and return
+                them to the start. Alfred is built on a Rock Pi running ROS 2 Iron with MCUs, gyroscopes, a USB camera,
+                two drive motors, and a two-joint arm.</p>
+            <img src="/media/Projects/AlfredFace (1).jpg" alt="Alfred">
+            <h4>Key Features</h4>
+            <ul>
+                <li><strong style="color:var(--white)">Autonomous Navigation:</strong> Map created in Blender with
+                    AprilTags for localization. A fixed search path is followed with onboard pathfinding for obstacle
+                    avoidance and drift correction.</li>
+                <li><strong style="color:var(--white)">Victim Detection & Retrieval:</strong> AprilTags on boxes enable
+                    camera-based detection. Alfred positions himself to pick up the box with his arm.</li>
+                <li><strong style="color:var(--white)">Return to Home:</strong> After retrieval, localization and
+                    pathfinding guide Alfred back to the start, where he drops off the box and resumes searching.</li>
+            </ul>
+        </div>
     </div>
 
+    <div id="modal-keyboard" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('keyboard')">&times;</span>
+            <h3>Custom Keyboard PCB</h3>
+            <p>Designed and built a fully custom mechanical keyboard PCB using KiCad, inspired by the Nullbits NIBBLE
+                kit. After my original keyboard died from a cracked PCB, I designed my own from scratch with every
+                feature I wanted — on a custom ~70% layout.</p>
+            <img src="/media/Projects/keyboardPCB.png" alt="Keyboard PCB">
+            <h4>Key Features</h4>
+            <ul>
+                <li><strong style="color:var(--white)">USB-C & Bluetooth:</strong> Wired or wireless via a toggle
+                    switch; onboard rechargeable battery with ~5 hours of life. MCU: Nice!Nano V2.</li>
+                <li><strong style="color:var(--white)">Rotary Encoders & Macros:</strong> Three programmable encoders
+                    for volume/app control; four programmable macro keys via ZMK firmware.</li>
+                <li><strong style="color:var(--white)">Other Features:</strong> RGB underglow, I2C OLED display, and a
+                    TRRS port for future expansion (e.g., dedicated numpad).</li>
+            </ul>
+        </div>
+    </div>
 
-    <br>
-    <br>
-  </section>
+    <div id="modal-phy490" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('phy490')">&times;</span>
+            <h3>"Aperture Analysis"</h3>
+            <p>Capstone for my Computational Physics Independent Study at Syracuse University, fall 2024. This project
+                explored reconstructing a telescope's aperture geometry by analyzing diffraction spike patterns in
+                stellar images. A C++ program using a custom FFT/IFFT implementation isolates diffraction spikes in the
+                frequency domain, then uses spike angles to reconstruct the aperture shape.</p>
+            <!-- <img src="/media/indepententStudy.jpg" alt="Aperture Analysis"> -->
+            <h4>Key Features</h4>
+            <ul>
+                <li><strong style="color:var(--white)">Custom FFT/IFFT:</strong> Fully custom implementation in C++ for
+                    frequency analysis and diffraction spike isolation.</li>
+                <li><strong style="color:var(--white)">Spike Analysis:</strong> Analyzed angles and intensities of
+                    diffraction spikes to infer aperture geometry.</li>
+                <li><strong style="color:var(--white)">Visualization:</strong> Data piped into Python/Matplotlib to
+                    render a 2D representation of the reconstructed aperture.</li>
+            </ul>
+        </div>
+    </div>
 
+    <div id="modal-celestial" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('celestial')">&times;</span>
+            <h3>Celestial Veil</h3>
+            <p>Over summer 2024, inspired by Sebastian Lague's solar system project, I built a physically accurate solar
+                system in Unity using C#. This is part of a larger plan for a video game named Celestial Veil, with this
+                simulation as the playable environment.</p>
+            <!-- <img src="/media/CelestialVeil.png" alt="Celestial Veil"> -->
+            <h4>Physically Accurate Orbital Mechanics</h4>
+            <ul>
+                <li>Implemented an N-body simulation in C# using Newton's law of universal gravitation to apply forces
+                    between all orbital bodies. The project taught me a great deal about floating point precision and
+                    the limits of numerical accuracy at astronomical scales.</li>
+            </ul>
+            <h4>Next: Atmospheres</h4>
+            <ul>
+                <li>With orbital mechanics complete, I am now working on physically accurate atmospheric scattering
+                    simulations for all planets.</li>
+            </ul>
+        </div>
+    </div>
 
+    <div id="modal-website" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('website')">&times;</span>
+            <h3>Personal Website</h3>
+            <p>This website is my first real attempt at designing and building webpages. While I had previously learned
+                JavaScript for backend server work, this project was my deep dive into HTML, CSS, and frontend
+                JavaScript to create a professional and photography portfolio.</p>
+            <img src="/media/Projects/WebsitePhotography.png" alt="Website">
+            <h4>Skills Learned</h4>
+            <ul>
+                <li>Applied HTML, CSS, and JavaScript to build a full portfolio site with responsive design, modal
+                    overlays, and smooth scroll behavior.</li>
+            </ul>
+        </div>
+    </div>
 
-  <!-- ==================================== -->
-  <!-- JAVASCRIPT SCRIPTS FOR MODALS BELOW  -->
-  <!-- ==================================== -->
+    <div id="modal-tylerTech" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('tylerTech')">&times;</span>
+            <h3>Tyler Technologies Maine App Challenge</h3>
+            <p>Developed small prototype apps for a statewide high school competition, resulting in a top 10 finish two
+                years running in 2021 and 2022.</p>
+            <h4>Apps Developed</h4>
+            <ul>
+                <li><strong style="color:var(--white)">2021 — "Color Palette Generator:"</strong> Generates color
+                    palettes and harmonious hues from a selected base color. Built with JavaScript on the Code.org App
+                    Lab.</li>
+                <li><strong style="color:var(--white)">2022 — "Learn2Code:"</strong> Teaches Python basics through
+                    tutorials and interactive coding challenges. Built with JavaScript on the Code.org App Lab.</li>
+            </ul>
+        </div>
+    </div>
 
-  <script>
-    function openModal(id) {
-      document.getElementById('modal-' + id).style.display = 'block';
-      document.body.style.overflow = 'hidden'; // lock background scroll
-    }
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <div class="fade-in">
+                <div class="section-label">Get In Touch</div>
+                <h2 class="section-title">Contact</h2>
+                <div class="divider"></div>
+                <p style="color:var(--text-dim);max-width:480px;">I'd love to connect — whether it's about engineering,
+                    photography, or potential opportunities.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card fade-in">
+                    <img src="/media/Email Logo.png" class="contact-icon" alt="Email">
+                    <h4>Email</h4>
+                    <a href="mailto:jalodato@syr.edu">jalodato@syr.edu</a>
+                </div>
+                <div class="contact-card fade-in">
+                    <img src="/media/GitHub Logo.png" class="contact-icon" alt="GitHub">
+                    <h4>GitHub</h4>
+                    <a href="https://github.com/JosephLodato" target="_blank">github.com/JosephLodato</a>
+                </div>
+                <div class="contact-card fade-in">
+                    <img src="/media/LinkedIn Logo.png" class="contact-icon" alt="LinkedIn">
+                    <h4>LinkedIn</h4>
+                    <a href="https://www.linkedin.com/in/joseph-lodato-d64/" target="_blank">LinkedIn Profile</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    function closeModal(id) {
-      document.getElementById('modal-' + id).style.display = 'none';
-      document.body.style.overflow = ''; // restore background scroll
-    }
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Joseph Lodato &nbsp;·&nbsp; All rights reserved</p>
+    </footer>
 
-    // Close modal on background click
-    window.onclick = function (event) {
-      if (event.target.classList.contains('modal')) {
-        event.target.style.display = "none";
-        document.body.style.overflow = '';
-      }
-    }
-  </script>
+    <!-- SCRIPTS -->
+    <script>
+        function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
+        function closeNav() { document.getElementById('navLinks').classList.remove('open'); }
 
-  <script>
-    function openModal(id) {
-      document.getElementById('modal-' + id).style.display = 'block';
-    }
-    function closeModal(id) {
-      document.getElementById('modal-' + id).style.display = 'none';
-    }
-    // Close modal on background click
-    window.onclick = function (event) {
-      if (event.target.classList.contains('modal')) {
-        event.target.style.display = "none";
-      }
-    }
-  </script>
+        function openModal(id) {
+            document.getElementById('modal-' + id).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal(id) {
+            document.getElementById('modal-' + id).style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        window.addEventListener('click', function (e) {
+            if (e.target.classList.contains('modal')) {
+                e.target.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
+        window.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal').forEach(m => { m.style.display = 'none'; });
+                document.body.style.overflow = '';
+            }
+        });
 
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
+        const sections = document.querySelectorAll('section[id], div[id="links"]');
+        const navLinks = document.querySelectorAll('.nav-links a:not(.nav-resume)');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+            navLinks.forEach(a => {
+                a.style.color = a.getAttribute('href') === '#' + current ? 'var(--white)' : '';
+            });
+        });
+    </script>
 </body>
-
-
-
 
 </html>
