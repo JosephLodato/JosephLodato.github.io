@@ -2,139 +2,196 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photography Portfolio</title>
-
-    <link rel="stylesheet" href="/Webpages/Portfolios/portfolio.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports & Action — Joseph Lodato Photography</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/Webpages/Portfolios/portfolio.css">
 </head>
 
 <body>
 
-    <div class="navbar">
+  <!-- ── NAV ── -->
+  <nav class="navbar">
+    <a href="/Webpages/portfolioHome.html" class="nav-brand">Joseph Lodato Photography</a>
+    <div class="nav-right">
+      <a href="/index.html">Main Site</a>
 
-        <a href="/Webpages/portfolioHome.html" style="float: left;">Joseph Lodato Photography</a>
-
-
-        <a href="#news" style="float: right;">Contact Me</a>
-        <a href="#news" style="float: right;">About</a>
-
-
-        <div class="dropdown" style="float: right;">
-            <button class="dropbtn">Portfolio
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a href="/Webpages/Portfolios/Astrophotography.html">Astrophotography</a>
-                <a href="/Webpages/Portfolios/Sports and Action.html">Sports and Action</a>
-                <a href="/Webpages/Portfolios/landscapes and Animals.html">Landscapes and Aminals</a>
-            </div>
+      <div class="dropdown">
+        <button class="dropbtn">
+          Gallery
+          <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="dropdown-content">
+          <a href="/Webpages/Portfolios/Astrophotography.html">Astrophotography</a>
+          <a href="/Webpages/Portfolios/Sports and Action.html" class="active">Sports &amp; Action</a>
+          <a href="/Webpages/Portfolios/landscapes and Animals.html">Landscapes &amp; Wildlife</a>
         </div>
+      </div>
 
-        <a href="/index.html" style="float: right;">Home</a>
+      <a href="mailto:jalodato@syr.edu">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ── PAGE HEADER ── -->
+  <div class="gallery-header">
+    <div class="gallery-header-left">
+      <div class="gallery-eyebrow">Collection 03</div>
+      <h1 class="gallery-title">Sports &amp; Action</h1>
+      <div class="gallery-count" id="photo-count"></div>
+    </div>
+    <a href="/Webpages/portfolioHome.html" class="gallery-back">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      All Collections
+    </a>
+  </div>
+  <div class="header-divider"></div>
+
+  <!-- ── MASONRY GRID ── -->
+  <div class="gallery">
+    <div class="grid-wrapper" id="grid">
+
+      <div class="grid-item">
+        <img src="/media/Photography/Traditional/Action/CR/IMG_0677_WIP.jpg" alt="Citrus Racing in the rain">
+        <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
+      </div>
+
+      <div class="grid-item">
+        <img src="/media/Photography/Traditional/Action/CR/IMG_0720.jpg" alt="Citrus Racing cockpit">
+        <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
+      </div>
+
+      <div class="grid-item">
+        <img src="/media/Photography/Traditional/Action/Thunderbirds/Behind Boat 1.jpg" alt="Behind the boat">
+        <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
+      </div>
+
+      <div class="grid-item">
+        <img src="/media/Photography/Traditional/Action/Thunderbirds/FA18 Hard turn.jpg" alt="FA-18 hard turn">
+        <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
+      </div>
+
+      <div class="grid-item">
+        <img src="/media/Photography/Traditional/Action/Thunderbirds/Five Stack overhead.jpg" alt="Thunderbirds five stack overhead">
+        <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
+      </div>
+
+      <div class="grid-item">
+        <img src="/media/Photography/Traditional/Action/Thunderbirds/Five together (THE SHOT).jpg" alt="Thunderbirds five together">
+        <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
+      </div>
+
+      <div class="grid-item">
+        <img src="/media/Photography/Traditional/Action/Thunderbirds/Five together Portrat.jpg" alt="Thunderbirds five together portrait">
+        <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
+      </div>
+
+      <div class="grid-item">
+        <img src="/media/Photography/Traditional/Action/Thunderbirds/Four Stacked.jpg" alt="Thunderbirds four stacked">
+        <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
+      </div>
+
+      <div class="grid-item">
+        <img src="/media/Photography/Traditional/Action/Thunderbirds/four together.jpg" alt="Thunderbirds four together">
+        <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
+      </div>
+
+      <div class="grid-item">
+        <img src="/media/Photography/Traditional/Action/Thunderbirds/Solo Hard turn 2.jpg" alt="Thunderbird solo hard turn">
+        <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
+      </div>
+
+      <div class="grid-item">
+        <img src="/media/Photography/Traditional/Action/Thunderbirds/Solo Hard turn.jpg" alt="Thunderbird solo hard turn 2">
+        <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
+      </div>
 
     </div>
+  </div>
 
-
-    <div class="gallery">
-        <div class="grid-wrapper">
-
-            <div>
-                <img class="myImages" src="/media/Photography/Traditional/Action/CR/IMG_0677_WIP.jpg" alt="placeholder">
-            </div>
-            <div class="tall">
-
-                <img class="myImages" src="/media/Photography/Traditional/Action/CR/IMG_0720.jpg" alt="placeholder">
-            </div>
-            <div>
-
-                <img class="myImages" src="/media/Photography/Traditional/Action/Thunderbirds/Behind Boat 1.jpg"
-                    alt="placeholder">
-            </div>
-            <div>
-
-                <img class="myImages" src="/media/Photography/Traditional/Action/Thunderbirds/FA18 Hard turn.jpg"
-                    alt="placeholder">
-            </div>
-            <div>
-
-                <img class="myImages" src="/media/Photography/Traditional/Action/Thunderbirds/Five Stack overhead.jpg"
-                    alt="placeholder">
-            </div>
-            <div>
-
-                <img class="myImages"
-                    src="/media/Photography/Traditional/Action/Thunderbirds/Five together (THE SHOT).jpg" alt="placeholder">
-            </div>
-            <div class="tall">
-
-                <img class="myImages" src="/media/Photography/Traditional/Action/Thunderbirds/Five together Portrat.jpg"
-                    alt="placeholder">
-            </div>
-            <div>
-
-                <img class="myImages" src="/media/Photography/Traditional/Action/Thunderbirds/Four Stacked.jpg"
-                    alt="placeholder">
-            </div>
-            <div>
-
-                <img class="myImages" src="/media/Photography/Traditional/Action/Thunderbirds/four together.jpg"
-                    alt="placeholder">
-            </div>
-            <div>
-
-                <img class="myImages" src="/media/Photography/Traditional/Action/Thunderbirds/Solo Hard turn 2.jpg"
-                    alt="placeholder">
-            </div>
-            <div>
-
-                <img class="myImages" src="/media/Photography/Traditional/Action/Thunderbirds/Solo Hard turn.jpg"
-                    alt="placeholder">
-            </div>
-
-        </div>
+  <!-- ── LIGHTBOX ── -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true">
+    <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+    <button class="modal-prev" id="modal-prev" aria-label="Previous">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="modal-next" id="modal-next" aria-label="Next">
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+    <div class="modal-inner">
+      <img id="modal-img" src="" alt="">
+      <div class="modal-caption" id="modal-caption"></div>
+      <div class="modal-counter" id="modal-counter"></div>
     </div>
+  </div>
 
+  <footer>
+    <p>Copyright &copy; 2024 Joseph Lodato. All rights reserved</p>
+  </footer>
 
-    <div id="myModal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="img01">
-        <div id="caption"></div>
-    </div>
+  <script>
+    // ── collect all grid items ──
+    const items   = Array.from(document.querySelectorAll('.grid-item'));
+    const modal   = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const caption  = document.getElementById('modal-caption');
+    const counter  = document.getElementById('modal-counter');
+    let current = 0;
 
-    <script>
-        // create references to the modal...
-        var modal = document.getElementById('myModal');
-        // to all images -- note I'm using a class!
-        var images = document.getElementsByClassName('myImages');
-        // the image in the modal
-        var modalImg = document.getElementById("img01");
-        // and the caption in the modal
-        var captionText = document.getElementById("caption");
+    // photo count in header
+    document.getElementById('photo-count').textContent = items.length + ' photos';
 
-        // Go through all of the images with our custom class
-        for (var i = 0; i < images.length; i++) {
-            var img = images[i];
-            // and attach our click listener for this image.
-            img.onclick = function (evt) {
-                modal.style.display = "block";
-                modalImg.src = this.src;
-                captionText.innerHTML = this.alt;
-            }
-        }
+    function openModal(index) {
+      current = index;
+      const img = items[current].querySelector('img');
+      modalImg.src = img.src;
+      modalImg.alt = img.alt;
+      caption.textContent  = img.alt;
+      counter.textContent  = (current + 1) + ' / ' + items.length;
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
 
-        var span = document.getElementsByClassName("close")[0];
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
 
-        span.onclick = function () {
-            modal.style.display = "none";
-        }
-    </script>
+    function navigate(dir) {
+      current = (current + dir + items.length) % items.length;
+      const img = items[current].querySelector('img');
+      // quick fade
+      modalImg.style.opacity = '0';
+      setTimeout(() => {
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+        caption.textContent = img.alt;
+        counter.textContent = (current + 1) + ' / ' + items.length;
+        modalImg.style.opacity = '1';
+      }, 120);
+    }
 
-    
-    <br><br><br><br>
-    <footer>
-        <p>Copyright &copy; 2024 Joseph Lodato. All rights reserved</p>
-    </footer>
+    modalImg.style.transition = 'opacity 0.12s ease';
+
+    // attach click to each item
+    items.forEach((item, i) => item.addEventListener('click', () => openModal(i)));
+
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    document.getElementById('modal-prev').addEventListener('click', () => navigate(-1));
+    document.getElementById('modal-next').addEventListener('click', () => navigate(1));
+
+    // close on backdrop click
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+
+    // keyboard nav
+    document.addEventListener('keydown', e => {
+      if (!modal.classList.contains('open')) return;
+      if (e.key === 'Escape')      closeModal();
+      if (e.key === 'ArrowLeft')   navigate(-1);
+      if (e.key === 'ArrowRight')  navigate(1);
+    });
+  </script>
+
 </body>
-
-</html
+</html>

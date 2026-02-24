@@ -2,115 +2,162 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astrophotography</title>
-
-    <link rel="stylesheet" href="/Webpages/Portfolios/portfolio.css">
-    <link rel="stylesheet" href="/Webpages/Portfolios/theme.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Astrophotography — Joseph Lodato Photography</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/Webpages/Portfolios/portfolio.css">
 </head>
 
 <body>
-    <div class="navbar">
 
-        <a href="/Webpages/portfolioHome.html" style="float: left;">Joseph Lodato Photography</a>
+  <!-- ── NAV ── -->
+  <nav class="navbar">
+    <a href="/Webpages/portfolioHome.html" class="nav-brand">Joseph Lodato Photography</a>
+    <div class="nav-right">
+      <a href="/index.html">Main Site</a>
 
-
-
-        <div class="dropdown" style="float: right;">
-            <button class="dropbtn">Collections
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a href="/Webpages/Portfolios/Astrophotography.html">Astrophotography</a>
-                <a href="/Webpages/Portfolios/Sports and Action.html">Sports and Action Photography</a>
-                <a href="/Webpages/Portfolios/landscapes and Animals.html">Landscapes and Aminal Photography</a>
-            </div>
+      <div class="dropdown">
+        <button class="dropbtn">
+          Gallery
+          <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="dropdown-content">
+          <a href="/Webpages/Portfolios/Astrophotography.html" class="active">Astrophotography</a>
+          <a href="/Webpages/Portfolios/Sports and Action.html">Sports &amp; Action</a>
+          <a href="/Webpages/Portfolios/landscapes and Animals.html">Landscapes &amp; Wildlife</a>
         </div>
+      </div>
 
-        <a href="/index.html" style="float: right;">Home</a>
+      <a href="mailto:jalodato@syr.edu">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ── PAGE HEADER ── -->
+  <div class="gallery-header">
+    <div class="gallery-header-left">
+      <div class="gallery-eyebrow">Collection 01</div>
+      <h1 class="gallery-title">Astrophotography</h1>
+      <div class="gallery-count" id="photo-count"></div>
+    </div>
+    <a href="/Webpages/portfolioHome.html" class="gallery-back">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      All Collections
+    </a>
+  </div>
+  <div class="header-divider"></div>
+
+  <!-- ── MASONRY GRID ── -->
+  <div class="gallery">
+    <div class="grid-wrapper" id="grid">
+
+      <div class="grid-item">
+        <img src="/media/Photography/Astro/Andromida 135mm Edited.jpg" alt="Messier 31 - Andromeda Galaxy">
+        <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
+      </div>
+
+      <div class="grid-item">
+        <img src="/media/Photography/Astro/IMG_9141.JPG" alt="Messier 42 - The Great Orion Nebula and surrounding nebula">
+        <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
+      </div>
+
+      <div class="grid-item">
+        <img src="/media/Photography/Astro/Cali Nebula v2.jpg" alt="NGC 1499 - The California Nebula">
+        <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
+      </div>
+
+      <div class="grid-item">
+        <img src="/media/Photography/Astro/Inchworm Cluster.jpg" alt="NGC 6910 - The Inchworm Cluster">
+        <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
+      </div>
+
+      <div class="grid-item">
+        <img src="/media/Photography/Astro/post.jpg" alt="The core of the Milky Way Galaxy">
+        <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
+      </div>
+
+      <div class="grid-item">
+        <img src="/media/Photography/Astro/Veil Complex V1.jpg" alt="The Veil Nebula / The Cygnus Loop">
+        <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
+      </div>
 
     </div>
+  </div>
 
-
-
-    <div class="gallery">
-        <div class="grid-wrapper">
-
-            <div>
-                <img class="myImages" id="myImg" src="/media/Photography/Astro/Andromida 135mm Edited.jpg"
-                    alt="Messier 31 - Andromida Galaxy">
-            </div>
-
-            <div>
-                <img class="myImages" id="myImg" src="/media/Photography/Astro/IMG_9141.JPG"
-                    alt="Messier 42 - The Great Orion Nebula and surounding nebula">
-            </div>
-            
-            <div class="tall">
-                <img class="myImages" id="myImg" src="/media/Photography/Astro/Cali Nebula v2.jpg"
-                    alt="NGC 1499 - The Califonia Nebula">
-            </div>
-            
-            <div>
-                <img class="myImages" id="myImg" src="/media/Photography/Astro/Inchworm Cluster.jpg"
-                    alt="NGC 6910 - The inchworm cluster">
-            </div>
-            
-            <div class="tall">
-                <img class="myImages" id="myImg" src="/media/Photography/Astro/post.jpg"
-                    alt="The core of the Milkyway Galaxy">
-            </div>
-            
-            <div>
-                <img class="myImages" id="myImg" src="/media/Photography/Astro/Veil Complex V1.jpg"
-                    alt="The Veil Nebula / The Cygnus Loop">
-            </div>
-
-        </div>
+  <!-- ── LIGHTBOX ── -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true">
+    <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+    <button class="modal-prev" id="modal-prev" aria-label="Previous">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="modal-next" id="modal-next" aria-label="Next">
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+    <div class="modal-inner">
+      <img id="modal-img" src="" alt="">
+      <div class="modal-caption" id="modal-caption"></div>
+      <div class="modal-counter" id="modal-counter"></div>
     </div>
+  </div>
 
+  <footer>
+    <p>Copyright &copy; 2026 Joseph Lodato. All rights reserved</p>
+  </footer>
 
-    <div id="myModal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="img01">
-        <div id="caption"></div>
-    </div>
+  <script>
+    const items    = Array.from(document.querySelectorAll('.grid-item'));
+    const modal    = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const caption  = document.getElementById('modal-caption');
+    const counter  = document.getElementById('modal-counter');
+    let current = 0;
 
+    document.getElementById('photo-count').textContent = items.length + ' photos';
 
-    <script>
-        // create references to the modal...
-        var modal = document.getElementById('myModal');
-        // to all images -- note I'm using a class!
-        var images = document.getElementsByClassName('myImages');
-        // the image in the modal
-        var modalImg = document.getElementById("img01");
-        // and the caption in the modal
-        var captionText = document.getElementById("caption");
+    function openModal(index) {
+      current = index;
+      const img = items[current].querySelector('img');
+      modalImg.src = img.src;
+      modalImg.alt = img.alt;
+      caption.textContent = img.alt;
+      counter.textContent = (current + 1) + ' / ' + items.length;
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
 
-        // Go through all of the images with our custom class
-        for (var i = 0; i < images.length; i++) {
-            var img = images[i];
-            // and attach our click listener for this image.
-            img.onclick = function (evt) {
-                modal.style.display = "block";
-                modalImg.src = this.src;
-                captionText.innerHTML = this.alt;
-            }
-        }
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
 
-        var span = document.getElementsByClassName("close")[0];
+    function navigate(dir) {
+      current = (current + dir + items.length) % items.length;
+      const img = items[current].querySelector('img');
+      modalImg.style.opacity = '0';
+      setTimeout(() => {
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+        caption.textContent = img.alt;
+        counter.textContent = (current + 1) + ' / ' + items.length;
+        modalImg.style.opacity = '1';
+      }, 120);
+    }
 
-        span.onclick = function () {
-            modal.style.display = "none";
-        }
-    </script>
+    modalImg.style.transition = 'opacity 0.12s ease';
 
+    items.forEach((item, i) => item.addEventListener('click', () => openModal(i)));
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    document.getElementById('modal-prev').addEventListener('click', () => navigate(-1));
+    document.getElementById('modal-next').addEventListener('click', () => navigate(1));
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', e => {
+      if (!modal.classList.contains('open')) return;
+      if (e.key === 'Escape')     closeModal();
+      if (e.key === 'ArrowLeft')  navigate(-1);
+      if (e.key === 'ArrowRight') navigate(1);
+    });
+  </script>
 
-    <br><br><br><br>
-    <footer>
-        <p>Copyright &copy; 2026 Joseph Lodato. All rights reserved</p>
-    </footer>
 </body>
-
 </html>

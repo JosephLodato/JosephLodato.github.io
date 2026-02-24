@@ -4,57 +4,378 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Photography Portfolio</title>
-  <link rel="stylesheet" href="portfolioHome.css">
+  <title>Joseph Lodato Photography</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --blue-deep: #1a2540;
+      --blue-mid: #243154;
+      --blue-light: #38bdf8;
+      --blue-hover: #0ea5e9;
+      --text: #c8d4e8;
+      --text-dim: #6b7a96;
+      --white: #f0f4f8;
+      --border: rgba(255, 255, 255, 0.07);
+      --font-body: 'DM Sans', sans-serif;
+      --font-mono: 'DM Mono', monospace;
+      --font-display: 'Playfair Display', serif;
+      --transition: 0.25s ease;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background: #111;
+      color: var(--white);
+      height: 100vh;
+      display: flex;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── SPLIT LAYOUT ── */
+    .split-layout {
+      display: flex;
+      flex: 1;
+      height: 100%;
+    }
+
+    /* ── LEFT PROFILE PANEL ── */
+    .profile {
+      flex: 0 0 35%;
+      position: relative;
+      background: linear-gradient(160deg, #243154 0%, #1a2540 60%, #131d33 100%);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 3rem 2.5rem;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    /* subtle grid texture on left panel */
+    .profile::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    /* accent line on right edge of left panel */
+    .profile::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, rgba(56, 189, 248, 0.4), transparent);
+    }
+
+    .profile-inner {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+
+    .profile-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+
+    .profile h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+
+    .profile-divider {
+      width: 36px;
+      height: 2px;
+      background: var(--blue-light);
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+      opacity: 0.7;
+    }
+
+    .profile p {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .profile-section-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      margin: 2rem 0 0.5rem;
+      opacity: 0.8;
+    }
+
+    .contact-btn {
+      margin-top: 2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--blue-light);
+      padding: 0.6rem 1.4rem;
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      border-radius: 100px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition), border-color var(--transition);
+    }
+
+    .contact-btn:hover {
+      background: var(--blue-light);
+      color: #0f172a;
+      border-color: var(--blue-light);
+    }
+
+    /* ── RIGHT SCROLLABLE PANEL ── */
+    .portfolio-sections {
+      flex: 1;
+      height: 100vh;
+      overflow-y: auto;
+      scroll-snap-type: y mandatory;
+      scroll-behavior: smooth;
+      position: relative;
+    }
+
+    .portfolio-section {
+      position: relative;
+      height: 100vh;
+      scroll-snap-align: start;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: filter 0.4s ease;
+    }
+
+    /* dark gradient at bottom of each section for readability */
+    .portfolio-section::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(13, 18, 30, 0.55) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .overlay {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 2rem 3rem;
+      background: rgba(13, 18, 30, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: background var(--transition);
+    }
+
+    .portfolio-section:hover .overlay {
+      background: rgba(13, 18, 30, 0.6);
+    }
+
+    .overlay-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      margin-bottom: 0.75rem;
+      opacity: 0.8;
+    }
+
+    .overlay h2 {
+      font-family: var(--font-body);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .overlay a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.5rem;
+      background: transparent;
+      color: var(--white);
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 100px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: background var(--transition), border-color var(--transition), color var(--transition);
+    }
+
+    .overlay a:hover {
+      background: var(--blue-light);
+      border-color: var(--blue-light);
+      color: #0f172a;
+    }
+
+    /* ── NAV DOTS ── */
+    .nav-dots {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      z-index: 20;
+    }
+
+    .nav-dots button {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: none;
+      background: #2f4580;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    /* 2f4580  38bdf8*/
+    .nav-dots button.active {
+      background: #ffffff;
+      transform: scale(1.5);
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+        overflow: auto;
+      }
+
+      .profile {
+        flex: none;
+        height: auto;
+        padding: 2.5rem 1.5rem;
+      }
+
+      .portfolio-sections {
+        height: auto;
+        scroll-snap-type: none;
+      }
+
+      .portfolio-section {
+        height: 65vh;
+      }
+
+      .nav-dots {
+        display: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
   <div class="split-layout">
+
     <!-- Left profile panel -->
     <div class="profile">
-      <h1>Joseph Lodato Photography</h1>
-      <p> I'm a US photographer based primarily in Maine. I specialize in Astrophotography,
-        but my portfolio also includes landscapes and action photography.
-      </p>
+      <div class="profile-inner">
+        <div class="profile-eyebrow">Portfolio</div>
+        <h1>Joseph Lodato Photography</h1>
+        <div class="profile-divider"></div>
+        <p>I'm a US photographer based primarily in Maine. I specialize in astrophotography, but my portfolio also
+          includes landscapes, wildlife, and action photography.</p>
 
-      <h3>Portfolio</h3>
-      <p> Explore a few of my collections on the right. Scroll or let the slideshow guide you,
-        then click into a gallery for more.
-      </p>
+        <div class="profile-section-label">Explore</div>
+        <p>Browse my collections on the right — scroll or let the slideshow guide you, then click into a gallery for
+          more.</p>
 
-      <h3>Contact</h3>
-      <p> Want to get in contact with me about my photography? </p>
-      <button class="contact-btn" onclick="window.location='mailto:jalodato@syr.edu'">Get in Touch</button>
+        <div class="profile-section-label">Contact</div>
+        <p>Want to get in touch about my photography?</p>
+        <button class="contact-btn" onclick="window.location='mailto:jalodato@syr.edu'">
+          Get in Touch
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </button>
+      </div>
     </div>
 
     <!-- Right scrollable portfolio -->
     <div class="portfolio-sections" id="portfolio-sections">
+
       <section class="portfolio-section" style="background-image: url('/media/Photography/Astro/IMG_9141.JPG');">
         <div class="overlay">
+          <div class="overlay-label">Collection 01</div>
           <h2>Astrophotography</h2>
-          <a href="/Webpages/Portfolios/Astrophotography.html">View Gallery</a>
+          <a href="/Webpages/Portfolios/Astrophotography.html">View Gallery →</a>
         </div>
       </section>
+
       <section class="portfolio-section"
         style="background-image: url('/media/Photography/Traditional/Landsacpes and Animals/Landscapes/Scooner Shadow.JPG');">
         <div class="overlay">
+          <div class="overlay-label">Collection 02</div>
           <h2>Landscapes & Wildlife</h2>
-          <a href="/Webpages/Portfolios/landscapes and Animals.html">View Gallery</a>
+          <a href="/Webpages/Portfolios/landscapes and Animals.html">View Gallery →</a>
         </div>
       </section>
+
       <section class="portfolio-section"
         style="background-image: url('/media/Photography/Traditional/Action/Thunderbirds/Solo Hard turn 2.jpg');">
         <div class="overlay">
+          <div class="overlay-label">Collection 03</div>
           <h2>Sports & Action</h2>
-          <a href="/Webpages/Portfolios/Sports and Action.html">View Gallery</a>
+          <a href="/Webpages/Portfolios/Sports and Action.html">View Gallery →</a>
         </div>
       </section>
+
     </div>
 
     <!-- Navigation dots -->
-    <div class="nav-dots" id="nav-dots">
-      <!-- Filled dynamically with JS -->
-    </div>
+    <div class="nav-dots" id="nav-dots"></div>
+
   </div>
 
   <script>
@@ -64,9 +385,9 @@
     let currentIndex = 0;
     let autoScrollInterval;
 
-    // Create nav dots dynamically
     sections.forEach((_, i) => {
       const dot = document.createElement("button");
+      dot.setAttribute("aria-label", "Go to section " + (i + 1));
       dot.addEventListener("click", () => {
         scrollToSection(i);
         stopAutoScroll();
@@ -77,9 +398,7 @@
     const dots = navDotsContainer.querySelectorAll("button");
 
     function updateActiveDot(index) {
-      dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === index);
-      });
+      dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
     }
 
     function scrollToSection(index) {
@@ -92,44 +411,31 @@
 
     function startAutoScroll() {
       stopAutoScroll();
-      autoScrollInterval = setInterval(() => {
-        scrollToSection(currentIndex + 1);
-      }, 2000); // 2s per section (adjust if you want faster/slower)
+      autoScrollInterval = setInterval(() => scrollToSection(currentIndex + 1), 2000);
     }
 
     function stopAutoScroll() {
       if (autoScrollInterval) clearInterval(autoScrollInterval);
     }
 
-    // Start auto-scroll
     startAutoScroll();
     updateActiveDot(currentIndex);
 
-    // Pause auto-scroll when user manually scrolls
     let scrollTimeout;
     container.addEventListener("scroll", () => {
       stopAutoScroll();
       clearTimeout(scrollTimeout);
-
-      // Find the closest section to viewport
-      let closestIndex = 0;
-      let minDistance = Infinity;
+      let closestIndex = 0, minDistance = Infinity;
       sections.forEach((section, i) => {
         const rect = section.getBoundingClientRect();
         const distance = Math.abs(rect.top);
-        if (distance < minDistance) {
-          minDistance = distance;
-          closestIndex = i;
-        }
+        if (distance < minDistance) { minDistance = distance; closestIndex = i; }
       });
       currentIndex = closestIndex;
       updateActiveDot(currentIndex);
-
-      // Restart auto-scroll after 2s
-      scrollTimeout = setTimeout(() => {
-        startAutoScroll();
-      }, 2000);
+      scrollTimeout = setTimeout(() => startAutoScroll(), 3000);
     });
   </script>
 </body>
+
 </html>
