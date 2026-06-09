@@ -961,15 +961,16 @@
                 <div class="divider"></div>
             </div>
             <div class="about-text fade-in">
-                <p>Hello! I am Joseph Lodato, a full-time student at Syracuse University in my senior year pursuing a BS
-                    in Computer Engineering with a minor in
-                    Physics, holding a cumulative GPA of 3.6.</p>
+                <p>Hello! I am Joseph Lodato, a full-time student at Syracuse University pursuing a Master's degree in
+                    in Computer Engineering. I graduated with honors in the spring of 2026 from Syracuse University with
+                    a Bachelor's degree in Computer Engineering and a minor in Physics.</p>
                 <p>I am involved in multiple organizations on campus, with the primary one being <strong
                         style="color:var(--white)">Citrus Racing</strong> — SU's premier Formula SAE motorsports
-                    design and build team — where I currently serve as Chief Engineer and lead EV Development.</p>
+                    design and build team — where I currently serve as the Lead of EV Development, and have previously
+                    served as Chief Engineer among other roles (more info can be found in the projects section).</p>
+
                 <p>Outside of engineering I fill my free time with hiking, mountineering, skiing and photography of all
-                    kinds. I focus particularly on
-                    strophotography, capturing deep sky objects like
+                    kinds. I focus particularly on astrophotography, capturing deep sky objects like
                     nebulae, supernovae, and distant galaxies — along with traditional landscape and wildlife
                     photography.
                 </p>
@@ -1034,7 +1035,7 @@
                         <div class="timeline-org">Syracuse University</div>
                     </div>
                     <div class="timeline-body">
-                        <h4>[Upcoming] MS Computer Engineering</h4>
+                        <h4> Master's of Science: Computer Engineering</h4>
                         <p> Part of the BS/MS 4+1 program. A one-year accelerated master's program at Syracuse
                             University College of Engineering and Computer Science.</p>
                     </div>
@@ -1048,8 +1049,9 @@
                         <div class="timeline-org">Syracuse University</div>
                     </div>
                     <div class="timeline-body">
-                        <h4>BS Computer Engineering · Minor in Physics</h4>
-                        <p>College of Engineering and Computer Science. Senior year 2025/2026. Cumulative GPA: 3.6.</p>
+                        <h4>Bachelor of Science: Computer Engineering</h4>
+                        <p>Graduated with a B.S. in Computer Engineering and a minor in Physics. Graduated Magna Cum
+                            Laude in May of 2026.</p>
                     </div>
                 </div>
 
@@ -1061,7 +1063,7 @@
                         <div class="timeline-org">Freeport High School</div>
                     </div>
                     <div class="timeline-body">
-                        <h4>Graduated with Honors</h4>
+                        <h4>High School: Graduated with Honors</h4>
                         <ul class="bullet-list">
                             <li>Built an automated sawdust collection system for the school's woodworking/STEM workshop
                                 as a senior project.</li>
@@ -1087,8 +1089,6 @@
             <div class="timeline fade-in">
                 <div class="timeline-section-title">Work Experience</div>
 
-
-
                 <div class="timeline-item">
                     <div class="timeline-meta">
                         <div class="timeline-date">May 2025 – Sep 2025</div>
@@ -1104,12 +1104,12 @@
                             <li>Fabricated panels to UL508A standards including component/enclosure wiring and enclosure
                                 fabrication.</li>
                             <li>Improved shop efficiency by creating frameworks for weight-based inventory systems for
-                                components and wire spools.</li>
+                                component bins and wire spools.</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Machine Shop — blank slate for Joseph to fill in -->
+
                 <div class="timeline-item">
                     <div class="timeline-meta">
                         <div class="timeline-date">Aug 2023 – Current</div>
@@ -1174,7 +1174,26 @@
                     <div class="project-card-body">
                         <div class="project-card-tag">Formula SAE</div>
                         <h4>Citrus Racing</h4>
-                        <p>Chief Engineer & EV Development lead for SU's motorsports team.</p>
+                        <p>Chief Engineer & EV Development lead for Syracuse University's motorsports team.</p>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" onclick="openModal('capstone')">
+                    <img class="project-card-img" src="/media/Projects/capstoneCAD.png" alt="Capstone">
+                    <div class="project-card-body">
+                        <div class="project-card-tag">Undergraduate Capstone Project</div>
+                        <h4>Capstone Project</h4>
+                        <p>Stepper Motor and Computer Vision Based Air Hockey Robot Designed and Built for Undergraduate
+                            Capstone Project.</p>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" onclick="openModal('keyboard')">
+                    <img class="project-card-img" src="/media/Projects/keyboardCAD.png" alt="Custom Keyboard">
+                    <div class="project-card-body">
+                        <div class="project-card-tag">PCB Design · KiCad</div>
+                        <h4>Custom Keyboard PCB</h4>
+                        <p>Fully custom 70% mechanical keyboard with USB-C, Bluetooth, rotary encoders, and OLED.</p>
                     </div>
                 </div>
 
@@ -1195,15 +1214,6 @@
                         <div class="project-card-tag">Robotics · ROS 2</div>
                         <h4>Search & Rescue Robot — "Alfred"</h4>
                         <p>Autonomous navigation and object retrieval using ROS 2 Iron and AprilTag localization.</p>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in" onclick="openModal('keyboard')">
-                    <img class="project-card-img" src="/media/Projects/keyboardCAD.png" alt="Custom Keyboard">
-                    <div class="project-card-body">
-                        <div class="project-card-tag">PCB Design · KiCad</div>
-                        <h4>Custom Keyboard PCB</h4>
-                        <p>Fully custom 70% mechanical keyboard with USB-C, Bluetooth, rotary encoders, and OLED.</p>
                     </div>
                 </div>
 
@@ -1228,25 +1238,25 @@
                 </div>
 
                 <!-- Last row: 2 cards centered using a flex wrapper spanning full grid width -->
-                <div class="project-grid-inner-last">
-                    <div class="project-card fade-in" onclick="openModal('website')">
-                        <img class="project-card-img" src="/media/Projects/WebsiteCover.png" alt="Personal Website">
-                        <div class="project-card-body">
-                            <div class="project-card-tag">HTML · CSS · JavaScript</div>
-                            <h4>Personal Website</h4>
-                            <p>This site — designed and built from scratch to showcase professional and photography
-                                work.</p>
-                        </div>
-                    </div>
-                    <div class="project-card fade-in" onclick="openModal('tylerTech')">
-                        <img class="project-card-img" src="/media/Projects/MaineAppChallenge.png" alt="App Challenge">
-                        <div class="project-card-body">
-                            <div class="project-card-tag">JavaScript · App Development</div>
-                            <h4>Maine App Challenge</h4>
-                            <p>Top 10 finishes in 2021 and 2022 in the Tyler Technologies statewide competition.</p>
-                        </div>
+                <!-- <div class="project-grid-inner-last"> -->
+                <div class="project-card fade-in" onclick="openModal('website')">
+                    <img class="project-card-img" src="/media/Projects/WebsiteCover.png" alt="Personal Website">
+                    <div class="project-card-body">
+                        <div class="project-card-tag">HTML · CSS · JavaScript</div>
+                        <h4>Personal Website</h4>
+                        <p>This site — designed and built from scratch to showcase professional and photography
+                            work.</p>
                     </div>
                 </div>
+                <div class="project-card fade-in" onclick="openModal('tylerTech')">
+                    <img class="project-card-img" src="/media/Projects/MaineAppChallenge.png" alt="App Challenge">
+                    <div class="project-card-body">
+                        <div class="project-card-tag">JavaScript · App Development</div>
+                        <h4>Maine App Challenge</h4>
+                        <p>Top 10 finishes in 2021 and 2022 in the Tyler Technologies statewide competition.</p>
+                    </div>
+                </div>
+                <!-- </div> -->
 
             </div>
         </div>
@@ -1260,24 +1270,50 @@
             <p>As a part of this team I have assisted in the design, construction, and racing of fully custom
                 open-wheeled single-seat race cars for the Formula SAE series representing Syracuse University in the
                 ~120-team competition held at Michigan International Speedway each spring.</p>
+            <p>Additionally I was a key member in the rebuilding of the team in the post-Covid era where the team
+                dropped to zero members, assisting in core leadership decisions, recruiting and onboarding new members.
+                As of the spring of 2026, the team as grown to over 40 active members and many other less active support
+                members as well.
+            </p>
             <img src="/media/Citrus Racing/IMG_0677.jpg" alt="Car">
+
+            <p>
+                During my time at Citrus Racing, I have been a key member of the development cycle for two vehicles, CR4
+                and CR5. CR4 was our attempt at reviving the team in a post-COVID time. Both the team and vehicle were
+                scrappy and made just well enough to get across the finish line and get momentum, which it did. CR4 was
+                the first car in 5 years to make it to competition, and it competed in most events, scoring the top 37%
+                at the endurance event. I held the titles of Electronics lead and vice president during the two years I
+                worked on CR4.</p>
+
+            <p>CR5 was a full overhaul, with a better understanding of the competition we got through CR4 and a strong
+                supporting team via tireless recruitment efforts, we overhauled the entire car leading to the best
+                scoring car Syracuse University has delivered in the 2000s era. In the two-year development cycle of CR5
+                I held the roles of Electronics lead, president and Chief Engineer, leading the overhaul.
+            </p>
+            <p>
+                I currently hold the title of EV Development Lead where I am working on designing and building
+                prototypes for the team’s first ever EV drivetrain.
+            </p>
+
+            <h2>Roles and Responsibilities</h2>
             <h4>Chief Engineer</h4>
             <ul>
                 <li>Oversee all technical aspects including design, construction, and operation of the car.</li>
                 <li>Provide top-down technical leadership ensuring all subteams develop components that work effectively
                     together.</li>
-                <li>Ensure the entire vehicle is designed and built to the rules of the Formula SAE series.</li>
+                <li>Ensure the entire vehicle is designed and built to the rules of the Formula SAE series. Including
+                    mock technical inspections of all subsystems to ensure legality.</li>
             </ul>
             <h4>Head of EV Development</h4>
             <ul>
-                <li>Lead a team developing the first fully electric racing vehicle for Citrus Racing — including battery
-                    pack, motor/motor controller, and other electrical systems.</li>
-                <li>Developed fully custom software to read sensors and control the vehicle's motors for optimal
-                    performance.</li>
+                <li>Lead a team developing the first fully electric racing vehicle for Citrus Racing — including custom
+                    battery
+                    packs, motor/motor controller interfaces, and other electrical control systems.</li>
+                <li>Developing fully custom software for full 4-wheel independent drive control systems.</li>
             </ul>
             <h4>President</h4>
             <ul>
-                <li>Managed team budget including parts and material orders with the University.</li>
+                <li>Managed a ~$50,000 annual team budget including parts and material orders with the University.</li>
                 <li>Secured funding and technical support from sponsors.</li>
                 <li>Organized efforts across multiple subteams for efficient design and construction.</li>
             </ul>
@@ -1293,6 +1329,68 @@
                 and connectors — over 120 individual wires when completed.</p>
         </div>
     </div>
+
+    <div id="modal-capstone" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('capstone')">&times;</span>
+            <h3>HockeyBot (ECS Senior Design Project - Syracuse University)</h3>
+            <p>As part of a 4-person team, I designed and built an autonomous gantry based air hockey robot that
+                competes against a human opponent in real time, which was demonstrated at the ECS Open House in the
+                spring of 2026. The robot features a split-computation architecture pairing a Linux host for computer
+                vision processing with a Teensy 4.0 microcontroller for real-time stepper motor control over USB serial.
+            </p>
+            <img src="/media/Projects/capstoneCAD.jpg" alt="Capstone Project CAD">
+            <h4>Hardware Architecture</h4>
+            <ul>
+                <li>Designed and constructed a CoreXY belt-driven gantry system to move a paddle head across a 20" × 40"
+                    air hockey table with the speed and precision needed for real-time puck interception.</li>
+                <li>Selected and configured two NEMA 17 stepper motors wired in parallel to reduce saturation current
+                    times, enabling faster and more reliable high-speed movement.</li>
+                <li>Integrated two Pololu 36v8 stepper drivers powered by an external 30V switching supply, configured
+                    at 8A via SPI to maximize torque output.</li>
+                <li>Iterated on the mechanical frame and belt routing to achieve a system robust enough to sustain
+                    several hours of continuous operation without structural failure.</li>
+            </ul>
+            <h4>Software Integration</h4>
+            <ul>
+                <li>Developed an OpenCV-based puck tracking pipeline using background subtraction, HSV color filtering,
+                    contour detection, and morphological operations to localize the puck in real time.</li>
+                <li>Implemented bounce-path trajectory prediction to direct the robot's blocking and offensive
+                    strategies across three adaptive difficulty levels.</li>
+            </ul>
+            <h4>System Integration</h4>
+            <ul>
+                <li>Collaborated with embedded and software subteams to ensure the physical gantry met the motion
+                    response
+                    requirements of the real-time vision and control pipeline.</li>
+                <li>Balanced speed and mechanical reliability constraints, achieving a final design capable of
+                    intercepting
+                    pucks traveling under 1.2 m/s with over 90% success across all three test players.</li>
+            </ul>
+            <h4>Testing and Validation</h4>
+            <p>Validated 70%+ block accuracy against three independent players across 60 total shots, with the robot
+                saving 54 of 60.</p>
+            <p>Confirmed reliable offensive and defensive behavioral modes and progressive difficulty scaling through
+                structured test procedures.</p>
+            <h4>Demo Videos </h4>
+            <p>Below are three videos showcasing the robot in action, the first showing an early high speed movement
+                test, the second showing the robot making an offensive move scoreing the puck after it dectects the idle
+                puck on its half of the boad, and the third showing the robot in a defensive position just blocking the
+                shots from the opponent:</p>
+            <video src="/media/Projects/videos/capstonemove.mp4" controls
+                style="width:75%;display:block;margin:1.25rem auto;border-radius:8px;">
+            </video>
+
+            <video src="/media/Projects/videos/capstoneattack.mp4" controls
+                style="width:75%;display:block;margin:1.25rem auto;border-radius:8px;">
+            </video>
+
+            <video src="/media/Projects/videos/capstonedefence.mp4" controls
+                style="width:75%;display:block;margin:1.25rem auto;border-radius:8px;">
+            </video>
+        </div>
+    </div>
+
 
     <div id="modal-juniorDesign" class="modal">
         <div class="modal-content">
@@ -1317,9 +1415,13 @@
             <span class="close" onclick="closeModal('alfred')">&times;</span>
             <h3>Search & Rescue Robot — "Alfred"</h3>
             <p>The goal of a robotics programming lab I took in spring 2025: program a search and rescue robot to
-                autonomously navigate an unknown environment, find 'victims' (paper blocks), pick them up, and return
-                them to the start. Alfred is built on a Rock Pi running ROS 2 Iron with MCUs, gyroscopes, a USB camera,
+                autonomously navigate an unknown environment, find 'victims' (paper boxes), pick them up, and return
+                them to the start. Alfred is built on a Rock Pi running ROS2 Iron with external MCUs, gyroscopes, a USB
+                camera,
                 two drive motors, and a two-joint arm.</p>
+            <p>Alfred was the most successful robot in the class, completing the full sweep of the room autonomously,
+                finding the victims and returning to the start, while other robots needed human intervention to
+                guide them through doorways and to the boxes.</p>
             <img src="/media/Projects/AlfredFace (1).jpg" alt="Alfred">
             <h4>Key Features</h4>
             <ul>
@@ -1331,6 +1433,7 @@
                 <li><strong style="color:var(--white)">Return to Home:</strong> After retrieval, localization and
                     pathfinding guide Alfred back to the start, where he drops off the box and resumes searching.</li>
             </ul>
+            <img src="/media/Projects/ROSMap.png" alt="ROS Map">
         </div>
     </div>
 
@@ -1341,7 +1444,6 @@
             <p>Designed and built a fully custom mechanical keyboard PCB using KiCad, inspired by the Nullbits NIBBLE
                 kit. After my original keyboard died from a cracked PCB, I designed my own from scratch with every
                 feature I wanted — on a custom ~70% layout.</p>
-            <img src="/media/Projects/keyboardPCB.png" alt="Keyboard PCB">
             <h4>Key Features</h4>
             <ul>
                 <li><strong style="color:var(--white)">USB-C & Bluetooth:</strong> Wired or wireless via a toggle
@@ -1351,6 +1453,8 @@
                 <li><strong style="color:var(--white)">Other Features:</strong> RGB underglow, I2C OLED display, and a
                     TRRS port for future expansion (e.g., dedicated numpad).</li>
             </ul>
+            <img src="/media/Projects/keyboardPCB.png" alt="Keyboard PCB">
+            <img src="/media/Projects/keyboardSch.png" alt="Keyboard Schematic">
         </div>
     </div>
 
@@ -1379,7 +1483,8 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal('celestial')">&times;</span>
             <h3>Celestial Veil</h3>
-            <p>Over summer 2024, inspired by Sebastian Lague's solar system project, I built a physically accurate solar
+            <p>Over the summer 2024, inspired by Sebastian Lague's solar system project on YouTube, I built a physically
+                accurate solar
                 system in Unity using C#. This is part of a larger plan for a video game named Celestial Veil, with this
                 simulation as the playable environment.</p>
             <!-- <img src="/media/CelestialVeil.png" alt="Celestial Veil"> -->
@@ -1404,7 +1509,7 @@
             <p>This website is my first real attempt at designing and building webpages. While I had previously learned
                 JavaScript for backend server work, this project was my deep dive into HTML, CSS, and frontend
                 JavaScript to create a professional and photography portfolio.</p>
-            <img src="/media/Projects/WebsitePhotography.png" alt="Website">
+            <!-- <img src="/media/Projects/WebsitePhotography.png" alt="Website"> -->
             <h4>Skills Learned</h4>
             <ul>
                 <li>Applied HTML, CSS, and JavaScript to build a full portfolio site with responsive design, modal
