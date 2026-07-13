@@ -48,66 +48,9 @@
   </div>
   <div class="header-divider"></div>
 
-  <!-- ── MASONRY GRID ── -->
+  <!-- ── MASONRY GRID (filled in automatically by gallery-loader.js) ── -->
   <div class="gallery">
-    <div class="grid-wrapper" id="grid">
-
-      <div class="grid-item">
-        <img src="/media/Photography/Traditional/Action/CR/IMG_0677_WIP.jpg" alt="Citrus Racing in the rain">
-        <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
-      </div>
-
-      <div class="grid-item">
-        <img src="/media/Photography/Traditional/Action/CR/IMG_0720.jpg" alt="Citrus Racing cockpit">
-        <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
-      </div>
-
-      <div class="grid-item">
-        <img src="/media/Photography/Traditional/Action/Thunderbirds/Behind Boat 1.jpg" alt="Behind the boat">
-        <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
-      </div>
-
-      <div class="grid-item">
-        <img src="/media/Photography/Traditional/Action/Thunderbirds/FA18 Hard turn.jpg" alt="FA-18 hard turn">
-        <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
-      </div>
-
-      <div class="grid-item">
-        <img src="/media/Photography/Traditional/Action/Thunderbirds/Five Stack overhead.jpg" alt="Thunderbirds five stack overhead">
-        <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
-      </div>
-
-      <div class="grid-item">
-        <img src="/media/Photography/Traditional/Action/Thunderbirds/Five together (THE SHOT).jpg" alt="Thunderbirds five together">
-        <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
-      </div>
-
-      <div class="grid-item">
-        <img src="/media/Photography/Traditional/Action/Thunderbirds/Five together Portrat.jpg" alt="Thunderbirds five together portrait">
-        <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
-      </div>
-
-      <div class="grid-item">
-        <img src="/media/Photography/Traditional/Action/Thunderbirds/Four Stacked.jpg" alt="Thunderbirds four stacked">
-        <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
-      </div>
-
-      <div class="grid-item">
-        <img src="/media/Photography/Traditional/Action/Thunderbirds/four together.jpg" alt="Thunderbirds four together">
-        <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
-      </div>
-
-      <div class="grid-item">
-        <img src="/media/Photography/Traditional/Action/Thunderbirds/Solo Hard turn 2.jpg" alt="Thunderbird solo hard turn">
-        <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
-      </div>
-
-      <div class="grid-item">
-        <img src="/media/Photography/Traditional/Action/Thunderbirds/Solo Hard turn.jpg" alt="Thunderbird solo hard turn 2">
-        <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
-      </div>
-
-    </div>
+    <div class="grid-wrapper" id="grid"></div>
   </div>
 
   <!-- ── LIGHTBOX ── -->
@@ -130,68 +73,8 @@
     <p>Copyright &copy; 2024 Joseph Lodato. All rights reserved</p>
   </footer>
 
-  <script>
-    // ── collect all grid items ──
-    const items   = Array.from(document.querySelectorAll('.grid-item'));
-    const modal   = document.getElementById('modal');
-    const modalImg = document.getElementById('modal-img');
-    const caption  = document.getElementById('modal-caption');
-    const counter  = document.getElementById('modal-counter');
-    let current = 0;
-
-    // photo count in header
-    document.getElementById('photo-count').textContent = items.length + ' photos';
-
-    function openModal(index) {
-      current = index;
-      const img = items[current].querySelector('img');
-      modalImg.src = img.src;
-      modalImg.alt = img.alt;
-      caption.textContent  = img.alt;
-      counter.textContent  = (current + 1) + ' / ' + items.length;
-      modal.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-      modal.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-
-    function navigate(dir) {
-      current = (current + dir + items.length) % items.length;
-      const img = items[current].querySelector('img');
-      // quick fade
-      modalImg.style.opacity = '0';
-      setTimeout(() => {
-        modalImg.src = img.src;
-        modalImg.alt = img.alt;
-        caption.textContent = img.alt;
-        counter.textContent = (current + 1) + ' / ' + items.length;
-        modalImg.style.opacity = '1';
-      }, 120);
-    }
-
-    modalImg.style.transition = 'opacity 0.12s ease';
-
-    // attach click to each item
-    items.forEach((item, i) => item.addEventListener('click', () => openModal(i)));
-
-    document.getElementById('modal-close').addEventListener('click', closeModal);
-    document.getElementById('modal-prev').addEventListener('click', () => navigate(-1));
-    document.getElementById('modal-next').addEventListener('click', () => navigate(1));
-
-    // close on backdrop click
-    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-
-    // keyboard nav
-    document.addEventListener('keydown', e => {
-      if (!modal.classList.contains('open')) return;
-      if (e.key === 'Escape')      closeModal();
-      if (e.key === 'ArrowLeft')   navigate(-1);
-      if (e.key === 'ArrowRight')  navigate(1);
-    });
-  </script>
+  <!-- Must come after #grid and #modal above so the script can find them -->
+  <script src="gallery-loader.js"></script>
 
 </body>
 </html>
