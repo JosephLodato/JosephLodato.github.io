@@ -17,7 +17,7 @@ function titleFromFolder(folderPath, topFolder) {
     .replace(/\w\S*/g, (w) => w.charAt(0).toUpperCase() + w.slice(1));
 }
 
-async function loadGallery(topFolder, gridContainerId) {
+async function loadGallery(topFolder, gridContainerId, sectionOrder = []) {
   const container = document.getElementById(gridContainerId);
   container.innerHTML = '<p class="gallery-loading">Loading photos…</p>';
 
@@ -50,26 +50,40 @@ async function loadGallery(topFolder, gridContainerId) {
   container.innerHTML = "";
 
   // Render ungrouped images first (no header), then named sections.
+  // If sectionOrder was passed in, honor it exactly; any section not
+  // listed there falls in afterward, in default (first-seen) order.
   const orderedKeys = [...groups.keys()].sort((a, b) => {
     if (a === null) return -1;
     if (b === null) return 1;
-    return 0; // keep first-seen order otherwise
+    const aIndex = sectionOrder.indexOf(a);
+    const bIndex = sectionOrder.indexOf(b);
+    if (aIndex === -1 && bIndex === -1) return 0; // neither listed, keep as-is
+    if (aIndex === -1) return 1;  // unlisted sections go after listed ones
+    if (bIndex === -1) return -1;
+    return aIndex - bIndex;
   });
 
+  let frameNumber = 0;
+
   orderedKeys.forEach((title) => {
+    const section = document.createElement("div");
+    section.className = "gallery-section";
+
     if (title) {
       const heading = document.createElement("h2");
       heading.className = "gallery-section-title";
       heading.textContent = title;
-      container.appendChild(heading);
+      section.appendChild(heading);
     }
 
     const grid = document.createElement("div");
     grid.className = "grid-wrapper";
 
     groups.get(title).forEach((img) => {
+      frameNumber += 1;
       const item = document.createElement("div");
       item.className = "grid-item";
+      item.dataset.frame = String(frameNumber).padStart(3, "0");
       item.innerHTML = `
         <img src="${img.url}" alt="${img.publicId}">
         <div class="grid-item-overlay"><span class="grid-item-expand">View ↗</span></div>
@@ -77,7 +91,8 @@ async function loadGallery(topFolder, gridContainerId) {
       grid.appendChild(item);
     });
 
-    container.appendChild(grid);
+    section.appendChild(grid);
+    container.appendChild(section);
   });
 
   // Photo count across all sections
@@ -148,6 +163,7 @@ function initLightbox() {
   };
 }
 
-// Kick things off — change the folder + container id per page.
-// Example for the Sports & Action page:
-loadGallery("portfolio/action", "grid");
+// This file is shared across all gallery pages. Each page calls
+// loadGallery(topFolder, gridContainerId) itself in a small inline
+// <script> tag right after this file loads — see the bottom of each
+// gallery HTML page for that one-line call.

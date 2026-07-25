@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sports & Action — Joseph Lodato Photography</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/Webpages/Portfolios/portfolio.css">
 </head>
-
 <body>
 
   <!-- ── NAV ── -->
   <nav class="navbar">
-    <a href="/Webpages/portfolioHome.html" class="nav-brand">Joseph Lodato Photography</a>
+    <a href="/Webpages/portfolioHome.html" class="nav-brand">Joseph Lodato</a>
     <div class="nav-right">
       <a href="/index.html">Main Site</a>
-
       <div class="dropdown">
         <button class="dropbtn">
           Gallery
@@ -29,15 +26,14 @@
           <a href="/Webpages/Portfolios/landscapes and Animals.html">Landscapes &amp; Wildlife</a>
         </div>
       </div>
-
       <a href="mailto:jalodato@syr.edu">Contact</a>
     </div>
   </nav>
 
   <!-- ── PAGE HEADER ── -->
   <div class="gallery-header">
-    <div class="gallery-header-left">
-      <div class="gallery-eyebrow">Collection 03</div>
+    <div>
+      <div class="gallery-eyebrow">Motorsport &amp; Aviation</div>
       <h1 class="gallery-title">Sports &amp; Action</h1>
       <div class="gallery-count" id="photo-count"></div>
     </div>
@@ -50,7 +46,7 @@
 
   <!-- ── MASONRY GRID (filled in automatically by gallery-loader.js) ── -->
   <div class="gallery">
-    <div class="grid-wrapper" id="grid"></div>
+    <div id="grid"></div>
   </div>
 
   <!-- ── LIGHTBOX ── -->
@@ -70,11 +66,19 @@
   </div>
 
   <footer>
-    <p>Copyright &copy; 2024 Joseph Lodato. All rights reserved</p>
+    <p>&copy; 2026 Joseph Lodato. All rights reserved.</p>
   </footer>
 
   <!-- Must come after #grid and #modal above so the script can find them -->
   <script src="gallery-loader.js"></script>
+  <script>
+    loadGallery("portfolio/action", "grid", [
+      "Citrus Racing",  
+      "Maine Airshow 2026",
+      "Maine Airshow 2024"
+      
+    ]);
+  </script>
 
 </body>
 </html>
