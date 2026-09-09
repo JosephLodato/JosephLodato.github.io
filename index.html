@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joseph Lodato — Hardware & PCB Engineering</title>
+    <title>Joseph Lodato | Hardware &amp; PCB Engineering</title>
     <meta name="description"
-        content="Joseph Lodato — computer engineer focused on board-level hardware design, PCB layout, and power electronics. Custom KiCad boards, embedded firmware, and Formula SAE EV development.">
+        content="Joseph Lodato, a computer engineer focused on board-level hardware design. Custom KiCad PCBs, embedded firmware, and Formula SAE EV development.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -257,7 +257,7 @@
 
             .nav-resume {
                 margin: 0.5rem 1.5rem 0;
-                text-align: center;
+                justify-content: center;
             }
 
             .hamburger {
@@ -311,28 +311,7 @@
             max-width: 760px;
             padding: 0 1.5rem;
             animation: fadeUp 1s ease both;
-            margin-bottom: 72px;
-        }
-
-        .hero-eyebrow {
-            font-family: var(--font-mono);
-            font-size: 0.74rem;
-            letter-spacing: 0.24em;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 1.4rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.85rem;
-        }
-
-        .hero-eyebrow::before,
-        .hero-eyebrow::after {
-            content: '';
-            width: 26px;
-            height: 1px;
-            background: var(--accent-line);
+            margin-bottom: 44px;
         }
 
         .hero-name {
@@ -342,39 +321,23 @@
             color: var(--white);
             line-height: 1.05;
             letter-spacing: -0.015em;
-            margin-bottom: 1.4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-rule {
+            width: 46px;
+            height: 1px;
+            background: var(--accent);
+            margin: 0 auto 1.5rem;
         }
 
         .hero-role {
-            font-size: clamp(0.95rem, 2vw, 1.12rem);
+            font-size: clamp(1rem, 2vw, 1.18rem);
             color: var(--text);
-            max-width: 560px;
-            margin: 0 auto 2rem;
-            line-height: 1.7;
-        }
-
-        .hero-role strong {
-            color: var(--white);
-            font-weight: 500;
-        }
-
-        .hero-titles {
-            display: flex;
-            justify-content: center;
-            gap: 0.6rem;
-            flex-wrap: wrap;
-        }
-
-        .hero-tag {
-            font-family: var(--font-mono);
-            font-size: 0.72rem;
-            letter-spacing: 0.06em;
-            color: var(--text);
-            border: 1px solid var(--border-strong);
-            padding: 0.35rem 0.9rem;
-            border-radius: 100px;
-            background: rgba(11, 11, 13, 0.45);
-            backdrop-filter: blur(6px);
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.65;
+            text-wrap: balance;
         }
 
         .hero-scroll-row {
@@ -402,7 +365,7 @@
             padding: 0.6rem 1.35rem;
             border-radius: 100px;
             backdrop-filter: blur(8px);
-            transition: color var(--transition), border-color var(--transition), background var(--transition);
+            transition: color var(--transition), border-color var(--transition);
         }
 
         .hero-scroll:hover {
@@ -505,58 +468,6 @@
         .about-text strong {
             color: var(--white);
             font-weight: 500;
-        }
-
-        /* ---------- METRICS STRIP ---------- */
-        #metrics {
-            padding: 0 1.5rem;
-        }
-
-        .metric-grid {
-            max-width: var(--max-w);
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1px;
-            background: var(--border);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            overflow: hidden;
-        }
-
-        .metric {
-            background:
-                repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.022) 0 1px, transparent 1px 20px),
-                repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.022) 0 1px, transparent 1px 20px),
-                var(--bg-2);
-            padding: 1.75rem 1.1rem;
-            text-align: center;
-        }
-
-        .metric-value {
-            font-family: var(--font-mono);
-            font-size: clamp(1.2rem, 2.6vw, 1.6rem);
-            color: var(--white);
-            letter-spacing: -0.02em;
-            line-height: 1.2;
-        }
-
-        .metric-value em {
-            font-style: normal;
-            color: var(--accent);
-        }
-
-        .metric-label {
-            font-size: 0.76rem;
-            color: var(--text-dim);
-            line-height: 1.5;
-            margin-top: 0.5rem;
-        }
-
-        @media (max-width: 760px) {
-            .metric-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
         }
 
         /* ---------- LINKS ---------- */
@@ -717,7 +628,7 @@
             }
         }
 
-        /* ---------- TIMELINE (education + experience) ---------- */
+        /* ---------- TIMELINE ---------- */
         #education {
             background: var(--bg-2);
             border-top: 1px solid var(--border);
@@ -837,12 +748,13 @@
         }
 
         .bullet-list li::before {
-            content: '—';
+            content: '';
             position: absolute;
             left: 0;
-            color: var(--accent);
-            font-size: 0.7rem;
-            top: 0.34rem;
+            top: 0.92em;
+            width: 7px;
+            height: 1px;
+            background: var(--accent);
         }
 
         .bullet-list strong {
@@ -900,7 +812,6 @@
             gap: 1.15rem;
         }
 
-        /* Featured tier — the hardware work gets the largest cards */
         .project-grid--feature {
             grid-template-columns: repeat(2, 1fr);
             gap: 1.3rem;
@@ -923,7 +834,6 @@
             font-size: 0.89rem;
         }
 
-        /* Compact tier — smaller supporting projects */
         .project-grid--compact {
             grid-template-columns: repeat(4, 1fr);
             gap: 1rem;
@@ -988,7 +898,6 @@
             filter: brightness(0.98) saturate(1);
         }
 
-        /* Synthetic figure for projects without a photograph yet */
         .project-card-fig {
             position: relative;
             height: 185px;
@@ -1187,7 +1096,9 @@
             font-size: 0.76rem;
             letter-spacing: 0.06em;
             color: var(--accent);
-            margin-bottom: 1.4rem;
+            margin-bottom: 1.6rem;
+            padding-bottom: 1.4rem;
+            border-bottom: 1px solid var(--border);
         }
 
         .modal-content h4 {
@@ -1251,12 +1162,13 @@
         }
 
         .modal-content li::before {
-            content: '—';
+            content: '';
             position: absolute;
             left: 0;
-            color: var(--accent);
-            font-size: 0.7rem;
-            top: 0.42rem;
+            top: 0.95em;
+            width: 7px;
+            height: 1px;
+            background: var(--accent);
         }
 
         .modal-content li strong {
@@ -1288,39 +1200,6 @@
             border-color: var(--border);
         }
 
-        /* Modal meta row: role / status / timeline */
-        .modal-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem 2rem;
-            padding: 1rem 1.25rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        .modal-meta div {
-            min-width: 0;
-        }
-
-        .modal-meta span {
-            display: block;
-            font-family: var(--font-mono);
-            font-size: 0.64rem;
-            letter-spacing: 0.13em;
-            text-transform: uppercase;
-            color: var(--text-dim);
-            margin-bottom: 0.15rem;
-        }
-
-        .modal-meta strong {
-            font-size: 0.85rem;
-            color: var(--white);
-            font-weight: 500;
-        }
-
-        /* Spec definition list */
         .spec {
             display: grid;
             grid-template-columns: minmax(130px, 190px) 1fr;
@@ -1365,7 +1244,6 @@
             }
         }
 
-        /* Data tables */
         .table-wrap {
             overflow-x: auto;
             margin: 1.2rem 0;
@@ -1419,7 +1297,6 @@
             color: var(--text-dim);
         }
 
-        /* Callouts */
         .callout {
             border-left: 2px solid var(--accent);
             background: var(--accent-soft);
@@ -1437,12 +1314,12 @@
             margin-bottom: 0.4rem;
         }
 
-        .callout p:last-child {
-            margin-bottom: 0;
-        }
-
         .callout p {
             font-size: 0.9rem;
+        }
+
+        .callout p:last-child {
+            margin-bottom: 0;
         }
 
         .callout--muted {
@@ -1603,17 +1480,9 @@
     <section class="hero" id="home">
         <div class="hero-bg"></div>
         <div class="hero-content">
-            <div class="hero-eyebrow">Hardware &amp; PCB Engineering</div>
             <h1 class="hero-name">Joseph Lodato</h1>
-            <p class="hero-role">Computer engineer working toward <strong>board-level hardware design and power
-                    electronics</strong> — custom PCBs in KiCad, the firmware to bring them up, and the bench
-                measurements to prove they do what the math said they would.</p>
-            <div class="hero-titles">
-                <span class="hero-tag">PCB Design</span>
-                <span class="hero-tag">Power Electronics</span>
-                <span class="hero-tag">Embedded Firmware</span>
-                <span class="hero-tag">Formula SAE EV</span>
-            </div>
+            <div class="hero-rule"></div>
+            <p class="hero-role">Computer engineer working toward board-level hardware design.</p>
         </div>
         <div class="hero-scroll-row">
             <a href="#about" class="hero-scroll">
@@ -1637,46 +1506,22 @@
                 <div class="divider"></div>
             </div>
             <div class="about-text fade-in">
-                <p>I'm Joseph Lodato, a computer engineer focused on <strong>board-level hardware design and power
-                        electronics</strong>. I'm currently pursuing an M.S. in Computer Engineering at Syracuse
-                    University, having graduated Magna Cum Laude in May 2026 with a B.S. in Computer Engineering and a
-                    minor in Physics.</p>
-                <p>Most of my work lives at the boundary between a schematic and a working object. I've designed two
-                    PCBs solo from part selection through layout, bring-up, and test: <strong>Apogee</strong>, a 72-key
-                    mechanical keyboard measured at a 2.71 ms mean keystroke latency, and <strong>IRIS</strong>, a
-                    sealed wearable storm-warning system built around a lightning sensor that resolves ~100 µV signals
-                    at 500 kHz.</p>
-                <p>I also serve as Lead of EV Development for <strong>Citrus Racing</strong>, Syracuse's Formula SAE
-                    team, where I'm directing the team's first electric powertrain — a 72 V pack scaling to 144 V, and
-                    the 120 V/10 A DC-DC supercapacitor charger that feeds it. I previously served as the team's Chief
-                    Engineer, President, and Lead of Electronics.</p>
-                <p>Outside of engineering I spend my time hiking, mountaineering, skiing, and shooting photography —
-                    particularly astrophotography of deep-sky objects, alongside landscape and wildlife work.</p>
+                <p>I'm Joseph Lodato, a computer engineer focused on board-level hardware design. I'm working through
+                    an M.S. in Computer Engineering at Syracuse University, after graduating Magna Cum Laude in May 2026
+                    with a B.S. in Computer Engineering and a minor in Physics.</p>
+                <p>Most of what I do sits between a schematic and a working object. I've taken two boards from part
+                    selection through layout, bring-up, and test on my own. <strong>Apogee</strong> is a 72-key
+                    mechanical keyboard that measures 2.71 ms mean keystroke latency. <strong>IRIS</strong> is a sealed
+                    wearable storm-warning system built around a lightning sensor that resolves 100 µV signals at 500
+                    kHz.</p>
+                <p>I'm also Lead of EV Development for Citrus Racing, Syracuse's Formula SAE team, where I'm directing
+                    the first electric powertrain the team has built. Before that I held the Chief Engineer, President,
+                    and Lead of Electronics roles.</p>
+                <p>Away from a bench I hike, climb, ski, and shoot photography. Mostly deep-sky astrophotography, with
+                    landscape and wildlife work alongside it.</p>
             </div>
         </div>
     </section>
-
-    <!-- METRICS -->
-    <div id="metrics">
-        <div class="metric-grid fade-in">
-            <div class="metric">
-                <div class="metric-value">2.71<em> ms</em></div>
-                <div class="metric-label">Measured mean keystroke latency, 100 trials</div>
-            </div>
-            <div class="metric">
-                <div class="metric-value">120 V<em> / </em>10 A</div>
-                <div class="metric-label">DC-DC converter under development</div>
-            </div>
-            <div class="metric">
-                <div class="metric-value">90<em>%</em></div>
-                <div class="metric-label">HockeyBot block rate, 54 of 60 shots</div>
-            </div>
-            <div class="metric">
-                <div class="metric-value">74<em> / </em>131</div>
-                <div class="metric-label">Best Formula SAE finish of the 2000s era</div>
-            </div>
-        </div>
-    </div>
 
     <!-- QUICK LINKS -->
     <div id="links">
@@ -1693,8 +1538,7 @@
                         </svg>
                     </div>
                     <h3>Resume</h3>
-                    <p>A one-page hardware-focused resume covering PCB projects, Formula SAE leadership, and work
-                        experience.</p>
+                    <p>One page covering PCB projects, Formula SAE leadership, and work history.</p>
                     <a href="/media/Joseph Lodato Resume.pdf" download class="btn">Download Resume</a>
                 </div>
                 <div class="link-card fade-in">
@@ -1706,7 +1550,7 @@
                         </svg>
                     </div>
                     <h3>Photography Gallery</h3>
-                    <p>Deep-sky astrophotography alongside landscape, wildlife, and motorsports work.</p>
+                    <p>Deep-sky astrophotography, plus landscape, wildlife, and motorsports work.</p>
                     <a href="/Webpages/portfolioHome.html" class="btn">View Gallery →</a>
                 </div>
             </div>
@@ -1721,8 +1565,8 @@
                 <h2 class="section-title">Technical Skills</h2>
                 <div class="divider"></div>
             </div>
-            <p class="section-intro fade-in">Every item below traces to a specific project documented in the Projects
-                section — not a checklist of tools I've read about.</p>
+            <p class="section-intro fade-in">Everything here comes out of a project documented further down the page.
+            </p>
 
             <div class="fade-in">
                 <div class="skill-group">
@@ -1746,7 +1590,7 @@
                 </div>
 
                 <div class="skill-group">
-                    <h3>Power Electronics</h3>
+                    <h3>Power &amp; Battery Systems</h3>
                     <div class="chips">
                         <span class="chip">Synchronous half-bridge DC-DC</span>
                         <span class="chip">Gate drivers &amp; MOSFETs</span>
@@ -1855,8 +1699,14 @@
                     </div>
                     <div class="timeline-body">
                         <h4>M.S. Computer Engineering</h4>
-                        <p>Accelerated one-year master's program through the BS/MS 4+1 track at the College of
-                            Engineering and Computer Science. Anticipated May 2027.</p>
+                        <p>Accelerated one-year master's through the BS/MS 4+1 track at the College of Engineering and
+                            Computer Science. Anticipated May 2027.</p>
+                        <div class="timeline-role">Coursework</div>
+                        <div class="chips coursework">
+                            <span class="chip">Semiconductor Fabrication</span>
+                            <span class="chip">System-on-Chip Design</span>
+                            <span class="chip">Advanced Computer Architecture</span>
+                        </div>
                     </div>
                 </div>
 
@@ -1871,10 +1721,7 @@
                         <p>Graduated Magna Cum Laude, GPA 3.60, May 2026.</p>
                         <div class="timeline-role">Relevant Coursework</div>
                         <div class="chips coursework">
-                            <span class="chip">Semiconductor Fabrication</span>
-                            <span class="chip">System-on-Chip Design</span>
                             <span class="chip">VLSI Design</span>
-                            <span class="chip">Advanced Computer Architecture</span>
                             <span class="chip">Signals &amp; Systems Analysis</span>
                             <span class="chip">Embedded Systems &amp; Microcontroller Lab</span>
                             <span class="chip">Robotics Programming Lab</span>
@@ -1897,10 +1744,10 @@
                     <div class="timeline-body">
                         <h4>Graduated with Honors</h4>
                         <ul class="bullet-list">
-                            <li>Built an automated sawdust collection system for the school's woodworking/STEM workshop
-                                as a senior project.</li>
-                            <li>Co-founded the school programming club, teaching students of all skill levels the
-                                fundamentals of computer programming.</li>
+                            <li>Built an automated sawdust collection system for the school's woodworking and STEM
+                                workshop as a senior project.</li>
+                            <li>Co-founded the school programming club, teaching students at every skill level the
+                                fundamentals of programming.</li>
                         </ul>
                     </div>
                 </div>
@@ -1924,31 +1771,30 @@
                 <div class="timeline-item">
                     <div class="timeline-meta">
                         <div class="timeline-date">Oct 2022 – Present</div>
-                        <div class="timeline-org">Citrus Racing — Formula SAE</div>
+                        <div class="timeline-org">Citrus Racing, Formula SAE</div>
                     </div>
                     <div class="timeline-body">
                         <h4>Lead of EV Development</h4>
-                        <p>Five distinct roles across four years on Syracuse University's Formula SAE team, currently
-                            directing the design, fabrication, and programming of the team's first electric powertrain.
-                        </p>
+                        <p>Five roles across four years on Syracuse University's Formula SAE team. I currently direct
+                            the design, fabrication, and programming of the team's first electric powertrain.</p>
                         <ul class="bullet-list">
-                            <li>Directing a <strong>high-voltage battery pack</strong> — currently 72 V, scaling to 144
-                                V for the first full vehicle build — from 12/24 V LiFePO₄ modules with cell-level BMS
-                                plus a top-level pack BMS.</li>
-                            <li>Leading the <strong>120 V/10 A supercapacitor charging subsystem</strong> as part of the
-                                vehicle's energy management architecture.</li>
+                            <li>Directing a high-voltage battery pack, currently 72 V and scaling to 144 V for the
+                                first full vehicle build, from 12/24 V LiFePO₄ modules with cell-level BMS plus a
+                                top-level pack BMS.</li>
+                            <li>Leading the 120 V/10 A supercapacitor charging subsystem inside the vehicle's energy
+                                management architecture.</li>
                         </ul>
                         <div class="timeline-role">Prior Roles</div>
                         <ul class="bullet-list">
                             <li><strong>Co-Chief Engineer (2025/26):</strong> led the vehicle development cycle to a
-                                74th-of-131 finish — the team's highest Formula SAE result of the 2000s era — and ran
-                                the mock technical inspection process that got the car through tech.</li>
-                            <li><strong>President (2024/25):</strong> managed a <strong>$50,000</strong> annual budget,
-                                secured corporate sponsorships, established a university purchasing pipeline, and grew
-                                active membership from ~5 to <strong>40+</strong>.</li>
+                                74th-of-131 finish, the team's best Formula SAE result of the 2000s era, and ran the
+                                mock technical inspection process that got the car through tech.</li>
+                            <li><strong>President (2024/25):</strong> managed a $50,000 annual budget, secured corporate
+                                sponsorships, set up a university purchasing pipeline, and grew active membership from
+                                about 5 to over 40.</li>
                             <li><strong>Lead of Electronics (2023/24):</strong> designed, built, and tested a
-                                competition-grade wiring harness solo, enabling the team's first return to competition
-                                since 2019 (91st of 113).</li>
+                                competition-grade wiring harness as the team's only electronics engineer, which put the
+                                team back at competition for the first time since 2019 (91st of 113).</li>
                             <li><strong>Co-Electronics Lead (2022/23):</strong> reverse-engineered legacy harnesses and
                                 built a prototype test harness.</li>
                         </ul>
@@ -1961,13 +1807,14 @@
                         <div class="timeline-org">Syracuse University</div>
                     </div>
                     <div class="timeline-body">
-                        <h4>Undergraduate Coach — PHY 307, Science and Computers I</h4>
+                        <h4>Undergraduate Coach, PHY 307 Science and Computers I</h4>
                         <ul class="bullet-list">
-                            <li>Embedded in lab and lecture sections supporting ~15–20 students with the physics behind
-                                their code, plus direct debugging help and by-request office hours.</li>
-                            <li>Most-requested topics were programming fundamentals and the limits of computational
-                                accuracy — the same numerical-precision reasoning that shows up in fixed-point math and
-                                sensor resolution work.</li>
+                            <li>Worked inside lab and lecture sections with about 15 to 20 students, covering the
+                                physics behind their code along with direct debugging help and office hours by request.
+                            </li>
+                            <li>The two topics students asked about most were programming fundamentals and the limits
+                                of computational accuracy, which is the same numerical-precision reasoning that turns
+                                up in fixed-point math and sensor resolution.</li>
                         </ul>
                     </div>
                 </div>
@@ -1984,19 +1831,18 @@
                     <div class="timeline-body">
                         <h4>Control Panel Technician</h4>
                         <p>Motor control and power relay panels for pumping stations and wastewater treatment plants,
-                            from small units up to 7-foot enclosures — roughly 20–30 panels over the summer.</p>
+                            ranging from small units up to 7-foot enclosures. I worked on roughly 20 to 30 panels over
+                            the summer.</p>
                         <ul class="bullet-list">
-                            <li>Fabricated and verified panels to <strong>UL508A</strong> standards, including component
-                                spacing checks for thermal clearance.</li>
-                            <li>Performed exhaustive <strong>ring-outs</strong> — wire-by-wire continuity checks against
-                                the drawings — as the first line of defense before functional test.</li>
-                            <li>Ran functional tests on a custom in-house switchboard (~100 switches, ~100 LEDs, 5
-                                analog read/write channels) driving field-side inputs and reading relay outputs.</li>
-                            <li>Debugged circuits and Allen-Bradley <strong>PLC logic</strong> across a range of
-                                platforms.</li>
-                            <li>Designed a <strong>weight-based inventory tracking</strong> framework: bins press into a
-                                strain gauge, and known per-unit weight converts the reading directly into an item
-                                count.</li>
+                            <li>Fabricated and verified panels to UL508A standards, including component spacing checks
+                                for thermal clearance.</li>
+                            <li>Ran exhaustive ring-outs, checking every wire against the drawings for continuity
+                                before anything reached functional test.</li>
+                            <li>Tested panels on a custom in-house switchboard of about 100 switches, 100 LEDs, and 5
+                                analog read/write channels, driving field-side inputs and reading relay outputs.</li>
+                            <li>Debugged circuits and Allen-Bradley PLC logic across several platforms.</li>
+                            <li>Designed a weight-based inventory tracking framework: bins press into a strain gauge,
+                                and a known per-unit weight turns the reading straight into an item count.</li>
                         </ul>
                     </div>
                 </div>
@@ -2009,12 +1855,12 @@
                     <div class="timeline-body">
                         <h4>Student Machinist</h4>
                         <ul class="bullet-list">
-                            <li>Support ~50–60 students per semester across lathes, mills, and 3D printers, ensuring
-                                safe and correct operation on coursework and independent projects.</li>
-                            <li>Deepest expertise on <strong>Bambu Lab</strong> 3D printers, keeping student jobs
-                                running across the shop's fleet.</li>
-                            <li>Consulted for a mechanical engineering capstone team on build material selection,
-                                balancing machinability against strength-to-weight requirements.</li>
+                            <li>Support 50 to 60 students a semester across lathes, mills, and 3D printers, making sure
+                                coursework and personal projects run safely and correctly.</li>
+                            <li>Deepest expertise is on Bambu Lab 3D printers, keeping student jobs moving across the
+                                shop's fleet.</li>
+                            <li>Advised a mechanical engineering capstone team on build material selection, weighing
+                                machinability against their strength-to-weight requirement.</li>
                         </ul>
                     </div>
                 </div>
@@ -2027,8 +1873,8 @@
                     <div class="timeline-body">
                         <h4>IT Coordinator</h4>
                         <ul class="bullet-list">
-                            <li>Prepared and deployed over 250 devices (iPads and Chromebooks) across 4 schools to meet
-                                increased technology demand during the COVID-19 pandemic.</li>
+                            <li>Prepared and deployed over 250 iPads and Chromebooks across 4 schools to meet the jump
+                                in technology demand during the COVID-19 pandemic.</li>
                         </ul>
                     </div>
                 </div>
@@ -2041,13 +1887,13 @@
                     <div class="timeline-body">
                         <h4>Dock Staff</h4>
                         <ul class="bullet-list">
-                            <li>Ran a team of ~8 dock staff and made operational decisions on days without a manager
+                            <li>Ran a team of about 8 dock staff and made operational calls on days without a manager
                                 present, across four seasons.</li>
-                            <li>Onboarded and trained new hires; earned clearance to operate work boats.</li>
-                            <li>Became the radio-based single point of contact between mechanics and boat locations,
-                                removing a recurring search cost from their workflow.</li>
-                            <li>Performed preventive maintenance on docks and work boats; handled fuel spill cleanups
-                                and the required documentation.</li>
+                            <li>Onboarded and trained new hires, and earned clearance to operate work boats.</li>
+                            <li>Became the radio point of contact between mechanics and boat locations, which cut a
+                                recurring search out of their workflow.</li>
+                            <li>Handled preventive maintenance on docks and work boats, plus fuel spill cleanups and
+                                the documentation that went with them.</li>
                         </ul>
                     </div>
                 </div>
@@ -2064,10 +1910,9 @@
                 <h2 class="section-title">Projects</h2>
                 <div class="divider"></div>
             </div>
-            <p class="section-intro fade-in">Select a project for full specifications, trade studies, measured results,
-                and what went wrong along the way. Ownership is stated explicitly on every entry.</p>
+            <p class="section-intro fade-in">Open any project for its specifications, measured results, and the parts
+                that went wrong.</p>
 
-            <!-- Group 1 -->
             <div class="project-group fade-in">
                 <div class="project-group-title">Hardware &amp; PCB Design <span>04</span></div>
                 <div class="project-grid project-grid--feature">
@@ -2119,9 +1964,9 @@
                                 <div class="project-card-tag">PCB Design · KiCad</div>
                                 <span class="badge badge--active">In Progress</span>
                             </div>
-                            <h4>IRIS — Wearable Storm Warning System</h4>
-                            <p>Solo 47 × 102 mm carrier board integrating 7 sensors, GNSS, and e-ink for multi-day
-                                alpine use. Designed, reviewed, and heading to assembly.</p>
+                            <h4>IRIS: Wearable Storm Warning System</h4>
+                            <p>A 47 × 102 mm carrier board carrying 7 sensors, GNSS, and e-ink for multi-day alpine
+                                use. Designed, reviewed, and heading to assembly.</p>
                             <div class="project-card-more">View details →</div>
                         </div>
                     </button>
@@ -2134,9 +1979,8 @@
                                 <div class="project-card-tag">PCB Design · KiCad</div>
                                 <span class="badge">Complete</span>
                             </div>
-                            <h4>Apogee — Custom Keyboard PCB</h4>
-                            <p>End-to-end solo PCB: 340 × 140 mm, 72 keys, wired and wireless, measured at 2.71 ms mean
-                                latency.</p>
+                            <h4>Apogee: Custom Keyboard PCB</h4>
+                            <p>340 × 140 mm, 72 keys, wired and wireless, measured at 2.71 ms mean latency.</p>
                             <div class="project-card-more">View details →</div>
                         </div>
                     </button>
@@ -2149,9 +1993,8 @@
                                 <div class="project-card-tag">Capstone · Mechanical</div>
                                 <span class="badge">Complete</span>
                             </div>
-                            <h4>HockeyBot — Autonomous Air Hockey Robot</h4>
-                            <p>CoreXY gantry robot that blocked 90% of shots against three human players. I owned the
-                                mechanical, motor, and power systems.</p>
+                            <h4>HockeyBot: Autonomous Air Hockey Robot</h4>
+                            <p>CoreXY gantry robot that blocked 90% of shots against three human players.</p>
                             <div class="project-card-more">View details →</div>
                         </div>
                     </button>
@@ -2159,7 +2002,6 @@
                 </div>
             </div>
 
-            <!-- Group 2 -->
             <div class="project-group fade-in">
                 <div class="project-group-title">Robotics &amp; Vehicle Systems <span>03</span></div>
                 <div class="project-grid">
@@ -2173,7 +2015,7 @@
                                 <span class="badge badge--active">Ongoing</span>
                             </div>
                             <h4>Citrus Racing</h4>
-                            <p>Four years and five roles on SU's Formula SAE team — two vehicle generations, a $50k
+                            <p>Four years and five roles on SU's Formula SAE team: two vehicle generations, a $50k
                                 budget, and now the team's first EV powertrain.</p>
                             <div class="project-card-more">View details →</div>
                         </div>
@@ -2187,9 +2029,9 @@
                                 <div class="project-card-tag">Robotics · ROS 2</div>
                                 <span class="badge">Complete</span>
                             </div>
-                            <h4>Alfred — Search &amp; Rescue Robot</h4>
-                            <p>The only robot in the class to complete a fully autonomous search-and-retrieve run — on
-                                encoders and a single webcam, no LIDAR.</p>
+                            <h4>Alfred: Search &amp; Rescue Robot</h4>
+                            <p>The only robot in the class to finish a fully autonomous search-and-retrieve run, on
+                                encoders and a single webcam.</p>
                             <div class="project-card-more">View details →</div>
                         </div>
                     </button>
@@ -2203,7 +2045,7 @@
                                 <div class="project-card-tag">Motion Control · CV</div>
                                 <span class="badge">Complete</span>
                             </div>
-                            <h4>Ctrl C + Ctrl Pi — Smart Copy Machine</h4>
+                            <h4>Ctrl C + Ctrl Pi: Smart Copy Machine</h4>
                             <p>Three-axis pen plotter that photographs a hand drawing, skeletonizes it, and redraws it
                                 from coordinate-based motor commands.</p>
                             <div class="project-card-more">View details →</div>
@@ -2213,7 +2055,6 @@
                 </div>
             </div>
 
-            <!-- Group 3 -->
             <div class="project-group fade-in">
                 <div class="project-group-title">Software &amp; Simulation <span>04</span></div>
                 <div class="project-grid project-grid--compact">
@@ -2228,8 +2069,8 @@
                                 <span class="badge">Complete</span>
                             </div>
                             <h4>ApertureAnalysis</h4>
-                            <p>Recovers a telescope's aperture geometry from stellar diffraction spikes using a
-                                radix-2 Cooley–Tukey FFT written from scratch.</p>
+                            <p>Recovers a telescope's aperture geometry from stellar diffraction spikes using an FFT
+                                written from scratch.</p>
                             <div class="project-card-more">View details →</div>
                         </div>
                     </button>
@@ -2241,7 +2082,7 @@
                         <div class="project-card-body">
                             <div class="project-card-top">
                                 <div class="project-card-tag">Unity · C# · N-Body</div>
-                                <span class="badge badge--active">Ongoing</span>
+                                <span class="badge">Paused</span>
                             </div>
                             <h4>Celestial Veil</h4>
                             <p>N-body orbital simulation in Unity built on Newton's law of universal gravitation.</p>
@@ -2258,8 +2099,8 @@
                                 <span class="badge badge--active">Ongoing</span>
                             </div>
                             <h4>Personal Website</h4>
-                            <p>This site — hand-written from scratch, no framework, as both a portfolio and a frontend
-                                learning exercise.</p>
+                            <p>This site, hand-written from scratch as both a portfolio and a frontend learning
+                                exercise.</p>
                             <div class="project-card-more">View details →</div>
                         </div>
                     </button>
@@ -2292,21 +2133,14 @@
         <div class="modal-content">
             <button class="close" onclick="closeModal('dcdc')" aria-label="Close">&times;</button>
             <h3 id="t-dcdc">120 V/10 A DC-DC Supercapacitor Charger</h3>
-            <div class="modal-sub">Citrus Racing EV Team · Power Electronics</div>
+            <div class="modal-sub">Citrus Racing EV Team · In progress</div>
 
-            <div class="modal-meta">
-                <div><span>Ownership</span><strong>Took over technical ownership</strong></div>
-                <div><span>Status</span><strong>Perfboard build underway</strong></div>
-                <div><span>Role</span><strong>Sole owner, control scheme</strong></div>
-            </div>
+            <p>A synchronous half-bridge DC-DC converter rated for 120 VDC at 10 A continuous. It steps a 72 V battery
+                array up to charge a 97 V nominal supercapacitor bank for Citrus Racing's first electric powertrain.</p>
 
-            <p>A synchronous half-bridge DC-DC converter rated for <strong>120 VDC / 10 A continuous</strong>, stepping
-                a 72 V battery array up to charge a 97 V nominal supercapacitor bank for Citrus Racing's first electric
-                powertrain.</p>
-
-            <p>The supercapacitor bank exists to absorb acceleration inrush current beyond the <strong>~10 A
-                    ceiling</strong> of the batteries' internal BMS units. A blocking diode prevents regenerative
-                braking energy from back-feeding into the array.</p>
+            <p>The supercapacitor bank is there to absorb acceleration inrush current past the roughly 10 A ceiling of
+                the batteries' internal BMS units. A blocking diode keeps regenerative braking energy from back-feeding
+                into the array.</p>
 
             <h4>Specification</h4>
             <dl class="spec">
@@ -2328,30 +2162,13 @@
                 <dd>PIC16F1769 firmware</dd>
             </dl>
 
-            <h4>My Contribution</h4>
-            <ul>
-                <li><strong>Closed-loop current control.</strong> Programmable current limiting with current sensing —
-                    firmware modulates switching to hold current at or below a configured maximum (currently 10 A)
-                    rather than running open-loop.</li>
-                <li><strong>End-to-end ownership.</strong> Driving the design through validation, layout, and vehicle
-                    integration as the sole person responsible.</li>
-            </ul>
+            <h4>Control Scheme</h4>
+            <p>The converter runs closed-loop with current sensing rather than open-loop. Firmware modulates switching
+                to hold current at or below a configured maximum, currently 10 A.</p>
 
-            <div class="callout callout--muted">
-                <div class="callout-label">Ownership, stated plainly</div>
-                <p>Component selection — inductor value, MOSFET part, gate driver — was done by a previous team member
-                    in collaboration with design engineers from a partner company. It is not my first-principles sizing
-                    work. I took over as the sole person in charge of the project; the closed-loop current-limiting
-                    control scheme and current end-to-end ownership are mine.</p>
-            </div>
-
-            <h4>Next Steps</h4>
-            <ul>
-                <li>Perfboard validation — efficiency, switching waveforms, thermal performance, and dead-time behavior.
-                </li>
-                <li>PCB layout, then board-level validation.</li>
-                <li>Vehicle integration into the energy management architecture.</li>
-            </ul>
+            <h4>Where It Stands</h4>
+            <p>Perfboard testing comes first, covering efficiency, switching waveforms, thermal behavior, and dead-time.
+                PCB layout and board-level validation follow, then integration into the vehicle.</p>
         </div>
     </div>
 
@@ -2359,23 +2176,16 @@
     <div id="modal-iris" class="modal" role="dialog" aria-modal="true" aria-labelledby="t-iris">
         <div class="modal-content">
             <button class="close" onclick="closeModal('iris')" aria-label="Close">&times;</button>
-            <h3 id="t-iris">IRIS — Integrated Readout for Incoming Storms</h3>
-            <div class="modal-sub">Personal PCB Project · Fully solo</div>
+            <h3 id="t-iris">IRIS: Integrated Readout for Incoming Storms</h3>
+            <div class="modal-sub">Personal PCB Project · Board V1.0 designed and reviewed</div>
 
-            <div class="modal-meta">
-                <div><span>Ownership</span><strong>Fully solo</strong></div>
-                <div><span>Status</span><strong>Board V1.0 designed &amp; reviewed</strong></div>
-                <div><span>Open</span><strong>Assembly, firmware, enclosure</strong></div>
-            </div>
+            <p>IRIS answers one question: what is the weather about to do to me, right now, where I am standing. It is
+                not a navigation device, so GNSS sits in the design as a supporting sensor rather than the headline.</p>
 
-            <p>A wearable weather-alert system that answers exactly one question: <em>what is the weather about to do to
-                    me, right now, where I am standing.</em> Deliberately not a navigation device or a fitness tracker —
-                GNSS is a supporting sensor, not the headline feature.</p>
-
-            <p>Every decision traces back to four constraints: multi-day winter alpine use (battery life governs
-                everything), glove operation (no menus, no button combos), exposed wet cold terrain (sealed enclosure,
-                external probe), and a solo build on a finite timeline (off-the-shelf breakouts on a custom carrier PCB
-                rather than fully integrated silicon).</p>
+            <p>Four constraints drove every decision. Multi-day winter alpine use makes battery life the governing spec.
+                Glove operation rules out menus and button combinations. Wet, cold, exposed terrain calls for a sealed
+                enclosure and an external probe. And building it alone on a finite timeline pushed me toward
+                off-the-shelf breakouts on a custom carrier board instead of fully integrated silicon.</p>
 
             <h4>Board Parameters</h4>
             <dl class="spec">
@@ -2438,7 +2248,7 @@
                         <tr>
                             <td>Orientation / heading</td>
                             <td>LSM6DS3 (onboard XIAO)</td>
-                            <td class="num dim">—</td>
+                            <td class="num dim">Onboard</td>
                         </tr>
                         <tr>
                             <td>Enclosure condensation</td>
@@ -2448,16 +2258,14 @@
                     </tbody>
                 </table>
             </div>
-            <p>The AHT20/SHT20 pairing isn't duplication — the AHT20 monitors the sealed electronics bay for
-                condensation and dew point, while the SHT20 on the external stub reads actual outside ambient.</p>
+            <p>The AHT20 and SHT20 are not redundant. The AHT20 watches the sealed electronics bay for condensation and
+                dew point, while the SHT20 out on the external stub reads outside ambient.</p>
 
-            <h4>GNSS Selection — The Non-Obvious Result</h4>
-            <p>Six candidates were evaluated. The MAX-M10S was the first choice but went backordered; the selected
-                <strong>Quectel LC76G</strong> costs ~$18, includes an antenna, supports 5 constellations natively over
-                I²C, and has an on-chip low-power mode.</p>
-            <p>The critical finding came afterward: unlike the MAX-M10S, the LC76G has <strong>no ephemeris backup
-                    battery</strong>, so any power loss forces a full 26-second cold start. That inverts the intended
-                power strategy.</p>
+            <h4>GNSS Selection</h4>
+            <p>I evaluated six candidates. The MAX-M10S was my first pick but went backordered, so the board uses a
+                Quectel LC76G: about $18, antenna included, five constellations, native I²C, on-chip low-power mode.</p>
+            <p>Then I found the problem. The LC76G has no ephemeris backup battery, so losing power forces a full
+                26-second cold start every time. That inverts the power strategy I had planned.</p>
             <div class="table-wrap">
                 <table class="dtable">
                     <thead>
@@ -2478,15 +2286,16 @@
                         <tr>
                             <td class="hl">Software standby, VCC maintained</td>
                             <td class="num">~1 s hot</td>
-                            <td class="num">—</td>
+                            <td class="num dim">n/a</td>
                             <td class="num hl">&lt;200 µA</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <p>Leaving the module powered uses roughly <strong>8× less energy</strong> than switching it off, because
-                the module holds ephemeris in RAM. The board is designed with GPS VCC tied directly to 3V3, so getting
-                standby working in firmware is a prerequisite for acceptable battery life, not an optimization.</p>
+            <p>Leaving the module powered costs roughly eight times less energy than switching it off, because it holds
+                ephemeris in RAM and hot-starts in about a second. GPS VCC ties straight to 3V3 on the board as
+                designed, so getting standby working in firmware is a prerequisite for usable battery life rather than
+                a refinement.</p>
 
             <h4>Power Architecture</h4>
             <div class="table-wrap">
@@ -2502,12 +2311,12 @@
                         <tr>
                             <td>nRF52840 deep sleep</td>
                             <td class="num">~2 µA</td>
-                            <td class="dim">Chosen over ESP32-S3 (~10 µA) on this figure alone</td>
+                            <td class="dim">Picked over ESP32-S3 (~10 µA) on this figure alone</td>
                         </tr>
                         <tr>
                             <td>AS3935 listening</td>
                             <td class="num">~600 µA</td>
-                            <td class="dim">Always on — can't miss a strike</td>
+                            <td class="dim">Always on, since a missed strike is a missed alert</td>
                         </tr>
                         <tr>
                             <td>BMP280 / AHT20 / SI1145 idle</td>
@@ -2522,7 +2331,7 @@
                         <tr>
                             <td>NeoPixel ring idle</td>
                             <td class="num hl">7–12 mA</td>
-                            <td class="dim">Controller never sleeps — dominant load #1</td>
+                            <td class="dim">Controller never sleeps. Dominant load #1</td>
                         </tr>
                         <tr>
                             <td>LC76G, no gating</td>
@@ -2532,84 +2341,78 @@
                     </tbody>
                 </table>
             </div>
-            <p>Baseline without ring and GPS is <strong>~630 µA</strong>. As designed with both always on:
-                <strong>~47 mA → ~4.3 days</strong> on the 5000 mAh cell, or ~2.6 days cold-derated. With GPS standby
-                and ring gating implemented in firmware, multi-week is the target — but that firmware work hasn't
-                happened yet, so 4.3 days is the honest current number.</p>
+            <p>Baseline without the ring and GPS is about 630 µA. As designed with both running, the board draws about
+                47 mA, which gives 4.3 days on the 5000 mAh cell, or 2.6 days derated for cold. Multi-week runtime is
+                the target once GPS standby and ring gating are in firmware. That work is not done, so 4.3 days is the
+                number I would quote today.</p>
 
             <h4>EMI Strategy</h4>
-            <p>The AS3935 is by far the most sensitive part on the board, detecting <strong>~100 µV signals at 500
-                    kHz</strong>. Everything about the layout follows from protecting it:</p>
+            <p>The AS3935 is the most sensitive part on the board by a wide margin, resolving 100 µV signals at 500 kHz.
+                Most of the layout follows from protecting it.</p>
             <ul>
                 <li>Full-board ground pour on both layers with 90 stitching vias.</li>
-                <li>An antenna keepout zone under the lightning sensor's magnetic loop antenna — copper underneath
+                <li>An antenna keepout zone under the lightning sensor's magnetic loop antenna, since copper underneath
                     induces eddy currents and detunes it.</li>
-                <li>~40 mm of physical separation between the motor driver transistor and the lightning sensor.</li>
-                <li>Routing kept almost entirely on one layer — only two short back-layer traces on the whole board.
+                <li>About 40 mm of physical separation between the motor driver transistor and the lightning sensor.
                 </li>
-                <li>A 100 nF snubber specified <strong>at the motor terminals, not on the PCB</strong>. Brushed DC
-                    motors emit broadband impulsive RF noise, which is precisely what the AS3935 is built to interpret
-                    as a lightning strike; killing it at the source is the only placement that works.</li>
+                <li>Routing kept almost entirely on one layer, with only two short back-layer traces on the whole board.
+                </li>
+                <li>A 100 nF snubber specified at the motor terminals rather than on the PCB. Brushed DC motors emit
+                    broadband impulsive RF noise, which is exactly what the AS3935 is built to read as a lightning
+                    strike, so killing it at the source is the only placement that works.</li>
             </ul>
-            <p>The governing rule, stated explicitly in the design notes: <strong>never split the plane under a
-                    signal.</strong> Return current wants the lowest-inductance path directly beneath its trace; a gap
-                forces a detour, and that detour becomes an antenna.</p>
+            <p>The governing rule: never split the plane under a signal. Return current takes the lowest-inductance
+                path directly beneath its trace, and a gap forces a detour that turns into an antenna.</p>
 
             <h4>Pre-Fabrication Design Review</h4>
-            <p>I ran a structured review with severity triage before ordering any board. Three blockers were caught:</p>
+            <p>I ran a structured review with severity triage before ordering anything. Three blockers turned up.</p>
             <ul>
-                <li><strong>LED ring and haptic motor wired to VBUS</strong> instead of VBAT — both would have been dead
-                    on battery power. The fix isn't simply "use 3V3": WS2812 dies have different forward voltages (red
-                    ~2.0 V vs. green/blue ~3.0–3.2 V) and a logic-high threshold of 0.7×VDD, which at 5 V is 3.5 V —
-                    unreachable from 3.3 V logic. VBAT works across the entire discharge curve and moves the 720 mA
-                    full-white transient off the sensor rail.</li>
-                <li><strong>Power switch routed through a GND pad</strong>, which put the entire board's ground return
-                    through the module's internal copper — thin traces never intended to carry motor and ring current,
-                    running directly beneath the radio. Corrected to high-side switching. The dangerous part is that it
-                    would have worked; no ERC or DRC rule flags it.</li>
-                <li><strong>Zero decoupling capacitors</strong> on the original board. Partially resolved — a 330 µF
-                    aluminum polymer cap at the ring connector, specifically not electrolytic, because electrolytics
-                    lose 40–60% capacitance and gain ~10× ESR at −20 °C, exactly the conditions this device exists for.
-                </li>
+                <li>The LED ring and haptic motor were wired to VBUS instead of VBAT, so both would have been dead on
+                    battery power. Moving them to 3V3 does not fix it either: WS2812 dies have different forward
+                    voltages (red around 2.0 V, green and blue around 3.0 to 3.2 V) and a logic-high threshold of
+                    0.7×VDD, which at 5 V works out to 3.5 V and sits out of reach for 3.3 V logic. VBAT works across
+                    the whole discharge curve and moves the 720 mA full-white transient off the sensor rail.</li>
+                <li>The power switch ran through a GND pad, which routed the entire board's ground return through the
+                    module's internal copper: thin traces never meant to carry motor and ring current, sitting directly
+                    under the radio. I corrected it to high-side switching. The dangerous part is that it would have
+                    worked, and no ERC or DRC rule flags it.</li>
+                <li>The original board had no decoupling capacitors at all. Partly resolved now with a 330 µF aluminum
+                    polymer cap at the ring connector. Polymer rather than electrolytic, because electrolytics lose 40
+                    to 60% of their capacitance and pick up roughly 10× the ESR at −20 °C, which is the condition this
+                    device exists for.</li>
             </ul>
-            <div class="callout">
-                <div class="callout-label">Why this matters</div>
-                <p>The review also found a floating GPS reset pin — the same class of defect as the floating !RST pin
-                    that reached fabricated hardware on Apogee, caught this time <em>before</em> the board was ordered
-                    instead of during bring-up. That contrast is the entire argument for design review as a step
-                    separate from automated checking.</p>
-            </div>
+            <p>The review also turned up a floating GPS reset pin, the same class of defect as the floating !RST that
+                made it into fabricated hardware on Apogee. This time it was caught before the board was ordered.</p>
 
-            <h4>Enclosure — A Physics Requirement, Not a Nice-to-Have</h4>
-            <p>Two-part PETG shell chosen over PLA for cold toughness and layer adhesion, with a gasketed
-                lip-and-channel seam, a polycarbonate display window (not acrylic — acrylic embrittles below freezing),
-                and heat-set inserts.</p>
-            <p>The requirement I didn't expect: <strong>a fully sealed enclosure makes the barometer measure trapped
-                    air.</strong> Cooling from 20 °C to −20 °C alone shifts internal pressure from ~1013 hPa to ~875 hPa
-                with zero actual weather change — a 138 hPa swing the firmware would read as ~1200 m of phantom altitude
-                gain and an incoming storm, every single time the device goes outside. The fix is a Gore-type ePTFE vent
-                patch, designed in now rather than cut into a finished print later.</p>
+            <h4>Enclosure</h4>
+            <p>Two-part PETG shell, picked over PLA for cold toughness and layer adhesion, with a gasketed
+                lip-and-channel seam, a polycarbonate display window (acrylic embrittles below freezing), and heat-set
+                inserts.</p>
+            <p>The requirement I did not see coming: a fully sealed enclosure makes the barometer measure trapped air.
+                Cooling from 20 °C to −20 °C moves internal pressure from about 1013 hPa to 875 hPa with no weather
+                change at all. Firmware would read that 138 hPa swing as roughly 1200 m of altitude gain and an
+                incoming storm, every time the device went outside. A Gore-type ePTFE vent patch fixes it, designed in
+                now rather than cut into a finished print later.</p>
 
             <h4>Deferred: Wind Speed</h4>
-            <p>Six approaches were evaluated — cup/propeller (bulky, freezes), hot-wire CTA (fragile 5 µm wire),
-                ultrasonic time-of-flight (technically best, too bulky for a slim stub), calorimetric thermopile
-                (FS3000, sealed, ~$15, but hard-capped at 15 m/s), pitot (insufficient sensitivity at hiking speeds),
-                and micro impeller (~$95, uncommon).</p>
-            <p>The FS3000's 15 m/s ceiling clips real conditions — Adirondack summit gusts run 12–25 m/s. Rather than
-                stall the build, the external stub uses a keyed multi-pin connector and the firmware data field is
-                already reserved, so an FS3000-in-a-printed-duct module drops straight in later. The general principle:
-                <strong>make the interface modular, defer the hard problem, don't let it stall the build.</strong></p>
+            <p>Six approaches evaluated: cup and propeller (bulky, moving parts freeze), hot-wire CTA (fragile 5 µm
+                wire), ultrasonic time-of-flight (best on the merits, too bulky for a slim stub), calorimetric
+                thermopile (FS3000, sealed, about $15, capped at 15 m/s), pitot (not sensitive enough at hiking
+                speeds), and micro impeller (about $95, uncommon).</p>
+            <p>The FS3000's 15 m/s ceiling clips conditions I would actually be out in, since Adirondack summit gusts
+                run 12 to 25 m/s. Rather than stall the build, the external stub uses a keyed multi-pin connector and
+                the firmware data field is already reserved, so an FS3000 in a printed duct drops in later.</p>
 
             <h4>Open Items</h4>
             <ul>
-                <li>Widen the VBAT trace (0.3 mm → 0.8–1.0 mm, now carrying ring current) and the 3V3 trace (0.2 mm →
-                    0.4–0.5 mm over a 125 mm run).</li>
+                <li>Widen the VBAT trace from 0.3 mm to 0.8–1.0 mm now that it carries ring current, and the 3V3 trace
+                    from 0.2 mm to 0.4–0.5 mm over its 125 mm run.</li>
                 <li>Measure actual I²C bus pull-up resistance with all modules attached before deciding whether to
-                    populate R2/R3 — six Gravity breakouts each carry their own ~10 kΩ pull-up, calculated to ~1.7 kΩ in
-                    parallel.</li>
-                <li>Find the LC76G standby command in the full Quectel protocol spec — it determines whether battery
+                    populate R2/R3. Six Gravity breakouts each carry their own ~10 kΩ pull-up, which calculates to
+                    about 1.7 kΩ in parallel.</li>
+                <li>Find the LC76G standby command in the full Quectel protocol spec, since it decides whether battery
                     life is days or weeks.</li>
-                <li>Grow the enclosure: the board is 102 mm against a 95 mm enclosure design.</li>
+                <li>Grow the enclosure. The board is 102 mm against a 95 mm enclosure design.</li>
             </ul>
         </div>
     </div>
@@ -2618,33 +2421,26 @@
     <div id="modal-keyboard" class="modal" role="dialog" aria-modal="true" aria-labelledby="t-kb">
         <div class="modal-content">
             <button class="close" onclick="closeModal('keyboard')" aria-label="Close">&times;</button>
-            <h3 id="t-kb">Apogee — Fully Custom Mechanical Keyboard PCB</h3>
-            <div class="modal-sub">Personal PCB Project · Fully solo · ~6 months elapsed</div>
+            <h3 id="t-kb">Apogee: Fully Custom Mechanical Keyboard PCB</h3>
+            <div class="modal-sub">Personal PCB Project · About 6 months elapsed · Complete</div>
 
-            <div class="modal-meta">
-                <div><span>Ownership</span><strong>Fully solo, end-to-end</strong></div>
-                <div><span>Status</span><strong>Complete &amp; in daily use</strong></div>
-                <div><span>Scope</span><strong>Parts → schematic → layout → firmware → test</strong></div>
-            </div>
+            <p>My first PCB taken end to end: part selection, schematic, layout, firmware, bring-up, and test.</p>
 
-            <p>My first true end-to-end PCB project: part selection, schematic, layout, firmware, bring-up, and test,
-                all solo.</p>
-
-            <p>It started with a failure. A Nullbits NIBBLE kit keyboard — soldered from a kit, flashed with premade QMK
-                firmware — died after about a year when a PCB trace cracked from board flex under typing. Because I
-                hadn't designed it, I couldn't read the schematic well enough to repair it. That defined Apogee's goals:
-                <strong>serviceable by me</strong>, reproducible if it ever fails again, and genuinely custom.</p>
+            <p>It started with a failure. A Nullbits NIBBLE kit keyboard, soldered from a kit and flashed with premade
+                QMK firmware, died after about a year when a trace cracked from board flex under typing. I had not
+                designed it and could not read the schematic well enough to repair it. That set the goals for Apogee:
+                something I could service myself, reproduce if it failed again, and actually customize.</p>
 
             <h4>Specification</h4>
             <dl class="spec">
                 <dt>PCB</dt>
-                <dd>340 × 140 mm, 2 layers, predominantly through-hole, hand-soldered</dd>
+                <dd>340 × 140 mm, 2 layers, mostly through-hole, hand-soldered</dd>
                 <dt>Switch matrix</dt>
-                <dd>16 columns × 5 rows (col2row) — 72 keys total</dd>
+                <dd>16 columns × 5 rows (col2row), 72 keys total</dd>
                 <dt>Keys</dt>
-                <dd>64 standard + 4 programmable macro + 1 layer-cycle + 3 rotary encoders with pushbuttons</dd>
+                <dd>64 standard, 4 programmable macro, 1 layer-cycle, 3 rotary encoders with pushbuttons</dd>
                 <dt>MCU</dt>
-                <dd>Nice!Nano V2 (nRF52840) + MCP23017 I²C GPIO expander</dd>
+                <dd>Nice!Nano V2 (nRF52840) with MCP23017 I²C GPIO expander</dd>
                 <dt>Display</dt>
                 <dd>SSD1306 I²C OLED (0x3C)</dd>
                 <dt>Lighting</dt>
@@ -2652,7 +2448,7 @@
                 <dt>Battery</dt>
                 <dd>10440 Li-ion, 3.7 V, 350 mAh</dd>
                 <dt>Expansion</dt>
-                <dd>TRRS port carrying I²C + 3.3 V + GND</dd>
+                <dd>TRRS port carrying I²C, 3.3 V, and GND</dd>
                 <dt>Firmware</dt>
                 <dd>Bootloader → Zephyr RTOS → ZMK → custom config</dd>
             </dl>
@@ -2674,19 +2470,20 @@
                             <td class="hl">Nice!Nano V2</td>
                             <td class="dim">Bare nRF52840 (fine-pitch SMD); RP2040 (no BLE); ESP32-S3 (BLE power draw)
                             </td>
-                            <td class="dim">Wired + wireless + charging, ZMK support, hand-solderable</td>
+                            <td class="dim">Wired, wireless, and charging, with ZMK support and hand-solderable parts
+                            </td>
                         </tr>
                         <tr>
                             <td>GPIO expansion</td>
                             <td class="hl">MCP23017 (I²C)</td>
                             <td class="dim">74HC595 (faster over SPI, no ZMK support); PCF8574 (8 I/O, would need 3)
                             </td>
-                            <td class="dim">I/O count + ZMK driver support</td>
+                            <td class="dim">I/O count plus ZMK driver support</td>
                         </tr>
                         <tr>
                             <td>Display</td>
                             <td class="hl">SSD1306 OLED</td>
-                            <td class="dim">SPI OLED (more pins); LEDs only (can't show battery %)</td>
+                            <td class="dim">SPI OLED (more pins); LEDs only (cannot show battery %)</td>
                             <td class="dim">Information that had to reach the user</td>
                         </tr>
                         <tr>
@@ -2706,11 +2503,11 @@
             </div>
 
             <h4>Latency Optimization</h4>
-            <p>The initial firmware worked but dropped key presses above ~5 clicks per second. I derived the latency
-                budget from I²C bit timing upward: one write is 29 bits minimum — start, address byte, ACK, register
-                pointer, ACK, data byte, ACK, stop — and a full scan is 16 columns × 2 writes.</p>
-            <p>Three changes: I²C bus <strong>100 kHz → 400 kHz</strong>, debounce window <strong>5 ms → 2 ms</strong>,
-                BLE poll interval <strong>15 ms → 7.5 ms</strong>.</p>
+            <p>The first firmware worked but dropped key presses above about 5 clicks per second. I built the latency
+                budget up from I²C bit timing. One write is 29 bits minimum (start, address byte, ACK, register pointer,
+                ACK, data byte, ACK, stop) and a full scan is 16 columns at 2 writes each.</p>
+            <p>Three changes followed: I²C bus from 100 kHz to 400 kHz, debounce window from 5 ms to 2 ms, BLE poll
+                interval from 15 ms to 7.5 ms.</p>
             <div class="table-wrap">
                 <table class="dtable">
                     <thead>
@@ -2744,16 +2541,16 @@
                     </tbody>
                 </table>
             </div>
-            <p><strong>Measured validation:</strong> an Arduino dual-probe rig — one probe on a switch terminal, one on
-                a spare Nice!Nano pin — timed switch closure to GPIO toggle across 100 key presses. Minimum 0.72 ms,
-                maximum 7.82 ms, <strong>mean 2.71 ms, median 2.51 ms</strong>. The calculation was close, but not
-                perfect, and that's what the data says.</p>
-            <p>Worth naming the tradeoff explicitly: two MCU pins bought 16 I/O, the display, and the expansion port via
-                the I²C expander — and that same I²C path became the dominant term in the latency budget.</p>
+            <p>To check the math I built an Arduino dual-probe rig, one probe on a switch terminal and one on a spare
+                Nice!Nano pin, timing switch closure to GPIO toggle across 100 presses. Minimum 0.72 ms, maximum 7.82
+                ms, mean 2.71 ms, median 2.51 ms. Close to the calculation, though not exact.</p>
+            <p>One tradeoff shaped the whole design. Two MCU pins bought 16 I/O, the display, and the expansion port
+                through the I²C expander, and that same I²C path then became the dominant term in the latency budget.
+            </p>
 
             <h4>Battery Life</h4>
-            <p>Modeled per component per state. Every 1 mA drawn at the 5.2 V rail costs ~1.6 mA from the 3.7 V battery.
-            </p>
+            <p>Modeled per component per state. Every 1 mA drawn at the 5.2 V rail costs about 1.6 mA from the 3.7 V
+                battery.</p>
             <div class="table-wrap">
                 <table class="dtable">
                     <thead>
@@ -2767,12 +2564,12 @@
                         <tr>
                             <td>Deep sleep, boost gated</td>
                             <td class="num">20 µA</td>
-                            <td class="dim">Months (self-discharge limited)</td>
+                            <td class="dim">Months, limited by self-discharge</td>
                         </tr>
                         <tr>
-                            <td>Idle, screen + LED off</td>
+                            <td>Idle, screen and LED off</td>
                             <td class="num">120 µA</td>
-                            <td class="dim">Months (self-discharge limited)</td>
+                            <td class="dim">Months, limited by self-discharge</td>
                         </tr>
                         <tr>
                             <td>Typing, OLED on, LED off</td>
@@ -2780,73 +2577,71 @@
                             <td class="num">~33 hours</td>
                         </tr>
                         <tr>
-                            <td>Typing + OLED + single-color LED</td>
+                            <td>Typing, OLED, single-color LED</td>
                             <td class="num">34 mA</td>
                             <td class="num">~7 hours</td>
                         </tr>
                         <tr>
-                            <td>Typing + white LED</td>
+                            <td>Typing with white LED</td>
                             <td class="num">79.5 mA</td>
                             <td class="num">~4.4 hours</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <p>Measured in normal daily use: <strong>~6 hours</strong>, against a &gt;4 hour requirement.</p>
+            <p>Measured in normal daily use: about 6 hours, against a 4 hour requirement.</p>
 
             <h4>Testing &amp; Verification</h4>
             <ul>
-                <li><strong>Keystroke error rate:</strong> 5,000 characters of known text typed — zero incorrect or
-                    dropped characters.</li>
-                <li><strong>Fast typing:</strong> zero key drops at a measured 10 clicks/second, up from the ~5/sec
-                    failure point before optimization.</li>
-                <li><strong>End-to-end latency:</strong> the 100-trial dual-probe measurement above.</li>
+                <li>Keystroke error rate: 5,000 characters of known text typed, with no incorrect or dropped characters.
+                </li>
+                <li>Fast typing: no key drops at a measured 10 clicks per second, up from the 5 per second failure
+                    point before optimization.</li>
+                <li>End-to-end latency: the 100-trial dual-probe measurement above.</li>
             </ul>
 
             <div class="callout">
-                <div class="callout-label">The failure worth telling</div>
-                <p>The MCP23017's <strong>!RST pin was left floating</strong> — and DRC never caught it, because the
-                    connection was missing from the schematic entirely rather than miswired. I diagnosed it during
-                    bring-up and fixed it with a jumper wire that's still visible on the board.</p>
-                <p>The root cause is a process gap, not carelessness, and it's exactly why design review has to exist as
-                    a step separate from automated checking: <strong>DRC validates consistency, not intent.</strong>
-                </p>
+                <div class="callout-label">Floating reset pin</div>
+                <p>The MCP23017's !RST pin was left floating, and DRC never caught it, because the connection was
+                    missing from the schematic entirely rather than miswired. I found it during bring-up and fixed it
+                    with a jumper wire that is still on the board.</p>
+                <p>The root cause was a process gap rather than carelessness. DRC validates consistency, not intent,
+                    which is why design review has to be a separate step.</p>
             </div>
 
             <h4>Other Found Issues</h4>
             <ul>
-                <li><strong>Drill file not exported to fab.</strong> The boards came back with no drilled holes, forcing
-                    improvised fixes for the spacebar stabilizer and costing weeks of testing options.</li>
-                <li><strong>No dedicated I²C pull-ups.</strong> The bus works only because the specific OLED module
-                    happens to include its own — a real design dependency that a different module would break.</li>
-                <li><strong>Unprotected TRRS expansion port.</strong> No hot-plug protection; contacts momentarily short
-                    3.3 V, GND, SDA, and SCL during insertion.</li>
-                <li><strong>No accessible test points.</strong> Bring-up took longer because probe leads had to be held
-                    against IC pins directly.</li>
+                <li>The drill file never made it to the fab. Boards came back with no drilled holes, which forced
+                    improvised fixes for the spacebar stabilizer and cost weeks of testing options.</li>
+                <li>No dedicated I²C pull-ups. The bus works only because the specific OLED module happens to include
+                    its own, so a different module would break the board.</li>
+                <li>The TRRS expansion port has no hot-plug protection. Contacts momentarily short 3.3 V, GND, SDA, and
+                    SCL during insertion.</li>
+                <li>No accessible test points, which made bring-up slower because probe leads had to be held against IC
+                    pins directly.</li>
             </ul>
 
             <h4>Routing Retrospective</h4>
             <ul>
-                <li><strong>Scan axis / diode orientation</strong> is the single largest available improvement. Flipping
-                    diode direction would allow scanning 5 rows instead of 16 columns — 10 writes per scan instead of
-                    32, with row reads never traversing I²C at all.</li>
-                <li><strong>2-layer vs. 4-layer</strong> was chosen mostly arbitrarily, leaving no ground plane. It
-                    caused no problem at 400 kHz, but by my own written assessment it "worked via luck," not design
-                    margin.</li>
-                <li><strong>BLE antenna keep-out</strong> wasn't considered during layout. No functional issues
-                    recorded, but it's basic practice I skipped.</li>
+                <li>Scan axis and diode orientation is the largest improvement available. Flipping diode direction
+                    would let me scan 5 rows instead of 16 columns, which is 10 writes per scan instead of 32, with row
+                    reads never traversing I²C.</li>
+                <li>I chose 2 layers over 4 mostly arbitrarily, which left no ground plane. It caused no problem at 400
+                    kHz, but by my own written assessment it worked via luck, not design margin.</li>
+                <li>BLE antenna keep-out never entered the layout. Nothing failed because of it, but it is basic
+                    practice I skipped.</li>
             </ul>
 
             <h4>Lessons &amp; V2 Plan</h4>
-            <p>The biggest one: <strong>calculations drive part selection, not the inverse.</strong> I selected parts
-                first and calculated their design-spec impact afterward, which is backwards. V2: calculate before
-                buying, run multiple design reviews, test individual modules before integration, and plan for problems
-                up front with IC sockets and test points everywhere.</p>
+            <p>The big one: calculations should drive part selection, and I did it backwards, picking parts first and
+                working out their design impact afterward. For V2 I want to calculate before buying, run more than one
+                design review, test modules individually before integration, and put IC sockets and test points
+                everywhere from the start.</p>
 
             <img src="/media/Projects/keyboardPCB.png" alt="Apogee PCB layout in KiCad" loading="lazy">
-            <p class="figcap">Apogee PCB layout — 340 × 140 mm, 2-layer, predominantly through-hole.</p>
+            <p class="figcap">Apogee PCB layout: 340 × 140 mm, 2 layers, predominantly through-hole.</p>
             <img src="/media/Projects/keyboardSch.png" alt="Apogee schematic" loading="lazy">
-            <p class="figcap">Schematic: 16 × 5 switch matrix with a per-key diode to prevent ghosting.</p>
+            <p class="figcap">Schematic showing the 16 × 5 switch matrix with a per-key diode to prevent ghosting.</p>
         </div>
     </div>
 
@@ -2854,37 +2649,21 @@
     <div id="modal-capstone" class="modal" role="dialog" aria-modal="true" aria-labelledby="t-cap">
         <div class="modal-content">
             <button class="close" onclick="closeModal('capstone')" aria-label="Close">&times;</button>
-            <h3 id="t-cap">HockeyBot — Autonomous Air Hockey Robot</h3>
+            <h3 id="t-cap">HockeyBot: Autonomous Air Hockey Robot</h3>
             <div class="modal-sub">Undergraduate Capstone · 4-person team · ECS Open House 2026</div>
 
-            <div class="modal-meta">
-                <div><span>My role</span><strong>Hardware design</strong></div>
-                <div><span>Scope</span><strong>Mechanical, motors, power</strong></div>
-                <div><span>Status</span><strong>Complete</strong></div>
-                <div><span>Budget</span><strong>$294 of $300</strong></div>
-            </div>
-
-            <p>A robotic 1v1 opponent on a 20" × 40" air hockey table that intercepts pucks hit at gesture speed,
-                localizes a 2.5" puck to within 1.25", and plays varied offensive and defensive moves that get harder as
-                the human scores.</p>
-
-            <div class="callout callout--muted">
-                <div class="callout-label">Team roles</div>
-                <p>I owned <strong>hardware design</strong> — mechanical structure, motors, and power systems. The
-                    OpenCV vision pipeline, trajectory prediction, game-logic state machine, and Teensy firmware are my
-                    teammates' work (Ryan Brennan, embedded; Saul Batista Filpo and Kevin Leger, software). All four of
-                    us handled integration and testing. The system description below is included for context; the
-                    section after it is mine.</p>
-            </div>
+            <p>A robotic 1v1 opponent on a 20" × 40" air hockey table. It intercepts pucks hit at gesture speed,
+                localizes a 2.5" puck to within 1.25", and plays offensive and defensive moves that get harder as the
+                human scores. Total new parts cost was $294 against a $300 cap.</p>
 
             <img src="/media/Projects/capstoneCAD.png" alt="HockeyBot full-assembly CAD" loading="lazy">
-            <p class="figcap">Full-assembly CAD in Fusion 360 — roughly three complete system revisions, plus many more
-                on individual sub-assemblies.</p>
+            <p class="figcap">Full-assembly CAD in Fusion 360, across roughly three complete system revisions plus many
+                more on individual sub-assemblies.</p>
 
             <h4>System Architecture</h4>
             <dl class="spec">
                 <dt>Motion</dt>
-                <dd>CoreXY belt-driven gantry, chosen over H-bot/Cartesian for speed and lower inertia</dd>
+                <dd>CoreXY belt-driven gantry, chosen over H-bot and Cartesian for speed and lower inertia</dd>
                 <dt>Motors</dt>
                 <dd>2 × Anaheim 23Y NEMA 23, 8-wire, wired in parallel</dd>
                 <dt>Drivers</dt>
@@ -2892,7 +2671,7 @@
                 <dt>Supply</dt>
                 <dd>30 V external switching supply (IEC/UL 60950-1 certified)</dd>
                 <dt>Compute</dt>
-                <dd>Teensy 4.0 for real-time motor control; Linux x86 host for vision and game logic</dd>
+                <dd>Teensy 4.0 for real-time motor control, Linux x86 host for vision and game logic</dd>
                 <dt>Link</dt>
                 <dd>USB 2.0 serial, framed little-endian binary packets</dd>
                 <dt>Motion profile</dt>
@@ -2902,7 +2681,7 @@
             </dl>
 
             <h4>Test Results</h4>
-            <p><strong>Test 1 — ≥70% block accuracy</strong> on shots under 1.2 m/s at max difficulty. Three players, 20
+            <p>Test 1 set a bar of 70% block accuracy on shots under 1.2 m/s at max difficulty. Three players took 20
                 shots each, played like a real game with no distinction between good and bad trajectories.</p>
             <div class="table-wrap">
                 <table class="dtable">
@@ -2936,98 +2715,97 @@
                     </tbody>
                 </table>
             </div>
-            <p>All three individually cleared the bar — 54 of 60 saves overall. Tests 2 and 3 covered strategic
-                offensive/defensive modes and difficulty scaling. Test 3 was logged honestly as a <strong>2-of-3
-                    pass</strong>: the third planned difficulty lever (deliberately selecting an incorrect targeting
-                line at low difficulty) was dropped because the robot's natural mechanical imprecision already made easy
-                modes easy enough.</p>
+            <p>All three cleared the bar individually, 54 of 60 saves overall. Tests 2 and 3 covered strategic offensive
+                and defensive modes and difficulty scaling. Test 3 was logged as a 2-of-3 pass: the third planned
+                difficulty lever, deliberately selecting an incorrect targeting line at low difficulty, got dropped
+                because the robot's natural mechanical imprecision already made easy modes easy enough.</p>
 
-            <h4>My Contribution — Hardware Design</h4>
-            <p>Full assembly CAD in Fusion 360, then machined and assembled by hand across roughly three complete system
-                revisions.</p>
+            <h4>Hardware Design</h4>
+            <p>I owned the mechanical structure, motors, and power systems. Full assembly CAD in Fusion 360, then
+                machined and assembled by hand.</p>
             <ul>
-                <li><strong>Frame architecture.</strong> Built around a dedicated 1.5" aluminum extrusion mounting rail
-                    bolted to each side of the table, backed with plates acting as oversized washers so bolts could be
-                    torqued hard without pulling through the table's weak MDF. A dedicated frame — rather than bolting
-                    components straight to the table — keeps every mounting point square and parallel to every other
-                    one, preventing alignment drift.</li>
-                <li><strong>CoreXY belt-routing precision.</strong> Belt segments must stay as parallel to the guide
-                    rails as possible; any deviation introduces error against the underlying equations of motion. Two of
-                    four runs achieved near-perfect parallelism. The other two were meaningfully harder and remain an
-                    improvement area rather than something I'd claim as solved.</li>
-                <li><strong>Paddle head.</strong> The central carriage both strikes the puck and terminates all four
-                    belts — two bearings bolted together at the middle, belts wrapping the circular midsection and
-                    exiting through a side slot so the teeth overlap for mechanical strength.</li>
+                <li>Frame architecture built around a dedicated 1.5" aluminum extrusion mounting rail bolted to each
+                    side of the table, backed with plates acting as oversized washers so the bolts could be torqued
+                    hard without pulling through the table's weak MDF. A dedicated frame, rather than bolting
+                    components straight to the table, keeps every mounting point square and parallel to the others and
+                    stops alignment drift.</li>
+                <li>CoreXY belt routing has to stay as parallel to the guide rails as possible, since any deviation
+                    introduces error against the underlying equations of motion. Two of the four runs achieved
+                    near-perfect parallelism. The other two were harder and remain an improvement area rather than
+                    something I would call solved.</li>
+                <li>The paddle head both strikes the puck and terminates all four belts: two bearings bolted together
+                    at the middle, with belts wrapping the circular midsection and exiting through a side slot so the
+                    teeth overlap for mechanical strength.</li>
             </ul>
 
             <div class="callout">
-                <div class="callout-label">Failure loop — motor thermals</div>
-                <p>The original 3D-printed <strong>PLA motor mounts melted</strong> under motor heat. I reprinted them
-                    in PETG as a backup, then machined replacements from 1/8" aluminum sheet — cut slightly larger than
-                    the motor, with a center hole for a 1/4-20 bolt to the mounting rail and corner holes into the
-                    motor's own mounting points.</p>
-                <p>That stopped the melting <em>and</em>, by lifting the motor off a solid molded body onto an open
-                    bolted plate, measurably improved airflow — the mount doubling as a heatsink. Still too hot to
-                    touch, so I added forced air, testing multiple fan types comparatively and settling on a 12 VDC
+                <div class="callout-label">Failure loop, motor thermals</div>
+                <p>The original 3D-printed PLA motor mounts melted under motor heat. I reprinted them in PETG as a
+                    backup, then machined replacements from 1/8" aluminum sheet, cut slightly larger than the motor,
+                    with a center hole for a 1/4-20 bolt to the mounting rail and corner holes into the motor's own
+                    mounting points.</p>
+                <p>That stopped the melting, and lifting the motor off a solid molded body onto an open bolted plate
+                    also improved airflow, so the mount doubled as a heatsink. The motors were still too hot to touch,
+                    so I added forced air, tested several fan types against each other, and settled on a 12 VDC
                     squirrel-cage blower per motor.</p>
             </div>
 
             <div class="callout">
-                <div class="callout-label">A borrowed best practice that didn't transfer</div>
+                <div class="callout-label">A borrowed best practice that did not transfer</div>
                 <p>My early belt-tension references came from 3D-printer tuning communities, where the convention is to
-                    tension belts guitar-string tight. Here that convention actively hurts, for two reasons I
-                    identified: 3D printers follow pre-planned G-code that minimizes sudden direction changes, while
-                    this robot reacts live to an unpredictable puck with frequent hard reversals at speed — far more
-                    instantaneous load. And the idler-wheel mounts had a design flaw: the bearing shoulder (4 mm) was
-                    narrower than the washers bearing against it, so they lacked <strong>compression isolation</strong>
-                    — a way to bolt something down tight without binding the bearing's rotation.</p>
-                <p>The net tradeoff: more tension means less belt-tooth slip but more idler resistance and motor
-                    stalling from insufficient torque margin. Less tension, the reverse. I built and tested multiple
-                    tensioning mechanisms chasing the balance point.</p>
+                    tension belts guitar-string tight. Here that convention actively hurts, for two reasons I worked
+                    out. 3D printers follow pre-planned G-code that minimizes sudden direction changes, while this
+                    robot reacts live to an unpredictable puck with frequent hard reversals at speed, which is far more
+                    instantaneous load. And the idler-wheel mounts had a design flaw: the bearing shoulder at 4 mm was
+                    narrower than the washers bearing against it, so they lacked compression isolation, a way to bolt
+                    something down tight without binding the bearing's rotation.</p>
+                <p>The tradeoff nets out like this. More tension means less belt-tooth slip but more idler resistance
+                    and motor stalling from insufficient torque margin. Less tension gives the reverse. I built and
+                    tested several tensioning mechanisms chasing the balance point.</p>
             </div>
 
-            <h4>Motor Selection — Systematic Parameter Sweep</h4>
-            <p>I started by testing the lab's existing Pololu steppers against the requirement (4 in-oz at ≥900 RPM,
-                targeting 2× margin) to avoid unnecessary spend. They topped out at 500–700 RPM from a standing start
-                and only reached ~1000 RPM with a 10-second acceleration ramp — nowhere near adequate for reactive play.
-                That justified sourcing 8-wire Anaheim 23Y motors that could be wired series (higher torque) or parallel
-                (higher speed).</p>
+            <h4>Motor Selection</h4>
+            <p>I started by testing the lab's existing Pololu steppers against the requirement, 4 in-oz at 900 RPM or
+                better with 2× margin, to avoid spending money I did not need to. They topped out at 500 to 700 RPM
+                from a standing start and only reached about 1000 RPM with a 10-second acceleration ramp, nowhere near
+                adequate for reactive play. That justified sourcing 8-wire Anaheim 23Y motors that could be wired
+                series for torque or parallel for speed.</p>
             <ul>
-                <li>Measured actual RMS vs. peak coil current with a <strong>Hantek CC-65</strong> current probe,
-                    clamped around two coil leads together — clamping a single wire returns a falsely halved reading, a
-                    measurement error I caught and corrected.</li>
-                <li>Swept driver current limits from <strong>2 A to 9 A</strong>.</li>
-                <li>Tested both <strong>series and parallel</strong> wiring configurations.</li>
-                <li>Swept pulse widths from <strong>660 µs down to 450 µs</strong>.</li>
-                <li>Swept supply voltage from <strong>24 V to 30 V</strong>.</li>
+                <li>Measured actual RMS against peak coil current with a Hantek CC-65 current probe, clamped around two
+                    coil leads together. Clamping a single wire returns a falsely halved reading, a measurement error I
+                    caught and corrected.</li>
+                <li>Swept driver current limits from 2 A to 9 A.</li>
+                <li>Tested series and parallel wiring configurations.</li>
+                <li>Swept pulse widths from 660 µs down to 450 µs.</li>
+                <li>Swept supply voltage from 24 V to 30 V.</li>
                 <li>Eliminated every combination that stalled, missed steps, or exceeded the motor's rated RMS current.
                 </li>
             </ul>
-            <p>The surviving configuration: parallel wiring, 8 A driver limit, and a fast ramp (700 µs → 200 µs in well
-                under 0.5 s). The <strong>30 V "sweet spot"</strong> came from the same process — voltage swept upward
-                only until the system had enough headroom to move fast without binding, rather than defaulting to a
-                supply's rated maximum.</p>
-            <p>I also validated protection by <strong>intentionally inducing the fault</strong>: hand-stalling a
-                spinning motor confirmed the driver's overcurrent shutdown triggered after ~4 seconds and recovered
-                cleanly after a power cycle.</p>
+            <p>The surviving configuration was parallel wiring, an 8 A driver limit, and a fast ramp from 700 µs to 200
+                µs in well under 0.5 s. The 30 V sweet spot came out of the same process: I swept voltage upward only
+                until the system had enough headroom to move fast without binding, rather than defaulting to a supply's
+                rated maximum.</p>
+            <p>I also validated protection by inducing the fault on purpose. Hand-stalling a spinning motor confirmed
+                the driver's overcurrent shutdown triggered after about 4 seconds and recovered cleanly after a power
+                cycle.</p>
 
-            <h4>Vibration Analysis — Math Before Fabrication</h4>
-            <p>The overhead camera mount is effectively an inverted pendulum over the table, raising the concern that
-                table legs could feed lateral vibration up the arm and amplify it. Rather than guessing, I modeled it
-                with the actual wobble/resonance equations, which showed the system's resonant frequency
-                <strong>damps</strong> the vibrations present in this application rather than amplifying them. Combined
-                with mounting to both sides of the table, wobble was ruled out — a fix avoided rather than built.</p>
+            <h4>Vibration Analysis</h4>
+            <p>The overhead camera mount is effectively an inverted pendulum over the table, which raised the question
+                of whether the table legs could feed lateral vibration up the arm and amplify it. Rather than guess, I
+                modeled it with the wobble and resonance equations. The system's resonant frequency damps the
+                vibrations present in this application instead of amplifying them. Combined with mounting to both sides
+                of the table, that ruled wobble out, so it became a fix I avoided building.</p>
 
             <h4>Takeaway</h4>
-            <p>The limiter on continuous play was stepper motor binding after roughly 1–2 minutes of high-speed play —
-                identified explicitly as a <strong>motor-selection constraint software could not overcome</strong>. The
-                mechanical system itself ran several hours without issue in its final revision. The primary stated
-                takeaway from the report: <em>actuator performance sets a hard ceiling on what the surrounding software
-                    can achieve, and that ceiling should be identified early in the design process.</em></p>
+            <p>What limited continuous play was stepper motor binding after roughly 1 to 2 minutes at high speed, a
+                motor-selection constraint that software could not overcome. The mechanical system itself ran several
+                hours without issue in its final revision. The report's primary conclusion: actuator performance sets a
+                hard ceiling on what the surrounding software can achieve, and that ceiling should be identified early.
+            </p>
 
             <h4>Demo Videos</h4>
-            <p>An early high-speed movement test; the robot detecting an idle puck on its half and executing an
-                offensive strike; and the robot in a purely defensive state blocking shots without follow-up.</p>
+            <p>An early high-speed movement test, then the robot detecting an idle puck on its half and executing an
+                offensive strike, then the robot in a purely defensive state blocking shots without follow-up.</p>
             <video src="/media/Projects/videos/capstonemove.mp4" controls preload="metadata"></video>
             <video src="/media/Projects/videos/capstoneattack.mp4" controls preload="metadata"></video>
             <video src="/media/Projects/videos/capstonedefence.mp4" controls preload="metadata"></video>
@@ -3038,19 +2816,12 @@
     <div id="modal-citrus" class="modal" role="dialog" aria-modal="true" aria-labelledby="t-citrus">
         <div class="modal-content">
             <button class="close" onclick="closeModal('citrus')" aria-label="Close">&times;</button>
-            <h3 id="t-citrus">Citrus Racing — Formula SAE</h3>
-            <div class="modal-sub">Syracuse University · Oct 2022 – Present · Five roles across four years</div>
-
-            <div class="modal-meta">
-                <div><span>Current role</span><strong>Lead of EV Development</strong></div>
-                <div><span>Prior</span><strong>Co-Chief Engineer, President, Electronics Lead</strong></div>
-                <div><span>Best result</span><strong>74th of 131</strong></div>
-            </div>
+            <h3 id="t-citrus">Citrus Racing, Formula SAE</h3>
+            <div class="modal-sub">Syracuse University · Oct 2022 to Present · Five roles across four years</div>
 
             <p>Citrus Racing designs, builds, and races fully custom open-wheel single-seat cars for the Formula SAE
                 series, representing Syracuse University in a field of well over 100 teams each spring. I joined as a
-                freshman when the team was near zero active members post-COVID and have held five distinct roles since.
-            </p>
+                freshman when the team was near zero active members post-COVID, and I have held five roles since.</p>
 
             <h4>Roles by Year</h4>
             <div class="table-wrap">
@@ -3068,7 +2839,7 @@
                             <td class="num">2022/23</td>
                             <td>Co-Electronics Lead</td>
                             <td class="num dim">~10</td>
-                            <td class="dim">—</td>
+                            <td class="dim">n/a</td>
                         </tr>
                         <tr>
                             <td class="num">2023/24</td>
@@ -3091,7 +2862,7 @@
                         <tr>
                             <td class="num">Current</td>
                             <td>Lead of EV Development</td>
-                            <td class="dim">—</td>
+                            <td class="dim">n/a</td>
                             <td class="dim">In development</td>
                         </tr>
                     </tbody>
@@ -3102,75 +2873,47 @@
 
             <h4>As Chief Engineer</h4>
             <ul>
-                <li>Led the 2026 vehicle development cycle to the team's <strong>highest Formula SAE result of the
-                        2000s era</strong> — 74th of 131 teams.</li>
-                <li>Provided top-down technical leadership across subteams, verifying that proposed designs wouldn't
-                    conflict with other subsystems before they were built.</li>
-                <li>Served as the team's primary <strong>rules checker</strong>, and designed a mock technical
-                    inspection process that got the car through tech on its second attempt.</li>
+                <li>Led the 2026 vehicle development cycle to the team's best Formula SAE result of the 2000s era, 74th
+                    of 131 teams.</li>
+                <li>Provided top-down technical leadership across subteams, checking that proposed designs would not
+                    conflict with other subsystems before anyone built them.</li>
+                <li>Served as the team's primary rules checker, and designed a mock technical inspection process that
+                    got the car through tech on its second attempt.</li>
             </ul>
 
             <h4>As President</h4>
             <ul>
-                <li>Managed a <strong>$50,000</strong> annual budget covering parts and materials.</li>
+                <li>Managed a $50,000 annual budget covering parts and materials.</li>
                 <li>Secured corporate sponsorships and handled financial and strategic planning with university
                     administration.</li>
-                <li>Established a purchasing pipeline with the university and built onboarding programs that grew active
-                    membership from <strong>~5 to 40+</strong>.</li>
-                <li>Deliberately prioritized team growth and longevity over car development that year — a tradeoff that
+                <li>Set up a purchasing pipeline with the university and built onboarding programs that grew active
+                    membership from about 5 to over 40.</li>
+                <li>Deliberately prioritized team growth and longevity over car development that year, a tradeoff that
                     paid off in the following cycle's result.</li>
             </ul>
 
-            <h4>As Electronics Lead — CR4 vs. CR5</h4>
-            <p>A concrete before-and-after across two vehicle generations:</p>
-            <div class="table-wrap">
-                <table class="dtable">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>CR4 <span class="dim">— return to competition</span></th>
-                            <th>CR5 <span class="dim">— full overhaul</span></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Firewall</td>
-                            <td class="dim">No connector — wires through a grommeted cutout</td>
-                            <td>MilSpec connectors for serviceability, chosen for the high-vibration, high-heat engine
-                                bay</td>
-                        </tr>
-                        <tr>
-                            <td>Wire count</td>
-                            <td class="num">~120 total</td>
-                            <td class="num">~130 rear + ~50 front/datalogging</td>
-                        </tr>
-                        <tr>
-                            <td>Practice</td>
-                            <td>First Citrus car to use concentric twisting and a documented color code</td>
-                            <td>Carried forward and extended</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <p>CR4 was scrappy and built just well enough to get across the finish line — and it did, becoming the first
-                Citrus car in five years to reach competition. I designed, built, and tested that harness as the team's
-                sole electronics engineer. CR5 was a complete overhaul, including the full electronics package: two
-                harnesses of 150+ wires, ECU control software in Motec M1 Tune/Build, and a Raspberry Pi-based dash
-                screen.</p>
+            <h4>As Electronics Lead</h4>
+            <p>CR4 was scrappy, built just well enough to finish, and it did: the first Citrus car in five years to
+                reach competition. I designed, built, and tested that harness as the team's only electronics engineer.
+                Roughly 120 wires, and the first Citrus car to use concentric twisting with a documented wiring color
+                code. There was no firewall connector, so wires ran through a grommeted cutout.</p>
+            <p>CR5 was a full overhaul. I added MilSpec firewall connectors for serviceability, picked for the
+                vibration and heat of the engine bay, and the harness grew to about 130 wires in the rear plus another
+                50 in the front and datalogging runs. The rest of the electronics package came with it: ECU control
+                software in Motec M1 Tune/Build and a Raspberry Pi dash screen.</p>
 
             <img src="/media/Citrus Racing/IMG_0287.jpg" alt="Custom wiring harness before heatshrink" loading="lazy">
-            <p class="figcap">Custom wire harness before heatshrink and connectors — over 120 individual wires when
+            <p class="figcap">Custom wire harness before heatshrink and connectors, over 120 individual wires when
                 completed.</p>
 
             <h4>Current: Lead of EV Development</h4>
             <p>Directing the design, fabrication, and programming of the team's first electric powertrain:</p>
             <ul>
-                <li><strong>High-voltage battery pack</strong> — currently 72 V, scaling to 144 V for the first full
-                    vehicle build — assembled from commercial 12/24 V LiFePO₄ modules with integrated cell-level BMS,
-                    plus a top-level pack BMS.</li>
+                <li>A high-voltage battery pack, currently 72 V and scaling to 144 V for the first full vehicle build,
+                    assembled from commercial 12/24 V LiFePO₄ modules with integrated cell-level BMS plus a top-level
+                    pack BMS.</li>
                 <li>Motor control and vehicle safety systems.</li>
-                <li>The <strong>120 V/10 A supercapacitor charging subsystem</strong> as part of the vehicle's energy
-                    management architecture — documented as its own project.</li>
+                <li>The 120 V/10 A supercapacitor charging subsystem, documented as its own project.</li>
             </ul>
         </div>
     </div>
@@ -3179,24 +2922,12 @@
     <div id="modal-alfred" class="modal" role="dialog" aria-modal="true" aria-labelledby="t-alfred">
         <div class="modal-content">
             <button class="close" onclick="closeModal('alfred')" aria-label="Close">&times;</button>
-            <h3 id="t-alfred">Alfred — Search &amp; Rescue Robot</h3>
-            <div class="modal-sub">CSE 400 Robotics Programming Lab · Team project</div>
+            <h3 id="t-alfred">Alfred: Search &amp; Rescue Robot</h3>
+            <div class="modal-sub">CSE 400 Robotics Programming Lab · Team project · ~2 months</div>
 
-            <div class="modal-meta">
-                <div><span>Ownership</span><strong>Fully collaborative team</strong></div>
-                <div><span>Status</span><strong>Complete</strong></div>
-                <div><span>Duration</span><strong>~2 months</strong></div>
-            </div>
-
-            <p>Navigate both rooms of an unmapped lab through standard single doors, search for a box of random height
-                (three possibilities) at a random location, retrieve it, and return it home — fully autonomously, with
-                no manual control at any stage.</p>
-
-            <div class="callout callout--muted">
-                <div class="callout-label">Ownership</div>
-                <p>There was no individual role split on this one — the whole team worked cooperatively across every
-                    code section together. It's presented here as a team accomplishment.</p>
-            </div>
+            <p>The assignment: navigate both rooms of an unmapped lab through standard single doors, search for a box of
+                random height at a random location, retrieve it, and return it home. Fully autonomous, with no manual
+                control at any stage.</p>
 
             <h4>Hardware</h4>
             <dl class="spec">
@@ -3205,7 +2936,7 @@
                 <dt>Manipulator</dt>
                 <dd>2-joint arm with a simple hook end effector</dd>
                 <dt>Sensing</dt>
-                <dd>One standard USB webcam — <strong>no LIDAR, no depth camera</strong></dd>
+                <dd>One standard USB webcam, with no LIDAR and no depth camera</dd>
                 <dt>Compute</dt>
                 <dd>RockPi</dd>
                 <dt>Stack</dt>
@@ -3215,41 +2946,40 @@
             <p>All navigation ran on wheel encoders plus that single camera and AprilTags. The room was not pre-mapped,
                 so the robot had to SLAM live.</p>
 
-            <h4>AprilTags — Two Distinct Purposes</h4>
+            <h4>AprilTags, Two Purposes</h4>
             <ul>
-                <li><strong>Localization:</strong> ~15–20 tags at known fixed positions across two rooms, fed to the
-                    robot as ground truth. These were necessary rather than optional — encoder drift, wheel slip, and
-                    IMU inaccuracy degraded localization quickly, so the tags provided constant re-confirmation.</li>
-                <li><strong>Target identification:</strong> one tag on the box itself. Unlike the fixed tags, this one
-                    moved, and its ID encoded <em>which</em> of three box heights it was, selecting the pickup routine.
-                </li>
+                <li>Localization: about 15 to 20 tags at known fixed positions across two rooms, fed to the robot as
+                    ground truth. Encoder drift, wheel slip, and IMU inaccuracy degraded localization quickly, so the
+                    tags provided constant re-confirmation.</li>
+                <li>Target identification: one tag on the box itself. Unlike the fixed tags this one moved, and its ID
+                    encoded which of three box heights it was, selecting the pickup routine.</li>
             </ul>
-            <p>We modeled the room in <strong>Blender</strong> to derive accurate XY reference coordinates for every tag
-                placement, and used that same model to generate the map fed to the robot — CAD as a measurement tool
-                rather than a design tool.</p>
+            <p>We modeled the room in Blender to derive accurate XY reference coordinates for every tag placement, then
+                used that same model to generate the map fed to the robot. CAD as a measurement tool rather than a
+                design tool.</p>
 
             <img src="/media/Projects/ROSMap.png" alt="ROS 2 navigation map" loading="lazy">
             <p class="figcap">The generated navigation map, derived from a Blender model of the lab.</p>
 
             <h4>Pickup Sequence</h4>
             <p>A fixed search path covered both rooms and interrupted the moment the box was detected. The box's tag ID
-                determined arm height and approach positioning; once vision-aligned, the robot drove forward a fixed
-                distance to get the hook under a loop on the box top, raised the arm, and drove off.</p>
+                set arm height and approach positioning. Once vision-aligned, the robot drove forward a fixed distance
+                to get the hook under a loop on the box top, raised the arm, and drove off.</p>
 
             <div class="callout">
                 <div class="callout-label">The dominant problem: keeping localization</div>
-                <p>The onboard sensors were cheap, so localization degraded quickly whenever the robot wasn't actively
-                    looking at an AprilTag. The camera compounded this — an inexpensive USB webcam couldn't reliably
+                <p>The onboard sensors were cheap, so localization degraded quickly whenever the robot was not actively
+                    looking at an AprilTag. The camera made it worse, since an inexpensive USB webcam could not reliably
                     detect tags across a room.</p>
-                <p>The fix was <strong>distance-gated tag rejection</strong>: discard tag detections beyond a threshold
-                    distance rather than trusting readings the camera physically couldn't resolve. Both fixes were
-                    driven by hardware limitations rather than software bugs — a distinction worth drawing.</p>
+                <p>The fix was distance-gated tag rejection: discard tag detections beyond a threshold distance rather
+                    than trusting readings the camera physically could not resolve. Both fixes came from hardware
+                    limitations rather than software bugs.</p>
             </div>
 
             <h4>Result</h4>
-            <p>Alfred was the <strong>only robot in the class to achieve a fully autonomous search-and-retrieve
-                    run.</strong> The next-best team had to manually drive their robot to the box and back, despite
-                autonomy being a stated requirement.</p>
+            <p>Alfred was the only robot in the class to achieve a fully autonomous search-and-retrieve run. The
+                next-best team had to manually drive their robot to the box and back, despite autonomy being a stated
+                requirement.</p>
 
             <img src="/media/Projects/AlfredFace (1).jpg" alt="Alfred robot" loading="lazy">
         </div>
@@ -3259,33 +2989,20 @@
     <div id="modal-juniorDesign" class="modal" role="dialog" aria-modal="true" aria-labelledby="t-jd">
         <div class="modal-content">
             <button class="close" onclick="closeModal('juniorDesign')" aria-label="Close">&times;</button>
-            <h3 id="t-jd">Ctrl C + Ctrl Pi — Smart Copy Machine</h3>
-            <div class="modal-sub">Junior Year Design Project</div>
+            <h3 id="t-jd">Ctrl C + Ctrl Pi: Smart Copy Machine</h3>
+            <div class="modal-sub">Junior Year Design Project · Complete</div>
 
-            <div class="modal-meta">
-                <div><span>Ownership</span><strong>Effectively solo</strong></div>
-                <div><span>Scope</span><strong>Mechanical, wiring, motor electronics</strong></div>
-                <div><span>Status</span><strong>Complete</strong></div>
-            </div>
-
-            <p>A machine that draws pictures, replicates hand-drawn images, and colors in objects — computer vision plus
-                stepper motors moving a pen over a whiteboard, with additional steppers controlling the whiteboard's
+            <p>A machine that draws pictures, replicates hand-drawn images, and colors in objects. Computer vision plus
+                stepper motors move a pen over a whiteboard, with additional steppers controlling the whiteboard's
                 height.</p>
-
-            <div class="callout callout--muted">
-                <div class="callout-label">Ownership</div>
-                <p>Nominally a three-person team, but the mechanical design, wiring, and Pi/motor-driver electronics are
-                    all my work. The one exception is the contour-generation software, where my involvement was lower.
-                </p>
-            </div>
 
             <img src="/media/Projects/JuniorDesignDemoTable.jpg" alt="Smart Copy Machine demo table" loading="lazy">
 
             <h4>Hardware</h4>
             <dl class="spec">
                 <dt>Axes</dt>
-                <dd>X and Y for pen motion (belt-driven carriage, one stepper each); Z for whiteboard height (2 steppers
-                    on a screw mechanism)</dd>
+                <dd>X and Y for pen motion on a belt-driven carriage, one stepper each; Z for whiteboard height, 2
+                    steppers on a screw mechanism</dd>
                 <dt>Motors</dt>
                 <dd>4 steppers, 3 × MP6500 driver chips</dd>
                 <dt>Vision</dt>
@@ -3299,12 +3016,12 @@
 
             <h4>Software Pipeline</h4>
             <p>When the user finishes drawing, the camera captures a frame that triggers the image-processing script.
-                The image is processed and <strong>skeletonized</strong>, leaving contours that convert into XY
-                coordinates. Those go into an ordered list forming the pen path, including <strong>breakpoints</strong>
-                marking where the pen must lift for disconnected lines.</p>
-            <p>Coordinates become motor movement by pulsing GPIO pins — sending step counts and direction data to the
-                MP6500 drivers — with <strong>Bresenham's algorithm</strong> ensuring smooth diagonal movement. Stack:
-                Python with PIL, OpenCV, scikit-image, NumPy, Matplotlib, and RPi.GPIO.</p>
+                The image gets processed and skeletonized, leaving contours that convert into XY coordinates. Those go
+                into an ordered list forming the pen path, including breakpoints marking where the pen has to lift for
+                disconnected lines.</p>
+            <p>Coordinates become motor movement by pulsing GPIO pins, sending step counts and direction data to the
+                MP6500 drivers, with Bresenham's algorithm handling smooth diagonal movement. Stack: Python with PIL,
+                OpenCV, scikit-image, NumPy, Matplotlib, and RPi.GPIO.</p>
         </div>
     </div>
 
@@ -3313,28 +3030,21 @@
         <div class="modal-content">
             <button class="close" onclick="closeModal('phy490')" aria-label="Close">&times;</button>
             <h3 id="t-ap">ApertureAnalysis</h3>
-            <div class="modal-sub">Computational Physics Independent Study · Fall 2024 · Fully solo</div>
+            <div class="modal-sub">Computational Physics Independent Study · Fall 2024 · MIT license</div>
 
-            <div class="modal-meta">
-                <div><span>Ownership</span><strong>Fully solo</strong></div>
-                <div><span>Status</span><strong>Complete</strong></div>
-                <div><span>Duration</span><strong>~2 months</strong></div>
-                <div><span>License</span><strong>MIT</strong></div>
-            </div>
-
-            <p>A semester-long independent study under computational physics professor Walter Freeman, undertaken
+            <p>A semester-long independent study under computational physics professor Walter Freeman, which I took on
                 specifically to learn the mathematics and programming of the FFT algorithm from scratch. His role was
                 explaining math and concepts; he did not contribute to or review the code.</p>
 
             <h4>The Physics</h4>
-            <p>A telescope's diffraction pattern — the star-shaped glare around bright stars, most recognizably in JWST
-                images — is mathematically the <strong>2D Fourier transform of its aperture</strong>: the mirror shape,
-                including the struts holding any secondary mirror. Sharp edges and straight struts produce straight
-                spikes, each lying at an angle corresponding to an edge or strut orientation.</p>
-            <p>This program runs that relationship <strong>backward</strong>: take a photo of a bright star → 2D FFT it
-                → find the angles of the strongest spikes → reconstruct the polygon aperture that produced them. JWST's
-                hexagonal segments yield 6 principal spike directions; a camera lens yields a polygon matching its
-                aperture blade count.</p>
+            <p>A telescope's diffraction pattern, the star-shaped glare around bright stars that shows up most
+                recognizably in JWST images, is mathematically the 2D Fourier transform of its aperture: the mirror
+                shape, including the struts holding any secondary mirror. Sharp edges and straight struts produce
+                straight spikes, each at an angle corresponding to an edge or strut orientation.</p>
+            <p>This program runs that relationship backward. Take a photo of a bright star, 2D FFT it, find the angles
+                of the strongest spikes, and reconstruct the polygon aperture that produced them. JWST's hexagonal
+                segments yield 6 principal spike directions. A camera lens yields a polygon matching its aperture blade
+                count.</p>
 
             <h4>Pipeline</h4>
             <div class="table-wrap">
@@ -3365,50 +3075,49 @@
                         <tr>
                             <td class="num">createImg.py</td>
                             <td class="dim">Python</td>
-                            <td>Utility — turns pixel-data-as-text back into a viewable image, with optional log/HDR
+                            <td>Utility that turns pixel-data-as-text back into a viewable image, with optional log/HDR
                                 scaling</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <p>The two sides communicate over plain text through stdin/stdout pipes — no shared library, no binary
-                format.</p>
+            <p>The two sides communicate over plain text through stdin and stdout pipes, with no shared library or
+                binary format.</p>
 
             <h4>The C++ Core</h4>
             <ul>
-                <li>Reads pixel text into three width × height complex arrays (R, G, B).</li>
-                <li>Runs a <strong>custom recursive radix-2 Cooley–Tukey FFT</strong> on every row, transposes, runs it
-                    again on the now-transposed rows, and transposes back — the standard separable-FFT approach for 2D.
-                    No FFTW, no numpy.fft.</li>
-                <li><code>fftShift()</code>s the result so the zero-frequency term sits at image center rather than
-                    split across the four corners.</li>
-                <li>Computes each pixel's angle from image center and sums FFT magnitude into <strong>360 one-degree
-                        bins</strong>.</li>
-                <li>Thresholds those bins (default: above 56% of the peak bin) to separate real spikes from background,
-                    then prints angle/intensity pairs to stdout with debug output routed to stderr.</li>
+                <li>Reads pixel text into three width × height complex arrays for R, G, and B.</li>
+                <li>Runs a custom recursive radix-2 Cooley–Tukey FFT on every row, transposes, runs it again on the
+                    now-transposed rows, and transposes back. The standard separable-FFT approach for 2D, with no FFTW
+                    and no numpy.fft.</li>
+                <li>Calls <code>fftShift()</code> so the zero-frequency term sits at image center rather than split
+                    across the four corners.</li>
+                <li>Computes each pixel's angle from image center and sums FFT magnitude into 360 one-degree bins.</li>
+                <li>Thresholds those bins, defaulting to above 56% of the peak bin, to separate spikes from background,
+                    then prints angle and intensity pairs to stdout with debug output routed to stderr.</li>
             </ul>
-            <p>A full IFFT is implemented as well, and high-dynamic-range logarithmic scaling makes the magnitude
-                spectra render meaningfully rather than as a single saturated point.</p>
+            <p>A full IFFT is implemented as well, and logarithmic high-dynamic-range scaling makes the magnitude
+                spectra render meaningfully instead of as a single saturated point.</p>
 
             <h4>Validation</h4>
-            <p>Tested on real images throughout — actual JWST photographs and photos from my own camera and lens setups.
-                The latter matters: I could <strong>physically inspect my own equipment's aperture blade count</strong>
-                and check the reconstruction against it, rather than relying only on published mirror geometry. The
-                program produced correct results on all tested cases.</p>
+            <p>Tested on real images throughout: actual JWST photographs, and photos from my own camera and lens
+                setups. The second set matters because I could physically inspect my own equipment's aperture blade
+                count and check the reconstruction against it, rather than relying only on published mirror geometry.
+                The program produced correct results on every case I tested.</p>
 
             <div class="callout callout--muted">
                 <div class="callout-label">Documented limitations</div>
-                <p>The radix-2 FFT only accepts power-of-2 dimensions, so the auto-crop can silently discard real image
+                <p>The radix-2 FFT only accepts power-of-2 dimensions, so the auto-crop can silently discard image
                     content. Spike detection is angle-only and radius-agnostic. Only the red channel is analyzed by
                     default. The 0.56 peak-detection threshold is a hand-tuned constant calibrated on specific test
-                    images and won't generalize — the README says so and documents where to change it. Polygon
-                    inference is heuristic rather than geometric modeling: it assumes a regular polygon from the most
-                    common angular gap, which works for symmetric hex/octagonal apertures but would be fooled by an
-                    irregular one.</p>
+                    images and will not generalize, which the README says outright along with where to change it.
+                    Polygon inference is heuristic rather than geometric modeling: it assumes a regular polygon from
+                    the most common angular gap, which works for symmetric hex and octagonal apertures but would be
+                    fooled by an irregular one.</p>
             </div>
 
-            <p>Writing the FFT by hand was purely a learning goal — understanding <em>why</em> the algorithm works, and
-                experimenting to see which implementation changes produced the most improvement versus which operations
+            <p>Writing the FFT by hand was purely a learning goal. I wanted to understand why the algorithm works, and
+                to experiment with which implementation changes produced the most improvement against which operations
                 dominated runtime.</p>
 
             <div class="modal-links">
@@ -3423,22 +3132,22 @@
         <div class="modal-content">
             <button class="close" onclick="closeModal('celestial')" aria-label="Close">&times;</button>
             <h3 id="t-cv">Celestial Veil</h3>
-            <div class="modal-sub">Unity · C# · Personal project</div>
+            <div class="modal-sub">Unity · C# · Paused</div>
             <p>Over summer 2024, inspired by Sebastian Lague's solar system project, I built a physically accurate solar
-                system in Unity using C#. It's part of a larger plan for a game named Celestial Veil, with this
+                system in Unity using C#. It is part of a larger plan for a game named Celestial Veil, with this
                 simulation as the playable environment.</p>
             <h4>Orbital Mechanics</h4>
             <ul>
-                <li>Implemented an <strong>N-body simulation</strong> in C# using Newton's law of universal gravitation
-                    to apply forces between all orbital bodies.</li>
-                <li>The project taught me a great deal about floating-point precision and the limits of numerical
-                    accuracy at astronomical scales — the same class of reasoning that shows up in fixed-point math and
-                    sensor resolution work.</li>
+                <li>Implemented an N-body simulation in C# using Newton's law of universal gravitation to apply forces
+                    between all orbital bodies.</li>
+                <li>The project taught me a lot about floating-point precision and the limits of numerical accuracy at
+                    astronomical scales, the same reasoning that turns up in fixed-point math and sensor resolution
+                    work.</li>
             </ul>
             <h4>Next: Atmospheres</h4>
             <ul>
-                <li>With orbital mechanics complete, I'm working on physically accurate atmospheric scattering for each
-                    planet.</li>
+                <li>With orbital mechanics working, the next piece is physically accurate atmospheric scattering for
+                    each planet. Currently paused while hardware projects take priority.</li>
             </ul>
         </div>
     </div>
@@ -3448,14 +3157,14 @@
         <div class="modal-content">
             <button class="close" onclick="closeModal('website')" aria-label="Close">&times;</button>
             <h3 id="t-web">Personal Website</h3>
-            <div class="modal-sub">HTML · CSS · JavaScript · No framework</div>
-            <p>This site is my first real attempt at designing and building webpages. I'd previously learned JavaScript
-                for backend server work, so this was a deep dive into HTML, CSS, and frontend JavaScript to build both a
-                professional and a photography portfolio.</p>
+            <div class="modal-sub">HTML · CSS · JavaScript</div>
+            <p>This site is my first real attempt at designing and building webpages. I had learned JavaScript for
+                backend server work before this, so it became a deep dive into HTML, CSS, and frontend JavaScript to
+                build both a professional and a photography portfolio.</p>
             <h4>What It Covers</h4>
             <ul>
-                <li>Hand-written HTML/CSS/JS with no framework or build step — responsive grid layouts, modal overlays,
-                    scroll-linked navigation, and intersection-observer reveals.</li>
+                <li>Hand-written HTML, CSS, and JS with no framework or build step: responsive grid layouts, modal
+                    overlays, scroll-linked navigation, and intersection-observer reveals.</li>
                 <li>A separate photography portfolio with a dynamic gallery loader for astrophotography, landscape,
                     wildlife, and sports work.</li>
             </ul>
@@ -3467,15 +3176,15 @@
         <div class="modal-content">
             <button class="close" onclick="closeModal('tylerTech')" aria-label="Close">&times;</button>
             <h3 id="t-tt">Tyler Technologies Maine App Challenge</h3>
-            <div class="modal-sub">Statewide high school competition · 2021 &amp; 2022</div>
-            <p>Developed small prototype apps for a statewide high school competition, resulting in a top 10 finish two
+            <div class="modal-sub">Statewide high school competition · 2021 and 2022</div>
+            <p>I developed small prototype apps for a statewide high school competition and finished in the top 10 two
                 years running.</p>
             <h4>Apps Developed</h4>
             <ul>
-                <li><strong>2021 — Color Palette Generator:</strong> generates color palettes and harmonious hues from a
-                    selected base color. Built with JavaScript on the Code.org App Lab.</li>
-                <li><strong>2022 — Learn2Code:</strong> teaches Python basics through tutorials and interactive coding
-                    challenges. Built with JavaScript on the Code.org App Lab.</li>
+                <li>2021, Color Palette Generator: generates color palettes and harmonious hues from a selected base
+                    color. Built with JavaScript on the Code.org App Lab.</li>
+                <li>2022, Learn2Code: teaches Python basics through tutorials and interactive coding challenges. Built
+                    with JavaScript on the Code.org App Lab.</li>
             </ul>
         </div>
     </div>
@@ -3487,8 +3196,8 @@
                 <div class="section-label">Get In Touch</div>
                 <h2 class="section-title">Contact</h2>
                 <div class="divider"></div>
-                <p style="color:var(--text-dim);max-width:520px;">I'd love to connect — whether it's about hardware,
-                    photography, or potential opportunities.</p>
+                <p style="color:var(--text-dim);max-width:520px;">Happy to talk about hardware, photography, or work.
+                </p>
             </div>
             <div class="contact-grid">
                 <div class="contact-card fade-in">
@@ -3513,7 +3222,7 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>© 2026 Joseph Lodato &nbsp;·&nbsp; Built from scratch, no framework</p>
+        <p>© 2026 Joseph Lodato</p>
     </footer>
 
     <!-- SCRIPTS -->
@@ -3562,7 +3271,6 @@
             if (e.key === 'Escape') closeAllModals();
         });
 
-        // Reveal on scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => {
                 if (e.isIntersecting) {
@@ -3573,7 +3281,6 @@
         }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // Scroll progress + active nav link
         const spy = Array.from(document.querySelectorAll('#about, #skills, #education, #experience, #projects, #contact'));
         const navAnchors = Array.from(document.querySelectorAll('.nav-links a:not(.nav-resume)'));
         const progressEl = document.getElementById('scrollProgress');
