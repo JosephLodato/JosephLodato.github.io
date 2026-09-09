@@ -280,7 +280,7 @@
         .hero-bg {
             position: absolute;
             inset: 0;
-            background-image: url("/media/Photography/Andromida 135mm Edited.jpg");
+            background-image: url("/media/Photography/IMG_3721.jpg");
             background-position: 62% center;
             background-size: cover;
             background-repeat: no-repeat;
@@ -299,10 +299,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background:
-                radial-gradient(ellipse 70% 55% at 50% 45%, rgba(11, 11, 13, 0.55) 0%, rgba(11, 11, 13, 0.86) 70%, var(--bg) 100%),
-                linear-gradient(to bottom, rgba(11, 11, 13, 0.6) 0%, transparent 25%);
-            pointer-events: none;
+            /* pointer-events: none; */
         }
 
         .hero-content {
@@ -318,7 +315,8 @@
             font-family: var(--font-display);
             font-size: clamp(2.9rem, 8vw, 5.2rem);
             font-weight: 400;
-            color: var(--white);
+            color: rgb(0, 0, 0);
+            /* color: var(--white); */
             line-height: 1.05;
             letter-spacing: -0.015em;
             margin-bottom: 1.5rem;
@@ -333,7 +331,9 @@
 
         .hero-role {
             font-size: clamp(1rem, 2vw, 1.18rem);
-            color: var(--text);
+
+            /* color: var(--text); */
+            color: rgba(0, 0, 0, 0.85);
             max-width: 680px;
             margin: 0 auto;
             line-height: 1.65;
@@ -1482,7 +1482,7 @@
         <div class="hero-content">
             <h1 class="hero-name">Joseph Lodato</h1>
             <div class="hero-rule"></div>
-            <p class="hero-role">Computer engineer working toward board-level hardware design.</p>
+            <p class="hero-role">Graduate Computer engineering student working toward PCB board-level hardware design.</p>
         </div>
         <div class="hero-scroll-row">
             <a href="#about" class="hero-scroll">
@@ -1511,14 +1511,16 @@
                     with a B.S. in Computer Engineering and a minor in Physics.</p>
                 <p>Most of what I do sits between a schematic and a working object. I've taken two boards from part
                     selection through layout, bring-up, and test on my own. <strong>Apogee</strong> is a 72-key
-                    mechanical keyboard that measures 2.71 ms mean keystroke latency. <strong>IRIS</strong> is a sealed
-                    wearable storm-warning system built around a lightning sensor that resolves 100 µV signals at 500
-                    kHz.</p>
+                    mechanical keyboard. <strong>IRIS</strong> is a sealed
+                    wearable storm-warning system built for hikers and mountaineers, that can alert you of incoming
+                    storm fronts without the need for a cellular connection.
+                </p>
                 <p>I'm also Lead of EV Development for Citrus Racing, Syracuse's Formula SAE team, where I'm directing
                     the first electric powertrain the team has built. Before that I held the Chief Engineer, President,
                     and Lead of Electronics roles.</p>
-                <p>Away from a bench I hike, climb, ski, and shoot photography. Mostly deep-sky astrophotography, with
-                    landscape and wildlife work alongside it.</p>
+                <p>Outside of engineering I fill my free time with hiking, mountineering, skiing and photography of all
+                    kinds including astrophotography, capturing deep sky objects like nebulae,
+                    supernovae, and distant galaxies, along with traditional landscape and wildlife photography. </p>
             </div>
         </div>
     </section>
@@ -1538,7 +1540,7 @@
                         </svg>
                     </div>
                     <h3>Resume</h3>
-                    <p>One page covering PCB projects, Formula SAE leadership, and work history.</p>
+                    <p>Download my current resume below. </p>
                     <a href="/media/Joseph Lodato Resume.pdf" download class="btn">Download Resume</a>
                 </div>
                 <div class="link-card fade-in">
@@ -1550,7 +1552,8 @@
                         </svg>
                     </div>
                     <h3>Photography Gallery</h3>
-                    <p>Deep-sky astrophotography, plus landscape, wildlife, and motorsports work.</p>
+                    <p>Deep-sky astrophotography, plus landscape, wildlife, and motorsports work. <i>Work in
+                            progress!</i></p>
                     <a href="/Webpages/portfolioHome.html" class="btn">View Gallery →</a>
                 </div>
             </div>
@@ -1574,55 +1577,39 @@
                     <div class="chips">
                         <span class="chip">KiCad (through 10.x)</span>
                         <span class="chip">Schematic capture</span>
-                        <span class="chip">2-layer layout</span>
+                        <span class="chip">Multi-Layer Board Layout</span>
+                        <span class="chip">PCB Bring-Up</span>
                         <span class="chip">Ground plane &amp; stitching vias</span>
-                        <span class="chip">Return-path reasoning</span>
-                        <span class="chip">EMI-aware placement</span>
-                        <span class="chip">Antenna keepouts</span>
+                        <span class="chip">EMI Reduction</span>
                         <span class="chip">Decoupling strategy</span>
                         <span class="chip">Trace width sizing</span>
                         <span class="chip">DFM / DFA</span>
-                        <span class="chip">ENIG / HASL / OSP</span>
-                        <span class="chip">Gerber &amp; drill export</span>
-                        <span class="chip">Test point planning</span>
-                        <span class="chip">Design review &amp; severity triage</span>
                     </div>
                 </div>
 
                 <div class="skill-group">
                     <h3>Power &amp; Battery Systems</h3>
                     <div class="chips">
-                        <span class="chip">Synchronous half-bridge DC-DC</span>
+                        <span class="chip">DC-DC Converters</span>
                         <span class="chip">Gate drivers &amp; MOSFETs</span>
-                        <span class="chip">Closed-loop current limiting</span>
                         <span class="chip">Battery management (BMS)</span>
                         <span class="chip">High-voltage packs (72–144 V)</span>
-                        <span class="chip">Supercapacitor sizing</span>
                         <span class="chip">Boost converters &amp; level shifting</span>
-                        <span class="chip">High- vs. low-side switching</span>
-                        <span class="chip">Power budgeting by state</span>
-                        <span class="chip">Environmental derating</span>
                         <span class="chip">Flyback &amp; snubber protection</span>
-                        <span class="chip">SPICE</span>
+                        <span class="chip">LTSPICE Simulations</span>
                     </div>
                 </div>
 
                 <div class="skill-group">
                     <h3>Embedded &amp; Firmware</h3>
                     <div class="chips">
-                        <span class="chip">nRF52840</span>
-                        <span class="chip">PIC16F1769</span>
-                        <span class="chip">Teensy 4.0</span>
-                        <span class="chip">Raspberry Pi / RockPi</span>
-                        <span class="chip">Zephyr RTOS / ZMK</span>
+                        <span class="chip">Microcontroller Firmware</span>
                         <span class="chip">I²C · SPI · UART</span>
                         <span class="chip">USB HID · BLE HID</span>
                         <span class="chip">Latency budgeting</span>
-                        <span class="chip">Deep-sleep state machines</span>
-                        <span class="chip">Interrupt masking</span>
-                        <span class="chip">Binary serial protocols</span>
                         <span class="chip">Timer-driven stepper control</span>
-                        <span class="chip">ROS 2 (Iron) + Nav2</span>
+                        <span class="chip">Serial protocols</span>
+                        <span class="chip">Raspberry Pi</span>
                     </div>
                 </div>
 
@@ -1633,47 +1620,22 @@
                         <span class="chip">Bench supplies &amp; electronic loads</span>
                         <span class="chip">Current probes (Hantek CC-65)</span>
                         <span class="chip">Hardware bring-up &amp; debug</span>
-                        <span class="chip">Empirical parameter sweeps</span>
-                        <span class="chip">Statistical latency characterization</span>
-                        <span class="chip">Fault injection testing</span>
-                        <span class="chip">Structured test plans</span>
                         <span class="chip">Continuity ring-out</span>
                         <span class="chip">UL508A functional test</span>
                     </div>
                 </div>
 
                 <div class="skill-group">
-                    <h3>Mechanical &amp; Fabrication</h3>
-                    <div class="chips">
-                        <span class="chip">Fusion 360</span>
-                        <span class="chip">Manual lathe &amp; mill</span>
-                        <span class="chip">Aluminum sheet fabrication</span>
-                        <span class="chip">3D printing (Bambu Lab)</span>
-                        <span class="chip">PLA / PETG selection</span>
-                        <span class="chip">CoreXY kinematics</span>
-                        <span class="chip">Linear motion systems</span>
-                        <span class="chip">Thermal management</span>
-                        <span class="chip">Sealed enclosure design</span>
-                        <span class="chip">Gaskets &amp; ePTFE venting</span>
-                        <span class="chip">Heat-set inserts</span>
-                    </div>
-                </div>
-
-                <div class="skill-group">
                     <h3>Languages &amp; Tools</h3>
                     <div class="chips">
-                        <span class="chip">C</span>
-                        <span class="chip">C++</span>
+                        <span class="chip">Fusion 360</span>
+                        <span class="chip">C, C++ &amp; C# </span>
                         <span class="chip">Python</span>
-                        <span class="chip">C#</span>
-                        <span class="chip">Java</span>
-                        <span class="chip">Assembly</span>
                         <span class="chip">NumPy · Matplotlib</span>
-                        <span class="chip">OpenCV · scikit-image</span>
+                        <span class="chip">Java</span>
                         <span class="chip">Git / GitHub</span>
-                        <span class="chip">Linux</span>
-                        <span class="chip">Blender</span>
-                        <span class="chip">Allen-Bradley PLC</span>
+                        <span class="chip">Windows &amp; Linux Operating Systems</span>
+
                     </div>
                 </div>
             </div>
@@ -1723,11 +1685,10 @@
                         <div class="chips coursework">
                             <span class="chip">VLSI Design</span>
                             <span class="chip">Signals &amp; Systems Analysis</span>
+                            <span class="chip">Computational Physics</span>
                             <span class="chip">Embedded Systems &amp; Microcontroller Lab</span>
                             <span class="chip">Robotics Programming Lab</span>
-                            <span class="chip">Image &amp; Video Processing</span>
                             <span class="chip">Digital Logic Design</span>
-                            <span class="chip">Computational Physics</span>
                             <span class="chip">Operating Systems Design</span>
                             <span class="chip">Computer &amp; Network Security</span>
                             <span class="chip">Database Management Systems</span>
@@ -1778,7 +1739,7 @@
                         <p>Five roles across four years on Syracuse University's Formula SAE team. I currently direct
                             the design, fabrication, and programming of the team's first electric powertrain.</p>
                         <ul class="bullet-list">
-                            <li>Directing a high-voltage battery pack, currently 72 V and scaling to 144 V for the
+                            <li>Directing a high-voltage battery pack, currently 72 V for the
                                 first full vehicle build, from 12/24 V LiFePO₄ modules with cell-level BMS plus a
                                 top-level pack BMS.</li>
                             <li>Leading the 120 V/10 A supercapacitor charging subsystem inside the vehicle's energy
@@ -1809,12 +1770,11 @@
                     <div class="timeline-body">
                         <h4>Undergraduate Coach, PHY 307 Science and Computers I</h4>
                         <ul class="bullet-list">
-                            <li>Worked inside lab and lecture sections with about 15 to 20 students, covering the
+                            <li>Worked inside lecture sections with about 15 to 20 students, covering the
                                 physics behind their code along with direct debugging help and office hours by request.
                             </li>
                             <li>The two topics students asked about most were programming fundamentals and the limits
-                                of computational accuracy, which is the same numerical-precision reasoning that turns
-                                up in fixed-point math and sensor resolution.</li>
+                                of computational accuracy, which is the same numerical-precision reasoning.</li>
                         </ul>
                     </div>
                 </div>
@@ -1840,7 +1800,6 @@
                                 before anything reached functional test.</li>
                             <li>Tested panels on a custom in-house switchboard of about 100 switches, 100 LEDs, and 5
                                 analog read/write channels, driving field-side inputs and reading relay outputs.</li>
-                            <li>Debugged circuits and Allen-Bradley PLC logic across several platforms.</li>
                             <li>Designed a weight-based inventory tracking framework: bins press into a strain gauge,
                                 and a known per-unit weight turns the reading straight into an item count.</li>
                         </ul>
@@ -1859,8 +1818,6 @@
                                 coursework and personal projects run safely and correctly.</li>
                             <li>Deepest expertise is on Bambu Lab 3D printers, keeping student jobs moving across the
                                 shop's fleet.</li>
-                            <li>Advised a mechanical engineering capstone team on build material selection, weighing
-                                machinability against their strength-to-weight requirement.</li>
                         </ul>
                     </div>
                 </div>
@@ -1919,8 +1876,8 @@
 
                     <button class="project-card" onclick="openModal('dcdc')" aria-label="Open DC-DC charger details">
                         <div class="project-card-fig">
-                            <svg viewBox="0 0 300 185" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-                                fill="none" stroke="rgba(232,87,42,0.5)" stroke-width="1.4">
+                            <svg viewBox="0 0 300 185" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="none"
+                                stroke="rgba(232,87,42,0.5)" stroke-width="1.4">
                                 <path d="M20 40 H90 V95 H150" />
                                 <path d="M20 145 H120 V95" />
                                 <path d="M150 95 H210 V50 H280" />
@@ -1946,10 +1903,9 @@
 
                     <button class="project-card" onclick="openModal('iris')" aria-label="Open IRIS details">
                         <div class="project-card-fig">
-                            <svg viewBox="0 0 300 185" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-                                fill="none" stroke="rgba(232,87,42,0.45)" stroke-width="1.3">
-                                <rect x="95" y="28" width="110" height="130" rx="8"
-                                    stroke="rgba(255,255,255,0.28)" />
+                            <svg viewBox="0 0 300 185" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="none"
+                                stroke="rgba(232,87,42,0.45)" stroke-width="1.3">
+                                <rect x="95" y="28" width="110" height="130" rx="8" stroke="rgba(255,255,255,0.28)" />
                                 <rect x="110" y="45" width="80" height="52" rx="3" />
                                 <circle cx="150" cy="125" r="20" />
                                 <circle cx="150" cy="125" r="12" stroke="rgba(255,255,255,0.2)" />
@@ -2896,11 +2852,16 @@
             <p>CR4 was scrappy, built just well enough to finish, and it did: the first Citrus car in five years to
                 reach competition. I designed, built, and tested that harness as the team's only electronics engineer.
                 Roughly 120 wires, and the first Citrus car to use concentric twisting with a documented wiring color
-                code. There was no firewall connector, so wires ran through a grommeted cutout.</p>
-            <p>CR5 was a full overhaul. I added MilSpec firewall connectors for serviceability, picked for the
+                code. There was no firewall connector, so wires ran through a grommeted cutout. Featured a RPi that
+                interfaced with a HDMI dashboard providing the driver with a custom interface. </p>
+            <p>CR5 was a full overhaul. Added MilSpec firewall connectors for serviceability, picked for the
                 vibration and heat of the engine bay, and the harness grew to about 130 wires in the rear plus another
                 50 in the front and datalogging runs. The rest of the electronics package came with it: ECU control
-                software in Motec M1 Tune/Build and a Raspberry Pi dash screen.</p>
+                software in Motec M1 Tune/Build was redone to fix many existing issues and improve engine performance
+                and the Raspberry Pi dash screen was replaced with a custom microcontroller-based display which was more
+                responsive, more customizable, drew less power and interfaced with more data sources arond the car, it
+                also included a custom LoRa antenna that transmited live data out of the car to a laptop which could
+                monitor nearly all logged data in real time.</p>
 
             <img src="/media/Citrus Racing/IMG_0287.jpg" alt="Custom wiring harness before heatshrink" loading="lazy">
             <p class="figcap">Custom wire harness before heatshrink and connectors, over 120 individual wires when
