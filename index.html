@@ -4,10 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joseph Lodato</title>
+    <title>Joseph Lodato | Hardware &amp; PCB Engineering</title>
+    <meta name="description"
+        content="Joseph Lodato, a computer engineer focused on board-level hardware design. Custom KiCad PCBs, embedded firmware, and Formula SAE EV development.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@400;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@400;500;600&display=swap"
         rel="stylesheet">
     <style>
         *,
@@ -19,26 +22,31 @@
         }
 
         :root {
-            --bg: #0d0d0f;
-            --bg-2: #131316;
-            --bg-3: #1a1a1f;
-            --border: rgba(255, 255, 255, 0.07);
-            --text: #c8c8d0;
-            --text-dim: #6b6b7a;
-            --white: #f0f0f4;
+            --bg: #0b0b0d;
+            --bg-2: #101013;
+            --bg-3: #16161a;
+            --bg-4: #1d1d23;
+            --border: rgba(255, 255, 255, 0.08);
+            --border-strong: rgba(255, 255, 255, 0.16);
+            --text: #c9c9d2;
+            --text-dim: #8a8a99;
+            --white: #f2f2f6;
             --accent: #e8572a;
-            --accent-2: #ff7a50;
-            --font-body: 'DM Sans', sans-serif;
-            --font-mono: 'DM Mono', monospace;
-            --font-display: 'Playfair Display', serif;
+            --accent-2: #ff8256;
+            --accent-soft: rgba(232, 87, 42, 0.10);
+            --accent-line: rgba(232, 87, 42, 0.35);
+            --font-body: 'DM Sans', system-ui, sans-serif;
+            --font-mono: 'DM Mono', ui-monospace, monospace;
+            --font-display: 'Playfair Display', Georgia, serif;
             --nav-h: 64px;
-            --max-w: 1100px;
+            --max-w: 1080px;
             --radius: 10px;
             --transition: 0.25s ease;
         }
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: var(--nav-h);
         }
 
         body {
@@ -48,6 +56,7 @@
             font-size: 16px;
             line-height: 1.75;
             -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
         }
 
         a {
@@ -70,7 +79,18 @@
             list-style: none;
         }
 
-        /* NAV */
+        ::selection {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+            border-radius: 3px;
+        }
+
+        /* ---------- NAV ---------- */
         nav {
             position: fixed;
             top: 0;
@@ -82,55 +102,106 @@
             align-items: center;
             justify-content: space-between;
             padding: 0 2rem;
-            background: rgba(13, 13, 15, 0.85);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background: rgba(11, 11, 13, 0.82);
+            backdrop-filter: blur(18px) saturate(1.4);
+            -webkit-backdrop-filter: blur(18px) saturate(1.4);
             border-bottom: 1px solid var(--border);
-            transition: background 0.3s ease;
         }
 
-        .nav-logo {
+        .scroll-progress {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            height: 1px;
+            width: 0;
+            background: var(--accent);
+            transition: width 0.1s linear;
+        }
+
+        .nav-logo a {
             font-family: var(--font-mono);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--white);
-            letter-spacing: 0.05em;
+            letter-spacing: 0.06em;
         }
 
-        .nav-logo span {
+        .nav-logo a:hover {
+            color: var(--accent);
+        }
+
+        .nav-logo .mark {
             color: var(--accent);
         }
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 1.9rem;
             align-items: center;
         }
 
         .nav-links a {
-            font-size: 0.85rem;
+            position: relative;
+            font-size: 0.8rem;
             font-weight: 500;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.07em;
             text-transform: uppercase;
             color: var(--text-dim);
-            transition: color var(--transition);
+            padding: 0.25rem 0;
         }
 
-        .nav-links a:hover {
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 100%;
+            bottom: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: right var(--transition);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
             color: var(--white);
         }
 
+        .nav-links a.active::after {
+            right: 0;
+        }
+
         .nav-resume {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
             font-family: var(--font-mono);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--accent) !important;
-            border: 1px solid var(--accent);
-            padding: 0.4rem 1rem;
-            border-radius: 4px;
-            transition: background var(--transition), color var(--transition) !important;
+            border: 1px solid var(--accent-line);
+            padding: 0.42rem 0.9rem;
+            border-radius: 5px;
+            text-transform: none !important;
+            letter-spacing: 0.04em !important;
+            transition: background var(--transition), color var(--transition), border-color var(--transition);
+        }
+
+        .nav-resume svg {
+            width: 13px;
+            height: 13px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            flex-shrink: 0;
+        }
+
+        .nav-resume::after {
+            display: none;
         }
 
         .nav-resume:hover {
-            background: var(--accent) !important;
+            background: var(--accent);
+            border-color: var(--accent);
             color: #fff !important;
         }
 
@@ -139,19 +210,25 @@
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
-            padding: 4px;
+            padding: 6px;
+            background: none;
+            border: 0;
         }
 
         .hamburger span {
             display: block;
-            width: 24px;
+            width: 22px;
             height: 2px;
             background: var(--white);
             border-radius: 2px;
             transition: var(--transition);
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 860px) {
+            nav {
+                padding: 0 1.25rem;
+            }
+
             .nav-links {
                 display: none;
                 position: absolute;
@@ -159,10 +236,11 @@
                 left: 0;
                 right: 0;
                 flex-direction: column;
+                align-items: stretch;
                 gap: 0;
                 background: var(--bg-2);
                 border-bottom: 1px solid var(--border);
-                padding: 1rem 0;
+                padding: 0.75rem 0;
             }
 
             .nav-links.open {
@@ -170,8 +248,16 @@
             }
 
             .nav-links a {
-                padding: 0.75rem 2rem;
-                width: 100%;
+                padding: 0.7rem 1.5rem;
+            }
+
+            .nav-links a::after {
+                display: none;
+            }
+
+            .nav-resume {
+                margin: 0.5rem 1.5rem 0;
+                justify-content: center;
             }
 
             .hamburger {
@@ -179,96 +265,84 @@
             }
         }
 
-        /* HERO */
+        /* ---------- HERO ---------- */
         .hero {
             position: relative;
-            height: 100vh;
-            min-height: 600px;
+            min-height: 100svh;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
             text-align: center;
+            background: #050507;
         }
 
         .hero-bg {
             position: absolute;
             inset: 0;
-            background-image: url("/media/Photography/Traditional/Landsacpes and Animals/Landscapes/IMG_3721.jpg");
-            background-position: center;
+            background-image: url("/media/Photography/IMG_3721.jpg");
+            background-position: 62% center;
             background-size: cover;
             background-repeat: no-repeat;
-            filter: brightness(0.75);
-            transform: scale(1.03);
-            transition: transform 8s ease;
+            opacity: 0.85;
+            transform: scale(1.06);
+            animation: heroDrift 28s ease-out forwards;
         }
 
-        .hero:hover .hero-bg {
-            transform: scale(1.0);
+        @keyframes heroDrift {
+            to {
+                transform: scale(1.0);
+            }
         }
 
         .hero::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse at center, transparent 40%, rgba(13, 13, 15, 0.7) 100%);
-            pointer-events: none;
+            /* pointer-events: none; */
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 700px;
+            max-width: 760px;
             padding: 0 1.5rem;
             animation: fadeUp 1s ease both;
-            /* push content up slightly so scroll arrow sits near very bottom */
-            margin-bottom: 80px;
-        }
-
-        .hero-eyebrow {
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 1.2rem;
-            opacity: 0.9;
-            font-weight: bold;
+            margin-bottom: 44px;
         }
 
         .hero-name {
             font-family: var(--font-display);
-            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-size: clamp(2.9rem, 8vw, 5.2rem);
             font-weight: 400;
-            color: var(--white);
-            line-height: 1.1;
-            letter-spacing: -0.01em;
-            margin-bottom: 1.2rem;
+            color: rgb(0, 0, 0);
+            /* color: var(--white); */
+            line-height: 1.05;
+            letter-spacing: -0.015em;
+            margin-bottom: 1.5rem;
         }
 
-        .hero-titles {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 2.5rem;
+        .hero-rule {
+            width: 46px;
+            height: 1px;
+            background: var(--accent);
+            margin: 0 auto 1.5rem;
         }
 
-        .hero-tag {
-            font-size: 0.85rem;
-            font-weight: 400;
-            letter-spacing: 0.08em;
-            color: var(--text-dim);
-            border: 1px solid var(--border);
-            padding: 0.35rem 1rem;
-            border-radius: 100px;
-            background: rgba(255, 255, 255, 0.03);
+        .hero-role {
+            font-size: clamp(1rem, 2vw, 1.18rem);
+
+            /* color: var(--text); */
+            color: rgba(0, 0, 0, 0.85);
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.65;
+            text-wrap: balance;
         }
 
-        /* SCROLL BUTTON — larger, higher contrast, pinned to bottom of hero */
         .hero-scroll-row {
             position: absolute;
-            bottom: 2.5rem;
+            bottom: 2.25rem;
             left: 0;
             right: 0;
             z-index: 3;
@@ -279,21 +353,19 @@
 
         .hero-scroll {
             display: inline-flex;
-            flex-direction: column;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
             color: var(--white);
             font-family: var(--font-mono);
-            font-size: 0.8rem;
-            letter-spacing: 0.14em;
+            font-size: 0.74rem;
+            letter-spacing: 0.16em;
             text-transform: uppercase;
-            text-decoration: none;
-            transition: color var(--transition), border-color var(--transition);
-            background: rgba(13, 13, 15, 0.55);
-            border: 1px solid rgba(232, 87, 42, 0.6);
-            padding: 0.7rem 1.5rem;
+            background: rgba(11, 11, 13, 0.6);
+            border: 1px solid var(--accent-line);
+            padding: 0.6rem 1.35rem;
             border-radius: 100px;
-            backdrop-filter: blur(6px);
+            backdrop-filter: blur(8px);
+            transition: color var(--transition), border-color var(--transition);
         }
 
         .hero-scroll:hover {
@@ -302,7 +374,7 @@
         }
 
         .hero-scroll svg {
-            animation: bounce 2s infinite;
+            animation: bounce 2.2s infinite;
         }
 
         @keyframes bounce {
@@ -313,7 +385,7 @@
             }
 
             50% {
-                transform: translateY(6px);
+                transform: translateY(5px);
             }
         }
 
@@ -329,9 +401,9 @@
             }
         }
 
-        /* SECTION LAYOUT */
+        /* ---------- SECTION SCAFFOLD ---------- */
         section {
-            padding: 6rem 1.5rem;
+            padding: 6.5rem 1.5rem;
         }
 
         .container {
@@ -341,102 +413,123 @@
 
         .section-label {
             font-family: var(--font-mono);
-            font-size: 0.75rem;
-            letter-spacing: 0.18em;
+            font-size: 0.72rem;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
             color: var(--accent);
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 22px;
+            height: 1px;
+            background: var(--accent);
         }
 
         .section-title {
             font-family: var(--font-display);
-            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-size: clamp(1.9rem, 4vw, 2.6rem);
             font-weight: 400;
             color: var(--white);
             line-height: 1.2;
-            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.25rem;
         }
 
         .divider {
-            width: 40px;
+            width: 38px;
             height: 2px;
             background: var(--accent);
             margin-bottom: 2.5rem;
             border-radius: 2px;
         }
 
-        /* ABOUT */
-        #about {
-            background: var(--bg);
+        .section-intro {
+            color: var(--text-dim);
+            max-width: 620px;
+            font-size: 0.95rem;
+            margin-top: -1.5rem;
+            margin-bottom: 2.5rem;
         }
 
+        /* ---------- ABOUT ---------- */
         .about-text p {
             color: var(--text);
-            font-size: 1.05rem;
+            font-size: 1.03rem;
             line-height: 1.85;
-            margin-bottom: 1rem;
+            margin-bottom: 1.1rem;
+            max-width: 760px;
         }
 
-        /* LINKS */
+        .about-text strong {
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        /* ---------- LINKS ---------- */
         #links {
             background: var(--bg-2);
             padding: 5rem 1.5rem;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
         }
 
         .links-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
+            gap: 1.25rem;
         }
 
         .link-card {
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 2.5rem;
+            padding: 2.25rem;
             background: var(--bg-3);
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 0.9rem;
             transition: border-color var(--transition), transform var(--transition);
         }
 
         .link-card:hover {
-            border-color: rgba(232, 87, 42, 0.4);
+            border-color: var(--accent-line);
             transform: translateY(-3px);
         }
 
-        /* Link card icons — SVG-based replacements for emoji */
         .link-card-icon {
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
             border-radius: 8px;
-            background: rgba(232, 87, 42, 0.1);
-            border: 1px solid rgba(232, 87, 42, 0.2);
+            background: var(--accent-soft);
+            border: 1px solid rgba(232, 87, 42, 0.22);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--accent);
         }
 
         .link-card-icon svg {
-            width: 22px;
-            height: 22px;
+            width: 21px;
+            height: 21px;
             stroke: var(--accent);
             fill: none;
-            stroke-width: 1.8;
+            stroke-width: 1.7;
             stroke-linecap: round;
             stroke-linejoin: round;
         }
 
         .link-card h3 {
             font-family: var(--font-display);
-            font-size: 1.25rem;
+            font-size: 1.22rem;
             font-weight: 400;
             color: var(--white);
         }
 
         .link-card p {
-            font-size: 0.9rem;
+            font-size: 0.89rem;
             color: var(--text-dim);
             flex: 1;
         }
@@ -446,34 +539,24 @@
             align-items: center;
             gap: 0.5rem;
             font-family: var(--font-mono);
-            font-size: 0.82rem;
+            font-size: 0.78rem;
             font-weight: 500;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
-            padding: 0.65rem 1.4rem;
+            padding: 0.6rem 1.3rem;
             border-radius: 6px;
-            border: 1px solid var(--accent);
+            border: 1px solid var(--accent-line);
             color: var(--accent);
             background: transparent;
             cursor: pointer;
-            transition: background var(--transition), color var(--transition);
-            text-decoration: none;
+            transition: background var(--transition), color var(--transition), border-color var(--transition);
             align-self: flex-start;
         }
 
         .btn:hover {
             background: var(--accent);
+            border-color: var(--accent);
             color: #fff;
-        }
-
-        .btn-wip {
-            border-color: var(--border);
-            color: var(--text-dim);
-        }
-
-        .btn-wip:hover {
-            background: var(--bg);
-            color: var(--text);
         }
 
         @media (max-width: 640px) {
@@ -482,43 +565,115 @@
             }
         }
 
-        /* EDUCATION & EXPERIENCE — tighter spacing between sections */
-        #education {
+        /* ---------- SKILLS ---------- */
+        #skills {
             background: var(--bg);
-            padding: 6rem 1.5rem 2rem;
+        }
+
+        .skill-group {
+            display: grid;
+            grid-template-columns: 210px 1fr;
+            gap: 2rem;
+            padding: 1.6rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .skill-group:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .skill-group:first-child {
+            padding-top: 0;
+        }
+
+        .skill-group h3 {
+            font-family: var(--font-mono);
+            font-size: 0.74rem;
+            font-weight: 400;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            color: var(--accent);
+            padding-top: 0.3rem;
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+        }
+
+        .chip {
+            font-family: var(--font-mono);
+            font-size: 0.74rem;
+            letter-spacing: 0.02em;
+            color: var(--text);
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.028);
+            border-radius: 5px;
+            padding: 0.3rem 0.68rem;
+            line-height: 1.5;
+            transition: border-color var(--transition), color var(--transition);
+        }
+
+        .chip:hover {
+            border-color: var(--accent-line);
+            color: var(--white);
+        }
+
+        @media (max-width: 700px) {
+            .skill-group {
+                grid-template-columns: 1fr;
+                gap: 0.85rem;
+            }
+        }
+
+        /* ---------- TIMELINE ---------- */
+        #education {
+            background: var(--bg-2);
+            border-top: 1px solid var(--border);
+            padding: 6.5rem 1.5rem 3rem;
         }
 
         #experience {
-            background: var(--bg);
-            padding: 2rem 1.5rem 6rem;
+            background: var(--bg-2);
+            border-bottom: 1px solid var(--border);
+            padding: 3rem 1.5rem 6.5rem;
         }
 
         .timeline {
-            margin-bottom: 3.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .timeline:last-child {
+            margin-bottom: 0;
         }
 
         .timeline-section-title {
             font-family: var(--font-mono);
-            font-size: 0.75rem;
+            font-size: 0.73rem;
             letter-spacing: 0.16em;
             text-transform: uppercase;
             color: var(--accent);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.75rem;
+            margin-bottom: 1.75rem;
+            padding-bottom: 0.7rem;
             border-bottom: 1px solid var(--border);
         }
 
-        /* Education sub-section headers */
         .edu-subsection {
             font-family: var(--font-mono);
-            font-size: 0.7rem;
+            font-size: 0.69rem;
             letter-spacing: 0.14em;
             text-transform: uppercase;
             color: var(--text-dim);
-            margin: 2rem 0 1rem;
+            margin: 2rem 0 1.25rem;
             display: flex;
             align-items: center;
             gap: 0.75rem;
+        }
+
+        .edu-subsection:first-child {
+            margin-top: 0;
         }
 
         .edu-subsection::after {
@@ -530,10 +685,10 @@
 
         .timeline-item {
             display: grid;
-            grid-template-columns: 180px 1fr;
+            grid-template-columns: 190px 1fr;
             gap: 2rem;
-            margin-bottom: 2.5rem;
-            padding-bottom: 2.5rem;
+            margin-bottom: 2.25rem;
+            padding-bottom: 2.25rem;
             border-bottom: 1px solid var(--border);
         }
 
@@ -544,168 +699,327 @@
         }
 
         .timeline-meta {
-            padding-top: 0.15rem;
+            padding-top: 0.2rem;
         }
 
         .timeline-date {
             font-family: var(--font-mono);
-            font-size: 0.75rem;
+            font-size: 0.73rem;
             color: var(--text-dim);
-            letter-spacing: 0.05em;
-            margin-bottom: 0.4rem;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.35rem;
         }
 
         .timeline-org {
             font-weight: 600;
             color: var(--accent);
-            font-size: 0.85rem;
+            font-size: 0.84rem;
+            line-height: 1.5;
         }
 
         .timeline-body h4 {
             font-size: 1rem;
             font-weight: 600;
             color: var(--white);
-            margin-bottom: 0.4rem;
-            letter-spacing: 0;
-            text-transform: none;
+            margin-bottom: 0.45rem;
         }
 
         .timeline-body p {
-            font-size: 0.92rem;
+            font-size: 0.91rem;
             color: var(--text);
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.7rem;
         }
 
-        .bullet-list {
-            padding-left: 0;
+        .timeline-role {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.06em;
+            color: var(--text-dim);
+            margin: 1.1rem 0 0.5rem;
+            text-transform: uppercase;
         }
 
         .bullet-list li {
             font-size: 0.88rem;
             color: var(--text-dim);
-            padding: 0.25rem 0 0.25rem 1.2rem;
+            padding: 0.22rem 0 0.22rem 1.2rem;
             position: relative;
-            line-height: 1.6;
+            line-height: 1.65;
         }
 
         .bullet-list li::before {
-            content: '—';
+            content: '';
             position: absolute;
             left: 0;
-            color: var(--accent);
-            font-size: 0.7rem;
-            top: 0.38rem;
+            top: 0.92em;
+            width: 7px;
+            height: 1px;
+            background: var(--accent);
         }
 
-        .timeline-placeholder {
-            font-size: 0.85rem;
-            color: var(--text-dim);
-            font-style: italic;
-            border: 1px dashed var(--border);
-            border-radius: 6px;
-            padding: 1rem 1.25rem;
-            margin-top: 0.4rem;
+        .bullet-list strong {
+            color: var(--text);
+            font-weight: 500;
         }
 
-        @media (max-width: 640px) {
+        .coursework {
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 700px) {
             .timeline-item {
                 grid-template-columns: 1fr;
-                gap: 0.5rem;
+                gap: 0.6rem;
             }
         }
 
-        /* PROJECTS */
+        /* ---------- PROJECTS ---------- */
         #projects {
-            background: var(--bg-2);
+            background: var(--bg);
+        }
+
+        .project-group {
+            margin-bottom: 3.5rem;
+        }
+
+        .project-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-group-title {
+            font-family: var(--font-mono);
+            font-size: 0.73rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.7rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .project-group-title span {
+            color: var(--text-dim);
+            letter-spacing: 0.08em;
         }
 
         .project-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.25rem;
-            justify-items: center;
+            gap: 1.15rem;
         }
 
-        /* Center any orphaned cards in the last row */
-        .project-card:nth-last-child(1):nth-child(3n+1) {
-            grid-column: 2;
+        .project-grid--feature {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.3rem;
         }
 
-        .project-card:nth-last-child(2):nth-child(3n+1) {
-            grid-column: 1;
+        .project-grid--feature .project-card-img,
+        .project-grid--feature .project-card-fig {
+            height: 240px;
         }
 
-        .project-card:nth-last-child(1):nth-child(3n+2),
-        .project-card:nth-last-child(2):nth-child(3n+2) {
-            /* 2 left in last row */
+        .project-grid--feature .project-card-body {
+            padding: 1.35rem 1.6rem 1.6rem;
         }
 
-        /* For 2 cards in last row of 3-col grid: use subgrid trick via wrapping */
-        .project-grid-inner-last {
-            grid-column: 1 / -1;
-            display: flex;
-            justify-content: center;
-            gap: 1.25rem;
+        .project-grid--feature .project-card-body h4 {
+            font-size: 1.12rem;
         }
 
-        .project-grid-inner-last .project-card {
-            width: calc((100% - 1.25rem) / 3);
-            max-width: 380px;
+        .project-grid--feature .project-card-body p {
+            font-size: 0.89rem;
+        }
+
+        .project-grid--compact {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .project-grid--compact .project-card-img,
+        .project-grid--compact .project-card-fig {
+            height: 130px;
+        }
+
+        .project-grid--compact .project-card-body {
+            padding: 1rem 1.1rem 1.2rem;
+        }
+
+        .project-grid--compact .project-card-body h4 {
+            font-size: 0.92rem;
+        }
+
+        .project-grid--compact .project-card-body p {
+            font-size: 0.8rem;
+        }
+
+        .project-grid--compact .project-card-tag {
+            font-size: 0.63rem;
+        }
+
+        .project-grid--compact .badge {
+            font-size: 0.58rem;
+            padding: 0.15rem 0.45rem;
         }
 
         .project-card {
-            width: 100%;
+            display: flex;
+            flex-direction: column;
             background: var(--bg-3);
             border: 1px solid var(--border);
             border-radius: var(--radius);
             overflow: hidden;
             cursor: pointer;
+            text-align: left;
+            font: inherit;
+            color: inherit;
+            padding: 0;
             transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
         }
 
         .project-card:hover {
-            border-color: rgba(232, 87, 42, 0.35);
+            border-color: var(--accent-line);
             transform: translateY(-4px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 18px 44px rgba(0, 0, 0, 0.5);
         }
 
         .project-card-img {
             width: 100%;
-            height: 200px;
+            height: 185px;
             object-fit: cover;
-            filter: brightness(0.85) saturate(0.9);
+            filter: brightness(0.82) saturate(0.9);
             transition: filter var(--transition);
         }
 
         .project-card:hover .project-card-img {
-            filter: brightness(0.95) saturate(1);
+            filter: brightness(0.98) saturate(1);
+        }
+
+        .project-card-fig {
+            position: relative;
+            height: 185px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background:
+                linear-gradient(150deg, rgba(232, 87, 42, 0.12), transparent 58%),
+                repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 22px),
+                repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 22px),
+                var(--bg-4);
+        }
+
+        .project-card-fig svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+        }
+
+        .project-card-fig b {
+            position: relative;
+            z-index: 2;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            color: var(--text);
+            border: 1px solid var(--border-strong);
+            background: rgba(11, 11, 13, 0.72);
+            padding: 0.45rem 0.95rem;
+            border-radius: 4px;
         }
 
         .project-card-body {
-            padding: 1.25rem 1.4rem 1.5rem;
+            padding: 1.15rem 1.3rem 1.4rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .project-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
         }
 
         .project-card-tag {
             font-family: var(--font-mono);
-            font-size: 0.7rem;
-            letter-spacing: 0.1em;
+            font-size: 0.68rem;
+            letter-spacing: 0.09em;
             text-transform: uppercase;
             color: var(--accent);
-            margin-bottom: 0.4rem;
+            line-height: 1.4;
         }
 
         .project-card-body h4 {
             font-size: 1rem;
             font-weight: 600;
             color: var(--white);
-            margin-bottom: 0.3rem;
-            letter-spacing: 0;
-            text-transform: none;
+            margin-bottom: 0.35rem;
         }
 
         .project-card-body p {
             font-size: 0.85rem;
             color: var(--text-dim);
+            flex: 1;
+        }
+
+        .project-card-more {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin-top: 0.9rem;
+            transition: color var(--transition);
+        }
+
+        .project-card:hover .project-card-more {
+            color: var(--accent);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            flex-shrink: 0;
+            font-family: var(--font-mono);
+            font-size: 0.63rem;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+            padding: 0.18rem 0.55rem;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+            white-space: nowrap;
+        }
+
+        .badge::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+
+        .badge--active {
+            color: var(--accent);
+            border-color: var(--accent-line);
+            background: var(--accent-soft);
+        }
+
+        @media (max-width: 1000px) {
+            .project-grid--compact {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         @media (max-width: 900px) {
@@ -713,47 +1027,53 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .project-card:nth-last-child(1):nth-child(3n+1) {
-                grid-column: auto;
+            .project-grid--feature .project-card-img,
+            .project-grid--feature .project-card-fig {
+                height: 200px;
             }
+        }
 
-            .project-grid-inner-last .project-card {
-                width: 100%;
+        @media (max-width: 760px) {
+            .project-grid--compact {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 600px) {
-            .project-grid {
+
+            .project-grid,
+            .project-grid--feature,
+            .project-grid--compact {
                 grid-template-columns: 1fr;
             }
 
-            .project-grid-inner-last {
-                flex-direction: column;
-            }
-
-            .project-grid-inner-last .project-card {
-                width: 100%;
-                max-width: 100%;
+            .project-grid--compact .project-card-img,
+            .project-grid--compact .project-card-fig {
+                height: 170px;
             }
         }
 
-        /* MODALS */
+        /* ---------- MODALS ---------- */
         .modal {
             display: none;
             position: fixed;
             inset: 0;
             z-index: 200;
-            background: rgba(0, 0, 0, 0.75);
+            background: rgba(0, 0, 0, 0.78);
             overflow-y: auto;
-            backdrop-filter: blur(4px);
+            backdrop-filter: blur(5px);
             padding: 2rem 1rem;
+        }
+
+        .modal.open {
+            display: block;
         }
 
         .modal-content {
             background: var(--bg-2);
-            border: 1px solid var(--border);
+            border: 1px solid var(--border-strong);
             border-radius: 14px;
-            max-width: 780px;
+            max-width: 820px;
             width: 100%;
             margin: 0 auto;
             padding: 2.5rem;
@@ -763,71 +1083,270 @@
 
         .modal-content h3 {
             font-family: var(--font-display);
-            font-size: 1.6rem;
+            font-size: clamp(1.4rem, 3.5vw, 1.85rem);
             font-weight: 400;
             color: var(--white);
-            margin-bottom: 1rem;
-            letter-spacing: 0;
-            text-transform: none;
+            line-height: 1.25;
+            margin-bottom: 0.4rem;
+            padding-right: 2.5rem;
+        }
+
+        .modal-sub {
+            font-family: var(--font-mono);
+            font-size: 0.76rem;
+            letter-spacing: 0.06em;
+            color: var(--accent);
+            margin-bottom: 1.6rem;
+            padding-bottom: 1.4rem;
+            border-bottom: 1px solid var(--border);
         }
 
         .modal-content h4 {
-            font-size: 0.85rem;
-            font-weight: 600;
+            font-family: var(--font-mono);
+            font-size: 0.74rem;
+            font-weight: 500;
             color: var(--accent);
-            letter-spacing: 0.1em;
+            letter-spacing: 0.13em;
             text-transform: uppercase;
-            margin: 1.5rem 0 0.6rem;
+            margin: 2rem 0 0.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
         }
 
         .modal-content p {
-            font-size: 0.95rem;
+            font-size: 0.94rem;
             color: var(--text);
             line-height: 1.8;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.85rem;
+        }
+
+        .modal-content p strong {
+            color: var(--white);
+            font-weight: 500;
         }
 
         .modal-content img {
             width: 100%;
-            max-height: 65vh;
+            max-height: 62vh;
             object-fit: cover;
             border-radius: 8px;
-            margin: 1.25rem 0;
+            border: 1px solid var(--border);
+            margin: 1.25rem 0 0.6rem;
+        }
+
+        .modal-content video {
+            width: 100%;
+            display: block;
+            margin: 1.1rem 0;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .figcap {
+            font-size: 0.78rem !important;
+            color: var(--text-dim) !important;
+            font-style: italic;
+            margin-bottom: 1.25rem !important;
+        }
+
+        .modal-content ul {
+            margin-bottom: 0.6rem;
         }
 
         .modal-content li {
             font-size: 0.9rem;
             color: var(--text-dim);
-            padding: 0.3rem 0 0.3rem 1.2rem;
+            padding: 0.28rem 0 0.28rem 1.2rem;
             position: relative;
-            line-height: 1.65;
+            line-height: 1.7;
         }
 
         .modal-content li::before {
-            content: '—';
+            content: '';
             position: absolute;
             left: 0;
-            color: var(--accent);
-            font-size: 0.7rem;
-            top: 0.42rem;
+            top: 0.95em;
+            width: 7px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .modal-content li strong {
+            color: var(--white);
+            font-weight: 500;
         }
 
         .close {
             position: absolute;
-            top: 1.25rem;
-            right: 1.5rem;
-            font-size: 1.4rem;
+            top: 1.1rem;
+            right: 1.2rem;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
             color: var(--text-dim);
+            background: none;
+            border: 1px solid transparent;
+            border-radius: 6px;
             cursor: pointer;
             line-height: 1;
-            transition: color var(--transition);
+            transition: color var(--transition), border-color var(--transition);
         }
 
         .close:hover {
             color: var(--white);
+            border-color: var(--border);
         }
 
-        /* CONTACT */
+        .spec {
+            display: grid;
+            grid-template-columns: minmax(130px, 190px) 1fr;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 1.2rem 0;
+        }
+
+        .spec dt {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            padding: 0.65rem 1rem;
+            background: rgba(255, 255, 255, 0.022);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .spec dd {
+            font-size: 0.87rem;
+            color: var(--text);
+            padding: 0.65rem 1rem;
+            border-bottom: 1px solid var(--border);
+            line-height: 1.6;
+        }
+
+        .spec dt:nth-last-of-type(1),
+        .spec dd:nth-last-of-type(1) {
+            border-bottom: none;
+        }
+
+        @media (max-width: 560px) {
+            .spec {
+                grid-template-columns: 1fr;
+            }
+
+            .spec dt {
+                border-bottom: none;
+                padding-bottom: 0.15rem;
+            }
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1.2rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .dtable {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            min-width: 380px;
+        }
+
+        .dtable th {
+            font-family: var(--font-mono);
+            font-size: 0.67rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            text-align: left;
+            padding: 0.65rem 0.9rem;
+            background: rgba(255, 255, 255, 0.022);
+            border-bottom: 1px solid var(--border-strong);
+            white-space: nowrap;
+        }
+
+        .dtable td {
+            padding: 0.6rem 0.9rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+            vertical-align: top;
+        }
+
+        .dtable tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .dtable .num {
+            font-family: var(--font-mono);
+            white-space: nowrap;
+        }
+
+        .dtable .hl {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .dtable .dim {
+            color: var(--text-dim);
+        }
+
+        .callout {
+            border-left: 2px solid var(--accent);
+            background: var(--accent-soft);
+            border-radius: 0 8px 8px 0;
+            padding: 1rem 1.25rem;
+            margin: 1.3rem 0;
+        }
+
+        .callout-label {
+            font-family: var(--font-mono);
+            font-size: 0.66rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
+        }
+
+        .callout p {
+            font-size: 0.9rem;
+        }
+
+        .callout p:last-child {
+            margin-bottom: 0;
+        }
+
+        .callout--muted {
+            border-left-color: var(--text-dim);
+            background: rgba(255, 255, 255, 0.028);
+        }
+
+        .callout--muted .callout-label {
+            color: var(--text-dim);
+        }
+
+        .modal-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1.75rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        @media (max-width: 600px) {
+            .modal-content {
+                padding: 2rem 1.25rem;
+            }
+        }
+
+        /* ---------- CONTACT ---------- */
         #contact {
             background: var(--bg);
         }
@@ -835,50 +1354,52 @@
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.25rem;
-            margin-top: 2.5rem;
+            gap: 1.15rem;
+            margin-top: 2.25rem;
         }
 
         .contact-card {
             background: var(--bg-2);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 2rem;
+            padding: 2rem 1.5rem;
             text-align: center;
             transition: border-color var(--transition), transform var(--transition);
         }
 
         .contact-card:hover {
-            border-color: rgba(232, 87, 42, 0.35);
+            border-color: var(--accent-line);
             transform: translateY(-3px);
         }
 
         .contact-icon {
-            width: 48px;
-            height: 48px;
+            width: 40px;
+            height: 40px;
             margin: 0 auto 1rem;
             object-fit: contain;
-            filter: grayscale(1) brightness(1.4);
-            opacity: 0.7;
+            filter: grayscale(1) brightness(1.5);
+            opacity: 0.65;
+            transition: opacity var(--transition);
+        }
+
+        .contact-card:hover .contact-icon {
+            opacity: 1;
         }
 
         .contact-card h4 {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-family: var(--font-mono);
-            letter-spacing: 0.12em;
+            letter-spacing: 0.14em;
             text-transform: uppercase;
             color: var(--text-dim);
             margin-bottom: 0.5rem;
         }
 
         .contact-card a {
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 500;
             color: var(--accent);
-        }
-
-        .contact-card a:hover {
-            color: var(--accent-2);
+            overflow-wrap: anywhere;
         }
 
         @media (max-width: 640px) {
@@ -887,27 +1408,44 @@
             }
         }
 
-        /* FOOTER */
+        /* ---------- FOOTER ---------- */
         footer {
-            padding: 2rem 1.5rem;
+            padding: 2.25rem 1.5rem;
             border-top: 1px solid var(--border);
             text-align: center;
             font-family: var(--font-mono);
-            font-size: 0.75rem;
+            font-size: 0.73rem;
             color: var(--text-dim);
-            letter-spacing: 0.06em;
+            letter-spacing: 0.05em;
         }
 
-        /* FADE IN */
+        /* ---------- MOTION ---------- */
         .fade-in {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(18px);
             transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+
+            .fade-in {
+                opacity: 1;
+                transform: none;
+            }
         }
     </style>
 </head>
@@ -916,34 +1454,41 @@
 
     <!-- NAV -->
     <nav>
-        <div class="nav-logo"> <a href="#home">Home</a> </div>
-        <div class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Toggle menu">
+        <div class="nav-logo"><a href="#home">JL<span class="mark">.</span></a></div>
+        <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Toggle menu" aria-expanded="false">
             <span></span><span></span><span></span>
-        </div>
+        </button>
         <div class="nav-links" id="navLinks">
             <a href="#about" onclick="closeNav()">About</a>
+            <a href="#skills" onclick="closeNav()">Skills</a>
             <a href="#education" onclick="closeNav()">Education</a>
             <a href="#experience" onclick="closeNav()">Experience</a>
             <a href="#projects" onclick="closeNav()">Projects</a>
             <a href="#contact" onclick="closeNav()">Contact</a>
-            <a href="/media/Joseph Lodato Resume.pdf" download class="nav-resume">Resume ↓</a>
+            <a href="/media/Joseph Lodato Resume.pdf" download class="nav-resume">Resume
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+            </a>
         </div>
+        <div class="scroll-progress" id="scrollProgress"></div>
     </nav>
 
     <!-- HERO -->
     <section class="hero" id="home">
         <div class="hero-bg"></div>
         <div class="hero-content">
-            <div class="hero-eyebrow">Computer Engineering · Syracuse University</div>
             <h1 class="hero-name">Joseph Lodato</h1>
-            <div class="hero-titles"></div>
+            <div class="hero-rule"></div>
+            <p class="hero-role">Graduate Computer engineering student working toward PCB board-level hardware design.</p>
         </div>
-        <!-- Scroll button pinned to bottom of hero, higher contrast -->
         <div class="hero-scroll-row">
-
             <a href="#about" class="hero-scroll">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                    aria-hidden="true">
                     <line x1="12" y1="5" x2="12" y2="19" />
                     <polyline points="19 12 12 19 5 12" />
                 </svg>
@@ -961,31 +1506,32 @@
                 <div class="divider"></div>
             </div>
             <div class="about-text fade-in">
-                <p>Hello! I am Joseph Lodato, a full-time student at Syracuse University pursuing a Master's degree in
-                    in Computer Engineering. I graduated with honors in the spring of 2026 from Syracuse University with
-                    a Bachelor's degree in Computer Engineering and a minor in Physics.</p>
-                <p>I am involved in multiple organizations on campus, with the primary one being <strong
-                        style="color:var(--white)">Citrus Racing</strong> — SU's premier Formula SAE motorsports
-                    design and build team — where I currently serve as the Lead of EV Development, and have previously
-                    served as Chief Engineer among other roles (more info can be found in the projects section).</p>
-
-                <p>Outside of engineering I fill my free time with hiking, mountineering, skiing and photography of all
-                    kinds. I focus particularly on astrophotography, capturing deep sky objects like
-                    nebulae, supernovae, and distant galaxies — along with traditional landscape and wildlife
-                    photography.
+                <p>I'm Joseph Lodato, a computer engineer focused on board-level hardware design. I'm working through
+                    an M.S. in Computer Engineering at Syracuse University, after graduating Magna Cum Laude in May 2026
+                    with a B.S. in Computer Engineering and a minor in Physics.</p>
+                <p>Most of what I do sits between a schematic and a working object. I've taken two boards from part
+                    selection through layout, bring-up, and test on my own. <strong>Apogee</strong> is a 72-key
+                    mechanical keyboard. <strong>IRIS</strong> is a sealed
+                    wearable storm-warning system built for hikers and mountaineers, that can alert you of incoming
+                    storm fronts without the need for a cellular connection.
                 </p>
+                <p>I'm also Lead of EV Development for Citrus Racing, Syracuse's Formula SAE team, where I'm directing
+                    the first electric powertrain the team has built. Before that I held the Chief Engineer, President,
+                    and Lead of Electronics roles.</p>
+                <p>Outside of engineering I fill my free time with hiking, mountineering, skiing and photography of all
+                    kinds including astrophotography, capturing deep sky objects like nebulae,
+                    supernovae, and distant galaxies, along with traditional landscape and wildlife photography. </p>
             </div>
         </div>
     </section>
 
     <!-- QUICK LINKS -->
-    <div id="links" style="background: var(--bg-2); padding: 5rem 1.5rem;">
+    <div id="links">
         <div class="container">
             <div class="links-grid">
                 <div class="link-card fade-in">
-                    <!-- Resume icon: document with lines -->
                     <div class="link-card-icon">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                             <polyline points="14 2 14 8 20 8" />
                             <line x1="16" y1="13" x2="8" y2="13" />
@@ -994,27 +1540,107 @@
                         </svg>
                     </div>
                     <h3>Resume</h3>
-                    <p>Download my current resume below.</p>
+                    <p>Download my current resume below. </p>
                     <a href="/media/Joseph Lodato Resume.pdf" download class="btn">Download Resume</a>
                 </div>
                 <div class="link-card fade-in">
-                    <!-- Camera icon -->
                     <div class="link-card-icon">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path
                                 d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
                             <circle cx="12" cy="13" r="4" />
                         </svg>
                     </div>
                     <h3>Photography Gallery</h3>
-                    <p>Explore my astrophotography and traditional photography portfolio. <em
-                            style="color:var(--text-dim)">(Work in progress)</em></p>
-                    <!-- <a href="/media/Joseph Lodato Resume 2025-26.pdf" download class="btn">Download Resume</a> -->
+                    <p>Deep-sky astrophotography, plus landscape, wildlife, and motorsports work. <i>Work in
+                            progress!</i></p>
                     <a href="/Webpages/portfolioHome.html" class="btn">View Gallery →</a>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <div class="container">
+            <div class="fade-in">
+                <div class="section-label">Capabilities</div>
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="divider"></div>
+            </div>
+            <p class="section-intro fade-in">Everything here comes out of a project documented further down the page.
+            </p>
+
+            <div class="fade-in">
+                <div class="skill-group">
+                    <h3>PCB Design &amp; Layout</h3>
+                    <div class="chips">
+                        <span class="chip">KiCad (through 10.x)</span>
+                        <span class="chip">Schematic capture</span>
+                        <span class="chip">Multi-Layer Board Layout</span>
+                        <span class="chip">PCB Bring-Up</span>
+                        <span class="chip">Ground plane &amp; stitching vias</span>
+                        <span class="chip">EMI Reduction</span>
+                        <span class="chip">Decoupling strategy</span>
+                        <span class="chip">Trace width sizing</span>
+                        <span class="chip">DFM / DFA</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Power &amp; Battery Systems</h3>
+                    <div class="chips">
+                        <span class="chip">DC-DC Converters</span>
+                        <span class="chip">Gate drivers &amp; MOSFETs</span>
+                        <span class="chip">Battery management (BMS)</span>
+                        <span class="chip">High-voltage packs (72–144 V)</span>
+                        <span class="chip">Boost converters &amp; level shifting</span>
+                        <span class="chip">Flyback &amp; snubber protection</span>
+                        <span class="chip">LTSPICE Simulations</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Embedded &amp; Firmware</h3>
+                    <div class="chips">
+                        <span class="chip">Microcontroller Firmware</span>
+                        <span class="chip">I²C · SPI · UART</span>
+                        <span class="chip">USB HID · BLE HID</span>
+                        <span class="chip">Latency budgeting</span>
+                        <span class="chip">Timer-driven stepper control</span>
+                        <span class="chip">Serial protocols</span>
+                        <span class="chip">Raspberry Pi</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Test &amp; Measurement</h3>
+                    <div class="chips">
+                        <span class="chip">Oscilloscopes</span>
+                        <span class="chip">Bench supplies &amp; electronic loads</span>
+                        <span class="chip">Current probes (Hantek CC-65)</span>
+                        <span class="chip">Hardware bring-up &amp; debug</span>
+                        <span class="chip">Continuity ring-out</span>
+                        <span class="chip">UL508A functional test</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Languages &amp; Tools</h3>
+                    <div class="chips">
+                        <span class="chip">Fusion 360</span>
+                        <span class="chip">C, C++ &amp; C# </span>
+                        <span class="chip">Python</span>
+                        <span class="chip">NumPy · Matplotlib</span>
+                        <span class="chip">Java</span>
+                        <span class="chip">Git / GitHub</span>
+                        <span class="chip">Windows &amp; Linux Operating Systems</span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- EDUCATION -->
     <section id="education">
@@ -1027,7 +1653,6 @@
 
             <div class="timeline fade-in">
 
-                <!-- Master's -->
                 <div class="edu-subsection">Master's</div>
                 <div class="timeline-item">
                     <div class="timeline-meta">
@@ -1035,13 +1660,18 @@
                         <div class="timeline-org">Syracuse University</div>
                     </div>
                     <div class="timeline-body">
-                        <h4> Master's of Science: Computer Engineering</h4>
-                        <p> Part of the BS/MS 4+1 program. A one-year accelerated master's program at Syracuse
-                            University College of Engineering and Computer Science.</p>
+                        <h4>M.S. Computer Engineering</h4>
+                        <p>Accelerated one-year master's through the BS/MS 4+1 track at the College of Engineering and
+                            Computer Science. Anticipated May 2027.</p>
+                        <div class="timeline-role">Coursework</div>
+                        <div class="chips coursework">
+                            <span class="chip">Semiconductor Fabrication</span>
+                            <span class="chip">System-on-Chip Design</span>
+                            <span class="chip">Advanced Computer Architecture</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Undergraduate -->
                 <div class="edu-subsection">Undergraduate</div>
                 <div class="timeline-item">
                     <div class="timeline-meta">
@@ -1049,13 +1679,23 @@
                         <div class="timeline-org">Syracuse University</div>
                     </div>
                     <div class="timeline-body">
-                        <h4>Bachelor of Science: Computer Engineering</h4>
-                        <p>Graduated with a B.S. in Computer Engineering and a minor in Physics. Graduated Magna Cum
-                            Laude in May of 2026.</p>
+                        <h4>B.S. Computer Engineering, Minor in Physics</h4>
+                        <p>Graduated Magna Cum Laude, GPA 3.60, May 2026.</p>
+                        <div class="timeline-role">Relevant Coursework</div>
+                        <div class="chips coursework">
+                            <span class="chip">VLSI Design</span>
+                            <span class="chip">Signals &amp; Systems Analysis</span>
+                            <span class="chip">Computational Physics</span>
+                            <span class="chip">Embedded Systems &amp; Microcontroller Lab</span>
+                            <span class="chip">Robotics Programming Lab</span>
+                            <span class="chip">Digital Logic Design</span>
+                            <span class="chip">Operating Systems Design</span>
+                            <span class="chip">Computer &amp; Network Security</span>
+                            <span class="chip">Database Management Systems</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- High School -->
                 <div class="edu-subsection">High School</div>
                 <div class="timeline-item">
                     <div class="timeline-meta">
@@ -1063,12 +1703,12 @@
                         <div class="timeline-org">Freeport High School</div>
                     </div>
                     <div class="timeline-body">
-                        <h4>High School: Graduated with Honors</h4>
+                        <h4>Graduated with Honors</h4>
                         <ul class="bullet-list">
-                            <li>Built an automated sawdust collection system for the school's woodworking/STEM workshop
-                                as a senior project.</li>
-                            <li>Co-founded the school programming club, teaching students of all skill levels the
-                                fundamentals of computer programming.</li>
+                            <li>Built an automated sawdust collection system for the school's woodworking and STEM
+                                workshop as a senior project.</li>
+                            <li>Co-founded the school programming club, teaching students at every skill level the
+                                fundamentals of programming.</li>
                         </ul>
                     </div>
                 </div>
@@ -1087,6 +1727,60 @@
             </div>
 
             <div class="timeline fade-in">
+                <div class="timeline-section-title">Leadership</div>
+
+                <div class="timeline-item">
+                    <div class="timeline-meta">
+                        <div class="timeline-date">Oct 2022 – Present</div>
+                        <div class="timeline-org">Citrus Racing, Formula SAE</div>
+                    </div>
+                    <div class="timeline-body">
+                        <h4>Lead of EV Development</h4>
+                        <p>Five roles across four years on Syracuse University's Formula SAE team. I currently direct
+                            the design, fabrication, and programming of the team's first electric powertrain.</p>
+                        <ul class="bullet-list">
+                            <li>Directing a high-voltage battery pack, currently 72 V for the
+                                first full vehicle build, from 12/24 V LiFePO₄ modules with cell-level BMS plus a
+                                top-level pack BMS.</li>
+                            <li>Leading the 120 V/10 A supercapacitor charging subsystem inside the vehicle's energy
+                                management architecture.</li>
+                        </ul>
+                        <div class="timeline-role">Prior Roles</div>
+                        <ul class="bullet-list">
+                            <li><strong>Co-Chief Engineer (2025/26):</strong> led the vehicle development cycle to a
+                                74th-of-131 finish, the team's best Formula SAE result of the 2000s era, and ran the
+                                mock technical inspection process that got the car through tech.</li>
+                            <li><strong>President (2024/25):</strong> managed a $50,000 annual budget, secured corporate
+                                sponsorships, set up a university purchasing pipeline, and grew active membership from
+                                about 5 to over 40.</li>
+                            <li><strong>Lead of Electronics (2023/24):</strong> designed, built, and tested a
+                                competition-grade wiring harness as the team's only electronics engineer, which put the
+                                team back at competition for the first time since 2019 (91st of 113).</li>
+                            <li><strong>Co-Electronics Lead (2022/23):</strong> reverse-engineered legacy harnesses and
+                                built a prototype test harness.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-meta">
+                        <div class="timeline-date">Aug 2025 – Dec 2025</div>
+                        <div class="timeline-org">Syracuse University</div>
+                    </div>
+                    <div class="timeline-body">
+                        <h4>Undergraduate Coach, PHY 307 Science and Computers I</h4>
+                        <ul class="bullet-list">
+                            <li>Worked inside lecture sections with about 15 to 20 students, covering the
+                                physics behind their code along with direct debugging help and office hours by request.
+                            </li>
+                            <li>The two topics students asked about most were programming fundamentals and the limits
+                                of computational accuracy, which is the same numerical-precision reasoning.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline fade-in">
                 <div class="timeline-section-title">Work Experience</div>
 
                 <div class="timeline-item">
@@ -1096,32 +1790,34 @@
                     </div>
                     <div class="timeline-body">
                         <h4>Control Panel Technician</h4>
+                        <p>Motor control and power relay panels for pumping stations and wastewater treatment plants,
+                            ranging from small units up to 7-foot enclosures. I worked on roughly 20 to 30 panels over
+                            the summer.</p>
                         <ul class="bullet-list">
-                            <li>Designed, built, and tested fully custom control panels for industrial and municipal use
-                                alongside a team of technicians and engineers.</li>
-                            <li>Performed full methodical panel ringouts, functional testing, and PLC logic testing.
-                            </li>
-                            <li>Fabricated panels to UL508A standards including component/enclosure wiring and enclosure
-                                fabrication.</li>
-                            <li>Improved shop efficiency by creating frameworks for weight-based inventory systems for
-                                component bins and wire spools.</li>
+                            <li>Fabricated and verified panels to UL508A standards, including component spacing checks
+                                for thermal clearance.</li>
+                            <li>Ran exhaustive ring-outs, checking every wire against the drawings for continuity
+                                before anything reached functional test.</li>
+                            <li>Tested panels on a custom in-house switchboard of about 100 switches, 100 LEDs, and 5
+                                analog read/write channels, driving field-side inputs and reading relay outputs.</li>
+                            <li>Designed a weight-based inventory tracking framework: bins press into a strain gauge,
+                                and a known per-unit weight turns the reading straight into an item count.</li>
                         </ul>
                     </div>
                 </div>
 
-
                 <div class="timeline-item">
                     <div class="timeline-meta">
-                        <div class="timeline-date">Aug 2023 – Current</div>
-                        <div class="timeline-org">Syracuse University Machine Shop</div>
+                        <div class="timeline-date">Aug 2023 – Present</div>
+                        <div class="timeline-org">SU Student Machine Shop</div>
                     </div>
                     <div class="timeline-body">
-                        <h4>Student Machine Shop Employee</h4>
+                        <h4>Student Machinist</h4>
                         <ul class="bullet-list">
-                            <li>Assist students in the machine shop with various tasks and projects for both classes and
-                                personal projects.</li>
-                            <li>Ensure the safety and proper functioning of the machine shop.</li>
-                            <li>Operate various machines ranging from lathes to mills to 3D printers.</li>
+                            <li>Support 50 to 60 students a semester across lathes, mills, and 3D printers, making sure
+                                coursework and personal projects run safely and correctly.</li>
+                            <li>Deepest expertise is on Bambu Lab 3D printers, keeping student jobs moving across the
+                                shop's fleet.</li>
                         </ul>
                     </div>
                 </div>
@@ -1134,8 +1830,8 @@
                     <div class="timeline-body">
                         <h4>IT Coordinator</h4>
                         <ul class="bullet-list">
-                            <li>Prepared and deployed over 250 devices (iPads and Chromebooks) across 4 schools to meet
-                                increased technology demand during the COVID-19 pandemic.</li>
+                            <li>Prepared and deployed over 250 iPads and Chromebooks across 4 schools to meet the jump
+                                in technology demand during the COVID-19 pandemic.</li>
                         </ul>
                     </div>
                 </div>
@@ -1143,14 +1839,18 @@
                 <div class="timeline-item">
                     <div class="timeline-meta">
                         <div class="timeline-date">Jun 2019 – Aug 2023</div>
-                        <div class="timeline-org">Strouts Point Wharf Co.</div>
+                        <div class="timeline-org">Strout's Point Wharf Co.</div>
                     </div>
                     <div class="timeline-body">
-                        <h4>Dockstaff</h4>
+                        <h4>Dock Staff</h4>
                         <ul class="bullet-list">
-                            <li>Oversaw and led a team of ~8 dock staff while performing customer-facing duties.</li>
-                            <li>Performed preventive maintenance and safety inspections on docks.</li>
-                            <li>Coordinated dock space availability with mechanics, improving workplace efficiency.</li>
+                            <li>Ran a team of about 8 dock staff and made operational calls on days without a manager
+                                present, across four seasons.</li>
+                            <li>Onboarded and trained new hires, and earned clearance to operate work boats.</li>
+                            <li>Became the radio point of contact between mechanics and boat locations, which cut a
+                                recurring search out of their workflow.</li>
+                            <li>Handled preventive maintenance on docks and work boats, plus fuel spill cleanups and
+                                the documentation that went with them.</li>
                         </ul>
                     </div>
                 </div>
@@ -1167,376 +1867,1285 @@
                 <h2 class="section-title">Projects</h2>
                 <div class="divider"></div>
             </div>
-            <div class="project-grid">
+            <p class="section-intro fade-in">Open any project for its specifications, measured results, and the parts
+                that went wrong.</p>
 
-                <div class="project-card fade-in" onclick="openModal('citrus')">
-                    <img class="project-card-img" src="/media/Citrus Racing/IMG_0953.jpg" alt="Citrus Racing">
-                    <div class="project-card-body">
-                        <div class="project-card-tag">Formula SAE</div>
-                        <h4>Citrus Racing</h4>
-                        <p>Chief Engineer & EV Development lead for Syracuse University's motorsports team.</p>
-                    </div>
-                </div>
+            <div class="project-group fade-in">
+                <div class="project-group-title">Hardware &amp; PCB Design <span>04</span></div>
+                <div class="project-grid project-grid--feature">
 
-                <div class="project-card fade-in" onclick="openModal('capstone')">
-                    <img class="project-card-img" src="/media/Projects/capstoneCAD.png" alt="Capstone">
-                    <div class="project-card-body">
-                        <div class="project-card-tag">Undergraduate Capstone Project</div>
-                        <h4>Capstone Project</h4>
-                        <p>Stepper Motor and Computer Vision Based Air Hockey Robot Designed and Built for Undergraduate
-                            Capstone Project.</p>
-                    </div>
-                </div>
+                    <button class="project-card" onclick="openModal('dcdc')" aria-label="Open DC-DC charger details">
+                        <div class="project-card-fig">
+                            <svg viewBox="0 0 300 185" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="none"
+                                stroke="rgba(232,87,42,0.5)" stroke-width="1.4">
+                                <path d="M20 40 H90 V95 H150" />
+                                <path d="M20 145 H120 V95" />
+                                <path d="M150 95 H210 V50 H280" />
+                                <path d="M210 95 V150 H280" />
+                                <circle cx="150" cy="95" r="4" fill="rgba(232,87,42,0.5)" stroke="none" />
+                                <circle cx="210" cy="95" r="4" fill="rgba(232,87,42,0.5)" stroke="none" />
+                                <path d="M108 30 v20 M98 40 h20" stroke="rgba(255,255,255,0.25)" />
+                                <rect x="235" y="80" width="34" height="26" stroke="rgba(255,255,255,0.22)" />
+                            </svg>
+                            <b>Power Stage</b>
+                        </div>
+                        <div class="project-card-body">
+                            <div class="project-card-top">
+                                <div class="project-card-tag">Power Electronics</div>
+                                <span class="badge badge--active">In Progress</span>
+                            </div>
+                            <h4>120 V/10 A DC-DC Supercapacitor Charger</h4>
+                            <p>Synchronous half-bridge converter stepping a 72 V pack up to a 97 V supercapacitor bank
+                                for Citrus Racing's EV powertrain.</p>
+                            <div class="project-card-more">View details →</div>
+                        </div>
+                    </button>
 
-                <div class="project-card fade-in" onclick="openModal('keyboard')">
-                    <img class="project-card-img" src="/media/Projects/keyboardCAD.png" alt="Custom Keyboard">
-                    <div class="project-card-body">
-                        <div class="project-card-tag">PCB Design · KiCad</div>
-                        <h4>Custom Keyboard PCB</h4>
-                        <p>Fully custom 70% mechanical keyboard with USB-C, Bluetooth, rotary encoders, and OLED.</p>
-                    </div>
-                </div>
+                    <button class="project-card" onclick="openModal('iris')" aria-label="Open IRIS details">
+                        <div class="project-card-fig">
+                            <svg viewBox="0 0 300 185" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="none"
+                                stroke="rgba(232,87,42,0.45)" stroke-width="1.3">
+                                <rect x="95" y="28" width="110" height="130" rx="8" stroke="rgba(255,255,255,0.28)" />
+                                <rect x="110" y="45" width="80" height="52" rx="3" />
+                                <circle cx="150" cy="125" r="20" />
+                                <circle cx="150" cy="125" r="12" stroke="rgba(255,255,255,0.2)" />
+                                <path d="M95 60 H40 M95 90 H55 M205 60 H260 M205 120 H245"
+                                    stroke="rgba(255,255,255,0.2)" />
+                                <path d="M146 112 l-6 12 h10 l-6 12" stroke-width="1.6" />
+                            </svg>
+                            <b>Board V1.0</b>
+                        </div>
+                        <div class="project-card-body">
+                            <div class="project-card-top">
+                                <div class="project-card-tag">PCB Design · KiCad</div>
+                                <span class="badge badge--active">In Progress</span>
+                            </div>
+                            <h4>IRIS: Wearable Storm Warning System</h4>
+                            <p>A 47 × 102 mm carrier board carrying 7 sensors, GNSS, and e-ink for multi-day alpine
+                                use. Designed, reviewed, and heading to assembly.</p>
+                            <div class="project-card-more">View details →</div>
+                        </div>
+                    </button>
 
-                <div class="project-card fade-in" onclick="openModal('juniorDesign')">
-                    <img class="project-card-img" src="/media/Projects/JuniorDeisgnMachine.jpg"
-                        alt="Smart Copy Machine">
-                    <div class="project-card-body">
-                        <div class="project-card-tag">Robotics · Computer Vision</div>
-                        <h4>Smart Copy Machine</h4>
-                        <p>Gantry-style pen plotter that scans and replicates hand-drawn images using a Raspberry Pi and
-                            CV.</p>
-                    </div>
-                </div>
+                    <button class="project-card" onclick="openModal('keyboard')" aria-label="Open Apogee details">
+                        <img class="project-card-img" src="/media/Projects/keyboardCAD.png"
+                            alt="Apogee custom keyboard CAD render" loading="lazy">
+                        <div class="project-card-body">
+                            <div class="project-card-top">
+                                <div class="project-card-tag">PCB Design · KiCad</div>
+                                <span class="badge">Complete</span>
+                            </div>
+                            <h4>Apogee: Custom Keyboard PCB</h4>
+                            <p>340 × 140 mm, 72 keys, wired and wireless, measured at 2.71 ms mean latency.</p>
+                            <div class="project-card-more">View details →</div>
+                        </div>
+                    </button>
 
-                <div class="project-card fade-in" onclick="openModal('alfred')">
-                    <img class="project-card-img" src="/media/Projects/AlfredDesk.jpg" alt="Alfred Robot">
-                    <div class="project-card-body">
-                        <div class="project-card-tag">Robotics · ROS 2</div>
-                        <h4>Search & Rescue Robot — "Alfred"</h4>
-                        <p>Autonomous navigation and object retrieval using ROS 2 Iron and AprilTag localization.</p>
-                    </div>
-                </div>
+                    <button class="project-card" onclick="openModal('capstone')" aria-label="Open HockeyBot details">
+                        <img class="project-card-img" src="/media/Projects/capstoneCAD.png"
+                            alt="HockeyBot capstone CAD render" loading="lazy">
+                        <div class="project-card-body">
+                            <div class="project-card-top">
+                                <div class="project-card-tag">Capstone · Mechanical</div>
+                                <span class="badge">Complete</span>
+                            </div>
+                            <h4>HockeyBot: Autonomous Air Hockey Robot</h4>
+                            <p>CoreXY gantry robot that blocked 90% of shots against three human players.</p>
+                            <div class="project-card-more">View details →</div>
+                        </div>
+                    </button>
 
-                <div class="project-card fade-in" onclick="openModal('phy490')">
-                    <img class="project-card-img" src="/media/Projects/DiffractionSpikes.jpg" alt="Aperture Analysis">
-                    <div class="project-card-body">
-                        <div class="project-card-tag">C++ · FFT · Computational Physics</div>
-                        <h4>"Aperture Analysis"</h4>
-                        <p>Reconstructing telescope aperture geometry from stellar diffraction spikes using custom FFT.
-                        </p>
-                    </div>
                 </div>
-
-                <div class="project-card fade-in" onclick="openModal('celestial')">
-                    <img class="project-card-img" src="/media/Projects/CelestialVeil.png" alt="Celestial Veil">
-                    <div class="project-card-body">
-                        <div class="project-card-tag">Unity · C# · N-Body Simulation</div>
-                        <h4>Celestial Veil</h4>
-                        <p>Physically accurate orbital simulation built in Unity using Newton's law of universal
-                            gravitation.</p>
-                    </div>
-                </div>
-
-                <!-- Last row: 2 cards centered using a flex wrapper spanning full grid width -->
-                <!-- <div class="project-grid-inner-last"> -->
-                <div class="project-card fade-in" onclick="openModal('website')">
-                    <img class="project-card-img" src="/media/Projects/WebsiteCover.png" alt="Personal Website">
-                    <div class="project-card-body">
-                        <div class="project-card-tag">HTML · CSS · JavaScript</div>
-                        <h4>Personal Website</h4>
-                        <p>This site — designed and built from scratch to showcase professional and photography
-                            work.</p>
-                    </div>
-                </div>
-                <div class="project-card fade-in" onclick="openModal('tylerTech')">
-                    <img class="project-card-img" src="/media/Projects/MaineAppChallenge.png" alt="App Challenge">
-                    <div class="project-card-body">
-                        <div class="project-card-tag">JavaScript · App Development</div>
-                        <h4>Maine App Challenge</h4>
-                        <p>Top 10 finishes in 2021 and 2022 in the Tyler Technologies statewide competition.</p>
-                    </div>
-                </div>
-                <!-- </div> -->
-
             </div>
+
+            <div class="project-group fade-in">
+                <div class="project-group-title">Robotics &amp; Vehicle Systems <span>03</span></div>
+                <div class="project-grid">
+
+                    <button class="project-card" onclick="openModal('citrus')" aria-label="Open Citrus Racing details">
+                        <img class="project-card-img" src="/media/Citrus Racing/IMG_0953.jpg"
+                            alt="Citrus Racing formula car" loading="lazy">
+                        <div class="project-card-body">
+                            <div class="project-card-top">
+                                <div class="project-card-tag">Formula SAE</div>
+                                <span class="badge badge--active">Ongoing</span>
+                            </div>
+                            <h4>Citrus Racing</h4>
+                            <p>Four years and five roles on SU's Formula SAE team: two vehicle generations, a $50k
+                                budget, and now the team's first EV powertrain.</p>
+                            <div class="project-card-more">View details →</div>
+                        </div>
+                    </button>
+
+                    <button class="project-card" onclick="openModal('alfred')" aria-label="Open Alfred details">
+                        <img class="project-card-img" src="/media/Projects/AlfredDesk.jpg"
+                            alt="Alfred search and rescue robot" loading="lazy">
+                        <div class="project-card-body">
+                            <div class="project-card-top">
+                                <div class="project-card-tag">Robotics · ROS 2</div>
+                                <span class="badge">Complete</span>
+                            </div>
+                            <h4>Alfred: Search &amp; Rescue Robot</h4>
+                            <p>The only robot in the class to finish a fully autonomous search-and-retrieve run, on
+                                encoders and a single webcam.</p>
+                            <div class="project-card-more">View details →</div>
+                        </div>
+                    </button>
+
+                    <button class="project-card" onclick="openModal('juniorDesign')"
+                        aria-label="Open Smart Copy Machine details">
+                        <img class="project-card-img" src="/media/Projects/JuniorDeisgnMachine.jpg"
+                            alt="Smart Copy Machine gantry" loading="lazy">
+                        <div class="project-card-body">
+                            <div class="project-card-top">
+                                <div class="project-card-tag">Motion Control · CV</div>
+                                <span class="badge">Complete</span>
+                            </div>
+                            <h4>Ctrl C + Ctrl Pi: Smart Copy Machine</h4>
+                            <p>Three-axis pen plotter that photographs a hand drawing, skeletonizes it, and redraws it
+                                from coordinate-based motor commands.</p>
+                            <div class="project-card-more">View details →</div>
+                        </div>
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="project-group fade-in">
+                <div class="project-group-title">Software &amp; Simulation <span>04</span></div>
+                <div class="project-grid project-grid--compact">
+
+                    <button class="project-card" onclick="openModal('phy490')"
+                        aria-label="Open Aperture Analysis details">
+                        <img class="project-card-img" src="/media/Projects/DiffractionSpikes.jpg"
+                            alt="Stellar diffraction spikes" loading="lazy">
+                        <div class="project-card-body">
+                            <div class="project-card-top">
+                                <div class="project-card-tag">C++ · FFT · Physics</div>
+                                <span class="badge">Complete</span>
+                            </div>
+                            <h4>ApertureAnalysis</h4>
+                            <p>Recovers a telescope's aperture geometry from stellar diffraction spikes using an FFT
+                                written from scratch.</p>
+                            <div class="project-card-more">View details →</div>
+                        </div>
+                    </button>
+
+                    <button class="project-card" onclick="openModal('celestial')"
+                        aria-label="Open Celestial Veil details">
+                        <img class="project-card-img" src="/media/Projects/CelestialVeil.png"
+                            alt="Celestial Veil orbital simulation" loading="lazy">
+                        <div class="project-card-body">
+                            <div class="project-card-top">
+                                <div class="project-card-tag">Unity · C# · N-Body</div>
+                                <span class="badge">Paused</span>
+                            </div>
+                            <h4>Celestial Veil</h4>
+                            <p>N-body orbital simulation in Unity built on Newton's law of universal gravitation.</p>
+                            <div class="project-card-more">View details →</div>
+                        </div>
+                    </button>
+
+                    <button class="project-card" onclick="openModal('website')" aria-label="Open website details">
+                        <img class="project-card-img" src="/media/Projects/WebsiteCover.png" alt="Personal website"
+                            loading="lazy">
+                        <div class="project-card-body">
+                            <div class="project-card-top">
+                                <div class="project-card-tag">HTML · CSS · JS</div>
+                                <span class="badge badge--active">Ongoing</span>
+                            </div>
+                            <h4>Personal Website</h4>
+                            <p>This site, hand-written from scratch as both a portfolio and a frontend learning
+                                exercise.</p>
+                            <div class="project-card-more">View details →</div>
+                        </div>
+                    </button>
+
+                    <button class="project-card" onclick="openModal('tylerTech')"
+                        aria-label="Open Maine App Challenge details">
+                        <img class="project-card-img" src="/media/Projects/MaineAppChallenge.png"
+                            alt="Maine App Challenge" loading="lazy">
+                        <div class="project-card-body">
+                            <div class="project-card-top">
+                                <div class="project-card-tag">App Development</div>
+                                <span class="badge">Complete</span>
+                            </div>
+                            <h4>Maine App Challenge</h4>
+                            <p>Top 10 finishes in 2021 and 2022 in the Tyler Technologies statewide competition.</p>
+                            <div class="project-card-more">View details →</div>
+                        </div>
+                    </button>
+
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- MODALS -->
-    <div id="modal-citrus" class="modal">
+    <!-- ============ MODALS ============ -->
+
+    <!-- DC-DC CHARGER -->
+    <div id="modal-dcdc" class="modal" role="dialog" aria-modal="true" aria-labelledby="t-dcdc">
         <div class="modal-content">
-            <span class="close" onclick="closeModal('citrus')">&times;</span>
-            <h3>Citrus Racing (Formula SAE)</h3>
-            <p>As a part of this team I have assisted in the design, construction, and racing of fully custom
-                open-wheeled single-seat race cars for the Formula SAE series representing Syracuse University in the
-                ~120-team competition held at Michigan International Speedway each spring.</p>
-            <p>Additionally I was a key member in the rebuilding of the team in the post-Covid era where the team
-                dropped to zero members, assisting in core leadership decisions, recruiting and onboarding new members.
-                As of the spring of 2026, the team as grown to over 40 active members and many other less active support
-                members as well.
+            <button class="close" onclick="closeModal('dcdc')" aria-label="Close">&times;</button>
+            <h3 id="t-dcdc">120 V/10 A DC-DC Supercapacitor Charger</h3>
+            <div class="modal-sub">Citrus Racing EV Team · In progress</div>
+
+            <p>A synchronous half-bridge DC-DC converter rated for 120 VDC at 10 A continuous. It steps a 72 V battery
+                array up to charge a 97 V nominal supercapacitor bank for Citrus Racing's first electric powertrain.</p>
+
+            <p>The supercapacitor bank is there to absorb acceleration inrush current past the roughly 10 A ceiling of
+                the batteries' internal BMS units. A blocking diode keeps regenerative braking energy from back-feeding
+                into the array.</p>
+
+            <h4>Specification</h4>
+            <dl class="spec">
+                <dt>Topology</dt>
+                <dd>Synchronous half-bridge, step-up</dd>
+                <dt>Rating</dt>
+                <dd>120 VDC / 10 A continuous</dd>
+                <dt>Input</dt>
+                <dd>72 V LiFePO₄ battery array</dd>
+                <dt>Output</dt>
+                <dd>97 V nominal supercapacitor bank</dd>
+                <dt>Gate driver</dt>
+                <dd>IRS2008S</dd>
+                <dt>MOSFETs</dt>
+                <dd>RCX200N20</dd>
+                <dt>Inductor</dt>
+                <dd>100 µH</dd>
+                <dt>Control</dt>
+                <dd>PIC16F1769 firmware</dd>
+            </dl>
+
+            <h4>Control Scheme</h4>
+            <p>The converter runs closed-loop with current sensing rather than open-loop. Firmware modulates switching
+                to hold current at or below a configured maximum, currently 10 A.</p>
+
+            <h4>Where It Stands</h4>
+            <p>Perfboard testing comes first, covering efficiency, switching waveforms, thermal behavior, and dead-time.
+                PCB layout and board-level validation follow, then integration into the vehicle.</p>
+        </div>
+    </div>
+
+    <!-- IRIS -->
+    <div id="modal-iris" class="modal" role="dialog" aria-modal="true" aria-labelledby="t-iris">
+        <div class="modal-content">
+            <button class="close" onclick="closeModal('iris')" aria-label="Close">&times;</button>
+            <h3 id="t-iris">IRIS: Integrated Readout for Incoming Storms</h3>
+            <div class="modal-sub">Personal PCB Project · Board V1.0 designed and reviewed</div>
+
+            <p>IRIS answers one question: what is the weather about to do to me, right now, where I am standing. It is
+                not a navigation device, so GNSS sits in the design as a supporting sensor rather than the headline.</p>
+
+            <p>Four constraints drove every decision. Multi-day winter alpine use makes battery life the governing spec.
+                Glove operation rules out menus and button combinations. Wet, cold, exposed terrain calls for a sealed
+                enclosure and an external probe. And building it alone on a finite timeline pushed me toward
+                off-the-shelf breakouts on a custom carrier board instead of fully integrated silicon.</p>
+
+            <h4>Board Parameters</h4>
+            <dl class="spec">
+                <dt>Dimensions</dt>
+                <dd>47 × 102 mm, 1.6 mm thick</dd>
+                <dt>Stackup</dt>
+                <dd>2 layers, 1 oz copper</dd>
+                <dt>Routing</dt>
+                <dd>246 track segments, 0.2 mm minimum track, 32 footprints</dd>
+                <dt>Grounding</dt>
+                <dd>Full pour on both layers, 90 stitching vias</dd>
+                <dt>Finish</dt>
+                <dd>ENIG, black soldermask, white silkscreen, tented vias</dd>
+                <dt>MCU</dt>
+                <dd>Seeed XIAO nRF52840 Sense Plus</dd>
+                <dt>Display</dt>
+                <dd>2.13" e-ink, 4-wire SPI</dd>
+                <dt>Battery</dt>
+                <dd>3.7 V 5000 mAh LiPo, USB-C charging via onboard BQ25101</dd>
+                <dt>Tool</dt>
+                <dd>KiCad 10.0</dd>
+            </dl>
+
+            <h4>Sensing Suite</h4>
+            <div class="table-wrap">
+                <table class="dtable">
+                    <thead>
+                        <tr>
+                            <th>Function</th>
+                            <th>Part</th>
+                            <th>Interface</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Lightning detection</td>
+                            <td>AS3935</td>
+                            <td class="num dim">I²C 0x03 + INT</td>
+                        </tr>
+                        <tr>
+                            <td>Barometric pressure / altitude</td>
+                            <td>BMP280</td>
+                            <td class="num dim">I²C 0x76</td>
+                        </tr>
+                        <tr>
+                            <td>Ambient temp / humidity</td>
+                            <td>SHT20 waterproof probe</td>
+                            <td class="num dim">I²C 0x40</td>
+                        </tr>
+                        <tr>
+                            <td>UV index</td>
+                            <td>SI1145</td>
+                            <td class="num dim">I²C 0x60</td>
+                        </tr>
+                        <tr>
+                            <td>Position / altitude / UTC</td>
+                            <td>Quectel LC76G GNSS</td>
+                            <td class="num dim">I²C ~0x50</td>
+                        </tr>
+                        <tr>
+                            <td>Orientation / heading</td>
+                            <td>LSM6DS3 (onboard XIAO)</td>
+                            <td class="num dim">Onboard</td>
+                        </tr>
+                        <tr>
+                            <td>Enclosure condensation</td>
+                            <td>AHT20 <span class="dim">(diagnostic)</span></td>
+                            <td class="num dim">I²C 0x38</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>The AHT20 and SHT20 are not redundant. The AHT20 watches the sealed electronics bay for condensation and
+                dew point, while the SHT20 out on the external stub reads outside ambient.</p>
+
+            <h4>GNSS Selection</h4>
+            <p>I evaluated six candidates. The MAX-M10S was my first pick but went backordered, so the board uses a
+                Quectel LC76G: about $18, antenna included, five constellations, native I²C, on-chip low-power mode.</p>
+            <p>Then I found the problem. The LC76G has no ephemeris backup battery, so losing power forces a full
+                26-second cold start every time. That inverts the power strategy I had planned.</p>
+            <div class="table-wrap">
+                <table class="dtable">
+                    <thead>
+                        <tr>
+                            <th>Strategy</th>
+                            <th>Start type</th>
+                            <th>Cost per fix</th>
+                            <th>Average draw</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Hard power gating <span class="dim">(original plan)</span></td>
+                            <td class="num">26 s cold</td>
+                            <td class="num">~936 mAs</td>
+                            <td class="num">~1.6 mA</td>
+                        </tr>
+                        <tr>
+                            <td class="hl">Software standby, VCC maintained</td>
+                            <td class="num">~1 s hot</td>
+                            <td class="num dim">n/a</td>
+                            <td class="num hl">&lt;200 µA</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Leaving the module powered costs roughly eight times less energy than switching it off, because it holds
+                ephemeris in RAM and hot-starts in about a second. GPS VCC ties straight to 3V3 on the board as
+                designed, so getting standby working in firmware is a prerequisite for usable battery life rather than
+                a refinement.</p>
+
+            <h4>Power Architecture</h4>
+            <div class="table-wrap">
+                <table class="dtable">
+                    <thead>
+                        <tr>
+                            <th>State / item</th>
+                            <th>Draw</th>
+                            <th>Note</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>nRF52840 deep sleep</td>
+                            <td class="num">~2 µA</td>
+                            <td class="dim">Picked over ESP32-S3 (~10 µA) on this figure alone</td>
+                        </tr>
+                        <tr>
+                            <td>AS3935 listening</td>
+                            <td class="num">~600 µA</td>
+                            <td class="dim">Always on, since a missed strike is a missed alert</td>
+                        </tr>
+                        <tr>
+                            <td>BMP280 / AHT20 / SI1145 idle</td>
+                            <td class="num">&lt;5 µA</td>
+                            <td class="dim">Sleep between forced reads</td>
+                        </tr>
+                        <tr>
+                            <td>E-ink static</td>
+                            <td class="num">0 µA</td>
+                            <td class="dim">~26 mA for ~1 s per refresh only</td>
+                        </tr>
+                        <tr>
+                            <td>NeoPixel ring idle</td>
+                            <td class="num hl">7–12 mA</td>
+                            <td class="dim">Controller never sleeps. Dominant load #1</td>
+                        </tr>
+                        <tr>
+                            <td>LC76G, no gating</td>
+                            <td class="num hl">36 mA</td>
+                            <td class="dim">Dominant load #2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Baseline without the ring and GPS is about 630 µA. As designed with both running, the board draws about
+                47 mA, which gives 4.3 days on the 5000 mAh cell, or 2.6 days derated for cold. Multi-week runtime is
+                the target once GPS standby and ring gating are in firmware. That work is not done, so 4.3 days is the
+                number I would quote today.</p>
+
+            <h4>EMI Strategy</h4>
+            <p>The AS3935 is the most sensitive part on the board by a wide margin, resolving 100 µV signals at 500 kHz.
+                Most of the layout follows from protecting it.</p>
+            <ul>
+                <li>Full-board ground pour on both layers with 90 stitching vias.</li>
+                <li>An antenna keepout zone under the lightning sensor's magnetic loop antenna, since copper underneath
+                    induces eddy currents and detunes it.</li>
+                <li>About 40 mm of physical separation between the motor driver transistor and the lightning sensor.
+                </li>
+                <li>Routing kept almost entirely on one layer, with only two short back-layer traces on the whole board.
+                </li>
+                <li>A 100 nF snubber specified at the motor terminals rather than on the PCB. Brushed DC motors emit
+                    broadband impulsive RF noise, which is exactly what the AS3935 is built to read as a lightning
+                    strike, so killing it at the source is the only placement that works.</li>
+            </ul>
+            <p>The governing rule: never split the plane under a signal. Return current takes the lowest-inductance
+                path directly beneath its trace, and a gap forces a detour that turns into an antenna.</p>
+
+            <h4>Pre-Fabrication Design Review</h4>
+            <p>I ran a structured review with severity triage before ordering anything. Three blockers turned up.</p>
+            <ul>
+                <li>The LED ring and haptic motor were wired to VBUS instead of VBAT, so both would have been dead on
+                    battery power. Moving them to 3V3 does not fix it either: WS2812 dies have different forward
+                    voltages (red around 2.0 V, green and blue around 3.0 to 3.2 V) and a logic-high threshold of
+                    0.7×VDD, which at 5 V works out to 3.5 V and sits out of reach for 3.3 V logic. VBAT works across
+                    the whole discharge curve and moves the 720 mA full-white transient off the sensor rail.</li>
+                <li>The power switch ran through a GND pad, which routed the entire board's ground return through the
+                    module's internal copper: thin traces never meant to carry motor and ring current, sitting directly
+                    under the radio. I corrected it to high-side switching. The dangerous part is that it would have
+                    worked, and no ERC or DRC rule flags it.</li>
+                <li>The original board had no decoupling capacitors at all. Partly resolved now with a 330 µF aluminum
+                    polymer cap at the ring connector. Polymer rather than electrolytic, because electrolytics lose 40
+                    to 60% of their capacitance and pick up roughly 10× the ESR at −20 °C, which is the condition this
+                    device exists for.</li>
+            </ul>
+            <p>The review also turned up a floating GPS reset pin, the same class of defect as the floating !RST that
+                made it into fabricated hardware on Apogee. This time it was caught before the board was ordered.</p>
+
+            <h4>Enclosure</h4>
+            <p>Two-part PETG shell, picked over PLA for cold toughness and layer adhesion, with a gasketed
+                lip-and-channel seam, a polycarbonate display window (acrylic embrittles below freezing), and heat-set
+                inserts.</p>
+            <p>The requirement I did not see coming: a fully sealed enclosure makes the barometer measure trapped air.
+                Cooling from 20 °C to −20 °C moves internal pressure from about 1013 hPa to 875 hPa with no weather
+                change at all. Firmware would read that 138 hPa swing as roughly 1200 m of altitude gain and an
+                incoming storm, every time the device went outside. A Gore-type ePTFE vent patch fixes it, designed in
+                now rather than cut into a finished print later.</p>
+
+            <h4>Deferred: Wind Speed</h4>
+            <p>Six approaches evaluated: cup and propeller (bulky, moving parts freeze), hot-wire CTA (fragile 5 µm
+                wire), ultrasonic time-of-flight (best on the merits, too bulky for a slim stub), calorimetric
+                thermopile (FS3000, sealed, about $15, capped at 15 m/s), pitot (not sensitive enough at hiking
+                speeds), and micro impeller (about $95, uncommon).</p>
+            <p>The FS3000's 15 m/s ceiling clips conditions I would actually be out in, since Adirondack summit gusts
+                run 12 to 25 m/s. Rather than stall the build, the external stub uses a keyed multi-pin connector and
+                the firmware data field is already reserved, so an FS3000 in a printed duct drops in later.</p>
+
+            <h4>Open Items</h4>
+            <ul>
+                <li>Widen the VBAT trace from 0.3 mm to 0.8–1.0 mm now that it carries ring current, and the 3V3 trace
+                    from 0.2 mm to 0.4–0.5 mm over its 125 mm run.</li>
+                <li>Measure actual I²C bus pull-up resistance with all modules attached before deciding whether to
+                    populate R2/R3. Six Gravity breakouts each carry their own ~10 kΩ pull-up, which calculates to
+                    about 1.7 kΩ in parallel.</li>
+                <li>Find the LC76G standby command in the full Quectel protocol spec, since it decides whether battery
+                    life is days or weeks.</li>
+                <li>Grow the enclosure. The board is 102 mm against a 95 mm enclosure design.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- APOGEE -->
+    <div id="modal-keyboard" class="modal" role="dialog" aria-modal="true" aria-labelledby="t-kb">
+        <div class="modal-content">
+            <button class="close" onclick="closeModal('keyboard')" aria-label="Close">&times;</button>
+            <h3 id="t-kb">Apogee: Fully Custom Mechanical Keyboard PCB</h3>
+            <div class="modal-sub">Personal PCB Project · About 6 months elapsed · Complete</div>
+
+            <p>My first PCB taken end to end: part selection, schematic, layout, firmware, bring-up, and test.</p>
+
+            <p>It started with a failure. A Nullbits NIBBLE kit keyboard, soldered from a kit and flashed with premade
+                QMK firmware, died after about a year when a trace cracked from board flex under typing. I had not
+                designed it and could not read the schematic well enough to repair it. That set the goals for Apogee:
+                something I could service myself, reproduce if it failed again, and actually customize.</p>
+
+            <h4>Specification</h4>
+            <dl class="spec">
+                <dt>PCB</dt>
+                <dd>340 × 140 mm, 2 layers, mostly through-hole, hand-soldered</dd>
+                <dt>Switch matrix</dt>
+                <dd>16 columns × 5 rows (col2row), 72 keys total</dd>
+                <dt>Keys</dt>
+                <dd>64 standard, 4 programmable macro, 1 layer-cycle, 3 rotary encoders with pushbuttons</dd>
+                <dt>MCU</dt>
+                <dd>Nice!Nano V2 (nRF52840) with MCP23017 I²C GPIO expander</dd>
+                <dt>Display</dt>
+                <dd>SSD1306 I²C OLED (0x3C)</dd>
+                <dt>Lighting</dt>
+                <dd>Diffused analog RGB on a boosted 5.2 V rail</dd>
+                <dt>Battery</dt>
+                <dd>10440 Li-ion, 3.7 V, 350 mAh</dd>
+                <dt>Expansion</dt>
+                <dd>TRRS port carrying I²C, 3.3 V, and GND</dd>
+                <dt>Firmware</dt>
+                <dd>Bootloader → Zephyr RTOS → ZMK → custom config</dd>
+            </dl>
+
+            <h4>Part Selection Trade Study</h4>
+            <div class="table-wrap">
+                <table class="dtable">
+                    <thead>
+                        <tr>
+                            <th>Subsystem</th>
+                            <th>Selected</th>
+                            <th>Rejected</th>
+                            <th>Driving constraint</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>MCU</td>
+                            <td class="hl">Nice!Nano V2</td>
+                            <td class="dim">Bare nRF52840 (fine-pitch SMD); RP2040 (no BLE); ESP32-S3 (BLE power draw)
+                            </td>
+                            <td class="dim">Wired, wireless, and charging, with ZMK support and hand-solderable parts
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>GPIO expansion</td>
+                            <td class="hl">MCP23017 (I²C)</td>
+                            <td class="dim">74HC595 (faster over SPI, no ZMK support); PCF8574 (8 I/O, would need 3)
+                            </td>
+                            <td class="dim">I/O count plus ZMK driver support</td>
+                        </tr>
+                        <tr>
+                            <td>Display</td>
+                            <td class="hl">SSD1306 OLED</td>
+                            <td class="dim">SPI OLED (more pins); LEDs only (cannot show battery %)</td>
+                            <td class="dim">Information that had to reach the user</td>
+                        </tr>
+                        <tr>
+                            <td>LED 5 V rail</td>
+                            <td class="hl">MiniBoost + 74AHCT125</td>
+                            <td class="dim">Direct 3.3 V drive</td>
+                            <td class="dim">Standard LEDs require 5 V</td>
+                        </tr>
+                        <tr>
+                            <td>Battery</td>
+                            <td class="hl">10440 Li-ion 350 mAh</td>
+                            <td class="dim">18650 (too large); AAA alkaline (no recharge)</td>
+                            <td class="dim">Small form factor, swappable</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Latency Optimization</h4>
+            <p>The first firmware worked but dropped key presses above about 5 clicks per second. I built the latency
+                budget up from I²C bit timing. One write is 29 bits minimum (start, address byte, ACK, register pointer,
+                ACK, data byte, ACK, stop) and a full scan is 16 columns at 2 writes each.</p>
+            <p>Three changes followed: I²C bus from 100 kHz to 400 kHz, debounce window from 5 ms to 2 ms, BLE poll
+                interval from 15 ms to 7.5 ms.</p>
+            <div class="table-wrap">
+                <table class="dtable">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Unoptimized</th>
+                            <th>Optimized</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Per I²C write</td>
+                            <td class="num">0.29 ms</td>
+                            <td class="num">0.073 ms</td>
+                        </tr>
+                        <tr>
+                            <td>Full matrix scan</td>
+                            <td class="num">9.28 ms</td>
+                            <td class="num">2.34 ms</td>
+                        </tr>
+                        <tr>
+                            <td>USB end-to-end</td>
+                            <td class="num">≈9.8 ms</td>
+                            <td class="num hl">≈2.8 ms</td>
+                        </tr>
+                        <tr>
+                            <td>BLE end-to-end</td>
+                            <td class="num">≈16.8 ms</td>
+                            <td class="num hl">≈6.05 ms</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>To check the math I built an Arduino dual-probe rig, one probe on a switch terminal and one on a spare
+                Nice!Nano pin, timing switch closure to GPIO toggle across 100 presses. Minimum 0.72 ms, maximum 7.82
+                ms, mean 2.71 ms, median 2.51 ms. Close to the calculation, though not exact.</p>
+            <p>One tradeoff shaped the whole design. Two MCU pins bought 16 I/O, the display, and the expansion port
+                through the I²C expander, and that same I²C path then became the dominant term in the latency budget.
             </p>
-            <img src="/media/Citrus Racing/IMG_0677.jpg" alt="Car">
 
-            <p>
-                During my time at Citrus Racing, I have been a key member of the development cycle for two vehicles, CR4
-                and CR5. CR4 was our attempt at reviving the team in a post-COVID time. Both the team and vehicle were
-                scrappy and made just well enough to get across the finish line and get momentum, which it did. CR4 was
-                the first car in 5 years to make it to competition, and it competed in most events, scoring the top 37%
-                at the endurance event. I held the titles of Electronics lead and vice president during the two years I
-                worked on CR4.</p>
+            <h4>Battery Life</h4>
+            <p>Modeled per component per state. Every 1 mA drawn at the 5.2 V rail costs about 1.6 mA from the 3.7 V
+                battery.</p>
+            <div class="table-wrap">
+                <table class="dtable">
+                    <thead>
+                        <tr>
+                            <th>Scenario</th>
+                            <th>Draw</th>
+                            <th>Runtime (350 mAh)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Deep sleep, boost gated</td>
+                            <td class="num">20 µA</td>
+                            <td class="dim">Months, limited by self-discharge</td>
+                        </tr>
+                        <tr>
+                            <td>Idle, screen and LED off</td>
+                            <td class="num">120 µA</td>
+                            <td class="dim">Months, limited by self-discharge</td>
+                        </tr>
+                        <tr>
+                            <td>Typing, OLED on, LED off</td>
+                            <td class="num">10.5 mA</td>
+                            <td class="num">~33 hours</td>
+                        </tr>
+                        <tr>
+                            <td>Typing, OLED, single-color LED</td>
+                            <td class="num">34 mA</td>
+                            <td class="num">~7 hours</td>
+                        </tr>
+                        <tr>
+                            <td>Typing with white LED</td>
+                            <td class="num">79.5 mA</td>
+                            <td class="num">~4.4 hours</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Measured in normal daily use: about 6 hours, against a 4 hour requirement.</p>
 
-            <p>CR5 was a full overhaul, with a better understanding of the competition we got through CR4 and a strong
-                supporting team via tireless recruitment efforts, we overhauled the entire car leading to the best
-                scoring car Syracuse University has delivered in the 2000s era. In the two-year development cycle of CR5
-                I held the roles of Electronics lead, president and Chief Engineer, leading the overhaul.
+            <h4>Testing &amp; Verification</h4>
+            <ul>
+                <li>Keystroke error rate: 5,000 characters of known text typed, with no incorrect or dropped characters.
+                </li>
+                <li>Fast typing: no key drops at a measured 10 clicks per second, up from the 5 per second failure
+                    point before optimization.</li>
+                <li>End-to-end latency: the 100-trial dual-probe measurement above.</li>
+            </ul>
+
+            <div class="callout">
+                <div class="callout-label">Floating reset pin</div>
+                <p>The MCP23017's !RST pin was left floating, and DRC never caught it, because the connection was
+                    missing from the schematic entirely rather than miswired. I found it during bring-up and fixed it
+                    with a jumper wire that is still on the board.</p>
+                <p>The root cause was a process gap rather than carelessness. DRC validates consistency, not intent,
+                    which is why design review has to be a separate step.</p>
+            </div>
+
+            <h4>Other Found Issues</h4>
+            <ul>
+                <li>The drill file never made it to the fab. Boards came back with no drilled holes, which forced
+                    improvised fixes for the spacebar stabilizer and cost weeks of testing options.</li>
+                <li>No dedicated I²C pull-ups. The bus works only because the specific OLED module happens to include
+                    its own, so a different module would break the board.</li>
+                <li>The TRRS expansion port has no hot-plug protection. Contacts momentarily short 3.3 V, GND, SDA, and
+                    SCL during insertion.</li>
+                <li>No accessible test points, which made bring-up slower because probe leads had to be held against IC
+                    pins directly.</li>
+            </ul>
+
+            <h4>Routing Retrospective</h4>
+            <ul>
+                <li>Scan axis and diode orientation is the largest improvement available. Flipping diode direction
+                    would let me scan 5 rows instead of 16 columns, which is 10 writes per scan instead of 32, with row
+                    reads never traversing I²C.</li>
+                <li>I chose 2 layers over 4 mostly arbitrarily, which left no ground plane. It caused no problem at 400
+                    kHz, but by my own written assessment it worked via luck, not design margin.</li>
+                <li>BLE antenna keep-out never entered the layout. Nothing failed because of it, but it is basic
+                    practice I skipped.</li>
+            </ul>
+
+            <h4>Lessons &amp; V2 Plan</h4>
+            <p>The big one: calculations should drive part selection, and I did it backwards, picking parts first and
+                working out their design impact afterward. For V2 I want to calculate before buying, run more than one
+                design review, test modules individually before integration, and put IC sockets and test points
+                everywhere from the start.</p>
+
+            <img src="/media/Projects/keyboardPCB.png" alt="Apogee PCB layout in KiCad" loading="lazy">
+            <p class="figcap">Apogee PCB layout: 340 × 140 mm, 2 layers, predominantly through-hole.</p>
+            <img src="/media/Projects/keyboardSch.png" alt="Apogee schematic" loading="lazy">
+            <p class="figcap">Schematic showing the 16 × 5 switch matrix with a per-key diode to prevent ghosting.</p>
+        </div>
+    </div>
+
+    <!-- HOCKEYBOT -->
+    <div id="modal-capstone" class="modal" role="dialog" aria-modal="true" aria-labelledby="t-cap">
+        <div class="modal-content">
+            <button class="close" onclick="closeModal('capstone')" aria-label="Close">&times;</button>
+            <h3 id="t-cap">HockeyBot: Autonomous Air Hockey Robot</h3>
+            <div class="modal-sub">Undergraduate Capstone · 4-person team · ECS Open House 2026</div>
+
+            <p>A robotic 1v1 opponent on a 20" × 40" air hockey table. It intercepts pucks hit at gesture speed,
+                localizes a 2.5" puck to within 1.25", and plays offensive and defensive moves that get harder as the
+                human scores. Total new parts cost was $294 against a $300 cap.</p>
+
+            <img src="/media/Projects/capstoneCAD.png" alt="HockeyBot full-assembly CAD" loading="lazy">
+            <p class="figcap">Full-assembly CAD in Fusion 360, across roughly three complete system revisions plus many
+                more on individual sub-assemblies.</p>
+
+            <h4>System Architecture</h4>
+            <dl class="spec">
+                <dt>Motion</dt>
+                <dd>CoreXY belt-driven gantry, chosen over H-bot and Cartesian for speed and lower inertia</dd>
+                <dt>Motors</dt>
+                <dd>2 × Anaheim 23Y NEMA 23, 8-wire, wired in parallel</dd>
+                <dt>Drivers</dt>
+                <dd>2 × Pololu 36v8, configured over SPI to an 8 A current limit</dd>
+                <dt>Supply</dt>
+                <dd>30 V external switching supply (IEC/UL 60950-1 certified)</dd>
+                <dt>Compute</dt>
+                <dd>Teensy 4.0 for real-time motor control, Linux x86 host for vision and game logic</dd>
+                <dt>Link</dt>
+                <dd>USB 2.0 serial, framed little-endian binary packets</dd>
+                <dt>Motion profile</dt>
+                <dd>700 µs pulse delay, accelerating at 5 µs/step to a 300 µs minimum</dd>
+                <dt>Standards</dt>
+                <dd>NEMA ICS 16, USB 2.0, SPI, IEC/UL 60950-1</dd>
+            </dl>
+
+            <h4>Test Results</h4>
+            <p>Test 1 set a bar of 70% block accuracy on shots under 1.2 m/s at max difficulty. Three players took 20
+                shots each, played like a real game with no distinction between good and bad trajectories.</p>
+            <div class="table-wrap">
+                <table class="dtable">
+                    <thead>
+                        <tr>
+                            <th>Tester</th>
+                            <th>Saves</th>
+                            <th>Goals</th>
+                            <th>Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Person 1</td>
+                            <td class="num">18</td>
+                            <td class="num">2</td>
+                            <td class="num hl">90%</td>
+                        </tr>
+                        <tr>
+                            <td>Person 2</td>
+                            <td class="num">17</td>
+                            <td class="num">3</td>
+                            <td class="num hl">85%</td>
+                        </tr>
+                        <tr>
+                            <td>Person 3</td>
+                            <td class="num">19</td>
+                            <td class="num">1</td>
+                            <td class="num hl">95%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>All three cleared the bar individually, 54 of 60 saves overall. Tests 2 and 3 covered strategic offensive
+                and defensive modes and difficulty scaling. Test 3 was logged as a 2-of-3 pass: the third planned
+                difficulty lever, deliberately selecting an incorrect targeting line at low difficulty, got dropped
+                because the robot's natural mechanical imprecision already made easy modes easy enough.</p>
+
+            <h4>Hardware Design</h4>
+            <p>I owned the mechanical structure, motors, and power systems. Full assembly CAD in Fusion 360, then
+                machined and assembled by hand.</p>
+            <ul>
+                <li>Frame architecture built around a dedicated 1.5" aluminum extrusion mounting rail bolted to each
+                    side of the table, backed with plates acting as oversized washers so the bolts could be torqued
+                    hard without pulling through the table's weak MDF. A dedicated frame, rather than bolting
+                    components straight to the table, keeps every mounting point square and parallel to the others and
+                    stops alignment drift.</li>
+                <li>CoreXY belt routing has to stay as parallel to the guide rails as possible, since any deviation
+                    introduces error against the underlying equations of motion. Two of the four runs achieved
+                    near-perfect parallelism. The other two were harder and remain an improvement area rather than
+                    something I would call solved.</li>
+                <li>The paddle head both strikes the puck and terminates all four belts: two bearings bolted together
+                    at the middle, with belts wrapping the circular midsection and exiting through a side slot so the
+                    teeth overlap for mechanical strength.</li>
+            </ul>
+
+            <div class="callout">
+                <div class="callout-label">Failure loop, motor thermals</div>
+                <p>The original 3D-printed PLA motor mounts melted under motor heat. I reprinted them in PETG as a
+                    backup, then machined replacements from 1/8" aluminum sheet, cut slightly larger than the motor,
+                    with a center hole for a 1/4-20 bolt to the mounting rail and corner holes into the motor's own
+                    mounting points.</p>
+                <p>That stopped the melting, and lifting the motor off a solid molded body onto an open bolted plate
+                    also improved airflow, so the mount doubled as a heatsink. The motors were still too hot to touch,
+                    so I added forced air, tested several fan types against each other, and settled on a 12 VDC
+                    squirrel-cage blower per motor.</p>
+            </div>
+
+            <div class="callout">
+                <div class="callout-label">A borrowed best practice that did not transfer</div>
+                <p>My early belt-tension references came from 3D-printer tuning communities, where the convention is to
+                    tension belts guitar-string tight. Here that convention actively hurts, for two reasons I worked
+                    out. 3D printers follow pre-planned G-code that minimizes sudden direction changes, while this
+                    robot reacts live to an unpredictable puck with frequent hard reversals at speed, which is far more
+                    instantaneous load. And the idler-wheel mounts had a design flaw: the bearing shoulder at 4 mm was
+                    narrower than the washers bearing against it, so they lacked compression isolation, a way to bolt
+                    something down tight without binding the bearing's rotation.</p>
+                <p>The tradeoff nets out like this. More tension means less belt-tooth slip but more idler resistance
+                    and motor stalling from insufficient torque margin. Less tension gives the reverse. I built and
+                    tested several tensioning mechanisms chasing the balance point.</p>
+            </div>
+
+            <h4>Motor Selection</h4>
+            <p>I started by testing the lab's existing Pololu steppers against the requirement, 4 in-oz at 900 RPM or
+                better with 2× margin, to avoid spending money I did not need to. They topped out at 500 to 700 RPM
+                from a standing start and only reached about 1000 RPM with a 10-second acceleration ramp, nowhere near
+                adequate for reactive play. That justified sourcing 8-wire Anaheim 23Y motors that could be wired
+                series for torque or parallel for speed.</p>
+            <ul>
+                <li>Measured actual RMS against peak coil current with a Hantek CC-65 current probe, clamped around two
+                    coil leads together. Clamping a single wire returns a falsely halved reading, a measurement error I
+                    caught and corrected.</li>
+                <li>Swept driver current limits from 2 A to 9 A.</li>
+                <li>Tested series and parallel wiring configurations.</li>
+                <li>Swept pulse widths from 660 µs down to 450 µs.</li>
+                <li>Swept supply voltage from 24 V to 30 V.</li>
+                <li>Eliminated every combination that stalled, missed steps, or exceeded the motor's rated RMS current.
+                </li>
+            </ul>
+            <p>The surviving configuration was parallel wiring, an 8 A driver limit, and a fast ramp from 700 µs to 200
+                µs in well under 0.5 s. The 30 V sweet spot came out of the same process: I swept voltage upward only
+                until the system had enough headroom to move fast without binding, rather than defaulting to a supply's
+                rated maximum.</p>
+            <p>I also validated protection by inducing the fault on purpose. Hand-stalling a spinning motor confirmed
+                the driver's overcurrent shutdown triggered after about 4 seconds and recovered cleanly after a power
+                cycle.</p>
+
+            <h4>Vibration Analysis</h4>
+            <p>The overhead camera mount is effectively an inverted pendulum over the table, which raised the question
+                of whether the table legs could feed lateral vibration up the arm and amplify it. Rather than guess, I
+                modeled it with the wobble and resonance equations. The system's resonant frequency damps the
+                vibrations present in this application instead of amplifying them. Combined with mounting to both sides
+                of the table, that ruled wobble out, so it became a fix I avoided building.</p>
+
+            <h4>Takeaway</h4>
+            <p>What limited continuous play was stepper motor binding after roughly 1 to 2 minutes at high speed, a
+                motor-selection constraint that software could not overcome. The mechanical system itself ran several
+                hours without issue in its final revision. The report's primary conclusion: actuator performance sets a
+                hard ceiling on what the surrounding software can achieve, and that ceiling should be identified early.
             </p>
-            <p>
-                I currently hold the title of EV Development Lead where I am working on designing and building
-                prototypes for the team’s first ever EV drivetrain.
-            </p>
 
-            <h2>Roles and Responsibilities</h2>
-            <h4>Chief Engineer</h4>
-            <ul>
-                <li>Oversee all technical aspects including design, construction, and operation of the car.</li>
-                <li>Provide top-down technical leadership ensuring all subteams develop components that work effectively
-                    together.</li>
-                <li>Ensure the entire vehicle is designed and built to the rules of the Formula SAE series. Including
-                    mock technical inspections of all subsystems to ensure legality.</li>
-            </ul>
-            <h4>Head of EV Development</h4>
-            <ul>
-                <li>Lead a team developing the first fully electric racing vehicle for Citrus Racing — including custom
-                    battery
-                    packs, motor/motor controller interfaces, and other electrical control systems.</li>
-                <li>Developing fully custom software for full 4-wheel independent drive control systems.</li>
-            </ul>
-            <h4>President</h4>
-            <ul>
-                <li>Managed a ~$50,000 annual team budget including parts and material orders with the University.</li>
-                <li>Secured funding and technical support from sponsors.</li>
-                <li>Organized efforts across multiple subteams for efficient design and construction.</li>
-            </ul>
-            <h4>Lead of Electronics</h4>
-            <ul>
-                <li>Led design, testing, and implementation of all electrical components including fully custom car
-                    wiring harnesses and engine control software.</li>
-                <li>Used Motec M1 Tune/Build and KiCad to design and improve electrical control systems.</li>
-                <li>Analyzed recorded test data with team leads to suggest improvements for car design.</li>
-            </ul>
-            <img src="/media/Citrus Racing/IMG_0287.jpg" alt="Wiring Harness">
-            <p style="font-size:0.8rem;color:var(--text-dim);font-style:italic;">Custom wire harness before heatshrink
-                and connectors — over 120 individual wires when completed.</p>
+            <h4>Demo Videos</h4>
+            <p>An early high-speed movement test, then the robot detecting an idle puck on its half and executing an
+                offensive strike, then the robot in a purely defensive state blocking shots without follow-up.</p>
+            <video src="/media/Projects/videos/capstonemove.mp4" controls preload="metadata"></video>
+            <video src="/media/Projects/videos/capstoneattack.mp4" controls preload="metadata"></video>
+            <video src="/media/Projects/videos/capstonedefence.mp4" controls preload="metadata"></video>
         </div>
     </div>
 
-    <div id="modal-capstone" class="modal">
+    <!-- CITRUS RACING -->
+    <div id="modal-citrus" class="modal" role="dialog" aria-modal="true" aria-labelledby="t-citrus">
         <div class="modal-content">
-            <span class="close" onclick="closeModal('capstone')">&times;</span>
-            <h3>HockeyBot (ECS Senior Design Project - Syracuse University)</h3>
-            <p>As part of a 4-person team, I designed and built an autonomous gantry based air hockey robot that
-                competes against a human opponent in real time, which was demonstrated at the ECS Open House in the
-                spring of 2026. The robot features a split-computation architecture pairing a Linux host for computer
-                vision processing with a Teensy 4.0 microcontroller for real-time stepper motor control over USB serial.
-            </p>
-            <img src="/media/Projects/capstoneCAD.png" alt="Capstone Project CAD">
-            <h4>Hardware Architecture</h4>
+            <button class="close" onclick="closeModal('citrus')" aria-label="Close">&times;</button>
+            <h3 id="t-citrus">Citrus Racing, Formula SAE</h3>
+            <div class="modal-sub">Syracuse University · Oct 2022 to Present · Five roles across four years</div>
+
+            <p>Citrus Racing designs, builds, and races fully custom open-wheel single-seat cars for the Formula SAE
+                series, representing Syracuse University in a field of well over 100 teams each spring. I joined as a
+                freshman when the team was near zero active members post-COVID, and I have held five roles since.</p>
+
+            <h4>Roles by Year</h4>
+            <div class="table-wrap">
+                <table class="dtable">
+                    <thead>
+                        <tr>
+                            <th>Year</th>
+                            <th>Role</th>
+                            <th>Team size</th>
+                            <th>Competition</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="num">2022/23</td>
+                            <td>Co-Electronics Lead</td>
+                            <td class="num dim">~10</td>
+                            <td class="dim">n/a</td>
+                        </tr>
+                        <tr>
+                            <td class="num">2023/24</td>
+                            <td>Electronics Lead <span class="dim">(sole electronics engineer)</span></td>
+                            <td class="num dim">~8</td>
+                            <td class="num">91st / 113</td>
+                        </tr>
+                        <tr>
+                            <td class="num">2024/25</td>
+                            <td>President</td>
+                            <td class="num dim">~35</td>
+                            <td class="dim">Did not attend</td>
+                        </tr>
+                        <tr>
+                            <td class="num">2025/26</td>
+                            <td>Electronics Lead, Co-Chief Engineer, EV Development Lead</td>
+                            <td class="num dim">~45</td>
+                            <td class="num hl">74th / 131</td>
+                        </tr>
+                        <tr>
+                            <td class="num">Current</td>
+                            <td>Lead of EV Development</td>
+                            <td class="dim">n/a</td>
+                            <td class="dim">In development</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <img src="/media/Citrus Racing/IMG_0677.jpg" alt="Citrus Racing car at competition" loading="lazy">
+
+            <h4>As Chief Engineer</h4>
             <ul>
-                <li>Designed and constructed a CoreXY belt-driven gantry system to move a paddle head across a 20" × 40"
-                    air hockey table with the speed and precision needed for real-time puck interception.</li>
-                <li>Selected and configured two NEMA 17 stepper motors wired in parallel to reduce saturation current
-                    times, enabling faster and more reliable high-speed movement.</li>
-                <li>Integrated two Pololu 36v8 stepper drivers powered by an external 30V switching supply, configured
-                    at 8A via SPI to maximize torque output.</li>
-                <li>Iterated on the mechanical frame and belt routing to achieve a system robust enough to sustain
-                    several hours of continuous operation without structural failure.</li>
+                <li>Led the 2026 vehicle development cycle to the team's best Formula SAE result of the 2000s era, 74th
+                    of 131 teams.</li>
+                <li>Provided top-down technical leadership across subteams, checking that proposed designs would not
+                    conflict with other subsystems before anyone built them.</li>
+                <li>Served as the team's primary rules checker, and designed a mock technical inspection process that
+                    got the car through tech on its second attempt.</li>
             </ul>
-            <h4>Software Integration</h4>
-            <ul>
-                <li>Developed an OpenCV-based puck tracking pipeline using background subtraction, HSV color filtering,
-                    contour detection, and morphological operations to localize the puck in real time.</li>
-                <li>Implemented bounce-path trajectory prediction to direct the robot's blocking and offensive
-                    strategies across three adaptive difficulty levels.</li>
-            </ul>
-            <h4>System Integration</h4>
-            <ul>
-                <li>Collaborated with embedded and software subteams to ensure the physical gantry met the motion
-                    response
-                    requirements of the real-time vision and control pipeline.</li>
-                <li>Balanced speed and mechanical reliability constraints, achieving a final design capable of
-                    intercepting
-                    pucks traveling under 1.2 m/s with over 90% success across all three test players.</li>
-            </ul>
-            <h4>Testing and Validation</h4>
-            <ul>
-                <li>Validated 70%+ block accuracy against three independent players across 60 total shots, with the
-                    robot
-                    saving 54 of 60.</li>
 
-                <li>Confirmed reliable offensive and defensive behavioral modes and progressive difficulty scaling
-                    through
-                    structured test procedures.</li>
+            <h4>As President</h4>
+            <ul>
+                <li>Managed a $50,000 annual budget covering parts and materials.</li>
+                <li>Secured corporate sponsorships and handled financial and strategic planning with university
+                    administration.</li>
+                <li>Set up a purchasing pipeline with the university and built onboarding programs that grew active
+                    membership from about 5 to over 40.</li>
+                <li>Deliberately prioritized team growth and longevity over car development that year, a tradeoff that
+                    paid off in the following cycle's result.</li>
             </ul>
 
-            <h4>Demo Videos </h4>
-            <p>Below are three videos showcasing the robot in action, the first showing an early high speed movement
-                test, the second showing the robot making an offensive move scoring the puck after it dectects the idle
-                puck on its half of the board, and the third showing the robot in a defensive state just blocking the
-                shots from the opponent without follow up offense moves:</p>
-            <video src="/media/Projects/videos/capstonemove.mp4" controls
-                style="width:75%;display:block;margin:1.25rem auto;border-radius:8px;">
-            </video>
+            <h4>As Electronics Lead</h4>
+            <p>CR4 was scrappy, built just well enough to finish, and it did: the first Citrus car in five years to
+                reach competition. I designed, built, and tested that harness as the team's only electronics engineer.
+                Roughly 120 wires, and the first Citrus car to use concentric twisting with a documented wiring color
+                code. There was no firewall connector, so wires ran through a grommeted cutout. Featured a RPi that
+                interfaced with a HDMI dashboard providing the driver with a custom interface. </p>
+            <p>CR5 was a full overhaul. Added MilSpec firewall connectors for serviceability, picked for the
+                vibration and heat of the engine bay, and the harness grew to about 130 wires in the rear plus another
+                50 in the front and datalogging runs. The rest of the electronics package came with it: ECU control
+                software in Motec M1 Tune/Build was redone to fix many existing issues and improve engine performance
+                and the Raspberry Pi dash screen was replaced with a custom microcontroller-based display which was more
+                responsive, more customizable, drew less power and interfaced with more data sources arond the car, it
+                also included a custom LoRa antenna that transmited live data out of the car to a laptop which could
+                monitor nearly all logged data in real time.</p>
 
-            <video src="/media/Projects/videos/capstoneattack.mp4" controls
-                style="width:75%;display:block;margin:1.25rem auto;border-radius:8px;">
-            </video>
+            <img src="/media/Citrus Racing/IMG_0287.jpg" alt="Custom wiring harness before heatshrink" loading="lazy">
+            <p class="figcap">Custom wire harness before heatshrink and connectors, over 120 individual wires when
+                completed.</p>
 
-            <video src="/media/Projects/videos/capstonedefence.mp4" controls
-                style="width:75%;display:block;margin:1.25rem auto;border-radius:8px;">
-            </video>
-        </div>
-    </div>
-
-
-    <div id="modal-juniorDesign" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('juniorDesign')">&times;</span>
-            <h3>Smart Copy Machine</h3>
-            <p>Designed and built a gantry-style pen plotter utilizing stepper motors, driver chips, cameras, and
-                computer vision running on a Raspberry Pi 4B+ to scan and replicate hand-drawn images by processing them
-                into coordinate-based motor commands.</p>
-            <img src="/media/Projects/JuniorDesignDemoTable.jpg" alt="Junior Design">
-            <h4>Hardware Overview</h4>
-            <p>Three axes: X and Y control pen motion via belt-driven stepper motors on linear rails; Z controls the
-                draw plate height via dual screw-driven stepper motors.</p>
-            <h4>Software Overview</h4>
-            <p>A camera captures the user's drawing, which is processed and skeletonized into contours, then converted
-                into XY motor coordinates. Bresenham's algorithm handles smooth diagonal movements, with breakpoints for
-                disconnected lines. Coordinates are translated to GPIO pulses driving MP6500 Driver Chips.</p>
-        </div>
-    </div>
-
-    <div id="modal-alfred" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('alfred')">&times;</span>
-            <h3>Search & Rescue Robot — "Alfred"</h3>
-            <p>The goal of a robotics programming lab I took in spring 2025: program a search and rescue robot to
-                autonomously navigate an unknown environment, find 'victims' (paper boxes), pick them up, and return
-                them to the start. Alfred is built on a Rock Pi running ROS2 Iron with external MCUs, gyroscopes, a USB
-                camera,
-                two drive motors, and a two-joint arm.</p>
-            <p>Alfred was the most successful robot in the class, completing the full sweep of the room autonomously,
-                finding the victims and returning to the start, while other robots needed human intervention to
-                guide them through doorways and to the boxes.</p>
-            <img src="/media/Projects/AlfredFace (1).jpg" alt="Alfred">
-            <h4>Key Features</h4>
+            <h4>Current: Lead of EV Development</h4>
+            <p>Directing the design, fabrication, and programming of the team's first electric powertrain:</p>
             <ul>
-                <li><strong style="color:var(--white)">Autonomous Navigation:</strong> Map created in Blender with
-                    AprilTags for localization. A fixed search path is followed with onboard pathfinding for obstacle
-                    avoidance and drift correction.</li>
-                <li><strong style="color:var(--white)">Victim Detection & Retrieval:</strong> AprilTags on boxes enable
-                    camera-based detection. Alfred positions himself to pick up the box with his arm.</li>
-                <li><strong style="color:var(--white)">Return to Home:</strong> After retrieval, localization and
-                    pathfinding guide Alfred back to the start, where he drops off the box and resumes searching.</li>
-            </ul>
-            <img src="/media/Projects/ROSMap.png" alt="ROS Map">
-        </div>
-    </div>
-
-    <div id="modal-keyboard" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('keyboard')">&times;</span>
-            <h3>Custom Keyboard PCB</h3>
-            <p>Designed and built a fully custom mechanical keyboard PCB using KiCad, inspired by the Nullbits NIBBLE
-                kit. After my original keyboard died from a cracked PCB, I designed my own from scratch with every
-                feature I wanted — on a custom ~70% layout.</p>
-            <h4>Key Features</h4>
-            <ul>
-                <li><strong style="color:var(--white)">USB-C & Bluetooth:</strong> Wired or wireless via a toggle
-                    switch; onboard rechargeable battery with ~5 hours of life. MCU: Nice!Nano V2.</li>
-                <li><strong style="color:var(--white)">Rotary Encoders & Macros:</strong> Three programmable encoders
-                    for volume/app control; four programmable macro keys via ZMK firmware.</li>
-                <li><strong style="color:var(--white)">Other Features:</strong> RGB underglow, I2C OLED display, and a
-                    TRRS port for future expansion (e.g., dedicated numpad).</li>
-            </ul>
-            <img src="/media/Projects/keyboardPCB.png" alt="Keyboard PCB">
-            <img src="/media/Projects/keyboardSch.png" alt="Keyboard Schematic">
-        </div>
-    </div>
-
-    <div id="modal-phy490" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('phy490')">&times;</span>
-            <h3>"Aperture Analysis"</h3>
-            <p>Capstone for my Computational Physics Independent Study at Syracuse University, fall 2024. This project
-                explored reconstructing a telescope's aperture geometry by analyzing diffraction spike patterns in
-                stellar images. A C++ program using a custom FFT/IFFT implementation isolates diffraction spikes in the
-                frequency domain, then uses spike angles to reconstruct the aperture shape.</p>
-            <!-- <img src="/media/indepententStudy.jpg" alt="Aperture Analysis"> -->
-            <h4>Key Features</h4>
-            <ul>
-                <li><strong style="color:var(--white)">Custom FFT/IFFT:</strong> Fully custom implementation in C++ for
-                    frequency analysis and diffraction spike isolation.</li>
-                <li><strong style="color:var(--white)">Spike Analysis:</strong> Analyzed angles and intensities of
-                    diffraction spikes to infer aperture geometry.</li>
-                <li><strong style="color:var(--white)">Visualization:</strong> Data piped into Python/Matplotlib to
-                    render a 2D representation of the reconstructed aperture.</li>
+                <li>A high-voltage battery pack, currently 72 V and scaling to 144 V for the first full vehicle build,
+                    assembled from commercial 12/24 V LiFePO₄ modules with integrated cell-level BMS plus a top-level
+                    pack BMS.</li>
+                <li>Motor control and vehicle safety systems.</li>
+                <li>The 120 V/10 A supercapacitor charging subsystem, documented as its own project.</li>
             </ul>
         </div>
     </div>
 
-    <div id="modal-celestial" class="modal">
+    <!-- ALFRED -->
+    <div id="modal-alfred" class="modal" role="dialog" aria-modal="true" aria-labelledby="t-alfred">
         <div class="modal-content">
-            <span class="close" onclick="closeModal('celestial')">&times;</span>
-            <h3>Celestial Veil</h3>
-            <p>Over the summer 2024, inspired by Sebastian Lague's solar system project on YouTube, I built a physically
-                accurate solar
-                system in Unity using C#. This is part of a larger plan for a video game named Celestial Veil, with this
+            <button class="close" onclick="closeModal('alfred')" aria-label="Close">&times;</button>
+            <h3 id="t-alfred">Alfred: Search &amp; Rescue Robot</h3>
+            <div class="modal-sub">CSE 400 Robotics Programming Lab · Team project · ~2 months</div>
+
+            <p>The assignment: navigate both rooms of an unmapped lab through standard single doors, search for a box of
+                random height at a random location, retrieve it, and return it home. Fully autonomous, with no manual
+                control at any stage.</p>
+
+            <h4>Hardware</h4>
+            <dl class="spec">
+                <dt>Drive</dt>
+                <dd>Two front drive wheels, each with an encoder, plus a free-spinning rear caster</dd>
+                <dt>Manipulator</dt>
+                <dd>2-joint arm with a simple hook end effector</dd>
+                <dt>Sensing</dt>
+                <dd>One standard USB webcam, with no LIDAR and no depth camera</dd>
+                <dt>Compute</dt>
+                <dd>RockPi</dd>
+                <dt>Stack</dt>
+                <dd>ROS 2 Iron with Nav2, live SLAM</dd>
+            </dl>
+
+            <p>All navigation ran on wheel encoders plus that single camera and AprilTags. The room was not pre-mapped,
+                so the robot had to SLAM live.</p>
+
+            <h4>AprilTags, Two Purposes</h4>
+            <ul>
+                <li>Localization: about 15 to 20 tags at known fixed positions across two rooms, fed to the robot as
+                    ground truth. Encoder drift, wheel slip, and IMU inaccuracy degraded localization quickly, so the
+                    tags provided constant re-confirmation.</li>
+                <li>Target identification: one tag on the box itself. Unlike the fixed tags this one moved, and its ID
+                    encoded which of three box heights it was, selecting the pickup routine.</li>
+            </ul>
+            <p>We modeled the room in Blender to derive accurate XY reference coordinates for every tag placement, then
+                used that same model to generate the map fed to the robot. CAD as a measurement tool rather than a
+                design tool.</p>
+
+            <img src="/media/Projects/ROSMap.png" alt="ROS 2 navigation map" loading="lazy">
+            <p class="figcap">The generated navigation map, derived from a Blender model of the lab.</p>
+
+            <h4>Pickup Sequence</h4>
+            <p>A fixed search path covered both rooms and interrupted the moment the box was detected. The box's tag ID
+                set arm height and approach positioning. Once vision-aligned, the robot drove forward a fixed distance
+                to get the hook under a loop on the box top, raised the arm, and drove off.</p>
+
+            <div class="callout">
+                <div class="callout-label">The dominant problem: keeping localization</div>
+                <p>The onboard sensors were cheap, so localization degraded quickly whenever the robot was not actively
+                    looking at an AprilTag. The camera made it worse, since an inexpensive USB webcam could not reliably
+                    detect tags across a room.</p>
+                <p>The fix was distance-gated tag rejection: discard tag detections beyond a threshold distance rather
+                    than trusting readings the camera physically could not resolve. Both fixes came from hardware
+                    limitations rather than software bugs.</p>
+            </div>
+
+            <h4>Result</h4>
+            <p>Alfred was the only robot in the class to achieve a fully autonomous search-and-retrieve run. The
+                next-best team had to manually drive their robot to the box and back, despite autonomy being a stated
+                requirement.</p>
+
+            <img src="/media/Projects/AlfredFace (1).jpg" alt="Alfred robot" loading="lazy">
+        </div>
+    </div>
+
+    <!-- SMART COPY MACHINE -->
+    <div id="modal-juniorDesign" class="modal" role="dialog" aria-modal="true" aria-labelledby="t-jd">
+        <div class="modal-content">
+            <button class="close" onclick="closeModal('juniorDesign')" aria-label="Close">&times;</button>
+            <h3 id="t-jd">Ctrl C + Ctrl Pi: Smart Copy Machine</h3>
+            <div class="modal-sub">Junior Year Design Project · Complete</div>
+
+            <p>A machine that draws pictures, replicates hand-drawn images, and colors in objects. Computer vision plus
+                stepper motors move a pen over a whiteboard, with additional steppers controlling the whiteboard's
+                height.</p>
+
+            <img src="/media/Projects/JuniorDesignDemoTable.jpg" alt="Smart Copy Machine demo table" loading="lazy">
+
+            <h4>Hardware</h4>
+            <dl class="spec">
+                <dt>Axes</dt>
+                <dd>X and Y for pen motion on a belt-driven carriage, one stepper each; Z for whiteboard height, 2
+                    steppers on a screw mechanism</dd>
+                <dt>Motors</dt>
+                <dd>4 steppers, 3 × MP6500 driver chips</dd>
+                <dt>Vision</dt>
+                <dd>USB 3.0 webcam</dd>
+                <dt>Compute</dt>
+                <dd>Raspberry Pi 4 Model B</dd>
+                <dt>Structure</dt>
+                <dd>8 linear ball bearings, 13 hardened guide rods, 8 CNC-machined aluminum corners, GT2 belts and
+                    pulleys, custom 3D-printed mounts</dd>
+            </dl>
+
+            <h4>Software Pipeline</h4>
+            <p>When the user finishes drawing, the camera captures a frame that triggers the image-processing script.
+                The image gets processed and skeletonized, leaving contours that convert into XY coordinates. Those go
+                into an ordered list forming the pen path, including breakpoints marking where the pen has to lift for
+                disconnected lines.</p>
+            <p>Coordinates become motor movement by pulsing GPIO pins, sending step counts and direction data to the
+                MP6500 drivers, with Bresenham's algorithm handling smooth diagonal movement. Stack: Python with PIL,
+                OpenCV, scikit-image, NumPy, Matplotlib, and RPi.GPIO.</p>
+        </div>
+    </div>
+
+    <!-- APERTURE ANALYSIS -->
+    <div id="modal-phy490" class="modal" role="dialog" aria-modal="true" aria-labelledby="t-ap">
+        <div class="modal-content">
+            <button class="close" onclick="closeModal('phy490')" aria-label="Close">&times;</button>
+            <h3 id="t-ap">ApertureAnalysis</h3>
+            <div class="modal-sub">Computational Physics Independent Study · Fall 2024 · MIT license</div>
+
+            <p>A semester-long independent study under computational physics professor Walter Freeman, which I took on
+                specifically to learn the mathematics and programming of the FFT algorithm from scratch. His role was
+                explaining math and concepts; he did not contribute to or review the code.</p>
+
+            <h4>The Physics</h4>
+            <p>A telescope's diffraction pattern, the star-shaped glare around bright stars that shows up most
+                recognizably in JWST images, is mathematically the 2D Fourier transform of its aperture: the mirror
+                shape, including the struts holding any secondary mirror. Sharp edges and straight struts produce
+                straight spikes, each at an angle corresponding to an edge or strut orientation.</p>
+            <p>This program runs that relationship backward. Take a photo of a bright star, 2D FFT it, find the angles
+                of the strongest spikes, and reconstruct the polygon aperture that produced them. JWST's hexagonal
+                segments yield 6 principal spike directions. A camera lens yields a polygon matching its aperture blade
+                count.</p>
+
+            <h4>Pipeline</h4>
+            <div class="table-wrap">
+                <table class="dtable">
+                    <thead>
+                        <tr>
+                            <th>File</th>
+                            <th>Language</th>
+                            <th>Role</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="num">readImage.py</td>
+                            <td class="dim">Python</td>
+                            <td>Loads the JPG, crops to power-of-2 dimensions, dumps raw RGB pixel data as text</td>
+                        </tr>
+                        <tr>
+                            <td class="num">2dFFT.c++</td>
+                            <td class="dim">C++</td>
+                            <td>Reads that text, runs the custom 2D FFT, finds spike angles, prints them</td>
+                        </tr>
+                        <tr>
+                            <td class="num">reconstructAperture.py</td>
+                            <td class="dim">Python</td>
+                            <td>Reads spike angles and intensities, draws the reconstructed polygonal aperture</td>
+                        </tr>
+                        <tr>
+                            <td class="num">createImg.py</td>
+                            <td class="dim">Python</td>
+                            <td>Utility that turns pixel-data-as-text back into a viewable image, with optional log/HDR
+                                scaling</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>The two sides communicate over plain text through stdin and stdout pipes, with no shared library or
+                binary format.</p>
+
+            <h4>The C++ Core</h4>
+            <ul>
+                <li>Reads pixel text into three width × height complex arrays for R, G, and B.</li>
+                <li>Runs a custom recursive radix-2 Cooley–Tukey FFT on every row, transposes, runs it again on the
+                    now-transposed rows, and transposes back. The standard separable-FFT approach for 2D, with no FFTW
+                    and no numpy.fft.</li>
+                <li>Calls <code>fftShift()</code> so the zero-frequency term sits at image center rather than split
+                    across the four corners.</li>
+                <li>Computes each pixel's angle from image center and sums FFT magnitude into 360 one-degree bins.</li>
+                <li>Thresholds those bins, defaulting to above 56% of the peak bin, to separate spikes from background,
+                    then prints angle and intensity pairs to stdout with debug output routed to stderr.</li>
+            </ul>
+            <p>A full IFFT is implemented as well, and logarithmic high-dynamic-range scaling makes the magnitude
+                spectra render meaningfully instead of as a single saturated point.</p>
+
+            <h4>Validation</h4>
+            <p>Tested on real images throughout: actual JWST photographs, and photos from my own camera and lens
+                setups. The second set matters because I could physically inspect my own equipment's aperture blade
+                count and check the reconstruction against it, rather than relying only on published mirror geometry.
+                The program produced correct results on every case I tested.</p>
+
+            <div class="callout callout--muted">
+                <div class="callout-label">Documented limitations</div>
+                <p>The radix-2 FFT only accepts power-of-2 dimensions, so the auto-crop can silently discard image
+                    content. Spike detection is angle-only and radius-agnostic. Only the red channel is analyzed by
+                    default. The 0.56 peak-detection threshold is a hand-tuned constant calibrated on specific test
+                    images and will not generalize, which the README says outright along with where to change it.
+                    Polygon inference is heuristic rather than geometric modeling: it assumes a regular polygon from
+                    the most common angular gap, which works for symmetric hex and octagonal apertures but would be
+                    fooled by an irregular one.</p>
+            </div>
+
+            <p>Writing the FFT by hand was purely a learning goal. I wanted to understand why the algorithm works, and
+                to experiment with which implementation changes produced the most improvement against which operations
+                dominated runtime.</p>
+
+            <div class="modal-links">
+                <a href="https://github.com/JosephLodato/ApertureAnalysis" target="_blank" rel="noopener"
+                    class="btn">View on GitHub →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- CELESTIAL VEIL -->
+    <div id="modal-celestial" class="modal" role="dialog" aria-modal="true" aria-labelledby="t-cv">
+        <div class="modal-content">
+            <button class="close" onclick="closeModal('celestial')" aria-label="Close">&times;</button>
+            <h3 id="t-cv">Celestial Veil</h3>
+            <div class="modal-sub">Unity · C# · Paused</div>
+            <p>Over summer 2024, inspired by Sebastian Lague's solar system project, I built a physically accurate solar
+                system in Unity using C#. It is part of a larger plan for a game named Celestial Veil, with this
                 simulation as the playable environment.</p>
-            <!-- <img src="/media/CelestialVeil.png" alt="Celestial Veil"> -->
-            <h4>Physically Accurate Orbital Mechanics</h4>
+            <h4>Orbital Mechanics</h4>
             <ul>
                 <li>Implemented an N-body simulation in C# using Newton's law of universal gravitation to apply forces
-                    between all orbital bodies. The project taught me a great deal about floating point precision and
-                    the limits of numerical accuracy at astronomical scales.</li>
+                    between all orbital bodies.</li>
+                <li>The project taught me a lot about floating-point precision and the limits of numerical accuracy at
+                    astronomical scales, the same reasoning that turns up in fixed-point math and sensor resolution
+                    work.</li>
             </ul>
             <h4>Next: Atmospheres</h4>
             <ul>
-                <li>With orbital mechanics complete, I am now working on physically accurate atmospheric scattering
-                    simulations for all planets.</li>
+                <li>With orbital mechanics working, the next piece is physically accurate atmospheric scattering for
+                    each planet. Currently paused while hardware projects take priority.</li>
             </ul>
         </div>
     </div>
 
-    <div id="modal-website" class="modal">
+    <!-- WEBSITE -->
+    <div id="modal-website" class="modal" role="dialog" aria-modal="true" aria-labelledby="t-web">
         <div class="modal-content">
-            <span class="close" onclick="closeModal('website')">&times;</span>
-            <h3>Personal Website</h3>
-            <p>This website is my first real attempt at designing and building webpages. While I had previously learned
-                JavaScript for backend server work, this project was my deep dive into HTML, CSS, and frontend
-                JavaScript to create a professional and photography portfolio.</p>
-            <!-- <img src="/media/Projects/WebsitePhotography.png" alt="Website"> -->
-            <h4>Skills Learned</h4>
+            <button class="close" onclick="closeModal('website')" aria-label="Close">&times;</button>
+            <h3 id="t-web">Personal Website</h3>
+            <div class="modal-sub">HTML · CSS · JavaScript</div>
+            <p>This site is my first real attempt at designing and building webpages. I had learned JavaScript for
+                backend server work before this, so it became a deep dive into HTML, CSS, and frontend JavaScript to
+                build both a professional and a photography portfolio.</p>
+            <h4>What It Covers</h4>
             <ul>
-                <li>Applied HTML, CSS, and JavaScript to build a full portfolio site with responsive design, modal
-                    overlays, and smooth scroll behavior.</li>
+                <li>Hand-written HTML, CSS, and JS with no framework or build step: responsive grid layouts, modal
+                    overlays, scroll-linked navigation, and intersection-observer reveals.</li>
+                <li>A separate photography portfolio with a dynamic gallery loader for astrophotography, landscape,
+                    wildlife, and sports work.</li>
             </ul>
         </div>
     </div>
 
-    <div id="modal-tylerTech" class="modal">
+    <!-- MAINE APP CHALLENGE -->
+    <div id="modal-tylerTech" class="modal" role="dialog" aria-modal="true" aria-labelledby="t-tt">
         <div class="modal-content">
-            <span class="close" onclick="closeModal('tylerTech')">&times;</span>
-            <h3>Tyler Technologies Maine App Challenge</h3>
-            <p>Developed small prototype apps for a statewide high school competition, resulting in a top 10 finish two
-                years running in 2021 and 2022.</p>
+            <button class="close" onclick="closeModal('tylerTech')" aria-label="Close">&times;</button>
+            <h3 id="t-tt">Tyler Technologies Maine App Challenge</h3>
+            <div class="modal-sub">Statewide high school competition · 2021 and 2022</div>
+            <p>I developed small prototype apps for a statewide high school competition and finished in the top 10 two
+                years running.</p>
             <h4>Apps Developed</h4>
             <ul>
-                <li><strong style="color:var(--white)">2021 — "Color Palette Generator:"</strong> Generates color
-                    palettes and harmonious hues from a selected base color. Built with JavaScript on the Code.org App
-                    Lab.</li>
-                <li><strong style="color:var(--white)">2022 — "Learn2Code:"</strong> Teaches Python basics through
-                    tutorials and interactive coding challenges. Built with JavaScript on the Code.org App Lab.</li>
+                <li>2021, Color Palette Generator: generates color palettes and harmonious hues from a selected base
+                    color. Built with JavaScript on the Code.org App Lab.</li>
+                <li>2022, Learn2Code: teaches Python basics through tutorials and interactive coding challenges. Built
+                    with JavaScript on the Code.org App Lab.</li>
             </ul>
         </div>
     </div>
@@ -1548,24 +3157,25 @@
                 <div class="section-label">Get In Touch</div>
                 <h2 class="section-title">Contact</h2>
                 <div class="divider"></div>
-                <p style="color:var(--text-dim);max-width:480px;">I'd love to connect — whether it's about engineering,
-                    photography, or potential opportunities.</p>
+                <p style="color:var(--text-dim);max-width:520px;">Happy to talk about hardware, photography, or work.
+                </p>
             </div>
             <div class="contact-grid">
                 <div class="contact-card fade-in">
-                    <img src="/media/Email Logo.png" class="contact-icon" alt="Email">
+                    <img src="/media/Email Logo.png" class="contact-icon" alt="" loading="lazy">
                     <h4>Email</h4>
                     <a href="mailto:jalodato@syr.edu">jalodato@syr.edu</a>
                 </div>
                 <div class="contact-card fade-in">
-                    <img src="/media/GitHub Logo.png" class="contact-icon" alt="GitHub">
+                    <img src="/media/GitHub Logo.png" class="contact-icon" alt="" loading="lazy">
                     <h4>GitHub</h4>
-                    <a href="https://github.com/JosephLodato" target="_blank">github.com/JosephLodato</a>
+                    <a href="https://github.com/JosephLodato" target="_blank" rel="noopener">github.com/JosephLodato</a>
                 </div>
                 <div class="contact-card fade-in">
-                    <img src="/media/LinkedIn Logo.png" class="contact-icon" alt="LinkedIn">
+                    <img src="/media/LinkedIn Logo.png" class="contact-icon" alt="" loading="lazy">
                     <h4>LinkedIn</h4>
-                    <a href="https://www.linkedin.com/in/joseph-lodato-d64/" target="_blank">LinkedIn Profile</a>
+                    <a href="https://www.linkedin.com/in/joseph-lodato/" target="_blank" rel="noopener">LinkedIn
+                        Profile</a>
                 </div>
             </div>
         </div>
@@ -1573,49 +3183,84 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>© 2026 Joseph Lodato &nbsp;·&nbsp; All rights reserved</p>
+        <p>© 2026 Joseph Lodato</p>
     </footer>
 
     <!-- SCRIPTS -->
     <script>
-        function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
-        function closeNav() { document.getElementById('navLinks').classList.remove('open'); }
+        const navLinksEl = document.getElementById('navLinks');
+        const hamburgerEl = document.getElementById('hamburger');
+
+        function toggleNav() {
+            const open = navLinksEl.classList.toggle('open');
+            hamburgerEl.setAttribute('aria-expanded', String(open));
+        }
+        function closeNav() {
+            navLinksEl.classList.remove('open');
+            hamburgerEl.setAttribute('aria-expanded', 'false');
+        }
+
+        let lastFocused = null;
 
         function openModal(id) {
-            document.getElementById('modal-' + id).style.display = 'block';
+            lastFocused = document.activeElement;
+            const m = document.getElementById('modal-' + id);
+            m.classList.add('open');
+            m.scrollTop = 0;
             document.body.style.overflow = 'hidden';
+            const closeBtn = m.querySelector('.close');
+            if (closeBtn) closeBtn.focus();
         }
+
         function closeModal(id) {
-            document.getElementById('modal-' + id).style.display = 'none';
+            document.getElementById('modal-' + id).classList.remove('open');
             document.body.style.overflow = '';
+            if (lastFocused) lastFocused.focus();
         }
+
+        function closeAllModals() {
+            document.querySelectorAll('.modal.open').forEach(m => m.classList.remove('open'));
+            document.body.style.overflow = '';
+            if (lastFocused) lastFocused.focus();
+        }
+
         window.addEventListener('click', function (e) {
-            if (e.target.classList.contains('modal')) {
-                e.target.style.display = 'none';
-                document.body.style.overflow = '';
-            }
+            if (e.target.classList.contains('modal')) closeAllModals();
         });
+
         window.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') {
-                document.querySelectorAll('.modal').forEach(m => { m.style.display = 'none'; });
-                document.body.style.overflow = '';
-            }
+            if (e.key === 'Escape') closeAllModals();
         });
 
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-        }, { threshold: 0.12 });
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    observer.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        const sections = document.querySelectorAll('section[id], div[id="links"]');
-        const navLinks = document.querySelectorAll('.nav-links a:not(.nav-resume)');
-        window.addEventListener('scroll', () => {
+        const spy = Array.from(document.querySelectorAll('#about, #skills, #education, #experience, #projects, #contact'));
+        const navAnchors = Array.from(document.querySelectorAll('.nav-links a:not(.nav-resume)'));
+        const progressEl = document.getElementById('scrollProgress');
+
+        function onScroll() {
+            const doc = document.documentElement;
+            const max = doc.scrollHeight - doc.clientHeight;
+            progressEl.style.width = (max > 0 ? (doc.scrollTop / max) * 100 : 0) + '%';
+
             let current = '';
-            sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
-            navLinks.forEach(a => {
-                a.style.color = a.getAttribute('href') === '#' + current ? 'var(--white)' : '';
+            spy.forEach(s => {
+                if (window.scrollY >= s.offsetTop - 120) current = s.id;
             });
-        });
+            navAnchors.forEach(a => {
+                a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+            });
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
     </script>
 </body>
 
